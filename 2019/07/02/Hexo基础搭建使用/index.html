@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | Herbert部落格</title>
+  <title>Hexo基础搭建使用 | Herbert部落格</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Herbert部落格">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="Hexo安装环境 Node.js (nvm) Git   推荐使用nvm，在实践之后发现nvm真的很好用，当然Windows用户可以直接下载安装  12# 下载node.js$ nvm install stable">
+<meta name="keywords" content="Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo基础搭建使用">
+<meta property="og:url" content="http://yoursite.com/2019/07/02/Hexo基础搭建使用/index.html">
 <meta property="og:site_name" content="Herbert部落格">
+<meta property="og:description" content="Hexo安装环境 Node.js (nvm) Git   推荐使用nvm，在实践之后发现nvm真的很好用，当然Windows用户可以直接下载安装  12# 下载node.js$ nvm install stable">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-02T16:29:17.786Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Herbert部落格">
+<meta name="twitter:title" content="Hexo基础搭建使用">
+<meta name="twitter:description" content="Hexo安装环境 Node.js (nvm) Git   推荐使用nvm，在实践之后发现nvm真的很好用，当然Windows用户可以直接下载安装  12# 下载node.js$ nvm install stable">
   
     <link rel="alternative" href="/atom.xml" title="Herbert部落格" type="application/atom+xml">
   
@@ -150,49 +155,294 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Hexo基础搭建使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/02/Dart之旅/" class="archive-article-date">
-  	<time datetime="2018-12-02T10:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/02/Dart之旅/">Dart之旅</a>
+    <h1 class="article-title" itemprop="name">
+      Hexo基础搭建使用
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2019/07/02/Hexo基础搭建使用/" class="archive-article-date">
+  	<time datetime="2019-07-02T14:25:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Hexo安装环境"><a href="#Hexo安装环境" class="headerlink" title="Hexo安装环境"></a>Hexo安装环境</h2><ul>
+<li><a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (<a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">nvm</a>)</li>
+<li><a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
+</ul>
+<blockquote>
+<p>推荐使用nvm，在实践之后发现nvm真的很好用，当然Windows用户可以直接下载安装</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 下载node.js</span><br><span class="line"><span class="meta">$</span> nvm install stable</span><br></pre></td></tr></table></figure>
 
+<a id="more"></a>
+
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><blockquote>
+<p>Linux和Mac用户直接使用下面的shell就完事了，Windows用户可以使用在相应文件夹下使用Window Powershell或者git bash然后shell，国内推荐用npm下载cnpm，代替npm来提高依赖的下载速度和稳定性！！（cnpm用的是淘宝的镜像）</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 下载cnpm</span><br><span class="line"><span class="meta">$</span> npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装Hexo</span><br><span class="line"><span class="meta">$</span> cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h2 id="文章迁移插件的安装（没有需要的可以跳过）"><a href="#文章迁移插件的安装（没有需要的可以跳过）" class="headerlink" title="文章迁移插件的安装（没有需要的可以跳过）"></a>文章迁移插件的安装（没有需要的可以跳过）</h2><p>Hexo官方支持的迁移来源</p>
+<ul>
+<li><a href="https://hexo.io/zh-cn/docs/migration#RSS" target="_blank" rel="noopener">RSS</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/migration#Jekyll" target="_blank" rel="noopener">Jekyll</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/migration#Octopress" target="_blank" rel="noopener">Octopress</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/migration#WordPress" target="_blank" rel="noopener">WordPress</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/migration#Joomla" target="_blank" rel="noopener">Joomla</a></li>
+</ul>
+<h2 id="初始化一个Hexo项目"><a href="#初始化一个Hexo项目" class="headerlink" title="初始化一个Hexo项目"></a>初始化一个Hexo项目</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 初始化博客项目</span><br><span class="line"><span class="meta">$</span> hexo init &lt;项目名称&gt;</span><br><span class="line"><span class="meta">$</span> cd &lt;项目名称&gt;      # 打开项目文件夹</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 下载Hexo server</span><br><span class="line"><span class="meta">$</span> cnpm install hexo-server --save</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 启动本地预览</span><br><span class="line"><span class="meta">$</span> hexo server       # 默认http://localhost:4000</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>关于更改预览设置的请参考 <a href="https://hexo.io/zh-cn/docs/server" target="_blank" rel="noopener">Hexo Server</a></p>
+</blockquote>
+<h2 id="修改Hexo的主题"><a href="#修改Hexo的主题" class="headerlink" title="修改Hexo的主题"></a>修改Hexo的主题</h2><p>这里以yilia为例（请保证网络环境）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 确保在上面项目文件夹下</span><br><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>themes/yilia 也就是下载到项目文件夹下的themes/yilia目录下</p>
+</blockquote>
+<p>进入themes/yilia下，修改_config.yml文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Linux的进入修改</span><br><span class="line"><span class="meta">$</span> cd themes/yilia</span><br><span class="line"><span class="meta">$</span> nano _config.yml</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Windows建议使用vscode打开编辑</p>
+</blockquote>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改内容</span></span><br><span class="line"><span class="attr">themes:</span> <span class="string">yilia</span>        <span class="comment"># (上面下载位置文件夹名)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="生成保存更改"><a href="#生成保存更改" class="headerlink" title="生成保存更改"></a>生成保存更改</h2><blockquote>
+<p>Hexo每次修改或者添加等操作都需要重新生成文件，生成的文件在工程根目录的public文件夹下</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 清除之前的文件</span><br><span class="line"><span class="meta">$</span> hexo clean</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 生成新的文件</span><br><span class="line"><span class="meta">$</span> hexo generate</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line"><span class="meta">$</span> hexo g</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 预览文件</span><br><span class="line"><span class="meta">$</span> hexo server</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line"><span class="meta">$</span> hexo start</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line"><span class="meta">$</span> hexo s</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在生成操作时可以使用–watch来比较文件的SHA1 checksum仅生成不同的文件</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 监视文件变动</span><br><span class="line"><span class="meta">$</span> hexo generate --watch</span><br></pre></td></tr></table></figure>
+
+<p>一条命令也可以这样写</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 清除保存预览</span><br><span class="line"><span class="meta">$</span> hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+
+<h2 id="Hexo的目录树"><a href="#Hexo的目录树" class="headerlink" title="Hexo的目录树"></a>Hexo的目录树</h2><p>目录树在此就不赘述了，请参考Hexo官方介绍 <a href="https://hexo.io/zh-cn/docs/asset-folders" target="_blank" rel="noopener">资源文件夹</a> 和 <a href="https://hexo.io/zh-cn/docs/data-files" target="_blank" rel="noopener">数据文件夹</a></p>
+<blockquote>
+<p>作为仅markdown用户个人没有采取官方的引用方式而是使用了! [ ] ( )</p>
+</blockquote>
+<h2 id="Hexo新建文章"><a href="#Hexo新建文章" class="headerlink" title="Hexo新建文章"></a>Hexo新建文章</h2><p>Hexo的文章放置在根目录的/sources/_post下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 生成一篇md文章</span><br><span class="line"><span class="meta">$</span> hexo new &lt;文章名&gt;</span><br><span class="line"><span class="meta">#</span> 或者</span><br><span class="line"><span class="meta">$</span> hexo n &lt;文件名&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>相关关于写作的具体操作参考 <a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">写作</a></p>
+</blockquote>
+<h2 id="Hexo的部署"><a href="#Hexo的部署" class="headerlink" title="Hexo的部署"></a>Hexo的部署</h2><p>作为一个Git用户表示也习惯了git的使用，本文采取Gitpage来演示（其他参考 <a href="https://hexo.io/zh-cn/docs/deployment" target="_blank" rel="noopener">官方教程</a>）</p>
+<h3 id="首先得下载依赖（根目录下）"><a href="#首先得下载依赖（根目录下）" class="headerlink" title="首先得下载依赖（根目录下）"></a>首先得下载依赖（根目录下）</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 下载hexo-deployer-git</span><br><span class="line"><span class="meta">$</span> cnpm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>修改根目录下的_config.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">    type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">    repo:</span> <span class="string">&lt;Gitpage仓库地址&gt;</span></span><br><span class="line"><span class="attr">    branch:</span> <span class="string">master</span>            <span class="comment"># 默认的分支就是master</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="重新生成更新文件（同上）"><a href="#重新生成更新文件（同上）" class="headerlink" title="重新生成更新文件（同上）"></a>重新生成更新文件（同上）</h3><h3 id="发到部署仓库"><a href="#发到部署仓库" class="headerlink" title="发到部署仓库"></a>发到部署仓库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 部署命令</span><br><span class="line"><span class="meta">$</span> hexo deploy</span><br><span class="line"><span class="meta">#</span> 这里采取非监视的一条shell</span><br><span class="line"><span class="meta">$</span> hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>私有库要求输入用户名和密码，首次安装git请参考git的设置</p>
+</blockquote>
+<h2 id="私人云服务器Git仓库的搭建、nginx配置及部署"><a href="#私人云服务器Git仓库的搭建、nginx配置及部署" class="headerlink" title="私人云服务器Git仓库的搭建、nginx配置及部署"></a>私人云服务器Git仓库的搭建、nginx配置及部署</h2><h3 id="云Git仓库的建立"><a href="#云Git仓库的建立" class="headerlink" title="云Git仓库的建立"></a>云Git仓库的建立</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 设置新的用户</span><br><span class="line"><span class="meta">$</span> useradd git           # 添加git用户</span><br><span class="line"><span class="meta">$</span> passwd git            # 设置git密码</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 修改权限文件</span><br><span class="line"><span class="meta">$</span> chown 740 /etc/sudoers</span><br><span class="line"><span class="meta">$</span> nano /etc/sudoers</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 添加内容</span><br><span class="line"><span class="meta">#</span> 找到 root ALL=(ALL:ALL) ALL</span><br><span class="line"><span class="meta">#</span> 下面添加</span><br><span class="line">git ALL=(ALL:ALL) ALL</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 保存退出</span><br><span class="line"><span class="meta">#</span> 修改权限</span><br><span class="line"><span class="meta">$</span> chown 440 /etc/sudoers</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 关闭git用户shell权限</span><br><span class="line"><span class="meta">$</span> nano /etc/passwd</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 将git:x:1001:1001:,,,:/home/git:/bin/bash改为</span><br><span class="line">git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</span><br></pre></td></tr></table></figure>
+
+<p>在网上教程中会要求su git切换用户！！这里有一个坑，会报错的！！因为上面禁掉了git的shell权限！！可以不切换的</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 创建git目录</span><br><span class="line"><span class="meta">$</span> cd /home/git                # 没有的进入home然后mkdir git</span><br><span class="line"><span class="meta">$</span> mkdir blog.git              # 这里以blog.git为例建立git仓库</span><br><span class="line"><span class="meta">$</span> git init --bare             # 创建空仓库</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 创建网站目录</span><br><span class="line"><span class="meta">$</span> cd /var/www</span><br><span class="line"><span class="meta">$</span> mkdir blog                  # 这里/var/www/blog作为网站源码的存放位置</span><br></pre></td></tr></table></figure>
+
+<p>网上教程在这里证书配置ssh免密码认证，个人没有采用这种方式（老老实实输密码）</p>
+<p>用户组的管理</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ll /home/git/</span><br><span class="line"><span class="meta">$</span> ll /var/www/</span><br><span class="line"><span class="meta">#</span> 确保blog.git、blog目录的用户组权限为git:git</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果不是</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 执行</span><br><span class="line"><span class="meta">$</span> chown git:git -R /var/www/blog</span><br><span class="line"><span class="meta">$</span> chown git:git -R /home/git/blog.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置nginx"><a href="#配置nginx" class="headerlink" title="配置nginx"></a>配置nginx</h3><p>这里就不赘述nginx的参数意义和配置了，仅仅修改源码放置的配置！！！</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入/etc/nginx/sites-available下</span></span><br><span class="line">$ nano default</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改配置文件的location下的root</span></span><br><span class="line"><span class="comment"># 举个例子</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">root</span> /var/www/blog;</span><br></pre></td></tr></table></figure>
+
+<p>保存退出！然后重新加载nginx</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 重新加载nginx</span><br><span class="line"><span class="meta">$</span> service nginx reload</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置Git-Hooks"><a href="#配置Git-Hooks" class="headerlink" title="配置Git Hooks"></a>配置Git Hooks</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 创建post-receive文件并添加内容</span><br><span class="line"><span class="meta">$</span> cd /home/git/blog.git/hooks           # 切换目录</span><br><span class="line"><span class="meta">$</span> nano post-receive</span><br></pre></td></tr></table></figure>
+
+<p>添加内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">GIT_REPO=/home/git/blog.git</span><br><span class="line">TMP_GIT_CLONE=/tmp/blog</span><br><span class="line">PUBLIC_WWW=/var/www/blog</span><br><span class="line">rm -rf $&#123;TMP_GIT_CLONE&#125;</span><br><span class="line">git clone $GIT_REPO $TMP_GIT_CLONE</span><br><span class="line">rm -rf $&#123;PUBLIC_WWW&#125;/*</span><br><span class="line">cp -rf $&#123;TMP_GIT_CLONE&#125;/* $&#123;PUBLIC_WWW&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>上面内容可以按需要修改</p>
+</blockquote>
+<p>保存退出之后，chown +x post-receive赋予可执行权限</p>
+<h3 id="配置本地工程部署"><a href="#配置本地工程部署" class="headerlink" title="配置本地工程部署"></a>配置本地工程部署</h3><p>上面是基于Gitpage配置的Hexo，在此只需要修改_config.yml的deploy下的repo</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">repo:</span> <span class="string">git@你的服务器IP:blog.git</span>               <span class="comment"># git访问对应服务器的blog.git仓库</span></span><br></pre></td></tr></table></figure>
+
+<p>然后就是上面的部署操作就完成了！！</p>
+<h2 id="yilia主题下文章预览设置more的操作"><a href="#yilia主题下文章预览设置more的操作" class="headerlink" title="yilia主题下文章预览设置more的操作"></a>yilia主题下文章预览设置more的操作</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在你要中断文章结尾的位置添加下面的内容 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
+<li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官网文档</a></li>
+<li><a href="https://www.jianshu.com/p/b926ecf1c6f6" target="_blank" rel="noopener">简书博文</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wepay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/02/Hexo基础搭建使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/12/02/Dart之旅/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Dart之旅</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -215,8 +465,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
