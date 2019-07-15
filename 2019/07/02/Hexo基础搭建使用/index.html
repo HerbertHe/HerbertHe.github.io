@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Herbert部落格">
 <meta property="og:description" content="Hexo安装环境 Node.js (nvm) Git   推荐使用nvm，在实践之后发现nvm真的很好用，当然Windows用户可以直接下载安装  12# 下载node.js$ nvm install stable">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-02T16:37:47.145Z">
+<meta property="og:updated_time" content="2019-07-15T02:54:18.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo基础搭建使用">
 <meta name="twitter:description" content="Hexo安装环境 Node.js (nvm) Git   推荐使用nvm，在实践之后发现nvm真的很好用，当然Windows用户可以直接下载安装  12# 下载node.js$ nvm install stable">
@@ -308,7 +308,7 @@
 <blockquote>
 <p>上面内容可以按需要修改</p>
 </blockquote>
-<p>保存退出之后，chown +x post-receive赋予可执行权限</p>
+<p>保存退出之后，chmod +x post-receive赋予可执行权限</p>
 <h3 id="配置本地工程部署"><a href="#配置本地工程部署" class="headerlink" title="配置本地工程部署"></a>配置本地工程部署</h3><p>上面是基于Gitpage配置的Hexo，在此只需要修改_config.yml的deploy下的repo</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">repo:</span> <span class="string">git@你的服务器IP:blog.git</span>               <span class="comment"># git访问对应服务器的blog.git仓库</span></span><br></pre></td></tr></table></figure>
 
