@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: EMQ | Herbert部落格</title>
+  <title>NumPy的一些点 | Herbert部落格</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Herbert部落格">
-<meta property="og:url" content="http://yoursite.com/tags/EMQ/index.html">
+  <meta name="description" content="参考教程runoob numpy NumPy Ndarray对象 N维数组对象 同类型数据的集合 从0下标开始元素索引">
+<meta name="keywords" content="python,numpy,图像处理基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NumPy的一些点">
+<meta property="og:url" content="http://yoursite.com/2019/07/16/NumPy的一些点/index.html">
 <meta property="og:site_name" content="Herbert部落格">
+<meta property="og:description" content="参考教程runoob numpy NumPy Ndarray对象 N维数组对象 同类型数据的集合 从0下标开始元素索引">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/img/20190219173235151.jpg">
+<meta property="og:updated_time" content="2019-07-16T07:46:40.625Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Herbert部落格">
+<meta name="twitter:title" content="NumPy的一些点">
+<meta name="twitter:description" content="参考教程runoob numpy NumPy Ndarray对象 N维数组对象 同类型数据的集合 从0下标开始元素索引">
+<meta name="twitter:image" content="http://yoursite.com/img/20190219173235151.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Herbert部落格" type="application/atom+xml">
   
@@ -156,72 +163,462 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-NumPy的一些点" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/09/EMQ试用Log/" class="archive-article-date">
-  	<time datetime="2019-07-08T16:01:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/09/EMQ试用Log/">EMQ试用Log</a>
+    <h1 class="article-title" itemprop="name">
+      NumPy的一些点
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/07/16/NumPy的一些点/" class="archive-article-date">
+  	<time datetime="2019-07-16T02:13:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-16</time>
+</a>
+        
+        <div style="margin-top:10px;">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="fa fa-keyboard-o"></i>
+            <span class="post-meta-item-text"> 字数统计: </span>
+            <span class="post-count">1.1k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="fa fa-hourglass-half"></i>
+            <span class="post-meta-item-text"> 阅读时长: </span>
+            <span class="post-count">4分</span>
+        </span>
+    </span>
+</div>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h2><p><a href="https://www.runoob.com/numpy" target="_blank" rel="noopener">runoob numpy</a></p>
+<h2 id="NumPy-Ndarray对象"><a href="#NumPy-Ndarray对象" class="headerlink" title="NumPy Ndarray对象"></a>NumPy Ndarray对象</h2><ul>
+<li>N维数组对象</li>
+<li>同类型数据的集合</li>
+<li>从0下标开始元素索引</li>
+</ul>
+<a id="more"></a>
+
+<p>组成</p>
+<ul>
+<li>一个指向数据的指针</li>
+<li>数据类型/dtype(描述数组中固定大小值)</li>
+<li>一个表示数组形状的元组(表示各维度大小的元组)</li>
+<li>一个跨度元组，其中的整数是指为了前进到当前维度下一个元素所需要“跨过”的字节数</li>
+</ul>
+<blockquote>
+<p>跨度可以是负数，这样会使数组在内存中后向移动</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.array(object, dtype = <span class="literal">None</span>, copy = <span class="literal">True</span>, oreder = <span class="literal">None</span>, subok = <span class="literal">False</span>, ndmin = <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">object</td>
+<td align="left">数组或嵌套的数列</td>
+</tr>
+<tr>
+<td align="left">dtype</td>
+<td align="left">元素的数据类型，可选</td>
+</tr>
+<tr>
+<td align="left">copy</td>
+<td align="left">对象是否需要复制，可选</td>
+</tr>
+<tr>
+<td align="left">order</td>
+<td align="left">创建数据的样式，C行，F列，A任意(默认)</td>
+</tr>
+<tr>
+<td align="left">subok</td>
+<td align="left">默认返回一个与基类类型一致的数组</td>
+</tr>
+<tr>
+<td align="left">ndmin</td>
+<td align="left">指定生成数组的最小维度</td>
+</tr>
+</tbody></table>
+<h2 id="NumPy数据类型"><a href="#NumPy数据类型" class="headerlink" title="NumPy数据类型"></a>NumPy数据类型</h2><p>参考NumPy数据类型的<a href="https://www.runoob.com/numpy/numpy-dtype.html" target="_blank" rel="noopener">教程</a>，主要规定数据类型对象的数据结构(类似于C的结构体，内建类型相当于是正则)</p>
+<h2 id="NumPy数组属性"><a href="#NumPy数组属性" class="headerlink" title="NumPy数组属性"></a>NumPy数组属性</h2><p>NumPy数组的维数成为秩(rank)，一维数组的秩为1，以此类推。每一个一维线性数组称为一个轴(axis)，也就是维度(dimensions)。</p>
+<img src="/img/20190219173235151.jpg">
+
+<blockquote>
+<p>axis所代表的如上图所示，图片来源于 <a href="https://blog.csdn.net/Babyfatliang/article/details/87721282" target="_blank" rel="noopener">CSDN</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ndarray.ndim</td>
+<td align="left">秩，轴的数量(维度的数量)</td>
+</tr>
+<tr>
+<td align="left">ndarray.shape</td>
+<td align="left">数组的维度，对于矩阵， n行m列</td>
+</tr>
+<tr>
+<td align="left">ndarray.size</td>
+<td align="left">元素的总个数，相当于.shape中n*m的值</td>
+</tr>
+<tr>
+<td align="left">ndarray.dtype</td>
+<td align="left">ndarray对象的元素类型</td>
+</tr>
+<tr>
+<td align="left">ndarray.itemsize</td>
+<td align="left">ndarray对象中每个元素的大小，以字节为单位</td>
+</tr>
+<tr>
+<td align="left">ndarray.flasgs</td>
+<td align="left">ndarray对象的内存信息</td>
+</tr>
+<tr>
+<td align="left">ndarray.real</td>
+<td align="left">ndarray元素的实部</td>
+</tr>
+<tr>
+<td align="left">ndarray.imag</td>
+<td align="left">ndarray元素的虚部</td>
+</tr>
+<tr>
+<td align="left">ndarray.data</td>
+<td align="left">包含实际数组元素的缓冲区，通常不使用这个属性</td>
+</tr>
+</tbody></table>
+<h2 id="NumPy创建数组"><a href="#NumPy创建数组" class="headerlink" title="NumPy创建数组"></a>NumPy创建数组</h2><h3 id="numpy-empty"><a href="#numpy-empty" class="headerlink" title="numpy.empty"></a>numpy.empty</h3><p>用来创建一个指定形状和数据类型的未初始化的数组：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.empty(shape, dtype = float, order = <span class="string">'C'</span>)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">shape</td>
+<td align="left">数组形状</td>
+</tr>
+<tr>
+<td align="left">dtype</td>
+<td align="left">数据类型，可选</td>
+</tr>
+<tr>
+<td align="left">order</td>
+<td align="left">C行优先，F列优先</td>
+</tr>
+</tbody></table>
+<h3 id="numpy-zeros"><a href="#numpy-zeros" class="headerlink" title="numpy.zeros"></a>numpy.zeros</h3><p>创建指定大小的数组，元素全是0</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.zeros(shape, dtype = float, order = <span class="string">'C'</span>)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">shape</td>
+<td align="left">数组的形状</td>
+</tr>
+<tr>
+<td align="left">dtype</td>
+<td align="left">数据类型，可选</td>
+</tr>
+<tr>
+<td align="left">order</td>
+<td align="left">C行数组，F列数组</td>
+</tr>
+</tbody></table>
+<h3 id="numpy-ones"><a href="#numpy-ones" class="headerlink" title="numpy.ones"></a>numpy.ones</h3><p>同上</p>
+<h2 id="NumPy从已有的数组创建数组"><a href="#NumPy从已有的数组创建数组" class="headerlink" title="NumPy从已有的数组创建数组"></a>NumPy从已有的数组创建数组</h2><h3 id="numpy-asarray"><a href="#numpy-asarray" class="headerlink" title="numpy.asarray"></a>numpy.asarray</h3><p>numpy.asarray类似numpy.array，但numpy.asarray只有三个参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.asarray(a, dtype = <span class="literal">None</span>, order = <span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">a</td>
+<td align="left">任意形式的输入参数，列表、元组及其嵌套和多维数组</td>
+</tr>
+<tr>
+<td align="left">dtype</td>
+<td align="left">数据类型，可选</td>
+</tr>
+<tr>
+<td align="left">order</td>
+<td align="left">C行优先，F列优先</td>
+</tr>
+</tbody></table>
+<h3 id="numpy-frombuffer"><a href="#numpy-frombuffer" class="headerlink" title="numpy.frombuffer"></a>numpy.frombuffer</h3><p>numpy.frombuffer用于实现动态数组</p>
+<p>numpy.frombuffer接受buffer输入参数，以流的形式读入转化成ndarray对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.frombuffer(buffer, dtype = float, count = <span class="number">-1</span>, offset = <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>buffer是字符串的时候，python3默认str是Unicode，转化成bytestring在原str前加b</p>
+</blockquote>
+<p>报错：<strong>AttributeError: &#39;str&#39; object has no attribute &#39;__buffer__&#39;</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">buffer</td>
+<td align="left">任意对象，流式读入</td>
+</tr>
+<tr>
+<td align="left">dtype</td>
+<td align="left">返回的数组数据类型</td>
+</tr>
+<tr>
+<td align="left">count</td>
+<td align="left">读取的数据数量，默认-1读取所有</td>
+</tr>
+<tr>
+<td align="left">offset</td>
+<td align="left">读取的起始位置，默认0</td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">b'Hello World'</span></span><br><span class="line">x = np.frombuffer(s, dtype = <span class="string">'S1'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="numpy-fromiter"><a href="#numpy-fromiter" class="headerlink" title="numpy.fromiter"></a>numpy.fromiter</h3><p>从可迭代对象中建立ndarray对象，返回一维数组</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.fromiter(iterable, dtype, count = <span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">iterable</td>
+<td align="left">可迭代对象</td>
+</tr>
+<tr>
+<td align="left">dtype</td>
+<td align="left">返回数组的数据类型</td>
+</tr>
+<tr>
+<td align="left">count</td>
+<td align="left">读取的数据数量</td>
+</tr>
+</tbody></table>
+<h2 id="NumPy从数值范围创建数组"><a href="#NumPy从数值范围创建数组" class="headerlink" title="NumPy从数值范围创建数组"></a>NumPy从数值范围创建数组</h2><h3 id="numpy-arange"><a href="#numpy-arange" class="headerlink" title="numpy.arange"></a>numpy.arange</h3><p>使用arange函数创建数值范围并返回ndarray对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numpy.arange(start, stop, step, dtype)</span><br></pre></td></tr></table></figure>
+
+<p>参数说明，略</p>
+<h3 id="numpy-linspace"><a href="#numpy-linspace" class="headerlink" title="numpy.linspace"></a>numpy.linspace</h3><p>numpy.linspace函数用于创建一个一维数组，并且为等差数列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.linspace(start, stop, num=<span class="number">50</span>, endpoint=<span class="literal">True</span>, retstep=<span class="literal">False</span>, dtype=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<p>| 参数 | 描述 |<br>| start | 序列起始值 |<br>| stop | 序列终止值，endpoint为True包含 |<br>| num | 要生成等步长的样本数量，默认50 |<br>| endpoint | 见上 |<br>| retstep | True时生成数组会显示间距，反之 |<br>| dtype | ndarray的数据类型 |</p>
+<h3 id="numpy-logspace"><a href="#numpy-logspace" class="headerlink" title="numpy.logspace"></a>numpy.logspace</h3><p>用于创建等比数列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.logspace(start, stop, num=<span class="number">50</span>, endpoint=<span class="literal">True</span>, base=<span class="number">10.0</span>, dtype=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<p>base即为取对数的时候log的下标(底数)</p>
+<h2 id="NumPy切片和索引"><a href="#NumPy切片和索引" class="headerlink" title="NumPy切片和索引"></a>NumPy切片和索引</h2><p>与python的list切片操作一样</p>
+<p>完全可以使用列表的 <strong>start:stop:step</strong> 的切片操作！</p>
+<p>或者：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">s = slice(<span class="number">2</span>, <span class="number">7</span>, <span class="number">2</span>)</span><br><span class="line">print(a[s])</span><br></pre></td></tr></table></figure>
+
+<p>切片还可以使用省略号 (…)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])  </span><br><span class="line">print(a[...,<span class="number">1</span>])   <span class="comment"># 第2列元素</span></span><br><span class="line">print(a[<span class="number">1</span>,...])   <span class="comment"># 第2行元素</span></span><br><span class="line">print(a[...,<span class="number">1</span>:])  <span class="comment"># 第2列及剩下的所有元素</span></span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<blockquote>
+<ol>
+<li>[2 4 5]</li>
+<li>[3 4 5]</li>
+<li>[[2 3]<br>[4 5]<br>[5 6]]</li>
+</ol>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wepay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">EMQ</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">emqx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">numpy</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">物联网</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mqtt</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">图像处理基础</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/16/NumPy的一些点/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/07/13/菜单简介/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">菜单简介</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -244,9 +641,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
