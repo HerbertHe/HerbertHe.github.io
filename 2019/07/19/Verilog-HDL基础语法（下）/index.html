@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Nginx学习笔记 | Herbert部落格</title>
+  <title>Verilog-HDL基础语法（下） | Herbert部落格</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="nginx的组成 nginx二进制可执行文件（由各个模块源码编译出的一个文件） nginx.conf配置文件（控制nginx的行为） access.log访问日志（记录每一条请求信息） error.log错误日志（定位问题）">
-<meta name="keywords" content="nginx,服务端,负载均衡,反向代理">
+  <meta name="description" content="过程块 initial块，只执行一次 always块，循环执行  过程块中的部件：  过程赋值语句 高级结构（循环，条件语句） 时序控制  过程赋值过程赋值的对象必须是寄存器类型，过程赋值语句给wire赋值会产生错误！！ 过程时序控制 简单延时(#delay)：延时指定时间之后执行 边沿敏感的时序控制：@(&amp;lt;signal&amp;gt;)，上升沿(posedge)，下降沿(negedge)，用关键字">
+<meta name="keywords" content="Verilog,HDL,硬件开发,数字电子技术,FPGA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nginx学习笔记">
-<meta property="og:url" content="http://yoursite.com/2019/07/16/Nginx学习笔记/index.html">
+<meta property="og:title" content="Verilog-HDL基础语法（下）">
+<meta property="og:url" content="http://yoursite.com/2019/07/19/Verilog-HDL基础语法（下）/index.html">
 <meta property="og:site_name" content="Herbert部落格">
-<meta property="og:description" content="nginx的组成 nginx二进制可执行文件（由各个模块源码编译出的一个文件） nginx.conf配置文件（控制nginx的行为） access.log访问日志（记录每一条请求信息） error.log错误日志（定位问题）">
+<meta property="og:description" content="过程块 initial块，只执行一次 always块，循环执行  过程块中的部件：  过程赋值语句 高级结构（循环，条件语句） 时序控制  过程赋值过程赋值的对象必须是寄存器类型，过程赋值语句给wire赋值会产生错误！！ 过程时序控制 简单延时(#delay)：延时指定时间之后执行 边沿敏感的时序控制：@(&amp;lt;signal&amp;gt;)，上升沿(posedge)，下降沿(negedge)，用关键字">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-18T16:44:07.484Z">
+<meta property="og:updated_time" content="2019-07-19T15:31:55.577Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nginx学习笔记">
-<meta name="twitter:description" content="nginx的组成 nginx二进制可执行文件（由各个模块源码编译出的一个文件） nginx.conf配置文件（控制nginx的行为） access.log访问日志（记录每一条请求信息） error.log错误日志（定位问题）">
+<meta name="twitter:title" content="Verilog-HDL基础语法（下）">
+<meta name="twitter:description" content="过程块 initial块，只执行一次 always块，循环执行  过程块中的部件：  过程赋值语句 高级结构（循环，条件语句） 时序控制  过程赋值过程赋值的对象必须是寄存器类型，过程赋值语句给wire赋值会产生错误！！ 过程时序控制 简单延时(#delay)：延时指定时间之后执行 边沿敏感的时序控制：@(&amp;lt;signal&amp;gt;)，上升沿(posedge)，下降沿(negedge)，用关键字">
   
     <link rel="alternative" href="/atom.xml" title="Herbert部落格" type="application/atom+xml">
   
@@ -167,20 +167,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Nginx学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Verilog-HDL基础语法（下）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Nginx学习笔记
+      Verilog-HDL基础语法（下）
     </h1>
   
 
         
-        <a href="/2019/07/16/Nginx学习笔记/" class="archive-article-date">
-  	<time datetime="2019-07-16T08:12:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-16</time>
+        <a href="/2019/07/19/Verilog-HDL基础语法（下）/" class="archive-article-date">
+  	<time datetime="2019-07-19T13:50:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
 </a>
         
         <div style="margin-top:10px;">
@@ -188,7 +188,7 @@
         <span class="post-meta-item-icon">
             <i class="fa fa-keyboard-o"></i>
             <span class="post-meta-item-text"> 字数统计: </span>
-            <span class="post-count">92字</span>
+            <span class="post-count">430字</span>
         </span>
     </span>
 
@@ -207,16 +207,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="nginx的组成"><a href="#nginx的组成" class="headerlink" title="nginx的组成"></a>nginx的组成</h2><ul>
-<li>nginx二进制可执行文件（由各个模块源码编译出的一个文件）</li>
-<li>nginx.conf配置文件（控制nginx的行为）</li>
-<li>access.log访问日志（记录每一条请求信息）</li>
-<li>error.log错误日志（定位问题）</li>
+        <h2 id="过程块"><a href="#过程块" class="headerlink" title="过程块"></a>过程块</h2><ul>
+<li>initial块，只执行一次</li>
+<li>always块，循环执行</li>
 </ul>
-<a id="more"></a>
+<p>过程块中的部件：</p>
+<ul>
+<li>过程赋值语句</li>
+<li>高级结构（循环，条件语句）</li>
+<li>时序控制</li>
+</ul>
+<h2 id="过程赋值"><a href="#过程赋值" class="headerlink" title="过程赋值"></a>过程赋值</h2><p>过程赋值的对象必须是寄存器类型，过程赋值语句给wire赋值会产生错误！！</p>
+<h2 id="过程时序控制"><a href="#过程时序控制" class="headerlink" title="过程时序控制"></a>过程时序控制</h2><ul>
+<li>简单延时(#delay)：延时指定时间之后执行</li>
+<li>边沿敏感的时序控制：@(&lt;signal&gt;)，上升沿(posedge)，下降沿(negedge)，用关键字or指定多个参数</li>
+<li>电平敏感的时序控制：wait(&lt;expr&gt;)，expr为真时执行</li>
+</ul>
+<p>！！！综合工具不支持 <strong>wait语句</strong> ！！！</p>
+<p>内容参考 <a href="https://wenku.baidu.com/view/b4a43aefaeaad1f346933f7d.html" target="_blank" rel="noopener">百度文库</a>，不支持综合的部分内容，略。</p>
+<h2 id="块语句"><a href="#块语句" class="headerlink" title="块语句"></a>块语句</h2><ul>
+<li>顺序块：语句置于begin和end之间，块中语句顺序执行</li>
+<li>并行块：语句置于fork和join之间，语句并行执行（不可综合）</li>
+</ul>
+<h2 id="延时赋值语句（可以用于模拟寄存器交换和移位）"><a href="#延时赋值语句（可以用于模拟寄存器交换和移位）" class="headerlink" title="延时赋值语句（可以用于模拟寄存器交换和移位）"></a>延时赋值语句（可以用于模拟寄存器交换和移位）</h2><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">LHS = &lt;timing_control&gt; RHS;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 举例</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    temp = b;</span><br><span class="line">    @(<span class="keyword">posedge</span> clk) a = temp;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"></span><br><span class="line">a = @(<span class="keyword">posedge</span> clk) b;</span><br></pre></td></tr></table></figure>
 
-<h2 id="编译出适合自己的nginx"><a href="#编译出适合自己的nginx" class="headerlink" title="编译出适合自己的nginx"></a>编译出适合自己的nginx</h2><h3 id="下载nginx"><a href="#下载nginx" class="headerlink" title="下载nginx"></a>下载nginx</h3><p>官网下载</p>
-<h3 id="各目录"><a href="#各目录" class="headerlink" title="各目录"></a>各目录</h3><h3 id="configure"><a href="#configure" class="headerlink" title="configure"></a>configure</h3><h3 id="中间文件"><a href="#中间文件" class="headerlink" title="中间文件"></a>中间文件</h3><h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3>
+<h2 id="阻塞赋值与非阻塞赋值"><a href="#阻塞赋值与非阻塞赋值" class="headerlink" title="阻塞赋值与非阻塞赋值"></a>阻塞赋值与非阻塞赋值</h2><ul>
+<li>阻塞赋值：语句结束立即完成赋值操作，前面的赋值语句完成之前，后面的语句不能被执行，使用 “=”</li>
+<li>非阻塞赋值：整个过程块结束时才完成赋值操作，使用 “&lt;=”</li>
+</ul>
+<p>对比举例</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 非阻塞赋值</span></span><br><span class="line"><span class="keyword">module</span> non_block(c, b, a, clk);</span><br><span class="line">    <span class="keyword">output</span> c, b;</span><br><span class="line">    <span class="keyword">input</span> a, clk;</span><br><span class="line">    <span class="keyword">reg</span> c, b;</span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk)</span><br><span class="line">        <span class="keyword">begin</span></span><br><span class="line">        b &lt;= a;</span><br><span class="line">        c &lt;= b;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 阻塞赋值</span></span><br><span class="line"><span class="keyword">module</span> block(c, b, a, clk);</span><br><span class="line">    <span class="keyword">output</span> c, b;</span><br><span class="line">    <span class="keyword">input</span> a, clk;</span><br><span class="line">    <span class="keyword">reg</span> c, b;</span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk)</span><br><span class="line">        <span class="keyword">begin</span></span><br><span class="line">        b = a;</span><br><span class="line">        c = b;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 非阻塞赋值中c的结果为上一个时刻的b的值（旧值），阻塞赋值中c和b的值相等</span></span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -260,19 +282,23 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Verilog</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">服务端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HDL</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">负载均衡</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">硬件开发</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">反向代理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数字电子技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
         		</li>
       		
 		</ul>
@@ -328,7 +354,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/16/Nginx学习笔记/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/19/Verilog-HDL基础语法（下）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -342,18 +368,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/18/Verilog-HDL基础语法（上）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Verilog HDL基础语法（上）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/16/NumPy的一些点/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">NumPy的一些点</div>
+    <a href="/2019/07/18/Verilog-HDL基础语法（上）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Verilog HDL基础语法（上）</div>
       <i class="icon-circle-right"></i>
     </a>
   
