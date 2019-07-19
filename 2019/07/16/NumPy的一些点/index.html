@@ -17,7 +17,8 @@
 <meta property="og:description" content="参考教程runoob numpy NumPy Ndarray对象 N维数组对象 同类型数据的集合 从0下标开始元素索引">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/img/20190219173235151.jpg">
-<meta property="og:updated_time" content="2019-07-16T07:49:52.859Z">
+<meta property="og:image" content="http://yoursite.com/img/1222.png">
+<meta property="og:updated_time" content="2019-07-19T13:35:31.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NumPy的一些点">
 <meta name="twitter:description" content="参考教程runoob numpy NumPy Ndarray对象 N维数组对象 同类型数据的集合 从0下标开始元素索引">
@@ -65,6 +66,8 @@
 				<li><a href="/tags/物理">物理</a></li>
 	        
 				<li><a href="/tags/物联网">物联网</a></li>
+	        
+				<li><a href="/tags/硬件开发">硬件开发</a></li>
 	        
 			</ul>
 		</nav>
@@ -124,6 +127,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -144,11 +149,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/物理">物理</a></li>
+					<li style="width: 25%"><a href="/tags/物理">物理</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/物联网">物联网</a></li>
+					<li style="width: 25%"><a href="/tags/物联网">物联网</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/硬件开发">硬件开发</a></li>
 		        
 				</ul>
 			</nav>
@@ -184,7 +191,7 @@
         <span class="post-meta-item-icon">
             <i class="fa fa-keyboard-o"></i>
             <span class="post-meta-item-text"> 字数统计: </span>
-            <span class="post-count">1.1k字</span>
+            <span class="post-count">2.1k字</span>
         </span>
     </span>
 
@@ -193,7 +200,7 @@
         <span class="post-meta-item-icon">
             <i class="fa fa-hourglass-half"></i>
             <span class="post-meta-item-text"> 阅读时长: </span>
-            <span class="post-count">4分</span>
+            <span class="post-count">9分</span>
         </span>
     </span>
 </div>
@@ -482,7 +489,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = np.arange(<span class="number">10</span>)</span><br><span class="line">s = slice(<span class="number">2</span>, <span class="number">7</span>, <span class="number">2</span>)</span><br><span class="line">print(a[s])</span><br></pre></td></tr></table></figure>
 
 <p>切片还可以使用省略号 (…)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])  </span><br><span class="line">print(a[...,<span class="number">1</span>])   <span class="comment"># 第2列元素</span></span><br><span class="line">print(a[<span class="number">1</span>,...])   <span class="comment"># 第2行元素</span></span><br><span class="line">print(a[...,<span class="number">1</span>:])  <span class="comment"># 第2列及剩下的所有元素</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line">print(a[...,<span class="number">1</span>])   <span class="comment"># 第2列元素</span></span><br><span class="line">print(a[<span class="number">1</span>,...])   <span class="comment"># 第2行元素</span></span><br><span class="line">print(a[...,<span class="number">1</span>:])  <span class="comment"># 第2列及剩下的所有元素</span></span><br></pre></td></tr></table></figure>
 
 <p>输出结果：</p>
 <blockquote>
@@ -491,6 +498,75 @@
 <li>[3 4 5]</li>
 <li>[[2 3]<br>[4 5]<br>[5 6]]</li>
 </ol>
+</blockquote>
+<h2 id="NumPy高级索引"><a href="#NumPy高级索引" class="headerlink" title="NumPy高级索引"></a>NumPy高级索引</h2><p>相比于Python的索引，numpy提供了更多的索引方式。数组可以整数数组索引、布尔索引及花式索引。</p>
+<h3 id="整数数组索引"><a href="#整数数组索引" class="headerlink" title="整数数组索引"></a>整数数组索引</h3><p>获取(0, 0) (1, 1) (2, 0)处的元素：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line">y = x[[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]]</span><br><span class="line">print(y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出 [1 4 5]</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>返回结果为ndarray对象</p>
+</blockquote>
+<p>可以借助 : , … 和索引数组组合</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]])</span><br><span class="line">b = a[<span class="number">1</span>:<span class="number">3</span>, <span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line">c = a[<span class="number">1</span>:<span class="number">3</span>,[<span class="number">1</span>,<span class="number">2</span>]]</span><br><span class="line">d = a[...,<span class="number">1</span>:]</span><br><span class="line">print(b)</span><br><span class="line">print(c)</span><br><span class="line">print(d)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line"><span class="comment"># [[5 6]</span></span><br><span class="line"><span class="comment">#  [8 9]]</span></span><br><span class="line"><span class="comment"># [[5 6]</span></span><br><span class="line"><span class="comment">#  [8 9]]</span></span><br><span class="line"><span class="comment"># [[2 3]</span></span><br><span class="line"><span class="comment">#  [5 6]</span></span><br><span class="line"><span class="comment">#  [8 9]]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="布尔索引"><a href="#布尔索引" class="headerlink" title="布尔索引"></a>布尔索引</h3><p>通过布尔数组索引目标数组，对数组元素进行布尔运算获取符合指定元素条件的数组。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.array([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>],[<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>],[<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>],[<span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>]])</span><br><span class="line">print(x[x &gt; <span class="number">5</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出：[6 7 8 9 10 11]</span></span><br></pre></td></tr></table></figure>
+
+<p>使用取补运算符 ~ 来过滤NaN</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.array([np.nan, <span class="number">1</span>, <span class="number">2</span>, np.nan, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line">print(a[~np.isnan(a)])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出：[1. 2. 3. 4. 5.]</span></span><br></pre></td></tr></table></figure>
+
+<p>过滤非复数元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.array([<span class="number">1</span>, <span class="number">2</span>+<span class="number">6j</span>, <span class="number">5</span>, <span class="number">3.5</span>+<span class="number">5j</span>])</span><br><span class="line"><span class="keyword">print</span> (a[np.iscomplex(a)])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出：[2.0+6.j 3.5+5.j]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="花式索引"><a href="#花式索引" class="headerlink" title="花式索引"></a>花式索引</h3><p>花式索引利用整数数组来索引，把整数索引当作轴进行索引。对于轴的理解，可以参考上面！跟切片不一样的是它将数据复制到新的数组中（对切片感兴趣的可以使用id()这个函数研究列表和元素对应关系的！这样便于理解这一句话！）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">32</span>).reshape((<span class="number">8</span>, <span class="number">4</span>))</span><br><span class="line">print(x)</span><br><span class="line">print(x[[<span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">7</span>]])</span><br><span class="line"><span class="comment"># 倒序</span></span><br><span class="line">print(x[[<span class="number">-4</span>, <span class="number">-2</span>, <span class="number">-1</span>, <span class="number">-7</span>]])</span><br><span class="line"><span class="comment"># 多个索引数组</span></span><br><span class="line">print(x[np.ix_([<span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">2</span>], [<span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>])])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line"><span class="comment"># [[ 0  1  2  3]</span></span><br><span class="line"><span class="comment">#  [ 4  5  6  7]</span></span><br><span class="line"><span class="comment">#  [ 8  9 10 11]</span></span><br><span class="line"><span class="comment">#  [12 13 14 15]</span></span><br><span class="line"><span class="comment">#  [16 17 18 19]</span></span><br><span class="line"><span class="comment">#  [20 21 22 23]</span></span><br><span class="line"><span class="comment">#  [24 25 26 27]</span></span><br><span class="line"><span class="comment">#  [28 29 30 31]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># [[16 17 18 19]</span></span><br><span class="line"><span class="comment">#  [ 8  9 10 11]</span></span><br><span class="line"><span class="comment">#  [ 4  5  6  7]</span></span><br><span class="line"><span class="comment">#  [28 29 30 31]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># [[16 17 18 19]</span></span><br><span class="line"><span class="comment">#  [24 25 26 27]</span></span><br><span class="line"><span class="comment">#  [28 29 30 31]</span></span><br><span class="line"><span class="comment">#  [ 4  5  6  7]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># [[ 4  7  5  6]</span></span><br><span class="line"><span class="comment">#  [20 23 21 22]</span></span><br><span class="line"><span class="comment">#  [28 31 29 30]</span></span><br><span class="line"><span class="comment">#  [ 8 11  9 10]]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="NumPy广播"><a href="#NumPy广播" class="headerlink" title="NumPy广播"></a>NumPy广播</h2><p>广播(Broadcast)是 numpy 对不同形状(shape)的数组进行数值计算的方式， 对数组的算术运算通常在相应的元素上进行</p>
+<p>如果形状相同即对应位运算，不同则触发广播机制。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>], [<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>], [<span class="number">30</span>, <span class="number">30</span>, <span class="number">30</span>]])</span><br><span class="line">b = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">print(a + b)</span><br><span class="line"></span><br><span class="line"><span class="comment"># [[ 1  2  3]</span></span><br><span class="line"><span class="comment">#  [11 12 13]</span></span><br><span class="line"><span class="comment">#  [21 22 23]</span></span><br><span class="line"><span class="comment">#  [31 32 33]]</span></span><br></pre></td></tr></table></figure>
+
+<img src="/img/1222.png">
+
+<p>原理和要求请参考 <a href="https://www.runoob.com/numpy/numpy-broadcast.html" target="_blank" rel="noopener">NumPy广播</a></p>
+<h2 id="NumPy迭代数组"><a href="#NumPy迭代数组" class="headerlink" title="NumPy迭代数组"></a>NumPy迭代数组</h2><p>使用迭代器对象numpy.nditer访问元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">a = np.arange(<span class="number">6</span>).reshape(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> np.nditer(a):</span><br><span class="line">    <span class="keyword">print</span> (x, end=<span class="string">", "</span> )</span><br></pre></td></tr></table></figure>
+
+<p>！！！默认行序优先！！！</p>
+<p>可以通过传入nditer的order参数改变遍历顺序 order = &#39;F&#39;</p>
+<p>可以改变可选参数op_flags获得权限修改值，默认为 <em>readonly</em> 可以改为 <em>readwrite</em> 。op_flags=[&#39;readwrite&#39;]</p>
+<p>flags参数：可选参数，用于外部循环</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">c_index</td>
+<td align="left">C顺序索引</td>
+</tr>
+<tr>
+<td align="center">f_index</td>
+<td align="left">F顺序索引</td>
+</tr>
+<tr>
+<td align="center">multi_index</td>
+<td align="left">每次迭代可以跟踪一种索引类型</td>
+</tr>
+<tr>
+<td align="center">external_loop</td>
+<td align="left">给出的值是具有多个值的一维数组，而不是零维数组</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>NumPy的可选参数可以参考 <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.nditer.html?highlight=multi_index" target="_blank" rel="noopener">scipy.org</a></p>
+</blockquote>
+<h3 id="广播迭代"><a href="#广播迭代" class="headerlink" title="广播迭代"></a>广播迭代</h3><p>如果两个数组是可广播的，nditer 组合对象能够同时迭代它们。假设数组 a 的维度为 3X4，数组 b 的维度为 1X4，则使用以下迭代器（数组 b 被广播到 a 的大小）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.arange(<span class="number">0</span>,<span class="number">60</span>,<span class="number">5</span>)</span><br><span class="line">a = a.reshape(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"><span class="keyword">print</span>  (<span class="string">'第一个数组为：'</span>)</span><br><span class="line"><span class="keyword">print</span> (a)</span><br><span class="line"><span class="keyword">print</span>  (<span class="string">'\n'</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'第二个数组为：'</span>)</span><br><span class="line">b = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], dtype =  int)</span><br><span class="line"><span class="keyword">print</span> (b)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'\n'</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'修改后的数组为：'</span>)</span><br><span class="line"><span class="keyword">for</span> x,y <span class="keyword">in</span> np.nditer([a,b]):</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"%d:%d"</span> % (x,y), end=<span class="string">", "</span> )</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># 第一个数组为：</span></span><br><span class="line"><span class="comment"># [[ 0  5 10 15]</span></span><br><span class="line"><span class="comment">#  [20 25 30 35]</span></span><br><span class="line"><span class="comment">#  [40 45 50 55]]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第二个数组为：</span></span><br><span class="line"><span class="comment"># [1 2 3 4]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改后的数组为：</span></span><br><span class="line"><span class="comment"># 0:1, 5:2, 10:3, 15:4, 20:1, 25:2, 30:3, 35:4, 40:1, 45:2, 50:3, 55:4,</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>上述例子来源于runoob</p>
 </blockquote>
 
       
@@ -772,6 +848,22 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">EMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">emqx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">物联网</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">mqtt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
@@ -789,34 +881,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">EMQ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">emqx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">物联网</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mqtt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">numpy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">图像处理基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -853,6 +917,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">FPGA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">numpy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">图像处理基础</a>
               </li>
              
               <li class="article-tag-list-item">
