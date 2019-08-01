@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 数字电子技术 | Herbert部落格</title>
+  <title>免费证书实现https(保姆级教程) | Herbert部落格</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Herbert部落格">
-<meta property="og:url" content="http://yoursite.com/tags/数字电子技术/index.html">
+  <meta name="description" content="使用CertbotCertbot使用的是Let’s Encrypt的证书，该组织也强烈建议使用Certbot获取证书。 Certbot配置使用这个的目的是获取通配符证书，也就是支持二级域的证书验证，避免https错误的预警。  主机商: 阿里云 系统版本: Ubuntu18.04 Web服务: nginx 使用环境: python3">
+<meta name="keywords" content="nginx,domain,https,Ubuntu18,ssl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="免费证书实现https(保姆级教程)">
+<meta property="og:url" content="http://yoursite.com/2019/08/01/免费证书实现https(保姆级教程)/index.html">
 <meta property="og:site_name" content="Herbert部落格">
+<meta property="og:description" content="使用CertbotCertbot使用的是Let’s Encrypt的证书，该组织也强烈建议使用Certbot获取证书。 Certbot配置使用这个的目的是获取通配符证书，也就是支持二级域的证书验证，避免https错误的预警。  主机商: 阿里云 系统版本: Ubuntu18.04 Web服务: nginx 使用环境: python3">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/img/20190801231928.png">
+<meta property="og:image" content="http://yoursite.com/img/20190801232653.png">
+<meta property="og:updated_time" content="2019-08-01T17:03:33.416Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Herbert部落格">
+<meta name="twitter:title" content="免费证书实现https(保姆级教程)">
+<meta name="twitter:description" content="使用CertbotCertbot使用的是Let’s Encrypt的证书，该组织也强烈建议使用Certbot获取证书。 Certbot配置使用这个的目的是获取通配符证书，也就是支持二级域的证书验证，避免https错误的预警。  主机商: 阿里云 系统版本: Ubuntu18.04 Web服务: nginx 使用环境: python3">
+<meta name="twitter:image" content="http://yoursite.com/img/20190801231928.png">
   
     <link rel="alternative" href="/atom.xml" title="Herbert部落格" type="application/atom+xml">
   
@@ -162,130 +170,318 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-免费证书实现https(保姆级教程)" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/19/Verilog-HDL基础语法（下）/" class="archive-article-date">
-  	<time datetime="2019-07-19T13:50:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/19/Verilog-HDL基础语法（下）/">Verilog-HDL基础语法（下）</a>
+    <h1 class="article-title" itemprop="name">
+      免费证书实现https(保姆级教程)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/08/01/免费证书实现https(保姆级教程)/" class="archive-article-date">
+  	<time datetime="2019-08-01T03:38:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-01</time>
+</a>
+        
+        <div style="margin-top:10px;">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="fa fa-keyboard-o"></i>
+            <span class="post-meta-item-text"> 字数统计: </span>
+            <span class="post-count">1.6k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="fa fa-hourglass-half"></i>
+            <span class="post-meta-item-text"> 阅读时长: </span>
+            <span class="post-count">6分</span>
+        </span>
+    </span>
+</div>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用Certbot"><a href="#使用Certbot" class="headerlink" title="使用Certbot"></a>使用Certbot</h2><p>Certbot使用的是<a href="https://letsencrypt.org" target="_blank" rel="noopener">Let’s Encrypt</a>的证书，该组织也强烈建议使用<a href="https://certbot.eff.org/" target="_blank" rel="noopener">Certbot</a>获取证书。</p>
+<h2 id="Certbot配置"><a href="#Certbot配置" class="headerlink" title="Certbot配置"></a>Certbot配置</h2><p>使用这个的目的是获取通配符证书，也就是支持二级域的证书验证，避免https错误的预警。</p>
+<ul>
+<li>主机商: 阿里云</li>
+<li>系统版本: Ubuntu18.04</li>
+<li>Web服务: nginx</li>
+<li>使用环境: python3</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="在Certbot"><a href="#在Certbot" class="headerlink" title="在Certbot"></a>在Certbot</h3><p>进入<a href="https://certbot.eff.org/" target="_blank" rel="noopener">Certbot</a>选择Web服务和系统</p>
+<img src="/img/20190801231928.png">
+
+<p>上图我选的是在Ubuntu18.04上面跑的nginx。下面的提示就是你使用证书实现https之前需要有一个正常运行的网站，并且得有sudo的权限(直接云服务器实例，轻量应用服务器之类的就可以了)</p>
+<img src="/img/20190801232653.png">
+
+<p>可以选择 <strong>默认(Default)</strong> 和 <strong>通配符(wildcard)</strong></p>
+<h4 id="默认的就是一张单域名的证书-我用的是通配符的，直接通配符的可以跳过这一节"><a href="#默认的就是一张单域名的证书-我用的是通配符的，直接通配符的可以跳过这一节" class="headerlink" title="默认的就是一张单域名的证书 (我用的是通配符的，直接通配符的可以跳过这一节)"></a>默认的就是一张单域名的证书 (我用的是通配符的，直接通配符的可以跳过这一节)</h4><ol>
+<li><p>SSH连接</p>
+</li>
+<li><p>添加Certbot PPA到库(阿里云root下不需要sudo就直接可以的，下同)</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install software-properties-common</span><br><span class="line">add-apt-repository universe</span><br><span class="line">add-apt-repository ppa:certbot/certbot</span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载Certbot</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install certbot python-certbot-nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择使用一种方式(推荐使用手动！！)</p>
+<p>自动：使用Certbot下载证书并且更新你的nginx设置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot --nginx</span><br></pre></td></tr></table></figure>
+
+<p>手动：只下载证书，手动配置/重启/重载nginx(手动配置nginx需要对nginx有一定的了解，下面的参考文章里有阿里云ssl配置的参考)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly --nginx</span><br><span class="line"><span class="meta">#</span> 主要区别就在于certonly这个参数，通配符咱们也会遇到</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>证书成功生成之后会有信息显示证书所在的位置的，或者运行下面的命令查看证书，然后配置nginx的ssl_certificate和ssl_certificate_key这两个参数就好了。其中privkey.pem对应的就是ssl_certificate_key的目标文件。</p>
+</blockquote>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot certificates</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试自动更新</p>
+<p> Certbot支持自动更新证书，然后自动添加了定时任务，就不需要手动更新证书了。官网说在/etc/crontab、/etc/cron.*/*或者systemctl list-timers里面使用了，不放心的可以手动添加定时任务并且设置重启nginx的。</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">certbot renew --dry-run</span><br><span class="line"><span class="meta">#</span> --dry-run这个参数用于测试的</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看的网站的状态</p>
+<p>这个要看具体的配置，80端口开启ssl直接就好了，443端口https访问！</p>
+</li>
+</ol>
+<h4 id="通配符证书"><a href="#通配符证书" class="headerlink" title="通配符证书"></a>通配符证书</h4><ol>
+<li><p>检查DNS服务商是否被支持（国内的就不用看了）</p>
+</li>
+<li><p>SSH连接</p>
+</li>
+<li><p>添加Certbot PPA到库(阿里云root下不需要sudo就直接可以的，下同)</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install software-properties-common</span><br><span class="line">add-apt-repository universe</span><br><span class="line">add-apt-repository ppa:certbot/certbot</span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载Certbot</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install certbot python-certbot-nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载正确的插件(国内的，从这一步开始咱们就可以下一章了！)</p>
+</li>
+</ol>
+<h2 id="通配符插件国内主机如何解决之使用certbot-letencrypt-wildcardcertificates-alydns-au"><a href="#通配符插件国内主机如何解决之使用certbot-letencrypt-wildcardcertificates-alydns-au" class="headerlink" title="通配符插件国内主机如何解决之使用certbot-letencrypt-wildcardcertificates-alydns-au"></a>通配符插件国内主机如何解决之使用certbot-letencrypt-wildcardcertificates-alydns-au</h2><p>Certbot官方有给出插件的编写的方法，也有提供第三方的插件(有兴趣自行去了解)。国内有大佬自己写了插件，在此使用的是<a href="https://github.com/ywdblog/certbot-letencrypt-wildcardcertificates-alydns-au" target="_blank" rel="noopener">certbot-letencrypt-wildcardcertificates-alydns-au</a>，文档比较友好，并且issues的回复也很快。</p>
+<blockquote>
+<p>特别提醒： <strong>下面官方的使用参考文档中的所有./certbot-auto命令不再支持！请使用直接使用certbot！</strong> 下面是基于aliyun+python+nginx的演示，具体流程和参数说明请直接参考官方文档！！</p>
+</blockquote>
+<h3 id="下载到-var下"><a href="#下载到-var下" class="headerlink" title="下载到/var下"></a>下载到/var下</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /var</span><br><span class="line">git clone https://github.com/ywdblog/certbot-letencrypt-wildcardcertificates-alydns-au</span><br><span class="line">cd certbot-letencrypt-wildcardcertificates-alydns-au</span><br><span class="line">chmod 0777 au.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置domain-ini"><a href="#配置domain-ini" class="headerlink" title="配置domain.ini"></a>配置domain.ini</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat domain.ini</span><br><span class="line"><span class="meta">#</span> 如果有自己域名后缀的话就不用执行下面修改了</span><br><span class="line">nano domain.ini</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取阿里云的accesskey-腾讯云请参考官方文档"><a href="#获取阿里云的accesskey-腾讯云请参考官方文档" class="headerlink" title="获取阿里云的accesskey(腾讯云请参考官方文档)"></a>获取阿里云的accesskey(腾讯云请参考官方文档)</h3><p>参考 <a href="https://help.aliyun.com/knowledge_detail/38738.html" target="_blank" rel="noopener">阿里云API Key和Secret的申请</a></p>
+<h3 id="修改au-sh参数"><a href="#修改au-sh参数" class="headerlink" title="修改au.sh参数"></a>修改au.sh参数</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano au.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 填写下面两个参数</span></span><br><span class="line">ALY_KEY=<span class="string">""</span></span><br><span class="line">ALY_TOKEN=<span class="string">""</span></span><br><span class="line"><span class="comment"># 命令行路径可以修改，/usr/bin/python可以改为/usr/bin/python3，不过作者已经对python2、3都进行了适配</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="申请证书-nginx-python"><a href="#申请证书-nginx-python" class="headerlink" title="申请证书(nginx+python)"></a>申请证书(nginx+python)</h3><p>测试配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly  -d *.example.com --manual --preferred-challenges dns --dry-run  --manual-auth-hook "/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly add" --manual-cleanup-hook "/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean"</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 一个顶级域名获取通配符证书直接修改*.example.com为自己的就好了，上述命令去掉--dry-run参数</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 以baidu.com举例(python)</span></span><br><span class="line"></span><br><span class="line">certbot certonly  -d *.baidu.com --manual --preferred-challenges dns --manual-auth-hook "/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly add" --manual-cleanup-hook "/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean"</span><br></pre></td></tr></table></figure>
+
+<p>SAN通配符证书(直接添加-d 和域名就好了)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 基于官方示例(python)</span></span><br><span class="line">certbot certonly  -d *.example.com -d *.example.org -d www.example.cn --manual --preferred-challenges dns --manual-auth-hook "/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly add" --manual-cleanup-hook "/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean"</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置nginx"><a href="#配置nginx" class="headerlink" title="配置nginx"></a>配置nginx</h3><p>上面包括下面的所有命令都带certonly，因此所有的操作都是只做认证，nginx需要自行修改配置！！</p>
+<blockquote>
+<p>证书成功生成之后会有信息显示证书所在的位置的，或者运行下面的命令查看证书，然后配置nginx的ssl_certificate和ssl_certificate_key这两个参数就好了。其中privkey.pem对应的就是ssl_certificate_key的目标文件。</p>
+</blockquote>
+<p>如果不知道证书的位置，可以使用下面的命令查看</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot certificates</span><br></pre></td></tr></table></figure>
+
+<p>配置完成之后</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="证书的续期"><a href="#证书的续期" class="headerlink" title="证书的续期"></a>证书的续期</h3><p>请直接参考<a href="https://github.com/ywdblog/certbot-letencrypt-wildcardcertificates-alydns-au/blob/master/README.md" target="_blank" rel="noopener">官方文档</a>，下面贴出来的只是基于官方文档的 <strong>阿里云+python版</strong> shell，官方演示shell使用的都是php和阿里云！！</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 所有证书renew</span></span><br><span class="line">certbot renew  --manual --preferred-challenges dns --manual-auth-hook "/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly add" --manual-cleanup-hook "/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 某一张证书续期</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看证书</span></span><br><span class="line">certbot certificates</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 记住证书名，比如simplehttps.com</span></span><br><span class="line">certbot renew --cert-name simplehttps.com  --manual-auth-hook "/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly add" --manual-cleanup-hook "/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean"</span><br></pre></td></tr></table></figure>
+
+<h3 id="加入crontab"><a href="#加入crontab" class="headerlink" title="加入crontab"></a>加入crontab</h3><p>因为我使用了nginx，所以添加crontab就直接renew成功之后重启nginx了。这里强烈建议service nginx restart重启！nginx -s reload重载nginx.conf配置时并不一定会报错而带来影响debug的问题。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/crontab</span><br></pre></td></tr></table></figure>
+
+<p>添加内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 1 */1 * * root certbot-auto renew --manual --preferred-challenges dns --deploy-hook  &quot;service nginx restart&quot; --manual-auth-hook &quot;/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly add&quot; --manual-cleanup-hook &quot;/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean&quot;</span><br></pre></td></tr></table></figure>
+
+<p>然后，就结束了！！</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="https://blog.csdn.net/u010102390/article/details/80505451" target="_blank" rel="noopener">linux的crontab定时配置全过程</a></li>
+<li><a href="https://github.com/ywdblog/certbot-letencrypt-wildcardcertificates-alydns-au/blob/master/README.md" target="_blank" rel="noopener">插件certbot-letencrypt-wildcardcertificates-alydns-au的使用</a></li>
+<li><a href="https://help.aliyun.com/knowledge_detail/95491.html?spm=5176.2020520163.cas.52.5cd656a7iFDuEI" target="_blank" rel="noopener">Nginx/Tengine服务器安装SSL证书</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wepay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Verilog</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HDL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">domain</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">硬件开发</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">https</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数字电子技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ubuntu18</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssl</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/01/免费证书实现https(保姆级教程)/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/18/Verilog-HDL基础语法（上）/" class="archive-article-date">
-  	<time datetime="2019-07-18T02:42:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/19/Verilog-HDL基础语法（下）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Verilog-HDL基础语法（下）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/18/Verilog-HDL基础语法（上）/">Verilog HDL基础语法（上）</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Verilog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HDL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">硬件开发</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数字电子技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -308,9 +504,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

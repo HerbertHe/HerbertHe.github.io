@@ -164,6 +164,125 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-免费证书实现https(保姆级教程)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/01/免费证书实现https(保姆级教程)/">免费证书实现https(保姆级教程)</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/01/免费证书实现https(保姆级教程)/" class="archive-article-date">
+  	<time datetime="2019-08-01T03:38:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-01</time>
+</a>
+        
+        <div style="margin-top:10px;">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="fa fa-keyboard-o"></i>
+            <span class="post-meta-item-text"> 字数统计: </span>
+            <span class="post-count">1.6k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="fa fa-hourglass-half"></i>
+            <span class="post-meta-item-text"> 阅读时长: </span>
+            <span class="post-count">6分</span>
+        </span>
+    </span>
+</div>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用Certbot"><a href="#使用Certbot" class="headerlink" title="使用Certbot"></a>使用Certbot</h2><p>Certbot使用的是<a href="https://letsencrypt.org" target="_blank" rel="noopener">Let’s Encrypt</a>的证书，该组织也强烈建议使用<a href="https://certbot.eff.org/" target="_blank" rel="noopener">Certbot</a>获取证书。</p>
+<h2 id="Certbot配置"><a href="#Certbot配置" class="headerlink" title="Certbot配置"></a>Certbot配置</h2><p>使用这个的目的是获取通配符证书，也就是支持二级域的证书验证，避免https错误的预警。</p>
+<ul>
+<li>主机商: 阿里云</li>
+<li>系统版本: Ubuntu18.04</li>
+<li>Web服务: nginx</li>
+<li>使用环境: python3</li>
+</ul>
+        
+          <a class="article-more-a" href="/2019/08/01/免费证书实现https(保姆级教程)/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">domain</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">https</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ubuntu18</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssl</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/01/免费证书实现https(保姆级教程)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Verilog-HDL基础语法（下）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -214,28 +333,9 @@
 <li>高级结构（循环，条件语句）</li>
 <li>时序控制</li>
 </ul>
-<h2 id="过程赋值"><a href="#过程赋值" class="headerlink" title="过程赋值"></a>过程赋值</h2><p>过程赋值的对象必须是寄存器类型，过程赋值语句给wire赋值会产生错误！！</p>
-<h2 id="过程时序控制"><a href="#过程时序控制" class="headerlink" title="过程时序控制"></a>过程时序控制</h2><ul>
-<li>简单延时(#delay)：延时指定时间之后执行</li>
-<li>边沿敏感的时序控制：@(&lt;signal&gt;)，上升沿(posedge)，下降沿(negedge)，用关键字or指定多个参数</li>
-<li>电平敏感的时序控制：wait(&lt;expr&gt;)，expr为真时执行</li>
-</ul>
-<p>！！！综合工具不支持 <strong>wait语句</strong> ！！！</p>
-<p>内容参考 <a href="https://wenku.baidu.com/view/b4a43aefaeaad1f346933f7d.html" target="_blank" rel="noopener">百度文库</a>，不支持综合的部分内容，略。</p>
-<h2 id="块语句"><a href="#块语句" class="headerlink" title="块语句"></a>块语句</h2><ul>
-<li>顺序块：语句置于begin和end之间，块中语句顺序执行</li>
-<li>并行块：语句置于fork和join之间，语句并行执行（不可综合）</li>
-</ul>
-<h2 id="延时赋值语句（可以用于模拟寄存器交换和移位）"><a href="#延时赋值语句（可以用于模拟寄存器交换和移位）" class="headerlink" title="延时赋值语句（可以用于模拟寄存器交换和移位）"></a>延时赋值语句（可以用于模拟寄存器交换和移位）</h2><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">LHS = &lt;timing_control&gt; RHS;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 举例</span></span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    temp = b;</span><br><span class="line">    @(<span class="keyword">posedge</span> clk) a = temp;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"></span><br><span class="line">a = @(<span class="keyword">posedge</span> clk) b;</span><br></pre></td></tr></table></figure>
-
-<h2 id="阻塞赋值与非阻塞赋值"><a href="#阻塞赋值与非阻塞赋值" class="headerlink" title="阻塞赋值与非阻塞赋值"></a>阻塞赋值与非阻塞赋值</h2><ul>
-<li>阻塞赋值：语句结束立即完成赋值操作，前面的赋值语句完成之前，后面的语句不能被执行，使用 “=”</li>
-<li>非阻塞赋值：整个过程块结束时才完成赋值操作，使用 “&lt;=”</li>
-</ul>
-<p>对比举例</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 非阻塞赋值</span></span><br><span class="line"><span class="keyword">module</span> non_block(c, b, a, clk);</span><br><span class="line">    <span class="keyword">output</span> c, b;</span><br><span class="line">    <span class="keyword">input</span> a, clk;</span><br><span class="line">    <span class="keyword">reg</span> c, b;</span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk)</span><br><span class="line">        <span class="keyword">begin</span></span><br><span class="line">        b &lt;= a;</span><br><span class="line">        c &lt;= b;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 阻塞赋值</span></span><br><span class="line"><span class="keyword">module</span> block(c, b, a, clk);</span><br><span class="line">    <span class="keyword">output</span> c, b;</span><br><span class="line">    <span class="keyword">input</span> a, clk;</span><br><span class="line">    <span class="keyword">reg</span> c, b;</span><br><span class="line">    <span class="keyword">always</span> @(<span class="keyword">posedge</span> clk)</span><br><span class="line">        <span class="keyword">begin</span></span><br><span class="line">        b = a;</span><br><span class="line">        c = b;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 非阻塞赋值中c的结果为上一个时刻的b的值（旧值），阻塞赋值中c和b的值相等</span></span><br></pre></td></tr></table></figure>
-
-
+        
+          <a class="article-more-a" href="/2019/07/19/Verilog-HDL基础语法（下）/#more">more >></a>
+        
       
 
       
@@ -1267,6 +1367,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">图像处理基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">domain</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ubuntu18</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssl</a>
               </li>
              
               <li class="article-tag-list-item">
