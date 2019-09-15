@@ -164,6 +164,123 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-自制操作系统log" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/15/自制操作系统log/">自制操作系统log</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/15/自制操作系统log/" class="archive-article-date">
+  	<time datetime="2019-09-15T13:42:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+        
+        <div style="margin-top:10px;">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="fa fa-keyboard-o"></i>
+            <span class="post-meta-item-text"> 字数统计: </span>
+            <span class="post-count">374字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="fa fa-hourglass-half"></i>
+            <span class="post-meta-item-text"> 阅读时长: </span>
+            <span class="post-count">1分</span>
+        </span>
+    </span>
+</div>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="参考书"><a href="#参考书" class="headerlink" title="参考书"></a>参考书</h2><ul>
+<li>《三十天自制操作系统（川合秀实）》</li>
+<li>《ORANGE’S：一个操作系统的实现》</li>
+</ul>
+<h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书籍中的内容根据自己的喜好、习惯，有一定的自己理解和改变！本记录默认对二进制、十六进制和基础硬件等都有一定的了解！</p>
+<h2 id="制作启动区-512字节"><a href="#制作启动区-512字节" class="headerlink" title="制作启动区(512字节)"></a>制作启动区(512字节)</h2><p>从开始我对两本书都是懵逼的，结合两本书涉及的启动盘代码总结一点东西</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">ORG 0x7c00                  ; 程序加载0x7c00</span><br><span class="line"></span><br><span class="line">; FAT12格式软盘代码位</span><br><span class="line">; (--省略--)</span><br><span class="line"></span><br><span class="line">JMP entry</span><br><span class="line">DB 0x90</span><br><span class="line"></span><br><span class="line">entry:</span><br><span class="line">        MOV AX, 0           ; 初始化寄存器</span><br><span class="line">        MOV SS, AX</span><br><span class="line">        MOV SP, 0x7c00</span><br><span class="line">        MOV DS, AX</span><br><span class="line">        MOV ES, AX</span><br><span class="line"></span><br><span class="line">        MOV SI, msg</span><br><span class="line"></span><br><span class="line">putloop:</span><br><span class="line">        MOV AL, [SI]        ; []表示内存中</span><br><span class="line">        ADD SI, 1           ; SI加一</span><br><span class="line">        CMP AL, 0</span><br><span class="line"></span><br><span class="line">        JE fin              ; jump if equal</span><br><span class="line">        MOV AH, 0x0e        ; 显示一个文字</span><br><span class="line">        MOV BX, 15          ; 指定字符颜色</span><br><span class="line">        INT 0x10            ; 调用显卡BIOS，INT软件中断指令</span><br><span class="line">        JMP putloop</span><br><span class="line"></span><br><span class="line">fin:</span><br><span class="line">        HLT                 ; 让CPU停止等待指令</span><br><span class="line">        JMP fin             ; 无限循环</span><br><span class="line"></span><br><span class="line">msg:</span><br><span class="line">        DB 0x0a, 0x0a       ; 换行</span><br><span class="line">        DB &quot;hello, world&quot;</span><br><span class="line">        DB 0x0a</span><br><span class="line">        DB 0</span><br><span class="line"></span><br><span class="line">        RESB 0x7dfe-$       ; 填写0x00直到0x001fe</span><br><span class="line">        DB 0x55, 0xaa       ; 结束</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：30天那个书制作启动盘的部分完全可以看看就行。。。代码就是上面的，就是helloos.nas节选那个末尾加上了两行，写满512字节和结束标志！</p>
+</blockquote>
+<p>代码直接看<a href="https://github.com/yourtion/30dayMakeOS" target="_blank" rel="noopener">这个库</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自制</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/15/自制操作系统log/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-免费证书实现https(保姆级教程)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1020,11 +1137,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
         		</li>
       		
 		</ul>
@@ -1286,6 +1403,22 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">服务端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">反向代理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">EMQ</a>
               </li>
              
@@ -1306,19 +1439,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">服务端</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color3">自制</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">反向代理</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">

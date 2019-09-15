@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 硬件开发 | Herbert部落格</title>
+  <title>自制操作系统log | Herbert部落格</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Herbert部落格">
-<meta property="og:url" content="http://yoursite.com/tags/硬件开发/index.html">
+  <meta name="description" content="参考书 《三十天自制操作系统（川合秀实）》 《ORANGE’S：一个操作系统的实现》  写在前面的本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书籍中的内容根据自己的喜好、习惯，有一定的自己理解和改变！本记录默认对二进制、十六进制和基础硬件等都有一定的了解！ 制作启动区(512字节)从开始我对两本书都是懵逼的，结合两本书涉及的启动盘代码总结一点东">
+<meta name="keywords" content="OS,操作系统,自制,记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自制操作系统log">
+<meta property="og:url" content="http://yoursite.com/2019/09/15/自制操作系统log/index.html">
 <meta property="og:site_name" content="Herbert部落格">
+<meta property="og:description" content="参考书 《三十天自制操作系统（川合秀实）》 《ORANGE’S：一个操作系统的实现》  写在前面的本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书籍中的内容根据自己的喜好、习惯，有一定的自己理解和改变！本记录默认对二进制、十六进制和基础硬件等都有一定的了解！ 制作启动区(512字节)从开始我对两本书都是懵逼的，结合两本书涉及的启动盘代码总结一点东">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-15T14:57:01.966Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Herbert部落格">
+<meta name="twitter:title" content="自制操作系统log">
+<meta name="twitter:description" content="参考书 《三十天自制操作系统（川合秀实）》 《ORANGE’S：一个操作系统的实现》  写在前面的本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书籍中的内容根据自己的喜好、习惯，有一定的自己理解和改变！本记录默认对二进制、十六进制和基础硬件等都有一定的了解！ 制作启动区(512字节)从开始我对两本书都是懵逼的，结合两本书涉及的启动盘代码总结一点东">
   
     <link rel="alternative" href="/atom.xml" title="Herbert部落格" type="application/atom+xml">
   
@@ -162,130 +167,220 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-自制操作系统log" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/19/Verilog-HDL基础语法（下）/" class="archive-article-date">
-  	<time datetime="2019-07-19T13:50:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/19/Verilog-HDL基础语法（下）/">Verilog-HDL基础语法（下）</a>
+    <h1 class="article-title" itemprop="name">
+      自制操作系统log
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/09/15/自制操作系统log/" class="archive-article-date">
+  	<time datetime="2019-09-15T13:42:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+</a>
+        
+        <div style="margin-top:10px;">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="fa fa-keyboard-o"></i>
+            <span class="post-meta-item-text"> 字数统计: </span>
+            <span class="post-count">374字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="fa fa-hourglass-half"></i>
+            <span class="post-meta-item-text"> 阅读时长: </span>
+            <span class="post-count">1分</span>
+        </span>
+    </span>
+</div>
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="参考书"><a href="#参考书" class="headerlink" title="参考书"></a>参考书</h2><ul>
+<li>《三十天自制操作系统（川合秀实）》</li>
+<li>《ORANGE’S：一个操作系统的实现》</li>
+</ul>
+<h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书籍中的内容根据自己的喜好、习惯，有一定的自己理解和改变！本记录默认对二进制、十六进制和基础硬件等都有一定的了解！</p>
+<h2 id="制作启动区-512字节"><a href="#制作启动区-512字节" class="headerlink" title="制作启动区(512字节)"></a>制作启动区(512字节)</h2><p>从开始我对两本书都是懵逼的，结合两本书涉及的启动盘代码总结一点东西</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">ORG 0x7c00                  ; 程序加载0x7c00</span><br><span class="line"></span><br><span class="line">; FAT12格式软盘代码位</span><br><span class="line">; (--省略--)</span><br><span class="line"></span><br><span class="line">JMP entry</span><br><span class="line">DB 0x90</span><br><span class="line"></span><br><span class="line">entry:</span><br><span class="line">        MOV AX, 0           ; 初始化寄存器</span><br><span class="line">        MOV SS, AX</span><br><span class="line">        MOV SP, 0x7c00</span><br><span class="line">        MOV DS, AX</span><br><span class="line">        MOV ES, AX</span><br><span class="line"></span><br><span class="line">        MOV SI, msg</span><br><span class="line"></span><br><span class="line">putloop:</span><br><span class="line">        MOV AL, [SI]        ; []表示内存中</span><br><span class="line">        ADD SI, 1           ; SI加一</span><br><span class="line">        CMP AL, 0</span><br><span class="line"></span><br><span class="line">        JE fin              ; jump if equal</span><br><span class="line">        MOV AH, 0x0e        ; 显示一个文字</span><br><span class="line">        MOV BX, 15          ; 指定字符颜色</span><br><span class="line">        INT 0x10            ; 调用显卡BIOS，INT软件中断指令</span><br><span class="line">        JMP putloop</span><br><span class="line"></span><br><span class="line">fin:</span><br><span class="line">        HLT                 ; 让CPU停止等待指令</span><br><span class="line">        JMP fin             ; 无限循环</span><br><span class="line"></span><br><span class="line">msg:</span><br><span class="line">        DB 0x0a, 0x0a       ; 换行</span><br><span class="line">        DB &quot;hello, world&quot;</span><br><span class="line">        DB 0x0a</span><br><span class="line">        DB 0</span><br><span class="line"></span><br><span class="line">        RESB 0x7dfe-$       ; 填写0x00直到0x001fe</span><br><span class="line">        DB 0x55, 0xaa       ; 结束</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：30天那个书制作启动盘的部分完全可以看看就行。。。代码就是上面的，就是helloos.nas节选那个末尾加上了两行，写满512字节和结束标志！</p>
+</blockquote>
+<p>代码直接看<a href="https://github.com/yourtion/30dayMakeOS" target="_blank" rel="noopener">这个库</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wepay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Verilog</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HDL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">硬件开发</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自制</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数字电子技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/15/自制操作系统log/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/18/Verilog-HDL基础语法（上）/" class="archive-article-date">
-  	<time datetime="2019-07-18T02:42:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/01/免费证书实现https(保姆级教程)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">免费证书实现https(保姆级教程)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/18/Verilog-HDL基础语法（上）/">Verilog HDL基础语法（上）</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Verilog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HDL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">硬件开发</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数字电子技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -308,9 +403,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
