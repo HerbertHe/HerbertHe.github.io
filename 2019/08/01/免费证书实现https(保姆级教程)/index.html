@@ -241,7 +241,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">certbot --nginx</span><br></pre></td></tr></table></figure>
 
 <p>手动：只下载证书，手动配置/重启/重载nginx(手动配置nginx需要对nginx有一定的了解，下面的参考文章里有阿里云ssl配置的参考)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly --nginx</span><br><span class="line"><span class="meta">#</span> 主要区别就在于certonly这个参数，通配符咱们也会遇到</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">certbot certonly --nginx</span><br><span class="line"><span class="meta">#</span><span class="bash"> 主要区别就在于certonly这个参数，通配符咱们也会遇到</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>证书成功生成之后会有信息显示证书所在的位置的，或者运行下面的命令查看证书，然后配置nginx的ssl_certificate和ssl_certificate_key这两个参数就好了。其中privkey.pem对应的就是ssl_certificate_key的目标文件。</p>
@@ -250,7 +250,7 @@
 </li>
 <li><p>测试自动更新</p>
 <p> Certbot支持自动更新证书，然后自动添加了定时任务，就不需要手动更新证书了。官网说在/etc/crontab、/etc/cron.*/*或者systemctl list-timers里面使用了，不放心的可以手动添加定时任务并且设置重启nginx的。</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">certbot renew --dry-run</span><br><span class="line"><span class="meta">#</span> --dry-run这个参数用于测试的</span><br></pre></td></tr></table></figure>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">certbot renew --dry-run</span><br><span class="line"><span class="meta">#</span><span class="bash"> --dry-run这个参数用于测试的</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>查看的网站的状态</p>
 <p>这个要看具体的配置，80端口开启ssl直接就好了，443端口https访问！</p>
@@ -276,7 +276,7 @@
 </blockquote>
 <h3 id="下载到-var下"><a href="#下载到-var下" class="headerlink" title="下载到/var下"></a>下载到/var下</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /var</span><br><span class="line">git clone https://github.com/ywdblog/certbot-letencrypt-wildcardcertificates-alydns-au</span><br><span class="line">cd certbot-letencrypt-wildcardcertificates-alydns-au</span><br><span class="line">chmod 0777 au.sh</span><br></pre></td></tr></table></figure>
 
-<h3 id="配置domain-ini"><a href="#配置domain-ini" class="headerlink" title="配置domain.ini"></a>配置domain.ini</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat domain.ini</span><br><span class="line"><span class="meta">#</span> 如果有自己域名后缀的话就不用执行下面修改了</span><br><span class="line">nano domain.ini</span><br></pre></td></tr></table></figure>
+<h3 id="配置domain-ini"><a href="#配置domain-ini" class="headerlink" title="配置domain.ini"></a>配置domain.ini</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat domain.ini</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果有自己域名后缀的话就不用执行下面修改了</span></span><br><span class="line">nano domain.ini</span><br></pre></td></tr></table></figure>
 
 <h3 id="获取阿里云的accesskey-腾讯云请参考官方文档"><a href="#获取阿里云的accesskey-腾讯云请参考官方文档" class="headerlink" title="获取阿里云的accesskey(腾讯云请参考官方文档)"></a>获取阿里云的accesskey(腾讯云请参考官方文档)</h3><p>参考 <a href="https://help.aliyun.com/knowledge_detail/38738.html" target="_blank" rel="noopener">阿里云API Key和Secret的申请</a></p>
 <h3 id="修改au-sh参数"><a href="#修改au-sh参数" class="headerlink" title="修改au.sh参数"></a>修改au.sh参数</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano au.sh</span><br></pre></td></tr></table></figure>
@@ -500,7 +500,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Herbert He
+    		&copy; 2020 Herbert He
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -604,19 +604,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">服务端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">反向代理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,23 +628,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">Nodejs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+                <a href="javascript:void(0)" class="js-tag color4">Frontend</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端开发</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">自制</a>
+                <a href="javascript:void(0)" class="js-tag color5">环境搭建</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,22 +665,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">FPGA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">物理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础物理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">理论物理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">应用物理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -717,6 +693,38 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssl</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">物理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础物理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">理论物理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">应用物理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">自制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">

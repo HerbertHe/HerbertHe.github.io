@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>自制操作系统log | Herbert部落格</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="参考书 《三十天自制操作系统（川合秀实）》 《ORANGE’S：一个操作系统的实现》  写在前面的本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书籍中的内容根据自己的喜好、习惯，有一定的自己理解和改变！本记录默认对二进制、十六进制和基础硬件等都有一定的了解！ 制作启动区(512字节)从开始我对两本书都是懵逼的，结合两本书涉及的启动盘代码总结一点东">
+  <meta name="description" content="参考书 《三十天自制操作系统（川合秀实）》 《ORANGE’S：一个操作系统的实现》  写在前面的本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书籍中的内容根据自己的喜好、习惯，有一定的自己理解和改变！本记录默认对二进制、十六进制和基础硬件等都有一定的了解！">
 <meta name="keywords" content="OS,操作系统,自制,记录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自制操作系统log">
 <meta property="og:url" content="http://yoursite.com/2019/09/15/自制操作系统log/index.html">
 <meta property="og:site_name" content="Herbert部落格">
-<meta property="og:description" content="参考书 《三十天自制操作系统（川合秀实）》 《ORANGE’S：一个操作系统的实现》  写在前面的本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书籍中的内容根据自己的喜好、习惯，有一定的自己理解和改变！本记录默认对二进制、十六进制和基础硬件等都有一定的了解！ 制作启动区(512字节)从开始我对两本书都是懵逼的，结合两本书涉及的启动盘代码总结一点东">
+<meta property="og:description" content="参考书 《三十天自制操作系统（川合秀实）》 《ORANGE’S：一个操作系统的实现》  写在前面的本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书籍中的内容根据自己的喜好、习惯，有一定的自己理解和改变！本记录默认对二进制、十六进制和基础硬件等都有一定的了解！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T14:57:01.966Z">
+<meta property="og:updated_time" content="2020-01-26T14:53:02.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自制操作系统log">
-<meta name="twitter:description" content="参考书 《三十天自制操作系统（川合秀实）》 《ORANGE’S：一个操作系统的实现》  写在前面的本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书籍中的内容根据自己的喜好、习惯，有一定的自己理解和改变！本记录默认对二进制、十六进制和基础硬件等都有一定的了解！ 制作启动区(512字节)从开始我对两本书都是懵逼的，结合两本书涉及的启动盘代码总结一点东">
+<meta name="twitter:description" content="参考书 《三十天自制操作系统（川合秀实）》 《ORANGE’S：一个操作系统的实现》  写在前面的本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书籍中的内容根据自己的喜好、习惯，有一定的自己理解和改变！本记录默认对二进制、十六进制和基础硬件等都有一定的了解！">
   
     <link rel="alternative" href="/atom.xml" title="Herbert部落格" type="application/atom+xml">
   
@@ -212,6 +212,8 @@
 <li>《ORANGE’S：一个操作系统的实现》</li>
 </ul>
 <h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书籍中的内容根据自己的喜好、习惯，有一定的自己理解和改变！本记录默认对二进制、十六进制和基础硬件等都有一定的了解！</p>
+<a id="more"></a>
+
 <h2 id="制作启动区-512字节"><a href="#制作启动区-512字节" class="headerlink" title="制作启动区(512字节)"></a>制作启动区(512字节)</h2><p>从开始我对两本书都是懵逼的，结合两本书涉及的启动盘代码总结一点东西</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">ORG 0x7c00                  ; 程序加载0x7c00</span><br><span class="line"></span><br><span class="line">; FAT12格式软盘代码位</span><br><span class="line">; (--省略--)</span><br><span class="line"></span><br><span class="line">JMP entry</span><br><span class="line">DB 0x90</span><br><span class="line"></span><br><span class="line">entry:</span><br><span class="line">        MOV AX, 0           ; 初始化寄存器</span><br><span class="line">        MOV SS, AX</span><br><span class="line">        MOV SP, 0x7c00</span><br><span class="line">        MOV DS, AX</span><br><span class="line">        MOV ES, AX</span><br><span class="line"></span><br><span class="line">        MOV SI, msg</span><br><span class="line"></span><br><span class="line">putloop:</span><br><span class="line">        MOV AL, [SI]        ; []表示内存中</span><br><span class="line">        ADD SI, 1           ; SI加一</span><br><span class="line">        CMP AL, 0</span><br><span class="line"></span><br><span class="line">        JE fin              ; jump if equal</span><br><span class="line">        MOV AH, 0x0e        ; 显示一个文字</span><br><span class="line">        MOV BX, 15          ; 指定字符颜色</span><br><span class="line">        INT 0x10            ; 调用显卡BIOS，INT软件中断指令</span><br><span class="line">        JMP putloop</span><br><span class="line"></span><br><span class="line">fin:</span><br><span class="line">        HLT                 ; 让CPU停止等待指令</span><br><span class="line">        JMP fin             ; 无限循环</span><br><span class="line"></span><br><span class="line">msg:</span><br><span class="line">        DB 0x0a, 0x0a       ; 换行</span><br><span class="line">        DB &quot;hello, world&quot;</span><br><span class="line">        DB 0x0a</span><br><span class="line">        DB 0</span><br><span class="line"></span><br><span class="line">        RESB 0x7dfe-$       ; 填写0x00直到0x001fe</span><br><span class="line">        DB 0x55, 0xaa       ; 结束</span><br></pre></td></tr></table></figure>
 
@@ -345,6 +347,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/01/26/Nodejs安装若干问题避坑/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Nodejs安装若干问题避坑
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/08/01/免费证书实现https(保姆级教程)/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">免费证书实现https(保姆级教程)</div>
@@ -390,7 +401,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Herbert He
+    		&copy; 2020 Herbert He
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -494,19 +505,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">服务端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">反向代理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,23 +529,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">Nodejs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+                <a href="javascript:void(0)" class="js-tag color4">Frontend</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端开发</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">自制</a>
+                <a href="javascript:void(0)" class="js-tag color5">环境搭建</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,22 +566,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">FPGA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">物理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础物理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">理论物理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">应用物理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,6 +594,38 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssl</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">物理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础物理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">理论物理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">应用物理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">自制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">

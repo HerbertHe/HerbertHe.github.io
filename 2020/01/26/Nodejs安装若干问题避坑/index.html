@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Herbert部落格</title>
+  <title>Nodejs安装若干问题避坑 | Herbert部落格</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Herbert技术分享博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Herbert部落格">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="nodejs的windows下传统安装nodejs官网下载：LTS为长期支持版，Current是最新版  根据官网给的安装包一步步来即可安装  nodejs的不同版本安装思考由于平时可能涉及到的node版本不同导致所用的代码会出现各种各样的问题，node的版本管理工具切换node版本显得比较重要！在Linux/Mac端nvm很好的解决了版本管理的问题，在Windows端不可使用nvm进行管理！ G">
+<meta name="keywords" content="Nodejs,Frontend,前端开发,环境搭建,nvm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nodejs安装若干问题避坑">
+<meta property="og:url" content="http://yoursite.com/2020/01/26/Nodejs安装若干问题避坑/index.html">
 <meta property="og:site_name" content="Herbert部落格">
-<meta property="og:description" content="Herbert技术分享博客">
+<meta property="og:description" content="nodejs的windows下传统安装nodejs官网下载：LTS为长期支持版，Current是最新版  根据官网给的安装包一步步来即可安装  nodejs的不同版本安装思考由于平时可能涉及到的node版本不同导致所用的代码会出现各种各样的问题，node的版本管理工具切换node版本显得比较重要！在Linux/Mac端nvm很好的解决了版本管理的问题，在Windows端不可使用nvm进行管理！ G">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-26T14:51:13.266Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Herbert部落格">
-<meta name="twitter:description" content="Herbert技术分享博客">
+<meta name="twitter:title" content="Nodejs安装若干问题避坑">
+<meta name="twitter:description" content="nodejs的windows下传统安装nodejs官网下载：LTS为长期支持版，Current是最新版  根据官网给的安装包一步步来即可安装  nodejs的不同版本安装思考由于平时可能涉及到的node版本不同导致所用的代码会出现各种各样的问题，node的版本管理工具切换node版本显得比较重要！在Linux/Mac端nvm很好的解决了版本管理的问题，在Windows端不可使用nvm进行管理！ G">
   
     <link rel="alternative" href="/atom.xml" title="Herbert部落格" type="application/atom+xml">
   
@@ -165,16 +167,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Nodejs安装若干问题避坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Nodejs安装若干问题避坑" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/26/Nodejs安装若干问题避坑/">Nodejs安装若干问题避坑</a>
+    <h1 class="article-title" itemprop="name">
+      Nodejs安装若干问题避坑
     </h1>
   
 
@@ -216,11 +216,87 @@
 <blockquote>
 <p>下面对 <code>nodejs</code> 和 <code>node</code>, <code>nvm</code> 和 <code>nvm-windows</code> 不加以区分</p>
 </blockquote>
-        
-          <a class="article-more-a" href="/2020/01/26/Nodejs安装若干问题避坑/#more">more >></a>
-        
+<a id="more"></a>
+
+<h2 id="配置安装nvm-windows"><a href="#配置安装nvm-windows" class="headerlink" title="配置安装nvm-windows"></a>配置安装nvm-windows</h2><ol>
+<li><p>首先建议<code>卸载</code>本地环境下的nodejs，以便更好地管理node版本</p>
+</li>
+<li><p><a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener">releases</a>中下载最新的安装包</p>
+<blockquote>
+<p>建议使用: <code>nvm-setup.zip</code> 傻瓜式安装, <code>nvm-noinstall.zip</code> 为绿色版需要自行配置</p>
+</blockquote>
+</li>
+<li><p>安装配置<code>nvm-windows</code></p>
+<ul>
+<li><code>nvm</code> 安装路径可以自定义</li>
+<li>symlink为超链接的目标目录，即用<code>nvm use</code>切换node版本时，本质上是切换链接的指向！symlink配置之后安装工具会把链接的地址加入系统环境变量之中，下面将会详述<code>nvm</code>的命令和具体使用！这个目录就当成node的安装目录就好了。</li>
+</ul>
+</li>
+</ol>
+<h2 id="nvm命令详解"><a href="#nvm命令详解" class="headerlink" title="nvm命令详解"></a>nvm命令详解</h2><ul>
+<li><p><code>nvm version</code>: 查询当前的nvm版本</p>
+</li>
+<li><p><code>nvm</code>: 列出所有的命令</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Running version 1.1.7.</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line"></span><br><span class="line">nvm arch                     : 显示node运行在32位还是在64位系统上</span><br><span class="line">nvm install &lt;version&gt; [arch] : 利用nvm下载node, 可以指定版本下载或者"latest"下载最新稳定版, 可选指定下载32/64位的版本, 默认与系统架构相同。</span><br><span class="line">                                arch参数为"all"则32/64位版本都下载, 命令后面添加--insecure可以跳过SSL检查下载</span><br><span class="line">nvm list [available]         : 列出所有的node下载, "nvm list available" 命令可以查看所有可下载的node版本, 别名ls</span><br><span class="line">nvm on                       : 允许进行node版本管理</span><br><span class="line">nvm off                      : 不允许进行node版本管理</span><br><span class="line">nvm proxy [url]              : 为下载配置代理, url参数为空打印当前代理, 参数为"none"删除代理</span><br><span class="line">nvm node_mirror [url]        : 设置node镜像, 默认是 https://nodejs.org/dist/ （国内可用: https://npm.taobao.org/mirrors/node/）</span><br><span class="line">nvm npm_mirror [url]         : 设置npm镜像, 默认是 https://github.com/npm/cli/archive/ （国内可用淘宝镜像: https://npm.taobao.org/mirrors/npm/）</span><br><span class="line">nvm uninstall &lt;version&gt;      : 卸载指定版本node</span><br><span class="line">nvm use [version] [arch]     : 切换指定使用的node版本, 可选指定32或64位架构, "arch"参数可选</span><br><span class="line">nvm root [path]              : 设置nvm管理的不同版本node的储存位置, 如果路径没有设置就打印当前nvm安装的目录（ps: 这个其实可以不用设置的）</span><br><span class="line">nvm version                  : 显示当前Windows环境下nvm的版本, 别名 v</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="Win10一般配置nvm"><a href="#Win10一般配置nvm" class="headerlink" title="Win10一般配置nvm"></a>Win10一般配置nvm</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置64位架构</span></span><br><span class="line">nvm arch 64</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置node镜像</span></span><br><span class="line">nvm node_mirror https://npm.taobao.org/mirrors/node/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置npm镜像</span></span><br><span class="line">nvm npm_mirror https://npm.taobao.org/mirrors/npm/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 列出所有可以下载的node</span></span><br><span class="line">nvm list available</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 以12.14.1版本为例下载node</span></span><br><span class="line">nvm install 12.14.1</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 显示所有已下载的node</span></span><br><span class="line">nvm list</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 切换使用12.14.1</span></span><br><span class="line">nvm use 12.14.1</span><br></pre></td></tr></table></figure>
+
+<h2 id="需要注意的问题"><a href="#需要注意的问题" class="headerlink" title="需要注意的问题"></a>需要注意的问题</h2><ol>
+<li><p><code>nvm</code>管理node时，利用npm/yarn全局下载的包只能是下载到当前使用版本的node的node_modules\node_global\node_modules下，如果切换node版本，依赖包是要重新下载的！</p>
+</li>
+<li><p>由于yarn和npm全局下载的包在node_modules中的结构是不同的，yarn全局下载的包使用PowerShell跑的时候找不到命令，所以强烈建议全局下载例如Taro、Vue、React等的脚手架工具时使用npm做node的依赖包管理，而非yarn</p>
+</li>
+<li><p>因为yarn可以多线程下载，下载包的速度比npm要快还能多，所以建议在项目中使用yarn进行包管理</p>
+</li>
+<li><p>安装过程中出现的异常通常可以通过重启或者使用<code>管理员身份打开</code>解决</p>
+</li>
+</ol>
+<h2 id="npm-yarn包镜像源的管理"><a href="#npm-yarn包镜像源的管理" class="headerlink" title="npm/yarn包镜像源的管理"></a>npm/yarn包镜像源的管理</h2><blockquote>
+<p>强烈建议使用<code>yrm</code>进行镜像源管理</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载yrm</span></span><br><span class="line">npm install yrm -g</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 列出所有可以使用的镜像源</span></span><br><span class="line">yrm ls</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 示例使用taobao镜像源</span></span><br><span class="line">yrm use taobao</span><br></pre></td></tr></table></figure>
+
+<h2 id="yrm命令详解"><a href="#yrm命令详解" class="headerlink" title="yrm命令详解"></a>yrm命令详解</h2><blockquote>
+<p>命令行使用<code>yrm</code>即可显示所有的yrm命令</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Usage: cli [options] [command]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -V, --version                输出版本</span><br><span class="line">  -h, --help                   输出使用信息</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  ls                           列出所有的仓库</span><br><span class="line">  current                      展示当前的仓库名</span><br><span class="line">  use &lt;仓库名&gt;                 使用指定的仓库</span><br><span class="line">  add &lt;仓库名&gt; &lt;url&gt; [home]    添加一个自定义仓库</span><br><span class="line">  del &lt;仓库名&gt;                 删除一个仓库</span><br><span class="line">  home &lt;仓库名&gt; [browser]      用可选浏览器打开仓库首页</span><br><span class="line">  test [仓库名]                展示指定仓库或者所有仓库的响应时间</span><br><span class="line">  help                         打印帮助</span><br></pre></td></tr></table></figure>
+
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wepay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -256,247 +332,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/26/Nodejs安装若干问题避坑/">展开全文 >></a>
-        </p>
-      
 
       
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-自制操作系统log" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/15/自制操作系统log/">自制操作系统log</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/15/自制操作系统log/" class="archive-article-date">
-  	<time datetime="2019-09-15T13:42:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
-</a>
-        
-        <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="fa fa-keyboard-o"></i>
-            <span class="post-meta-item-text"> 字数统计: </span>
-            <span class="post-count">374字</span>
-        </span>
+      </div>
     </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="fa fa-hourglass-half"></i>
-            <span class="post-meta-item-text"> 阅读时长: </span>
-            <span class="post-count">1分</span>
-        </span>
-    </span>
+  </div>
 </div>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="参考书"><a href="#参考书" class="headerlink" title="参考书"></a>参考书</h2><ul>
-<li>《三十天自制操作系统（川合秀实）》</li>
-<li>《ORANGE’S：一个操作系统的实现》</li>
-</ul>
-<h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书籍中的内容根据自己的喜好、习惯，有一定的自己理解和改变！本记录默认对二进制、十六进制和基础硬件等都有一定的了解！</p>
-        
-          <a class="article-more-a" href="/2019/09/15/自制操作系统log/#more">more >></a>
-        
-      
 
-      
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/26/Nodejs安装若干问题避坑/" alt="微信分享二维码">
     </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">操作系统</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自制</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/15/自制操作系统log/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-免费证书实现https(保姆级教程)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/01/免费证书实现https(保姆级教程)/">免费证书实现https(保姆级教程)</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/01/免费证书实现https(保姆级教程)/" class="archive-article-date">
-  	<time datetime="2019-08-01T03:38:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-01</time>
-</a>
-        
-        <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="fa fa-keyboard-o"></i>
-            <span class="post-meta-item-text"> 字数统计: </span>
-            <span class="post-count">1.6k字</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="fa fa-hourglass-half"></i>
-            <span class="post-meta-item-text"> 阅读时长: </span>
-            <span class="post-count">6分</span>
-        </span>
-    </span>
 </div>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="使用Certbot"><a href="#使用Certbot" class="headerlink" title="使用Certbot"></a>使用Certbot</h2><p>Certbot使用的是<a href="https://letsencrypt.org" target="_blank" rel="noopener">Let’s Encrypt</a>的证书，该组织也强烈建议使用<a href="https://certbot.eff.org/" target="_blank" rel="noopener">Certbot</a>获取证书。</p>
-<h2 id="Certbot配置"><a href="#Certbot配置" class="headerlink" title="Certbot配置"></a>Certbot配置</h2><p>使用这个的目的是获取通配符证书，也就是支持二级域的证书验证，避免https错误的预警。</p>
-<ul>
-<li>主机商: 阿里云</li>
-<li>系统版本: Ubuntu18.04</li>
-<li>Web服务: nginx</li>
-<li>使用环境: python3</li>
-</ul>
-        
-          <a class="article-more-a" href="/2019/08/01/免费证书实现https(保姆级教程)/#more">more >></a>
-        
-      
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">domain</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">https</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ubuntu18</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssl</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/01/免费证书实现https(保姆级教程)/">展开全文 >></a>
-        </p>
-      
-
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/15/自制操作系统log/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自制操作系统log</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -516,784 +420,14 @@
 
 
 
-
   
-    <article id="post-Verilog-HDL基础语法（下）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/19/Verilog-HDL基础语法（下）/">Verilog-HDL基础语法（下）</a>
-    </h1>
   
 
-        
-        <a href="/2019/07/19/Verilog-HDL基础语法（下）/" class="archive-article-date">
-  	<time datetime="2019-07-19T13:50:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-19</time>
-</a>
-        
-        <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="fa fa-keyboard-o"></i>
-            <span class="post-meta-item-text"> 字数统计: </span>
-            <span class="post-count">430字</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="fa fa-hourglass-half"></i>
-            <span class="post-meta-item-text"> 阅读时长: </span>
-            <span class="post-count">1分</span>
-        </span>
-    </span>
-</div>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="过程块"><a href="#过程块" class="headerlink" title="过程块"></a>过程块</h2><ul>
-<li>initial块，只执行一次</li>
-<li>always块，循环执行</li>
-</ul>
-<p>过程块中的部件：</p>
-<ul>
-<li>过程赋值语句</li>
-<li>高级结构（循环，条件语句）</li>
-<li>时序控制</li>
-</ul>
-        
-          <a class="article-more-a" href="/2019/07/19/Verilog-HDL基础语法（下）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Verilog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HDL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">硬件开发</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数字电子技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/19/Verilog-HDL基础语法（下）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Verilog-HDL基础语法（上）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/18/Verilog-HDL基础语法（上）/">Verilog HDL基础语法（上）</a>
-    </h1>
   
 
-        
-        <a href="/2019/07/18/Verilog-HDL基础语法（上）/" class="archive-article-date">
-  	<time datetime="2019-07-18T02:42:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-18</time>
-</a>
-        
-        <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="fa fa-keyboard-o"></i>
-            <span class="post-meta-item-text"> 字数统计: </span>
-            <span class="post-count">1.9k字</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="fa fa-hourglass-half"></i>
-            <span class="post-meta-item-text"> 阅读时长: </span>
-            <span class="post-count">7分</span>
-        </span>
-    </span>
-</div>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>本博客是对于自己接触基于Verilog硬件开发学习的基础语法学习笔记！接触Verilog之前一定要有《数字电子技术》的基础！</p>
-<p>Verilog HDL是一门硬件描述性语言，可以类似于软件开发一样去做硬件开发。符合“顶层设计”，与传统的搭电路是不一样的，学习过C之类的会更容易。</p>
-<p>对于基础概念和简介在此跳过了！！<strong>Verilog大小写敏感！</strong></p>
-<p>关于寄存器、锁存器、触发器可以参考 <a href="https://blog.csdn.net/hengzo/article/details/53164626" target="_blank" rel="noopener">锁存器与寄存器的区别</a></p>
-        
-          <a class="article-more-a" href="/2019/07/18/Verilog-HDL基础语法（上）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Verilog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HDL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">硬件开发</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数字电子技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">FPGA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/18/Verilog-HDL基础语法（上）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-NumPy的一些点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/16/NumPy的一些点/">NumPy的一些点</a>
-    </h1>
   
 
-        
-        <a href="/2019/07/16/NumPy的一些点/" class="archive-article-date">
-  	<time datetime="2019-07-16T02:13:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-16</time>
-</a>
-        
-        <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="fa fa-keyboard-o"></i>
-            <span class="post-meta-item-text"> 字数统计: </span>
-            <span class="post-count">2.1k字</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="fa fa-hourglass-half"></i>
-            <span class="post-meta-item-text"> 阅读时长: </span>
-            <span class="post-count">9分</span>
-        </span>
-    </span>
-</div>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h2><p><a href="https://www.runoob.com/numpy" target="_blank" rel="noopener">runoob numpy</a></p>
-<h2 id="NumPy-Ndarray对象"><a href="#NumPy-Ndarray对象" class="headerlink" title="NumPy Ndarray对象"></a>NumPy Ndarray对象</h2><ul>
-<li>N维数组对象</li>
-<li>同类型数据的集合</li>
-<li>从0下标开始元素索引</li>
-</ul>
-        
-          <a class="article-more-a" href="/2019/07/16/NumPy的一些点/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">numpy</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">图像处理基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/16/NumPy的一些点/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-菜单简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/13/菜单简介/">菜单简介</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/13/菜单简介/" class="archive-article-date">
-  	<time datetime="2019-07-13T13:51:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-13</time>
-</a>
-        
-        <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="fa fa-keyboard-o"></i>
-            <span class="post-meta-item-text"> 字数统计: </span>
-            <span class="post-count">1.1k字</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="fa fa-hourglass-half"></i>
-            <span class="post-meta-item-text"> 阅读时长: </span>
-            <span class="post-count">3分</span>
-        </span>
-    </span>
-</div>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="为什么会有这个菜单"><a href="#为什么会有这个菜单" class="headerlink" title="为什么会有这个菜单"></a>为什么会有这个菜单</h2><p>博主本专业是应用物理学，长期感兴趣的方向却是计算机和嵌入式开发相关，然后专业课有时候会挂，毕竟物理这一行比较艰辛。新开这个菜单是为了提醒自己仍然是物理专业的学生，也会在这个菜单里写一些自己的学习笔记，拿到电脑也会想起来去写一写笔记和思考。</p>
-        
-          <a class="article-more-a" href="/2019/07/13/菜单简介/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">物理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础物理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">理论物理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">应用物理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/13/菜单简介/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-EMQ试用Log" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/09/EMQ试用Log/">EMQ试用Log</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/09/EMQ试用Log/" class="archive-article-date">
-  	<time datetime="2019-07-08T16:01:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-09</time>
-</a>
-        
-        <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="fa fa-keyboard-o"></i>
-            <span class="post-meta-item-text"> 字数统计: </span>
-            <span class="post-count">317字</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="fa fa-hourglass-half"></i>
-            <span class="post-meta-item-text"> 阅读时长: </span>
-            <span class="post-count">1分</span>
-        </span>
-    </span>
-</div>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是EMQ"><a href="#什么是EMQ" class="headerlink" title="什么是EMQ"></a>什么是EMQ</h2><p>EMQ是一款部署在服务端的物联网框架，支持主流的物联网协议。更多的介绍可以参考 <a href="https://www.emqx.io/cn/" target="_blank" rel="noopener">EMQ官网</a> 的介绍。</p>
-        
-          <a class="article-more-a" href="/2019/07/09/EMQ试用Log/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">EMQ</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">emqx</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">物联网</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mqtt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/09/EMQ试用Log/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hexo基础搭建使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/02/Hexo基础搭建使用/">Hexo基础搭建使用</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/02/Hexo基础搭建使用/" class="archive-article-date">
-  	<time datetime="2019-07-02T14:25:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-02</time>
-</a>
-        
-        <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="fa fa-keyboard-o"></i>
-            <span class="post-meta-item-text"> 字数统计: </span>
-            <span class="post-count">1.4k字</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="fa fa-hourglass-half"></i>
-            <span class="post-meta-item-text"> 阅读时长: </span>
-            <span class="post-count">5分</span>
-        </span>
-    </span>
-</div>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Hexo安装环境"><a href="#Hexo安装环境" class="headerlink" title="Hexo安装环境"></a>Hexo安装环境</h2><ul>
-<li><a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a> (<a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">nvm</a>)</li>
-<li><a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
-</ul>
-<blockquote>
-<p>推荐使用nvm，在实践之后发现nvm真的很好用，当然Windows用户可以直接下载安装</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载node.js</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nvm install stable</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/07/02/Hexo基础搭建使用/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/02/Hexo基础搭建使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Dart之旅" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/02/Dart之旅/">Dart之旅</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/02/Dart之旅/" class="archive-article-date">
-  	<time datetime="2018-12-02T10:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-02</time>
-</a>
-        
-        <div style="margin-top:10px;">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="fa fa-keyboard-o"></i>
-            <span class="post-meta-item-text"> 字数统计: </span>
-            <span class="post-count">17.5k字</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="fa fa-hourglass-half"></i>
-            <span class="post-meta-item-text"> 阅读时长: </span>
-            <span class="post-count">70分</span>
-        </span>
-    </span>
-</div>
-        
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><blockquote>
-<p>本文是参考了Dart官网<a href="https://www.dartlang.org" target="_blank" rel="noopener">https://www.dartlang.org</a> 的教程、参考的机翻以及对于其他语言学习的经验来翻译的本入门教程，译者精力和学历有限，如有不妥之处欢迎指正。</p>
-</blockquote>
-<blockquote>
-<p>本文出于知识共享的目的，转载请注明出处，如果用于商用请联系 <a href="mailto:admin@jieec.cn" target="_blank" rel="noopener">admin@jieec.cn</a></p>
-</blockquote>
-<h2 id="在线编译"><a href="#在线编译" class="headerlink" title="在线编译"></a>在线编译</h2><blockquote>
-<p>DartPad <a href="https://dartpad.dartlang.org/" target="_blank" rel="noopener">https://dartpad.dartlang.org/</a></p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/12/02/Dart之旅/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Dart</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Flutter</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/02/Dart之旅/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -1316,8 +450,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
