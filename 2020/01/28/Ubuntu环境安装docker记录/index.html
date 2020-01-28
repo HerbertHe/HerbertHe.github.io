@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>EMQ试用Log - Herbert部落格</title>
+    <title>Ubuntu环境安装docker记录 - Herbert部落格</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Herbert He Blog,"> 
-    <meta name="description" content="Herbert技术分享博客,什么是EMQEMQ是一款部署在服务端的物联网框架，支持主流的物联网协议。更多的介绍可以参考 EMQ官网 的介绍。
+    <meta name="description" content="Herbert技术分享博客,本地环境
+Ubuntu系统版本: Ubuntu19.10
+软件源: 清华大学Tuna
+虚拟机环境: VMware 15
 
-
-为什么要选择EMQ
-各个框架的对比可以参考 GitHub的一篇比较全面的对比文章,"> 
+新装Ubuntu基本配置# 配置软件源
+sudo nano /etc/apt,"> 
     <meta name="author" content="Herbert He"> 
     <link rel="alternative" href="atom.xml" title="Herbert部落格" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -47,7 +49,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">EMQ试用Log</h3>
+        <h3 class="subtitle">Ubuntu环境安装docker记录</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -79,26 +81,26 @@
                 
                 <a href="javascript:;"><b>「 </b>文章<b> 」</b></a>
                 
-                七月 09, 2019
+                一月 28, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/07/09/EMQ试用Log/" title="EMQ试用Log">EMQ试用Log</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/01/28/Ubuntu环境安装docker记录/" title="Ubuntu环境安装docker记录">Ubuntu环境安装docker记录</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    1.5k
+                    7.6k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    1 mins.
+                    7 mins.
                 </span>
                 
                 
-                <span id="/2019/07/09/EMQ试用Log/" class="leancloud_visitors" data-flag-title="EMQ试用Log">
+                <span id="/2020/01/28/Ubuntu环境安装docker记录/" class="leancloud_visitors" data-flag-title="Ubuntu环境安装docker记录">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">1000000</span>
                 </span>
@@ -107,7 +109,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/EMQ/">EMQ</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/emqx/">emqx</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/mqtt/">mqtt</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/物联网/">物联网</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Linux/">Linux</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Ubuntu19/">Ubuntu19</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/docker/">docker</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/记录/">记录</a></li></ul>
             
         </div>
     </div>
@@ -128,28 +130,140 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="什么是EMQ"><a href="#什么是EMQ" class="headerlink" title="什么是EMQ"></a>什么是EMQ</h2><p>EMQ是一款部署在服务端的物联网框架，支持主流的物联网协议。更多的介绍可以参考 <a href="https://www.emqx.io/cn/" target="_blank" rel="noopener">EMQ官网</a> 的介绍。</p>
-<a id="more"></a>
+            <h2 id="本地环境"><a href="#本地环境" class="headerlink" title="本地环境"></a>本地环境</h2><ul>
+<li>Ubuntu系统版本: Ubuntu19.10</li>
+<li>软件源: 清华大学Tuna</li>
+<li>虚拟机环境: VMware 15</li>
+</ul>
+<h2 id="新装Ubuntu基本配置"><a href="#新装Ubuntu基本配置" class="headerlink" title="新装Ubuntu基本配置"></a>新装Ubuntu基本配置</h2><pre><code class="shell"># 配置软件源
+sudo nano /etc/apt/sources.list</code></pre>
+<pre><code class="sources.list"># 首先注释掉所有的默认软件源
+# 添加清华源 (演示系统为Ubuntu19.10, 软件代号为eoan! )
 
-<h2 id="为什么要选择EMQ"><a href="#为什么要选择EMQ" class="headerlink" title="为什么要选择EMQ"></a>为什么要选择EMQ</h2><blockquote>
-<p>各个框架的对比可以参考 <a href="https://github.com/mqtt/mqtt.github.io/wiki/server-support" target="_blank" rel="noopener">GitHub的一篇比较全面的对比文章</a>，其中的emqttd就是这里的EMQ。</p>
-</blockquote>
-<p>EMQ国人开发的，因此在中文文档支持上会好很多，更容易去使用。EMQ提供了可视的数据监控台、大量的API和集成了一些插件，对于快速建立和部署服务端很友好。</p>
-<h2 id="EMQ的安装"><a href="#EMQ的安装" class="headerlink" title="EMQ的安装"></a>EMQ的安装</h2><p>作者用的是Win10的系统，在开发上来说个人不是很推荐，但是做硬件和软件客户端的测试和学习还是很不错的！EMQ也提供了Win10的版本！！</p>
-<p>官方的简介和安装可以直接参考文档 <a href="https://developer.emqx.io/docs/broker/v3/cn/getstarted.html#" target="_blank" rel="noopener">开始使用</a> 和 <a href="https://developer.emqx.io/docs/broker/v3/cn/install.html" target="_blank" rel="noopener">程序安装</a></p>
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-security main restricted universe multiverse
+
+# 预发布软件源，不建议启用
+# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-proposed main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-proposed main restricted universe multiverse</code></pre>
 <blockquote>
-<p>Win10直接下载zip到非系统盘解压就完事了</p>
+<p>Ubuntu各版本代号简介请参考: <a href="https://blog.csdn.net/zhengmx100/article/details/78352773" target="_blank" rel="noopener">传送门</a>, 不同版本对应的软件清华源: <a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">传送门</a></p>
 </blockquote>
-<h2 id="程序的启动（Win10）"><a href="#程序的启动（Win10）" class="headerlink" title="程序的启动（Win10）"></a>程序的启动（Win10）</h2><ol>
-<li>进入文件夹的bin下</li>
-<li>打开Git Bash 或者 Windows PowerShell</li>
-<li>./emqx.cmd start 启动服务</li>
-<li>./emqx_ctl.cmd status 查看状态</li>
-<li>./emqx.cmd stop 停止服务</li>
-</ol>
-<h2 id="在线监控"><a href="#在线监控" class="headerlink" title="在线监控"></a>在线监控</h2><blockquote>
-<p>浏览器打开localhost:18083即可进入DashBoard页面，默认用户名是admin，密码是public</p>
+<pre><code class="shell">sudo apt update
+sudo apt upgrade</code></pre>
+<h2 id="安装docker社区版"><a href="#安装docker社区版" class="headerlink" title="安装docker社区版"></a>安装docker社区版</h2><p>安装docker可以参考docker官网的<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">Get Docker Engine - Community for Ubuntu</a>, 也可以使用清华源镜像, 下面是参考<em>docker官网</em>和<em>清华源</em>对于安装过程的总结</p>
+<p>docker支持的Ubuntu版本为:</p>
+<ul>
+<li>Disco 19.04</li>
+<li>Cosmic 18.10</li>
+<li>Bionic 18.04 (LTS)</li>
+<li>Xenial 16.04 (LTS)</li>
+</ul>
+<blockquote>
+<p>社区版支持的架构为: <code>x86_64(amd64)</code>, <code>armhf</code>, <code>arm64</code>, <code>s390x</code>, <code>ppc64le</code>!<strong>Eoan 19.10软件源并不受支持!因此官网和清华源的命令在Ubuntu19.10下并不会成功!</strong>报错请参考: <a href="https://www.jb51.net/article/173316.htm" target="_blank" rel="noopener">分享Ubuntu19无法安装docker源问题</a></p>
 </blockquote>
+<h3 id="卸载旧版本的docker"><a href="#卸载旧版本的docker" class="headerlink" title="卸载旧版本的docker"></a>卸载旧版本的docker</h3><pre><code class="shell">sudo apt-get remove docker docker-engine docker.io containerd runc</code></pre>
+<blockquote>
+<p>docker社区版新版本名称为: docker-ce</p>
+</blockquote>
+<h3 id="更新软件源"><a href="#更新软件源" class="headerlink" title="更新软件源"></a>更新软件源</h3><pre><code class="shell">sudo apt update</code></pre>
+<h3 id="下载依赖"><a href="#下载依赖" class="headerlink" title="下载依赖"></a>下载依赖</h3><pre><code class="shell">sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common</code></pre>
+<h3 id="添加docker官方的GPG-key"><a href="#添加docker官方的GPG-key" class="headerlink" title="添加docker官方的GPG key"></a>添加docker官方的GPG key</h3><pre><code class="shell">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code></pre>
+<h3 id="验证指纹信息"><a href="#验证指纹信息" class="headerlink" title="验证指纹信息"></a>验证指纹信息</h3><pre><code class="shell">sudo apt-key fingerprint 0EBFCD88
+
+# 输出
+pub   rsa4096 2017-02-22 [SCEA]
+      9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
+uid           [ unknown] Docker Release (CE deb) &lt;docker@docker.com&gt;
+sub   rsa4096 2017-02-22 [S]</code></pre>
+<h3 id="设置软件源"><a href="#设置软件源" class="headerlink" title="设置软件源"></a>设置软件源</h3><blockquote>
+<p>这一步很关键！</p>
+</blockquote>
+<ul>
+<li>官网命令</li>
+</ul>
+<pre><code class="shell">sudo add-apt-repository \
+   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable&quot;</code></pre>
+<ul>
+<li>清华源命令</li>
+</ul>
+<pre><code class="shell">sudo add-apt-repository \
+   &quot;deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable&quot;</code></pre>
+<blockquote>
+<p>上面的命令会在<code>/etc/apt/sources.list</code>文件中添加下面的内容(以清华源为例), 执行之后会报上面提到的错误</p>
+</blockquote>
+<pre><code class="sources.list">deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu eoan stable
+# deb-src [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu eoan stable</code></pre>
+<blockquote>
+<p>正确的做法是手动更改添加<code>Disco 19.04</code>的docker软件源！</p>
+</blockquote>
+<pre><code class="shell">sudo nano /etc/apt/sources.list</code></pre>
+<pre><code class="sources.list">deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu disco stable
+# deb-src [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu disco stable</code></pre>
+<p>保存之后执行更新和下载</p>
+<pre><code class="shell">sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io</code></pre>
+<blockquote>
+<p>指定版本下载，列出软件源所有可下载的版本可以参考官网的<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1" target="_blank" rel="noopener">To install a specific version of Docker Engine - Community</a>, 用包下载安装可以参考<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-from-a-package" target="_blank" rel="noopener">Install from a package</a></p>
+</blockquote>
+<h3 id="验证docker安装"><a href="#验证docker安装" class="headerlink" title="验证docker安装"></a>验证docker安装</h3><p>通过跑测试镜像<code>hello-world</code>验证</p>
+<pre><code class="shell">sudo docker run hello-world</code></pre>
+<blockquote>
+<p>可能会因为网络的原因报错, 参考这篇帖子: <a href="https://blog.csdn.net/anjie5595/article/details/101501786" target="_blank" rel="noopener">docker pull error pulling image configuration</a></p>
+</blockquote>
+<p>报错解决</p>
+<pre><code class="shell"># 停止docker服务
+systemctl stop docker
+# 修改daemon配置文件添加加速源
+sudo nano /etc/docker/daemon.json</code></pre>
+<pre><code class="daemon.json">{
+　　&quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;,&quot;http://hub-mirror.c.163.com&quot;]
+}</code></pre>
+<pre><code class="shell"># 重载配置
+systemctl daemon-reload
+# 重启docker服务
+systemctl restart docker</code></pre>
+<blockquote>
+<p>测试成功信息</p>
+</blockquote>
+<pre><code class="shell">Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+</code></pre>
+<h3 id="docker更新"><a href="#docker更新" class="headerlink" title="docker更新"></a>docker更新</h3><p>直接使用<code>sudo apt upgrade</code>即可</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -193,7 +307,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是EMQ"><span class="toc-number">1.</span> <span class="toc-text">什么是EMQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要选择EMQ"><span class="toc-number">2.</span> <span class="toc-text">为什么要选择EMQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EMQ的安装"><span class="toc-number">3.</span> <span class="toc-text">EMQ的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序的启动（Win10）"><span class="toc-number">4.</span> <span class="toc-text">程序的启动（Win10）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在线监控"><span class="toc-number">5.</span> <span class="toc-text">在线监控</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地环境"><span class="toc-number">1.</span> <span class="toc-text">本地环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新装Ubuntu基本配置"><span class="toc-number">2.</span> <span class="toc-text">新装Ubuntu基本配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装docker社区版"><span class="toc-number">3.</span> <span class="toc-text">安装docker社区版</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载旧版本的docker"><span class="toc-number">3.1.</span> <span class="toc-text">卸载旧版本的docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新软件源"><span class="toc-number">3.2.</span> <span class="toc-text">更新软件源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载依赖"><span class="toc-number">3.3.</span> <span class="toc-text">下载依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加docker官方的GPG-key"><span class="toc-number">3.4.</span> <span class="toc-text">添加docker官方的GPG key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验证指纹信息"><span class="toc-number">3.5.</span> <span class="toc-text">验证指纹信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置软件源"><span class="toc-number">3.6.</span> <span class="toc-text">设置软件源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验证docker安装"><span class="toc-number">3.7.</span> <span class="toc-text">验证docker安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker更新"><span class="toc-number">3.8.</span> <span class="toc-text">docker更新</span></a></li></ol></li></ol>
                 </div>
             </div>
             

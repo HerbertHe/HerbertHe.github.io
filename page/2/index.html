@@ -5,16 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>EMQ试用Log - Herbert部落格</title>
+    <title>Herbert部落格</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Herbert He Blog,"> 
-    <meta name="description" content="Herbert技术分享博客,什么是EMQEMQ是一款部署在服务端的物联网框架，支持主流的物联网协议。更多的介绍可以参考 EMQ官网 的介绍。
-
-
-为什么要选择EMQ
-各个框架的对比可以参考 GitHub的一篇比较全面的对比文章,"> 
+    <meta name="description" content="Herbert技术分享博客,"> 
     <meta name="author" content="Herbert He"> 
     <link rel="alternative" href="atom.xml" title="Herbert部落格" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -40,77 +36,148 @@
     </div>
     <span id="config-title" style="display:none">Herbert部落格</span>
     <div id="loader"></div>
-    <div id="single">
-    <div class="scrollbar gradient-bg-rev"></div>
-<div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <div class="navigation animated fadeIn fast delay-1s">
-        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
-        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">EMQ试用Log</h3>
-        <div class="social">
-            <!--        <div class="like-icon">-->
-            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-            <!--        </div>-->
-            <div>
-                <div class="share">
-                    
-                        <a href="javascript:;" class="iconfont icon-share1"></a>
-                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
-                    
-                </div>
-            </div>
+    <div class="nav">
+    <ul id="menu-menu" class="menu">
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/categories/" title="CATEGORIES">CATEGORIES</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/tags/" title="TAGS">TAGS</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/archives/" title="ARCHIVES">ARCHIVES</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="https://server.jieec.cn" title="Jieec server">Jieec server</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="https://herberthe.gitee.io" title="国内镜像">国内镜像</a>
+        </li>
+        
+    </ul>
+    <p class="copyright" id="copyright">
+        &copy; 2020 Herbert He.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+    </p>
+</div>
+
+<div id="container">
+    
+<div class="search-box">
+    <form class="site-search-form">
+        <span class="iconfont icon-search"></span>
+        <input type="text" id="local-search-input" class="st-search-input" />
+        <div class="iconfont icon-cross search-box-close"></div>
+    </form>
+    <div class="search-scrollable">
+        <div id="local-search-result" class="local-search-result-cls" data-initialise="首次搜索，正在载入索引文件，请稍后……"
+            data-start="输入关键词搜索。" data-empty="没有找到内容，请尝试更换检索词。">
+            <span>输入关键词搜索。</span>
         </div>
     </div>
 </div>
-
-    <div class="section">
-        <div class=article-header-wrapper>
-    <div class="article-header">
-        <div class="article-cover animated fadeIn" style="
-            animation-delay: 600ms;
-            animation-duration: 1.2s;
-            background-image: 
-                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+<div id="header">
+    <div>
+        <div class="logo animated fadeInDown">
+            <img src="/img/favicon.png" alt="">
+            <a class="image-logo" href="/"></a>
+        </div>
+        <ul id="menu-menu" class="menu text-menu">
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/categories/" title="CATEGORIES" class="menu-link">CATEGORIES</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/tags/" title="TAGS" class="menu-link">TAGS</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/archives/" title="ARCHIVES" class="menu-link">ARCHIVES</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="https://server.jieec.cn" title="Jieec server" class="menu-link">Jieec server</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="https://herberthe.gitee.io" title="国内镜像" class="menu-link">国内镜像</a>
+            </li>
+            
+            
+            <li class="animated fadeInDown search-bar iconfont icon-search"></li>
+            
+        </ul>
+        <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
+    </div>
+</div>
+<div id="screen">
+    <div id="mark">
+        <div class="cover animated fadeIn" style="
+            animation-delay: 900ms;
+            animation-duration: 2.8s;
+            background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.56), #100e17),
                 url(/img/cover.jpg);">
         </div>
-        <div class="else">
-            <p class="animated fadeInDown">
-                
-                <a href="javascript:;"><b>「 </b>文章<b> 」</b></a>
-                
-                七月 09, 2019
-            </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/07/09/EMQ试用Log/" title="EMQ试用Log">EMQ试用Log</a>
-            </h3>
+    </div>
+    
+    <div id="post0" class="else">
+        <p class="animated fadeInDown">
             
-            <p class="post-count animated fadeInDown">
-                
-                <span>
-                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    1.5k
-                </span>
-                
-                
-                <span>
-                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    1 mins.
-                </span>
-                
-                
-                <span id="/2019/07/09/EMQ试用Log/" class="leancloud_visitors" data-flag-title="EMQ试用Log">
-                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
-                    <span class="leancloud-visitors-count">1000000</span>
-                </span>
-                
-                
-            </p>
+            <a href="javascript:;"><b>「 </b>文章<b> 」</b></a>
+            
+            十二月 02, 2018
+        </p>
+        <h3 class="post-title animated fadeInDown">
+            <a href="/2018/12/02/Dart之旅/" title="Dart之旅" class="posttitle">Dart之旅</a></h3>
+        
+        <p class="post-count animated fadeInDown">
+            
+            <span>
+                <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                73k
+            </span>
             
             
-            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/EMQ/">EMQ</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/emqx/">emqx</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/mqtt/">mqtt</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/物联网/">物联网</a></li></ul>
+            <span>
+                <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                1:06
+            </span>
             
+            
+            <span id="/2018/12/02/Dart之旅/" class="leancloud_visitors" data-flag-title="">
+                <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                <span class="leancloud-visitors-count">1000000</span>
+            </span>
+            
+        </p>
+        
+        
+        <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Dart/">Dart</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Flutter/">Flutter</a></li></ul>
+        
+        <div class="md-content animated fadeIn">
+            
+            <blockquote>
+<p>本文于2020/1/27修订</p>
+</blockquote>
+<blockquote>
+<p>本文是参考了<a href="https://www.dartlang.org" target="_blank" rel="noopener">Dart官网</a> 的教程、参考的机翻以及对于其他语言学习的经验来翻译的本入门教程，译者精力和学历有限，如有不妥之处欢迎指正。</p>
+</blockquote>
+<blockquote>
+<p>本文出于知识共享的目的，转...</p></blockquote>
+            
+            <span class="read-more"><a href="/2018/12/02/Dart之旅/" title="查看全文" class="posttitle">查看全文</a>
+                <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
+    
 </div>
 
 <div class="screen-gradient-after">
@@ -118,92 +185,85 @@
         <div class="screen-gradient-content-inside">
             <div class="bold-underline-links screen-gradient-sponsor">
                 <p>
-                    <span class="animated fadeIn delay-1s"></span>
+                    <span class="typed-text"></span>
                 </p>
             </div>
         </div>
     </div>
 </div>
 
-<div class="article">
-    <div class='main'>
-        <div class="content markdown animated fadeIn">
-            <h2 id="什么是EMQ"><a href="#什么是EMQ" class="headerlink" title="什么是EMQ"></a>什么是EMQ</h2><p>EMQ是一款部署在服务端的物联网框架，支持主流的物联网协议。更多的介绍可以参考 <a href="https://www.emqx.io/cn/" target="_blank" rel="noopener">EMQ官网</a> 的介绍。</p>
+    <div id="primary">
+        
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>文章<b> 」</b></a>
+            
+            十二月 02, 2018
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2018/12/02/Dart之旅/" title="Dart之旅" class="posttitle">Dart之旅</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                        73k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                        1:06
+                    </span>
+                
+                
+                    <span id="/2018/12/02/Dart之旅/" class="leancloud_visitors" data-flag-title="">
+                        <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                        <span class="leancloud-visitors-count">1000000</span>
+                    </span>
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Dart/">Dart</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Flutter/">Flutter</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <blockquote>
+<p>本文于2020/1/27修订</p>
+</blockquote>
+<blockquote>
+<p>本文是参考了<a href="https://www.dartlang.org" target="_blank" rel="noopener">Dart官网</a> 的教程、参考的机翻以及对于其他语言学习的经验来翻译的本入门教程，译者精力和学历有限，如有不妥之处欢迎指正。</p>
+</blockquote>
+<blockquote>
+<p>本文出于知识共享的目的，转载请注明出处，如果用于商用请联系 <a href="mailto:admin@jieec.cn" target="_blank" rel="noopener">admin@jieec.cn</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://dartpad.dartlang.org/" target="_blank" rel="noopener">DartPad</a></p>
+</blockquote>
 <a id="more"></a>
 
-<h2 id="为什么要选择EMQ"><a href="#为什么要选择EMQ" class="headerlink" title="为什么要选择EMQ"></a>为什么要选择EMQ</h2><blockquote>
-<p>各个框架的对比可以参考 <a href="https://github.com/mqtt/mqtt.github.io/wiki/server-support" target="_blank" rel="noopener">GitHub的一篇比较全面的对比文章</a>，其中的emqttd就是这里的EMQ。</p>
-</blockquote>
-<p>EMQ国人开发的，因此在中文文档支持上会好很多，更容易去使用。EMQ提供了可视的数据监控台、大量的API和集成了一些插件，对于快速建立和部署服务端很友好。</p>
-<h2 id="EMQ的安装"><a href="#EMQ的安装" class="headerlink" title="EMQ的安装"></a>EMQ的安装</h2><p>作者用的是Win10的系统，在开发上来说个人不是很推荐，但是做硬件和软件客户端的测试和学习还是很不错的！EMQ也提供了Win10的版本！！</p>
-<p>官方的简介和安装可以直接参考文档 <a href="https://developer.emqx.io/docs/broker/v3/cn/getstarted.html#" target="_blank" rel="noopener">开始使用</a> 和 <a href="https://developer.emqx.io/docs/broker/v3/cn/install.html" target="_blank" rel="noopener">程序安装</a></p>
-<blockquote>
-<p>Win10直接下载zip到非系统盘解压就完事了</p>
-</blockquote>
-<h2 id="程序的启动（Win10）"><a href="#程序的启动（Win10）" class="headerlink" title="程序的启动（Win10）"></a>程序的启动（Win10）</h2><ol>
-<li>进入文件夹的bin下</li>
-<li>打开Git Bash 或者 Windows PowerShell</li>
-<li>./emqx.cmd start 启动服务</li>
-<li>./emqx_ctl.cmd status 查看状态</li>
-<li>./emqx.cmd stop 停止服务</li>
-</ol>
-<h2 id="在线监控"><a href="#在线监控" class="headerlink" title="在线监控"></a>在线监控</h2><blockquote>
-<p>浏览器打开localhost:18083即可进入DashBoard页面，默认用户名是admin，密码是public</p>
-</blockquote>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls"
-                data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
+<ul>
+<li>Dart变量中的内容都是对象，对象都是类的实例，所有对象都是从Object类继承的</li>
+<li>Dart要求规定类型，但是可以自行推断类型。var num = 10; 就可以推断其类型为int（<strong>不需要类型之dynamic</strong>）...</li></ul>
             
-            <ul id="audio-list" style="display:none">
-                
-            </ul>
-            
-            
-            
-            <div id="vcomments"></div>
-            
-        </div>
-        <div class="sidebar">
-            <div class="box animated fadeInRight">
-                <div class="subbox">
-                    <img src="https://tvax2.sinaimg.cn/crop.0.0.996.996.180/80bd8a7aly8fq8s0f4rqkj20ro0rowfz.jpg?KID=imgbed,tva&Expires=1580119427&ssig=wnI6HasDk5" height=300 width=300></img>
-                    <p>Herbert He</p>
-                    <span>Share Ideas, Share Tech, Share Life</span>
-                    <dl>
-                        <dd><a href="https://github.com/HerbertHe" target="_blank"><span
-                                    class=" iconfont icon-github"></span></a></dd>
-                        <dd><a href="" target="_blank"><span
-                                    class=" iconfont icon-twitter"></span></a></dd>
-                        <dd><a href="" target="_blank"><span
-                                    class=" iconfont icon-stack-overflow"></span></a></dd>
-                    </dl>
-                </div>
-                <ul>
-                    <li><a href="/">11 <p>文章</p></a></li>
-                    <li><a href="/categories">0 <p>分类</p></a></li>
-                    <li><a href="/tags">36 <p>标签</p></a></li>
-                </ul>
-            </div>
-            
-            
-            
-            <div class="box sticky animated fadeInRight faster">
-                <div id="toc" class="subbox">
-                    <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是EMQ"><span class="toc-number">1.</span> <span class="toc-text">什么是EMQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要选择EMQ"><span class="toc-number">2.</span> <span class="toc-text">为什么要选择EMQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EMQ的安装"><span class="toc-number">3.</span> <span class="toc-text">EMQ的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序的启动（Win10）"><span class="toc-number">4.</span> <span class="toc-text">程序的启动（Win10）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在线监控"><span class="toc-number">5.</span> <span class="toc-text">在线监控</span></a></li></ol>
-                </div>
-            </div>
-            
-            
+            <span class="read-more"><a href="/2018/12/02/Dart之旅/" title="查看全文" class="posttitle">查看全文</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
 </div>
 
+
     </div>
+    
 </div>
+<div id="preview"></div>
+
     <div id="back-to-top" class="animated fadeIn faster">
         <div class="flow"></div>
         <span class="percentage animated fadeIn faster">0%</span>
