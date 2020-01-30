@@ -131,7 +131,7 @@
             <h2 id="遇到的错误"><a href="#遇到的错误" class="headerlink" title="遇到的错误"></a>遇到的错误</h2><img src="/img/微信图片_20200130165732.png">
 
 <p>正如你所见的，报了一个<code>value below was evaluated just now</code>的信息，意味着我拿到的是原来的数据而不是最新的，下面伴随一些demo来看看这个问题。</p>
-<h2 id="问题的引出"><a href="#问题的引出" class="headerlink" title="问题的引出"></a>问题的引出</h2><p>问题最早来源于我想拿到<code>Promise</code>里面返回的数据，所使用的是<code>React</code>并使用<code>Axios</code>来访问请求，<code>Axios</code>为http的异步请求。这里使用的是<code>GitHub</code>和<code>Gitee</code>的接口，请求得到当前的指定用户的关注、关注着、Star的仓库和自己仓库的数据量。具体的示例可以参考PC版的 <a href="https://server.jieec.cn" target="_blank" rel="noopener">Jieec Server</a>（目前没有在移动端上适配个人信息相关的，用media隐藏掉了）<strong>目前这个问题并未完全解决</strong></p>
+<h2 id="问题的引出"><a href="#问题的引出" class="headerlink" title="问题的引出"></a>问题的引出</h2><p>问题最早来源于我想拿到<code>Promise</code>里面返回的数据，所使用的是<code>React</code>并使用<code>Axios</code>来访问请求，<code>Axios</code>为http的异步请求。这里使用的是<code>GitHub</code>和<code>Gitee</code>的接口，请求得到当前的指定用户的关注、关注者、Star的仓库和自己仓库的数据量。具体的示例可以参考PC版的 <a href="https://server.jieec.cn" target="_blank" rel="noopener">Jieec Server</a>（目前没有在移动端上适配个人信息相关的，用media隐藏掉了）<strong>目前这个问题并未完全解决</strong></p>
 <blockquote>
 <p>全站代码都已经开源，可以在<a href="https://github.com/HerbertHe/JieecServerPage" target="_blank" rel="noopener">HerbertHe/JieecServerPage</a>获取</p>
 </blockquote>
