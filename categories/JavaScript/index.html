@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>菜单简介 - Herbert部落格</title>
+    <title>Category: JavaScript - Herbert部落格</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Herbert He Blog,"> 
-    <meta name="description" content="Herbert技术分享博客,为什么会有这个菜单博主本专业是应用物理学，长期感兴趣的方向却是计算机和嵌入式开发相关，然后专业课有时候会挂，毕竟物理这一行比较艰辛。新开这个菜单是为了提醒自己仍然是物理专业的学生，也会在这个菜单里写,"> 
+    <meta name="description" content="Herbert技术分享博客,"> 
     <meta name="author" content="Herbert He"> 
     <link rel="alternative" href="atom.xml" title="Herbert部落格" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -36,77 +36,145 @@
     </div>
     <span id="config-title" style="display:none">Herbert部落格</span>
     <div id="loader"></div>
-    <div id="single">
-    <div class="scrollbar gradient-bg-rev"></div>
-<div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <div class="navigation animated fadeIn fast delay-1s">
-        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
-        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">菜单简介</h3>
-        <div class="social">
-            <!--        <div class="like-icon">-->
-            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-            <!--        </div>-->
-            <div>
-                <div class="share">
-                    
-                        <a href="javascript:;" class="iconfont icon-share1"></a>
-                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
-                    
-                </div>
-            </div>
+    <div class="nav">
+    <ul id="menu-menu" class="menu">
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/categories/" title="CATEGORIES">CATEGORIES</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/tags/" title="TAGS">TAGS</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/archives/" title="ARCHIVES">ARCHIVES</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="https://server.jieec.cn" title="Jieec server">Jieec server</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="https://herberthe.gitee.io" title="国内镜像">国内镜像</a>
+        </li>
+        
+    </ul>
+    <p class="copyright" id="copyright">
+        &copy; 2020 Herbert He.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+    </p>
+</div>
+
+<div id="container">
+    
+<div class="search-box">
+    <form class="site-search-form">
+        <span class="iconfont icon-search"></span>
+        <input type="text" id="local-search-input" class="st-search-input" />
+        <div class="iconfont icon-cross search-box-close"></div>
+    </form>
+    <div class="search-scrollable">
+        <div id="local-search-result" class="local-search-result-cls" data-initialise="首次搜索，正在载入索引文件，请稍后……"
+            data-start="输入关键词搜索。" data-empty="没有找到内容，请尝试更换检索词。">
+            <span>输入关键词搜索。</span>
         </div>
     </div>
 </div>
-
-    <div class="section">
-        <div class=article-header-wrapper>
-    <div class="article-header">
-        <div class="article-cover animated fadeIn" style="
-            animation-delay: 600ms;
-            animation-duration: 1.2s;
-            background-image: 
-                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+<div id="header">
+    <div>
+        <div class="logo animated fadeInDown">
+            <img src="/img/favicon.png" alt="">
+            <a class="image-logo" href="/"></a>
+        </div>
+        <ul id="menu-menu" class="menu text-menu">
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/categories/" title="CATEGORIES" class="menu-link">CATEGORIES</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/tags/" title="TAGS" class="menu-link">TAGS</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/archives/" title="ARCHIVES" class="menu-link">ARCHIVES</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="https://server.jieec.cn" title="Jieec server" class="menu-link">Jieec server</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="https://herberthe.gitee.io" title="国内镜像" class="menu-link">国内镜像</a>
+            </li>
+            
+            
+            <li class="animated fadeInDown search-bar iconfont icon-search"></li>
+            
+        </ul>
+        <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
+    </div>
+</div>
+<div id="screen">
+    <div id="mark">
+        <div class="cover animated fadeIn" style="
+            animation-delay: 900ms;
+            animation-duration: 2.8s;
+            background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.56), #100e17),
                 url(/img/cover.jpg);">
         </div>
-        <div class="else">
-            <p class="animated fadeInDown">
-                
-                <a href="javascript:;"><b>「 </b>文章<b> 」</b></a>
-                
-                七月 13, 2019
-            </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/07/13/菜单简介/" title="菜单简介">菜单简介</a>
-            </h3>
+    </div>
+    
+    <div id="post0" class="else">
+        <p class="animated fadeInDown">
             
-            <p class="post-count animated fadeInDown">
-                
-                <span>
-                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    1.6k
-                </span>
-                
-                
-                <span>
-                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    1 mins.
-                </span>
-                
-                
-                <span id="/2019/07/13/菜单简介/" class="leancloud_visitors" data-flag-title="菜单简介">
-                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
-                    <span class="leancloud-visitors-count">1000000</span>
-                </span>
-                
-                
-            </p>
+            <a href="/categories/JavaScript"><b>「
+                </b>JAVASCRIPT<b> 」</b></a>
+            
+            一月 30, 2020
+        </p>
+        <h3 class="post-title animated fadeInDown">
+            <a href="/2020/01/30/记一次JS线程问题/" title="记一次JS线程问题" class="posttitle">记一次JS线程问题</a></h3>
+        
+        <p class="post-count animated fadeInDown">
+            
+            <span>
+                <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                4.2k
+            </span>
             
             
-            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/基础物理/">基础物理</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/应用物理/">应用物理</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/物理/">物理</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/理论物理/">理论物理</a></li></ul>
+            <span>
+                <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                4 mins.
+            </span>
             
+            
+            <span id="/2020/01/30/记一次JS线程问题/" class="leancloud_visitors" data-flag-title="">
+                <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                <span class="leancloud-visitors-count">1000000</span>
+            </span>
+            
+        </p>
+        
+        
+        <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JS线程/">JS线程</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Promise/">Promise</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/异步编程/">异步编程</a></li></ul>
+        
+        <div class="md-content animated fadeIn">
+            
+            
+
+<p>正如你所见的，报了一个<code>value below was evaluated just now</code>的信息，意味着我拿到的是原来的数据而不是最新的，下面伴随一些demo来看看这个问题。</p>
+<p>问题最早来源于我想拿到...</p>
+            
+            <span class="read-more"><a href="/2020/01/30/记一次JS线程问题/" title="查看全文" class="posttitle">查看全文</a>
+                <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
+    
 </div>
 
 <div class="screen-gradient-after">
@@ -114,84 +182,78 @@
         <div class="screen-gradient-content-inside">
             <div class="bold-underline-links screen-gradient-sponsor">
                 <p>
-                    <span class="animated fadeIn delay-1s"></span>
+                    <span class="typed-text"></span>
                 </p>
             </div>
         </div>
     </div>
 </div>
 
-<div class="article">
-    <div class='main'>
-        <div class="content markdown animated fadeIn">
-            <h2 id="为什么会有这个菜单"><a href="#为什么会有这个菜单" class="headerlink" title="为什么会有这个菜单"></a>为什么会有这个菜单</h2><p>博主本专业是应用物理学，长期感兴趣的方向却是计算机和嵌入式开发相关，然后专业课有时候会挂，毕竟物理这一行比较艰辛。新开这个菜单是为了提醒自己仍然是物理专业的学生，也会在这个菜单里写一些自己的学习笔记，拿到电脑也会想起来去写一写笔记和思考。</p>
-<a id="more"></a>
-
-<h2 id="已经学了哪些课程"><a href="#已经学了哪些课程" class="headerlink" title="已经学了哪些课程"></a>已经学了哪些课程</h2><p>应用物理学的课程很多，写这篇博文的时候已经是准大三了，物理方面自我感觉没有啥天赋，也不知道自己能干什么。</p>
-<ul>
-<li>物理基础课：力学、光学、电磁学、热学、理论力学、数学物理方法、原子物理学</li>
-<li>理工公共课：工程制图B、概率论与数理统计B、C语言、大学计算机基础、高等数学A、线性代数A、电路分析基础A、模拟电子技术A、数字电子技术A、数值计算方法B</li>
-<li>其他公共课</li>
-</ul>
-<h2 id="对物理专业的看法"><a href="#对物理专业的看法" class="headerlink" title="对物理专业的看法"></a>对物理专业的看法</h2><p>作为一个物理专业的学生，每次被别人得知专业的时候总会被说是个狠人。。物理是基于实验的，说真的在它的面前想必大多数人都是弟弟。学物理最大的问题对我来说就是没有获得感，因为我不知道要干些什么，或者说我不知道究竟有什么用。对很多人来说，物理是困难的，难在没有可视化实验的情况下的纯理论学习。物质来说，物理专业并没有工科专业容易找工作。</p>
-<p>如果有想法学物理的话，首先请仔细了解这类专业。你喜欢和能学好是两回事！应用物理学学的不仅仅是物理的专业课，也会涉及到数学和工科的专业课。首先的数学就是基础，物理的公式推导会涉及到不定积分、偏微分方程和场论等等。同济版高等数学教材的后部分很多专业是根本不会要求的，但是在物理上都是基础课，后面涉及的数学物理方法会从复变函数开始然后到常用的数学方程和基础的模型。同时，数学物理方法也是电动力学和量子力学的基础。</p>
-<p>学物理除了有恒心之外，还得有家庭的支持。本科物理类专业读完才是刚刚开始，本科所学的课程是基础课，确定研究方向是从研究生开始。不想再读物理专业可以选择跨考，跨考电子类、计算机类、金融类的人很多。物理专业得准备好充足的经济支持，可能因为攻读学位的问题毕业得花很长的时间并且经济收入困难。所以建议想读物理，一定要去一所名校并且做好准备，物理并不比医学要简单。</p>
-<h2 id="对物理的期许"><a href="#对物理的期许" class="headerlink" title="对物理的期许"></a>对物理的期许</h2><p>希望物理这个学科能够好好发展，急功近利是做不了物理的。物理的科普和传承需要每个物理学生（不管学的多差）的支撑，工科是来源于物理的，如果物理得不到发展，工业也会停滞不前。物理学家里，除了敬重爱因斯坦、钱学森、邓稼先之外，我也很敬重杨振宁。国内对于杨振宁的评价太过于片面，而却忽视了他所做出的成就（可能是看不懂吧）。博主作为一个物理专业的本科学生，对于杨振宁所涉及的研究现在还根本没触及到，因为杨老的研究已经是最前沿了。有评论说杨老是继爱因斯坦之后最伟大的理论物理学家，博主觉得并不为过。</p>
-<p>针对回国的问题，我并不觉得这个有什么好争论的。从事理论物理和工科相关是不一样的，理论物理的研究很大程度上依赖环境，杨老在近些年促进国内物理发展上已经做出了很多贡献了。</p>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls"
-                data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
+    <div id="primary">
+        
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
             
-            <ul id="audio-list" style="display:none">
+                <a href="/categories/JavaScript">
+                  <b>「 </b>JAVASCRIPT<b> 」</b>
+                </a>
+            
+            一月 26, 2020
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/01/26/Nodejs安装若干问题避坑/" title="Nodejs安装若干问题避坑" class="posttitle">Nodejs安装若干问题避坑</a></h3>
+        
+            <p class="post-count animated fadeInDown">
                 
-            </ul>
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                        4.8k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                        4 mins.
+                    </span>
+                
+                
+                    <span id="/2020/01/26/Nodejs安装若干问题避坑/" class="leancloud_visitors" data-flag-title="">
+                        <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                        <span class="leancloud-visitors-count">1000000</span>
+                    </span>
+                
+            </p>
             
+                <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Frontend/">Frontend</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Nodejs/">Nodejs</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/nvm/">nvm</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/前端开发/">前端开发</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/环境搭建/">环境搭建</a></li></ul>
             
+        
+        <div class="md-content animated fadeIn">
             
-            <div id="vcomments"></div>
+                <p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodejs官网</a>下载：LTS为长期支持版，Current是最新版</p>
+<blockquote>
+<p>根据官网给的安装包一步步来即可安装</p>
+</blockquote>
+<p>由于平时可能涉及到的node版本不同导致所用的代码会出现各种各样的问题，node的版本管理工具切换node版本显得比较重要！在<code>Linux/Mac</code>端<code>nvm</code>很好的解决了版本管理的问题，在Windows端不可使用<code>nvm</code>进行管理！</p>
+<p>Github项目<a href="https://github.com/coreybutler/nvm-windows" target="_blank" rel="noopener">nvm-windows</a>利用go语言开发解决了Windows环境下的nodejs管理问题！</p>
+<blockquote>
+<p>下面对 <code>nodejs</code> 和 <code>node</code>, <code>nvm</code> 和 <code>nvm-windows...</code></p></blockquote>
             
-        </div>
-        <div class="sidebar">
-            <div class="box animated fadeInRight">
-                <div class="subbox">
-                    <img src="https://tvax2.sinaimg.cn/crop.0.0.996.996.180/80bd8a7aly8fq8s0f4rqkj20ro0rowfz.jpg?KID=imgbed,tva&Expires=1580119427&ssig=wnI6HasDk5" height=300 width=300></img>
-                    <p>Herbert He</p>
-                    <span>Share Ideas, Share Tech, Share Life</span>
-                    <dl>
-                        <dd><a href="https://github.com/HerbertHe" target="_blank"><span
-                                    class=" iconfont icon-github"></span></a></dd>
-                        <dd><a href="" target="_blank"><span
-                                    class=" iconfont icon-twitter"></span></a></dd>
-                        <dd><a href="" target="_blank"><span
-                                    class=" iconfont icon-stack-overflow"></span></a></dd>
-                    </dl>
-                </div>
-                <ul>
-                    <li><a href="/">11 <p>文章</p></a></li>
-                    <li><a href="/categories">0 <p>分类</p></a></li>
-                    <li><a href="/tags">36 <p>标签</p></a></li>
-                </ul>
-            </div>
-            
-            
-            
-            <div class="box sticky animated fadeInRight faster">
-                <div id="toc" class="subbox">
-                    <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么会有这个菜单"><span class="toc-number">1.</span> <span class="toc-text">为什么会有这个菜单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#已经学了哪些课程"><span class="toc-number">2.</span> <span class="toc-text">已经学了哪些课程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对物理专业的看法"><span class="toc-number">3.</span> <span class="toc-text">对物理专业的看法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对物理的期许"><span class="toc-number">4.</span> <span class="toc-text">对物理的期许</span></a></li></ol>
-                </div>
-            </div>
-            
-            
+            <span class="read-more"><a href="/2020/01/26/Nodejs安装若干问题避坑/" title="查看全文" class="posttitle">查看全文</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
 </div>
 
+
     </div>
+    
 </div>
+<div id="preview"></div>
+
     <div id="back-to-top" class="animated fadeIn faster">
         <div class="flow"></div>
         <span class="percentage animated fadeIn faster">0%</span>
