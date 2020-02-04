@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Windows下Vim的安装与插件管理 - Herbert部落格</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Herbert He Blog,"> 
+    <meta name="description" content="Herbert技术分享博客,关于VimVim是一款优秀的编辑器，可以在环境艰苦的纯shell端进行代码及配置文件的编辑。相比于带有GUI的vscode、notepad++等编辑器，Vim的学习成本比较高，但是却被称为“上古神器,"> 
+    <meta name="author" content="Herbert He"> 
+    <link rel="alternative" href="atom.xml" title="Herbert部落格" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+    <link rel="stylesheet" href="/css/obsidian.css">
+    <link rel="stylesheet" href="/css/ball-atom.min.css">
+</head>
+</html>
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">Herbert部落格</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">Windows下Vim的安装与插件管理</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg);">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/环境搭建"><b>「
+                    </b>环境搭建<b> 」</b></a>
+                
+                二月 04, 2020
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/02/04/Windows下Vim的安装与插件管理/" title="Windows下Vim的安装与插件管理">Windows下Vim的安装与插件管理</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    9.2k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    8 mins.
+                </span>
+                
+                
+                <span id="/2020/02/04/Windows下Vim的安装与插件管理/" class="leancloud_visitors" data-flag-title="Windows下Vim的安装与插件管理">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">1000000</span>
+                </span>
+                
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Vim/">Vim</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Vundle/">Vundle</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Windows/">Windows</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h2 id="关于Vim"><a href="#关于Vim" class="headerlink" title="关于Vim"></a>关于Vim</h2><p>Vim是一款优秀的编辑器，可以在环境艰苦的纯shell端进行代码及配置文件的编辑。相比于带有GUI的vscode、notepad++等编辑器，Vim的学习成本比较高，但是却被称为“上古神器”。在Linux端<code>vi</code>、<code>vim</code>经常是修改配置文件教程的首选，Linux发行版也大都自带Vim；现在很多的Linux发行版开始自带<code>nano</code>编辑器，相比于Vim足够简单，但是所提供的功能甚少可以做简单编辑操作，对于完全无需鼠标的编辑操作Vim仍然是不二之选！</p>
+<p>大多的Vim使用场景在Linux端，很多的教程和配置文件并不适用Windows的环境，这一路走来遇到了不少的坑。因为在学《汇编语言》下纯的shell环境相较于GUI的编辑器更能提高编辑效率，本篇心得将从Windows的环境下说明和配置Vim结构与配置文件</p>
+<h2 id="下载与安装Vim"><a href="#下载与安装Vim" class="headerlink" title="下载与安装Vim"></a>下载与安装Vim</h2><p>在GitHub仓库下的<a href="https://github.com/vim/vim-win32-installer/releases" target="_blank" rel="noopener">releases</a>下选择对应的<code>.exe</code>可执行文件，<code>x86</code>32位，<code>x64</code>64位。</p>
+<blockquote>
+<p>在Windows的环境下默认vim默认为带GUI的<code>gvim</code></p>
+</blockquote>
+<p>根据安装教程来，均无需修改配置，没有默认将Vim装到C盘，请尽量把软件隔离系统盘安装！这里的安装路径是<code>D:\Vim</code></p>
+<p>安装完成之后，在<code>D:\Vim</code>的目录下有<code>vim82</code>和<code>_vimrc</code>两个子项，对应于linux的<code>.vim</code>和<code>.vimrc</code></p>
+<h2 id="测试安装"><a href="#测试安装" class="headerlink" title="测试安装"></a>测试安装</h2><pre><code class="shell"># 打开powershell
+vim --version</code></pre>
+<h2 id="基本配置-vimrc"><a href="#基本配置-vimrc" class="headerlink" title="基本配置_vimrc"></a>基本配置<code>_vimrc</code></h2><p>这里贴上我的基本配置文件</p>
+<pre><code class="_vimrc">&quot; Vim with all enhancements
+source $VIMRUNTIME/vimrc_example.vim
+
+&quot; Use the internal diff if available.
+&quot; Otherwise use the special &#39;diffexpr&#39; for Windows.
+if &amp;diffopt !~# &#39;internal&#39;
+  set diffexpr=MyDiff()
+endif
+function MyDiff()
+  let opt = &#39;-a --binary &#39;
+  if &amp;diffopt =~ &#39;icase&#39; | let opt = opt . &#39;-i &#39; | endif
+  if &amp;diffopt =~ &#39;iwhite&#39; | let opt = opt . &#39;-b &#39; | endif
+  let arg1 = v:fname_in
+  if arg1 =~ &#39; &#39; | let arg1 = &#39;&quot;&#39; . arg1 . &#39;&quot;&#39; | endif
+  let arg1 = substitute(arg1, &#39;!&#39;, &#39;\!&#39;, &#39;g&#39;)
+  let arg2 = v:fname_new
+  if arg2 =~ &#39; &#39; | let arg2 = &#39;&quot;&#39; . arg2 . &#39;&quot;&#39; | endif
+  let arg2 = substitute(arg2, &#39;!&#39;, &#39;\!&#39;, &#39;g&#39;)
+  let arg3 = v:fname_out
+  if arg3 =~ &#39; &#39; | let arg3 = &#39;&quot;&#39; . arg3 . &#39;&quot;&#39; | endif
+  let arg3 = substitute(arg3, &#39;!&#39;, &#39;\!&#39;, &#39;g&#39;)
+  if $VIMRUNTIME =~ &#39; &#39;
+    if &amp;sh =~ &#39;\&lt;cmd&#39;
+      if empty(&amp;shellxquote)
+        let l:shxq_sav = &#39;&#39;
+        set shellxquote&amp;
+      endif
+      let cmd = &#39;&quot;&#39; . $VIMRUNTIME . &#39;\diff&quot;&#39;
+    else
+      let cmd = substitute($VIMRUNTIME, &#39; &#39;, &#39;&quot; &#39;, &#39;&#39;) . &#39;\diff&quot;&#39;
+    endif
+  else
+    let cmd = $VIMRUNTIME . &#39;\diff&#39;
+  endif
+  let cmd = substitute(cmd, &#39;!&#39;, &#39;\!&#39;, &#39;g&#39;)
+  silent execute &#39;!&#39; . cmd . &#39; &#39; . opt . arg1 . &#39; &#39; . arg2 . &#39; &gt; &#39; . arg3
+  if exists(&#39;l:shxq_sav&#39;)
+    let &amp;shellxquote=l:shxq_sav
+  endif
+endfunction
+
+&quot;设置文件的代码形式 utf8
+set encoding=utf-8
+set termencoding=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,chinese,cp936
+
+&quot; 设置中文帮助 &quot;
+set helplang=cn
+
+&quot; 保留历史记录 &quot;
+set history=500
+
+&quot; 设置字体 &quot;
+set guifont=Consolas:h14
+
+&quot; 设置行号 &quot;
+set number
+
+&quot; 设置Tab四个空格 &quot;
+set tabstop=4
+set softtabstop=4
+set wrap &quot; 设置自动换行
+set linebreak &quot; 设置整词换行
+set scrolloff=5 &quot; 设置自动上滚或者下滚
+set autoread &quot; 设置外部修改更新
+
+&quot; 查找/替换
+set hlsearch &quot; 高亮显示
+set incsearch &quot; 增量查找
+
+&quot; 状态栏显示
+set statusline=[%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%]  &quot; 显示文件名：总行数，总的字符数
+set ruler &quot; 在编辑过程中，在右下角显示光标位置的状态行
+
+&quot; 代码设置
+syntax enable &quot; 打开语法高亮
+syntax on &quot; 打开语法高亮
+set showmatch &quot; 设置匹配模式，相当于括号匹配
+set smartindent &quot; 智能对齐
+set autoindent &quot; 设置自动对齐
+set ai! &quot; 设置自动缩进
+set fdm=indent</code></pre>
+<p>关于<code>vimrc</code>文件的配置可以直接百度或者GitHub搜索<code>vimrc配置</code>的相关词条，<code>vimrc</code>的配置确实让很多人看到就会想放弃Vim (￣▽￣)”</p>
+<h2 id="设置Vundle插件管理"><a href="#设置Vundle插件管理" class="headerlink" title="设置Vundle插件管理"></a>设置Vundle插件管理</h2><p>Vundle是一个很棒的Vim插件管理工具，同样它也是Vim的插件。根据搜到的配置教程和官方仓库的关于Windows的配置教程，尽量简化了Vundle的安装，但是同样带来了默认C盘的尴尬事情发生，你如果按照官方配置文件来一定会在C盘的<code>User(用户)</code>目录下多出一个<code>.vim</code>的文件夹！！</p>
+<blockquote>
+<p>官方配置流程: <a href="https://github.com/VundleVim/Vundle.vim/wiki/Vundle-for-Windows" target="_blank" rel="noopener">Vundle-for-Windows</a></p>
+</blockquote>
+<p>下面是详细的配置过程</p>
+<h3 id="下载安装-Git-on-Windows"><a href="#下载安装-Git-on-Windows" class="headerlink" title="下载安装 Git on Windows"></a>下载安装 <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git on Windows</a></h3><p>在<code>Adjusting your PATH environment</code>这一步，一定要勾选<code>Use Git from the Windows Command Prompt</code>这一项配置<code>PATH</code>！</p>
+<h3 id="下载安装-Curl-on-Windows"><a href="#下载安装-Curl-on-Windows" class="headerlink" title="下载安装 Curl on Windows"></a>下载安装 <a href="https://curl.haxx.se/windows/" target="_blank" rel="noopener">Curl on Windows</a></h3><ol>
+<li>下载完成之后解压缩文件获取里面的内容，我解压缩到了<code>D:\curl</code>这个文件夹下！</li>
+<li><code>bin</code>文件夹添加到系统的环境变量<code>Path</code>，我的配置是<code>D:\curl\bin</code>   <strong>这一步不做无法在命令行使用curl命令</strong></li>
+</ol>
+<h3 id="测试安装git和curl"><a href="#测试安装git和curl" class="headerlink" title="测试安装git和curl"></a>测试安装git和curl</h3><pre><code class="shell">git --version
+
+curl --version</code></pre>
+<h3 id="Vundle-on-Windows"><a href="#Vundle-on-Windows" class="headerlink" title="Vundle on Windows"></a>Vundle on Windows</h3><blockquote>
+<p>与官方文档不同！很重要！</p>
+</blockquote>
+<p>打开到<code>vim</code>的安装目录<code>D:\Vim</code>，在此目录下打开<code>PowerShell</code></p>
+<pre><code class="shell">git clone https://github.com/VundleVim/Vundle.vim.git /vim82/bundle/Vundle.vim
+
+# 你同样也可以使用我在Gitee备份的仓库，提高下载速度
+git clone https://gitee.com/HerbertHe/Vundle.vim.git /vim82/bundle/Vundle.vim</code></pre>
+<blockquote>
+<p>说明：命令里的<code>vim82</code>对应的就是<code>.vim</code>这个目录！因为Vim版本的不同可能会导致目录的名称不同，请参考修改！</p>
+</blockquote>
+<p>配置插件，打开修改<code>_vimrc</code>文件</p>
+<pre><code class="_vimrc">set nocompatible              &quot; 去除VI一致性,必须
+filetype off                  &quot; 必须
+
+&quot; 设置包括vundle和初始化相关的runtime path，重要！！
+set rtp+=D:/Vim/vim82/bundle/Vundle.vim
+
+&quot; 指定一个vundle安装插件的路径，重要！！
+&quot;call vundle#begin(&#39;D:/Vim/vim82/bundle&#39;)
+
+&quot; 让vundle管理插件版本,必须
+Plugin &#39;VundleVim/Vundle.vim&#39;
+
+&quot; 以下范例用来支持不同格式的插件安装.
+&quot; 请将安装插件的命令放在vundle#begin和vundle#end之间.
+&quot; Github上的插件
+&quot; 格式为 Plugin &#39;用户名/插件仓库名&#39;
+&quot; Plugin &#39;tpope/vim-fugitive&#39;
+&quot; 来自 http://vim-scripts.org/vim/scripts.html 的插件
+&quot; Plugin &#39;插件名称&#39; 实际上是 Plugin &#39;vim-scripts/插件仓库名&#39; 只是此处的用户名可以省略
+&quot; Plugin &#39;L9&#39;
+&quot; 由Git支持但不再github上的插件仓库 Plugin &#39;git clone 后面的地址&#39;
+&quot; Plugin &#39;git://git.wincent.com/command-t.git&#39;
+&quot; 本地的Git仓库(例如自己的插件) Plugin &#39;file:///+本地插件仓库绝对路径&#39;
+&quot; Plugin &#39;file:///home/gmarik/path/to/plugin&#39;
+&quot; 插件在仓库的子目录中.
+&quot; 正确指定路径用以设置runtimepath. 以下范例插件在sparkup/vim目录下
+&quot; Plugin &#39;rstacruz/sparkup&#39;, {&#39;rtp&#39;: &#39;vim/&#39;}
+&quot; 安装L9，如果已经安装过这个插件，可利用以下格式避免命名冲突
+&quot; Plugin &#39;ascenator/L9&#39;, {&#39;name&#39;: &#39;newL9&#39;}
+
+call vundle#end()            &quot; 插件管理结束标志，必须
+filetype plugin indent on    &quot; 必须 加载vim自带和插件相应的语法和文件类型相关脚本
+&quot; 忽视插件改变缩进,可以使用以下替代:
+&quot;filetype plugin on
+&quot;
+&quot; 简要帮助文档
+&quot; :PluginList       - 列出所有已配置的插件
+&quot; :PluginInstall    - 安装插件,追加 `!` 用以更新或使用 :PluginUpdate
+&quot; :PluginSearch foo - 搜索 foo ; 追加 `!` 清除本地缓存
+&quot; :PluginClean      - 清除未使用插件,需要确认; 追加 `!` 自动批准移除未使用插件
+&quot;
+&quot; 查阅 :h vundle 获取更多细节和wiki以及FAQ
+&quot; 将你自己对非插件片段放在这行之后</code></pre>
+<p>在配置内容中，我额外配置的是</p>
+<pre><code class="_vimrc">&quot; 设置Vundle插件管理
+set nocompatible
+filetype off
+
+&quot; 设置Vundle路径和初始化
+set rtp+=D:/Vim/vim82/bundle/Vundle.vim
+
+&quot; 指定插件安装
+call vundle#begin(&#39;D:/Vim/vim82/bundle&#39;)
+Plugin &#39;VundleVim/Vundle.vim&#39;
+Plugin &#39;scrooloose/nerdtree&#39;
+Plugin &#39;altercation/vim-colors-solarized&#39;
+
+call vundle#end()   &quot; 结束
+
+&quot; 加载vim自带和插件对应语法和文件类型相关脚本
+filetype plugin indent on
+
+&quot; 目录树插件配置
+let NERDTreeHighlightCursorline = 1       &quot; 高亮当前行
+let NERDTreeShowLineNumbers     = 1       &quot; 显示行号
+map &lt;C-n&gt; :NERDTreeToggle&lt;CR&gt;    &quot; Ctrl+n打开插件
+let g:NERDTreeDirArrowExpandable = &#39;▸&#39;
+let g:NERDTreeDirArrowCollapsible = &#39;▾&#39;
+
+&quot; 主题配置
+let g:solarized_termtrans  = 1        &quot; 使用 termnal 背景
+let g:solarized_visibility = &quot;high&quot;   &quot; 使用 :set list 显示特殊字符时的高亮级别
+&quot; GUI 模式浅色背景，终端模式深色背景
+if has(&#39;gui_running&#39;)
+    set background=light
+else
+    set background=dark
+endif
+
+&quot; 主题设置为 solarized
+colorscheme solarized
+</code></pre>
+<h2 id="命令行启动Vim并且安装插件"><a href="#命令行启动Vim并且安装插件" class="headerlink" title="命令行启动Vim并且安装插件"></a>命令行启动Vim并且安装插件</h2><ul>
+<li>打开PowerShell</li>
+<li>键入<code>vim</code>命令行下打开编辑器</li>
+<li>在视图模式下键入<code>:PluginInstall</code>回车</li>
+</ul>
+<p>安装完成后即可使用插件，上面的配置中我使用了<code>Plugin &#39;scrooloose/nerdtree&#39;</code>和<code>Plugin &#39;altercation/vim-colors-solarized&#39;</code></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+            </ul>
+            
+            
+            
+            <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="https://tvax2.sinaimg.cn/crop.0.0.996.996.180/80bd8a7aly8fq8s0f4rqkj20ro0rowfz.jpg?KID=imgbed,tva&Expires=1580119427&ssig=wnI6HasDk5" height=300 width=300></img>
+                    <p>Herbert He</p>
+                    <span>Share Ideas, Share Tech, Share Life</span>
+                    <dl>
+                        <dd><a href="https://github.com/HerbertHe" target="_blank"><span
+                                    class=" iconfont icon-github"></span></a></dd>
+                        <dd><a href="" target="_blank"><span
+                                    class=" iconfont icon-twitter"></span></a></dd>
+                        <dd><a href="" target="_blank"><span
+                                    class=" iconfont icon-stack-overflow"></span></a></dd>
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">13 <p>文章</p></a></li>
+                    <li><a href="/categories">6 <p>分类</p></a></li>
+                    <li><a href="/tags">43 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>目录</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#关于Vim"><span class="toc-number">1.</span> <span class="toc-text">关于Vim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载与安装Vim"><span class="toc-number">2.</span> <span class="toc-text">下载与安装Vim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试安装"><span class="toc-number">3.</span> <span class="toc-text">测试安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本配置-vimrc"><span class="toc-number">4.</span> <span class="toc-text">基本配置_vimrc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置Vundle插件管理"><span class="toc-number">5.</span> <span class="toc-text">设置Vundle插件管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载安装-Git-on-Windows"><span class="toc-number">5.1.</span> <span class="toc-text">下载安装 Git on Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载安装-Curl-on-Windows"><span class="toc-number">5.2.</span> <span class="toc-text">下载安装 Curl on Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试安装git和curl"><span class="toc-number">5.3.</span> <span class="toc-text">测试安装git和curl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vundle-on-Windows"><span class="toc-number">5.4.</span> <span class="toc-text">Vundle on Windows</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令行启动Vim并且安装插件"><span class="toc-number">6.</span> <span class="toc-text">命令行启动Vim并且安装插件</span></a></li></ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2020
+        <span class="gradient-text">
+            Herbert He
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.3" target="_blank" rel="noopener">v1.4.3</a></small>
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/dart/dart.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/verilog/verilog.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/go/go.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/nginx/nginx.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/lua/lua.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/vhdl/vhdl.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/sql/sql.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/sass/sass.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/mathematica/mathematica.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/markdown/markdown.min.js"></script>
+
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script>
+    function initialTyped () {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ["Share Ideas, Share Tech, Share Life", "用双手实现想法"],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <script>
+
+        var valine = new Valine();
+
+        function initValine(path) {
+            if (!path) path = window.location.pathname;
+            let language = 'zh-CN';
+            if (!language) {
+                language = 'en';
+            } else {
+                language = language.toLowerCase();
+            }
+            valine.init({
+                el: '#vcomments',
+                appId: 'DfJqfrf0fhBtE8Jc3Ec6kfJW-gzGzoHsz',
+                appKey: 'qIkPdMl0E31taXVF1MSsvB0w',
+                notify: 'false',
+                verify: 'false',
+                avatar: 'mp',
+                placeholder: '写点什么吧~',
+                visitor: 'true',
+                path: path,
+                lang: language
+            });
+        }
+
+        $(document).ready(function () {
+            initValine();
+        });
+    </script>
+
+
+
+</html>
