@@ -5,18 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ubuntu环境安装docker记录 - Herbert部落格</title>
+    <title>配置Goland主题与工程环境 - Herbert部落格</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Herbert He Blog,"> 
-    <meta name="description" content="Herbert技术分享博客,本地环境
-Ubuntu系统版本: Ubuntu19.10
-软件源: 清华大学Tuna
-虚拟机环境: VMware 15
-
-新装Ubuntu基本配置# 配置软件源
-sudo nano /etc/apt,"> 
+    <meta name="description" content="Herbert技术分享博客,关于Goland与vscode的比较Goland为JetBrains出品的针对于Go编程的IDE，与IDEA、Webstorm、Pycharm等耳熟能详的IDE的风格基本相似。针对于不同的语言，略有,"> 
     <meta name="author" content="Herbert He"> 
     <link rel="alternative" href="atom.xml" title="Herbert部落格" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -49,7 +43,7 @@ sudo nano /etc/apt,">
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Ubuntu环境安装docker记录</h3>
+        <h3 class="subtitle">配置Goland主题与工程环境</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -79,29 +73,29 @@ sudo nano /etc/apt,">
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/Linux"><b>「
-                    </b>LINUX<b> 」</b></a>
+                <a href="/categories/环境搭建"><b>「
+                    </b>环境搭建<b> 」</b></a>
                 
-                一月 28, 2020
+                三月 09, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2020/01/28/Ubuntu环境安装docker记录/" title="Ubuntu环境安装docker记录">Ubuntu环境安装docker记录</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/03/09/配置Goland主题与工程环境/" title="配置Goland主题与工程环境">配置Goland主题与工程环境</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    7.6k
+                    2.4k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    7 mins.
+                    2 mins.
                 </span>
                 
                 
-                <span id="/2020/01/28/Ubuntu环境安装docker记录/" class="leancloud_visitors" data-flag-title="Ubuntu环境安装docker记录">
+                <span id="/2020/03/09/配置Goland主题与工程环境/" class="leancloud_visitors" data-flag-title="配置Goland主题与工程环境">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">1000000</span>
                 </span>
@@ -110,7 +104,7 @@ sudo nano /etc/apt,">
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Linux/">Linux</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Ubuntu19/">Ubuntu19</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/docker/">docker</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/记录/">记录</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/go/">go</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/goland/">goland</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/golang/">golang</a></li></ul>
             
         </div>
     </div>
@@ -131,140 +125,34 @@ sudo nano /etc/apt,">
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="本地环境"><a href="#本地环境" class="headerlink" title="本地环境"></a>本地环境</h2><ul>
-<li>Ubuntu系统版本: Ubuntu19.10</li>
-<li>软件源: 清华大学Tuna</li>
-<li>虚拟机环境: VMware 15</li>
+            <h2 id="关于Goland与vscode的比较"><a href="#关于Goland与vscode的比较" class="headerlink" title="关于Goland与vscode的比较"></a>关于Goland与vscode的比较</h2><p>Goland为JetBrains出品的针对于Go编程的IDE，与IDEA、Webstorm、Pycharm等耳熟能详的IDE的风格基本相似。针对于不同的语言，略有差异。vscode通过安装插件也可以搭建优雅的Go开发环境，但是在参考了很多网上的帖子和走过很多坑之后还是放弃了，继续使用了Goland。</p>
+<h3 id="Goland的优越性"><a href="#Goland的优越性" class="headerlink" title="Goland的优越性"></a>Goland的优越性</h3><ul>
+<li>代码智能提示</li>
+<li>完备的项目开发流程</li>
 </ul>
-<h2 id="新装Ubuntu基本配置"><a href="#新装Ubuntu基本配置" class="headerlink" title="新装Ubuntu基本配置"></a>新装Ubuntu基本配置</h2><pre><code class="shell"># 配置软件源
-sudo nano /etc/apt/sources.list</code></pre>
-<pre><code class="sources.list"># 首先注释掉所有的默认软件源
-# 添加清华源 (演示系统为Ubuntu19.10, 软件代号为eoan! )
-
-# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-updates main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-updates main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-backports main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-backports main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-security main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-security main restricted universe multiverse
-
-# 预发布软件源，不建议启用
-# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-proposed main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-proposed main restricted universe multiverse</code></pre>
-<blockquote>
-<p>Ubuntu各版本代号简介请参考: <a href="https://blog.csdn.net/zhengmx100/article/details/78352773" target="_blank" rel="noopener">传送门</a>, 不同版本对应的软件清华源: <a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">传送门</a></p>
-</blockquote>
-<pre><code class="shell">sudo apt update
-sudo apt upgrade</code></pre>
-<h2 id="安装docker社区版"><a href="#安装docker社区版" class="headerlink" title="安装docker社区版"></a>安装docker社区版</h2><p>安装docker可以参考docker官网的<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">Get Docker Engine - Community for Ubuntu</a>, 也可以使用清华源镜像, 下面是参考<em>docker官网</em>和<em>清华源</em>对于安装过程的总结</p>
-<p>docker支持的Ubuntu版本为:</p>
-<ul>
-<li>Disco 19.04</li>
-<li>Cosmic 18.10</li>
-<li>Bionic 18.04 (LTS)</li>
-<li>Xenial 16.04 (LTS)</li>
+<h3 id="Goland的缺点"><a href="#Goland的缺点" class="headerlink" title="Goland的缺点"></a>Goland的缺点</h3><ul>
+<li>纯英文的开发环境，很容易导致功能了解不完全和误操作</li>
+<li>自不知道哪一版的更新之后，Goland的中文显示就崩掉了，需要自己配置</li>
+<li>从非Goland创建的工程移植，本地库的导入需要手动操作</li>
+<li>需要自行做一些IDE关于proxy的配置</li>
 </ul>
-<blockquote>
-<p>社区版支持的架构为: <code>x86_64(amd64)</code>, <code>armhf</code>, <code>arm64</code>, <code>s390x</code>, <code>ppc64le</code>!<strong>Eoan 19.10软件源并不受支持!因此官网和清华源的命令在Ubuntu19.10下并不会成功!</strong>报错请参考: <a href="https://www.jb51.net/article/173316.htm" target="_blank" rel="noopener">分享Ubuntu19无法安装docker源问题</a></p>
-</blockquote>
-<h3 id="卸载旧版本的docker"><a href="#卸载旧版本的docker" class="headerlink" title="卸载旧版本的docker"></a>卸载旧版本的docker</h3><pre><code class="shell">sudo apt-get remove docker docker-engine docker.io containerd runc</code></pre>
-<blockquote>
-<p>docker社区版新版本名称为: docker-ce</p>
-</blockquote>
-<h3 id="更新软件源"><a href="#更新软件源" class="headerlink" title="更新软件源"></a>更新软件源</h3><pre><code class="shell">sudo apt update</code></pre>
-<h3 id="下载依赖"><a href="#下载依赖" class="headerlink" title="下载依赖"></a>下载依赖</h3><pre><code class="shell">sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common</code></pre>
-<h3 id="添加docker官方的GPG-key"><a href="#添加docker官方的GPG-key" class="headerlink" title="添加docker官方的GPG key"></a>添加docker官方的GPG key</h3><pre><code class="shell">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code></pre>
-<h3 id="验证指纹信息"><a href="#验证指纹信息" class="headerlink" title="验证指纹信息"></a>验证指纹信息</h3><pre><code class="shell">sudo apt-key fingerprint 0EBFCD88
+<h2 id="配置Goland主题和字体"><a href="#配置Goland主题和字体" class="headerlink" title="配置Goland主题和字体"></a>配置Goland主题和字体</h2><p>在这里我使用的是<code>Material Theme UI</code>这个插件，<code>File</code>-&gt;<code>Settings</code>-&gt;<code>Plugins</code>-&gt;<code>Marketplace</code>搜索就好了，选择一个自己喜欢的主题。</p>
+<img src="/img/Snipaste_2020-03-09_14-28-07.png">
 
-# 输出
-pub   rsa4096 2017-02-22 [SCEA]
-      9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
-uid           [ unknown] Docker Release (CE deb) &lt;docker@docker.com&gt;
-sub   rsa4096 2017-02-22 [S]</code></pre>
-<h3 id="设置软件源"><a href="#设置软件源" class="headerlink" title="设置软件源"></a>设置软件源</h3><blockquote>
-<p>这一步很关键！</p>
-</blockquote>
-<ul>
-<li>官网命令</li>
-</ul>
-<pre><code class="shell">sudo add-apt-repository \
-   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable&quot;</code></pre>
-<ul>
-<li>清华源命令</li>
-</ul>
-<pre><code class="shell">sudo add-apt-repository \
-   &quot;deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable&quot;</code></pre>
-<blockquote>
-<p>上面的命令会在<code>/etc/apt/sources.list</code>文件中添加下面的内容(以清华源为例), 执行之后会报上面提到的错误</p>
-</blockquote>
-<pre><code class="sources.list">deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu eoan stable
-# deb-src [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu eoan stable</code></pre>
-<blockquote>
-<p>正确的做法是手动更改添加<code>Disco 19.04</code>的docker软件源！</p>
-</blockquote>
-<pre><code class="shell">sudo nano /etc/apt/sources.list</code></pre>
-<pre><code class="sources.list">deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu disco stable
-# deb-src [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu disco stable</code></pre>
-<p>保存之后执行更新和下载</p>
-<pre><code class="shell">sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io</code></pre>
-<blockquote>
-<p>指定版本下载，列出软件源所有可下载的版本可以参考官网的<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1" target="_blank" rel="noopener">To install a specific version of Docker Engine - Community</a>, 用包下载安装可以参考<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-from-a-package" target="_blank" rel="noopener">Install from a package</a></p>
-</blockquote>
-<h3 id="验证docker安装"><a href="#验证docker安装" class="headerlink" title="验证docker安装"></a>验证docker安装</h3><p>通过跑测试镜像<code>hello-world</code>验证</p>
-<pre><code class="shell">sudo docker run hello-world</code></pre>
-<blockquote>
-<p>可能会因为网络的原因报错, 参考这篇帖子: <a href="https://blog.csdn.net/anjie5595/article/details/101501786" target="_blank" rel="noopener">docker pull error pulling image configuration</a></p>
-</blockquote>
-<p>报错解决</p>
-<pre><code class="shell"># 停止docker服务
-systemctl stop docker
-# 修改daemon配置文件添加加速源
-sudo nano /etc/docker/daemon.json</code></pre>
-<pre><code class="daemon.json">{
-　　&quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;,&quot;http://hub-mirror.c.163.com&quot;]
-}</code></pre>
-<pre><code class="shell"># 重载配置
-systemctl daemon-reload
-# 重启docker服务
-systemctl restart docker</code></pre>
-<blockquote>
-<p>测试成功信息</p>
-</blockquote>
-<pre><code class="shell">Hello from Docker!
-This message shows that your installation appears to be working correctly.
+<p>字体的配置在<code>File</code>-&gt;<code>Settings</code>-&gt;<code>Editor</code>的<code>Font</code>、<code>Color Scheme</code>的<code>Color Scheme Font</code>和<code>Console Font</code>下</p>
+<img src="/img/Snipaste_2020-03-09_14-42-25.png">
 
-To generate this message, Docker took the following steps:
- 1. The Docker client contacted the Docker daemon.
- 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
-    (amd64)
- 3. The Docker daemon created a new container from that image which runs the
-    executable that produces the output you are currently reading.
- 4. The Docker daemon streamed that output to the Docker client, which sent it
-    to your terminal.
+<p>字体推荐使用的是<code>Fira Code</code>看起来很舒服，但是在显示的时候如果习惯普通的符号的话，对于<code>===</code>、<code>!=</code>、<code>!==</code>等这些符号看起来可能会比较陌生。字体链接: <a href="https://github.com/tonsky/FiraCode" target="_blank" rel="noopener">GitHub</a></p>
+<h2 id="关于IDE配置和项目配置"><a href="#关于IDE配置和项目配置" class="headerlink" title="关于IDE配置和项目配置"></a>关于IDE配置和项目配置</h2><p>默认情况下，只要你根据golang的配置要求配置了<code>GOROOT</code>和<code>GOPATH</code>，IDE都会默认找到对应的本地库，可以通过下图的位置来检查。</p>
+<img src="/img/Snipaste_2020-03-09_14-54-57.png">
 
-To try something more ambitious, you can run an Ubuntu container with:
- \$ docker run -it ubuntu bash
+<img src="/img/Snipaste_2020-03-09_14-55-42.png">
 
-Share images, automate workflows, and more with a free Docker ID:
- https://hub.docker.com/
+<img src="/img/Snipaste_2020-03-09_14-57-00.png">
 
-For more examples and ideas, visit:
- https://docs.docker.com/get-started/
-</code></pre>
-<h3 id="docker更新"><a href="#docker更新" class="headerlink" title="docker更新"></a>docker更新</h3><p>直接使用<code>sudo apt upgrade</code>即可</p>
+<h2 id="从别的IDE迁到Goland"><a href="#从别的IDE迁到Goland" class="headerlink" title="从别的IDE迁到Goland"></a>从别的IDE迁到Goland</h2><p>根据go语言的特性，默认go的源代码必须位于<code>GOPATH</code>的<code>src</code>下，go在更新后提供了<code>go module</code>的包管理工具，强烈建议在新的项目中使用<code>go mod init xxx.xxx</code>的方式使用<code>go module</code>来初始化项目的包管理，以此来抽离项目于默认的文件夹。从别的IDE迁移至<code>Goland</code>请仔细检查上图中的配置，否则可能会导致本地包智能提示无法识别的问题。</p>
+<p>在上图<code>Go Modules</code>的proxy配置中，强烈建议改为上图配置以解决国内网络环境对于包下载的不友好，配置 <code>https://goproxy.cn,direct</code></p>
+<p>同样建议使用<code>go env</code>检查<code>GOPROXY</code>，<code>go env set GOPROXY=https://goproxy.cn,direct</code></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -308,7 +196,7 @@ For more examples and ideas, visit:
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地环境"><span class="toc-number">1.</span> <span class="toc-text">本地环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新装Ubuntu基本配置"><span class="toc-number">2.</span> <span class="toc-text">新装Ubuntu基本配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装docker社区版"><span class="toc-number">3.</span> <span class="toc-text">安装docker社区版</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载旧版本的docker"><span class="toc-number">3.1.</span> <span class="toc-text">卸载旧版本的docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新软件源"><span class="toc-number">3.2.</span> <span class="toc-text">更新软件源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载依赖"><span class="toc-number">3.3.</span> <span class="toc-text">下载依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加docker官方的GPG-key"><span class="toc-number">3.4.</span> <span class="toc-text">添加docker官方的GPG key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验证指纹信息"><span class="toc-number">3.5.</span> <span class="toc-text">验证指纹信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置软件源"><span class="toc-number">3.6.</span> <span class="toc-text">设置软件源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验证docker安装"><span class="toc-number">3.7.</span> <span class="toc-text">验证docker安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker更新"><span class="toc-number">3.8.</span> <span class="toc-text">docker更新</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#关于Goland与vscode的比较"><span class="toc-number">1.</span> <span class="toc-text">关于Goland与vscode的比较</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Goland的优越性"><span class="toc-number">1.1.</span> <span class="toc-text">Goland的优越性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Goland的缺点"><span class="toc-number">1.2.</span> <span class="toc-text">Goland的缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置Goland主题和字体"><span class="toc-number">2.</span> <span class="toc-text">配置Goland主题和字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于IDE配置和项目配置"><span class="toc-number">3.</span> <span class="toc-text">关于IDE配置和项目配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从别的IDE迁到Goland"><span class="toc-number">4.</span> <span class="toc-text">从别的IDE迁到Goland</span></a></li></ol>
                 </div>
             </div>
             
