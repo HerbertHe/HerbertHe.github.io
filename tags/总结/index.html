@@ -5,24 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Verilog-HDL基础语法（下） - Herbert部落格</title>
+    <title>Tag: 总结 - Herbert部落格</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Herbert He Blog,"> 
-    <meta name="description" content="Herbert技术分享博客,过程块
-initial块，只执行一次
-always块，循环执行
-
-过程块中的部件：
-
-过程赋值语句
-高级结构（循环，条件语句）
-时序控制
-
-
-
-过程赋值过程赋值的对象必须是寄存器类型，过程赋值语句给,"> 
+    <meta name="description" content="Herbert技术分享博客,"> 
     <meta name="author" content="Herbert He"> 
     <link rel="alternative" href="atom.xml" title="Herbert部落格" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -48,78 +36,141 @@ always块，循环执行
     </div>
     <span id="config-title" style="display:none">Herbert部落格</span>
     <div id="loader"></div>
-    <div id="single">
-    <div class="scrollbar gradient-bg-rev"></div>
-<div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <div class="navigation animated fadeIn fast delay-1s">
-        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
-        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Verilog-HDL基础语法（下）</h3>
-        <div class="social">
-            <!--        <div class="like-icon">-->
-            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-            <!--        </div>-->
-            <div>
-                <div class="share">
-                    
-                        <a href="javascript:;" class="iconfont icon-share1"></a>
-                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
-                    
-                </div>
-            </div>
+    <div class="nav">
+    <ul id="menu-menu" class="menu">
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/categories/" title="CATEGORIES">CATEGORIES</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/tags/" title="TAGS">TAGS</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/archives/" title="ARCHIVES">ARCHIVES</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="https://server.jieec.cn" title="Jieec server">Jieec server</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="https://herberthe.gitee.io" title="国内镜像">国内镜像</a>
+        </li>
+        
+    </ul>
+    <p class="copyright" id="copyright">
+        &copy; 2020 Herbert He.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+    </p>
+</div>
+
+<div id="container">
+    
+<div class="search-box">
+    <form class="site-search-form">
+        <span class="iconfont icon-search"></span>
+        <input type="text" id="local-search-input" class="st-search-input" />
+        <div class="iconfont icon-cross search-box-close"></div>
+    </form>
+    <div class="search-scrollable">
+        <div id="local-search-result" class="local-search-result-cls" data-initialise="首次搜索，正在载入索引文件，请稍后……"
+            data-start="输入关键词搜索。" data-empty="没有找到内容，请尝试更换检索词。">
+            <span>输入关键词搜索。</span>
         </div>
     </div>
 </div>
-
-    <div class="section">
-        <div class=article-header-wrapper>
-    <div class="article-header">
-        <div class="article-cover animated fadeIn" style="
-            animation-delay: 600ms;
-            animation-duration: 1.2s;
-            background-image: 
-                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+<div id="header">
+    <div>
+        <div class="logo animated fadeInDown">
+            <img src="/img/favicon.png" alt="">
+            <a class="image-logo" href="/"></a>
+        </div>
+        <ul id="menu-menu" class="menu text-menu">
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/categories/" title="CATEGORIES" class="menu-link">CATEGORIES</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/tags/" title="TAGS" class="menu-link">TAGS</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/archives/" title="ARCHIVES" class="menu-link">ARCHIVES</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="https://server.jieec.cn" title="Jieec server" class="menu-link">Jieec server</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="https://herberthe.gitee.io" title="国内镜像" class="menu-link">国内镜像</a>
+            </li>
+            
+            
+            <li class="animated fadeInDown search-bar iconfont icon-search"></li>
+            
+        </ul>
+        <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
+    </div>
+</div>
+<div id="screen">
+    <div id="mark">
+        <div class="cover animated fadeIn" style="
+            animation-delay: 900ms;
+            animation-duration: 2.8s;
+            background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.56), #100e17),
                 url(/img/cover.jpg);">
         </div>
-        <div class="else">
-            <p class="animated fadeInDown">
-                
-                <a href="/categories/语言"><b>「
-                    </b>语言<b> 」</b></a>
-                
-                七月 19, 2019
-            </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/07/19/Verilog-HDL基础语法（下）/" title="Verilog-HDL基础语法（下）">Verilog-HDL基础语法（下）</a>
-            </h3>
+    </div>
+    
+    <div id="post0" class="else">
+        <p class="animated fadeInDown">
             
-            <p class="post-count animated fadeInDown">
-                
-                <span>
-                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    1.9k
-                </span>
-                
-                
-                <span>
-                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    2 mins.
-                </span>
-                
-                
-                <span id="/2019/07/19/Verilog-HDL基础语法（下）/" class="leancloud_visitors" data-flag-title="Verilog-HDL基础语法（下）">
-                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
-                    <span class="leancloud-visitors-count">1000000</span>
-                </span>
-                
-                
-            </p>
+            <a href="javascript:;"><b>「 </b>文章<b> 」</b></a>
+            
+            三月 29, 2020
+        </p>
+        <h3 class="post-title animated fadeInDown">
+            <a href="/2020/03/29/对已过去三年来大学生活的总结与建议/" title="对已过去三年来大学生活的总结与建议" class="posttitle">对已过去三年来大学生活的总结与建议</a></h3>
+        
+        <p class="post-count animated fadeInDown">
+            
+            <span>
+                <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                4.8k
+            </span>
             
             
-            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/FPGA/">FPGA</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/HDL/">HDL</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Verilog/">Verilog</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/数字电子技术/">数字电子技术</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/硬件开发/">硬件开发</a></li></ul>
+            <span>
+                <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                4 mins.
+            </span>
             
+            
+            <span id="/2020/03/29/对已过去三年来大学生活的总结与建议/" class="leancloud_visitors" data-flag-title="">
+                <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                <span class="leancloud-visitors-count">1000000</span>
+            </span>
+            
+        </p>
+        
+        
+        <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/大学生活/">大学生活</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/总结/">总结</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/物理/">物理</a></li></ul>
+        
+        <div class="md-content animated fadeIn">
+            
+            <p>大三都已经过了一大半了，从第一个个人博客到第一个个人网站开始，对于自己的总结写博客什么的一直断断续续，但是没有放弃过。总是一个感性的人，很多很多次晚睡总是会夜来非，想想过去再想想当下与未来，我是否真的...</p>
+            
+            <span class="read-more"><a href="/2020/03/29/对已过去三年来大学生活的总结与建议/" title="查看全文" class="posttitle">查看全文</a>
+                <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
+    
 </div>
 
 <div class="screen-gradient-after">
@@ -127,135 +178,21 @@ always块，循环执行
         <div class="screen-gradient-content-inside">
             <div class="bold-underline-links screen-gradient-sponsor">
                 <p>
-                    <span class="animated fadeIn delay-1s"></span>
+                    <span class="typed-text"></span>
                 </p>
             </div>
         </div>
     </div>
 </div>
 
-<div class="article">
-    <div class='main'>
-        <div class="content markdown animated fadeIn">
-            <h2 id="过程块"><a href="#过程块" class="headerlink" title="过程块"></a>过程块</h2><ul>
-<li>initial块，只执行一次</li>
-<li>always块，循环执行</li>
-</ul>
-<p>过程块中的部件：</p>
-<ul>
-<li>过程赋值语句</li>
-<li>高级结构（循环，条件语句）</li>
-<li>时序控制</li>
-</ul>
-<a id="more"></a>
-
-<h2 id="过程赋值"><a href="#过程赋值" class="headerlink" title="过程赋值"></a>过程赋值</h2><p>过程赋值的对象必须是寄存器类型，过程赋值语句给wire赋值会产生错误！！</p>
-<h2 id="过程时序控制"><a href="#过程时序控制" class="headerlink" title="过程时序控制"></a>过程时序控制</h2><ul>
-<li>简单延时(#delay)：延时指定时间之后执行</li>
-<li>边沿敏感的时序控制：@(&lt;signal&gt;)，上升沿(posedge)，下降沿(negedge)，用关键字or指定多个参数</li>
-<li>电平敏感的时序控制：wait(&lt;expr&gt;)，expr为真时执行</li>
-</ul>
-<p>！！！综合工具不支持 <strong>wait语句</strong> ！！！</p>
-<p>内容参考 <a href="https://wenku.baidu.com/view/b4a43aefaeaad1f346933f7d.html" target="_blank" rel="noopener">百度文库</a>，不支持综合的部分内容，略。</p>
-<h2 id="块语句"><a href="#块语句" class="headerlink" title="块语句"></a>块语句</h2><ul>
-<li>顺序块：语句置于begin和end之间，块中语句顺序执行</li>
-<li>并行块：语句置于fork和join之间，语句并行执行（不可综合）</li>
-</ul>
-<h2 id="延时赋值语句（可以用于模拟寄存器交换和移位）"><a href="#延时赋值语句（可以用于模拟寄存器交换和移位）" class="headerlink" title="延时赋值语句（可以用于模拟寄存器交换和移位）"></a>延时赋值语句（可以用于模拟寄存器交换和移位）</h2><pre><code class="verilog">LHS = &lt;timing_control&gt; RHS;
-
-// 举例
-begin
-    temp = b;
-    @(posedge clk) a = temp;
-end
-
-// 等价于
-
-a = @(posedge clk) b;</code></pre>
-<h2 id="阻塞赋值与非阻塞赋值"><a href="#阻塞赋值与非阻塞赋值" class="headerlink" title="阻塞赋值与非阻塞赋值"></a>阻塞赋值与非阻塞赋值</h2><ul>
-<li>阻塞赋值：语句结束立即完成赋值操作，前面的赋值语句完成之前，后面的语句不能被执行，使用 “=”</li>
-<li>非阻塞赋值：整个过程块结束时才完成赋值操作，使用 “&lt;=”</li>
-</ul>
-<p>对比举例</p>
-<pre><code class="verilog">// 非阻塞赋值
-module non_block(c, b, a, clk);
-    output c, b;
-    input a, clk;
-    reg c, b;
-    always @(posedge clk)
-        begin
-        b &lt;= a;
-        c &lt;= b;
-        end
-endmodule
-
-// 阻塞赋值
-module block(c, b, a, clk);
-    output c, b;
-    input a, clk;
-    reg c, b;
-    always @(posedge clk)
-        begin
-        b = a;
-        c = b;
-        end
-endmodule
-
-// 非阻塞赋值中c的结果为上一个时刻的b的值（旧值），阻塞赋值中c和b的值相等</code></pre>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls"
-                data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-            <ul id="audio-list" style="display:none">
-                
-            </ul>
-            
-            
-            
-            <div id="vcomments"></div>
-            
-        </div>
-        <div class="sidebar">
-            <div class="box animated fadeInRight">
-                <div class="subbox">
-                    <img src="https://tvax2.sinaimg.cn/crop.0.0.996.996.180/80bd8a7aly8fq8s0f4rqkj20ro0rowfz.jpg?KID=imgbed,tva&Expires=1580119427&ssig=wnI6HasDk5" height=300 width=300></img>
-                    <p>Herbert He</p>
-                    <span>Share Ideas, Share Tech, Share Life</span>
-                    <dl>
-                        <dd><a href="https://github.com/HerbertHe" target="_blank"><span
-                                    class=" iconfont icon-github"></span></a></dd>
-                        <dd><a href="" target="_blank"><span
-                                    class=" iconfont icon-twitter"></span></a></dd>
-                        <dd><a href="" target="_blank"><span
-                                    class=" iconfont icon-stack-overflow"></span></a></dd>
-                    </dl>
-                </div>
-                <ul>
-                    <li><a href="/">17 <p>文章</p></a></li>
-                    <li><a href="/categories">6 <p>分类</p></a></li>
-                    <li><a href="/tags">52 <p>标签</p></a></li>
-                </ul>
-            </div>
-            
-            
-            
-            <div class="box sticky animated fadeInRight faster">
-                <div id="toc" class="subbox">
-                    <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#过程块"><span class="toc-number">1.</span> <span class="toc-text">过程块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过程赋值"><span class="toc-number">2.</span> <span class="toc-text">过程赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过程时序控制"><span class="toc-number">3.</span> <span class="toc-text">过程时序控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#块语句"><span class="toc-number">4.</span> <span class="toc-text">块语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#延时赋值语句（可以用于模拟寄存器交换和移位）"><span class="toc-number">5.</span> <span class="toc-text">延时赋值语句（可以用于模拟寄存器交换和移位）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阻塞赋值与非阻塞赋值"><span class="toc-number">6.</span> <span class="toc-text">阻塞赋值与非阻塞赋值</span></a></li></ol>
-                </div>
-            </div>
-            
-            
-        </div>
+    <div id="primary">
+        
     </div>
+    
 </div>
+<div id="preview"></div>
 
-    </div>
-</div>
+
     <div id="back-to-top" class="animated fadeIn faster">
         <div class="flow"></div>
         <span class="percentage animated fadeIn faster">0%</span>
