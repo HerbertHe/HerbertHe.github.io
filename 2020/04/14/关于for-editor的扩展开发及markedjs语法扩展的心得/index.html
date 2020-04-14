@@ -5,18 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Ubuntu环境安装docker记录 - Herbert部落格</title>
+    <title>关于for-editor的扩展开发及markedjs语法扩展的心得 - Herbert部落格</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Herbert He Blog,"> 
-    <meta name="description" content="Herbert技术分享博客,本地环境
-Ubuntu系统版本: Ubuntu19.10
-软件源: 清华大学Tuna
-虚拟机环境: VMware 15
-
-新装Ubuntu基本配置# 配置软件源
-sudo nano /etc/apt,"> 
+    <meta name="description" content="Herbert技术分享博客,关于for-editor开始接触for-editor是因为想自己写一个基于Git的支持markdown的笔记本PC应用，常用开发框架是React、在PC端的开发工具的选择上选择了吃内存狂魔elect,"> 
     <meta name="author" content="Herbert He"> 
     <link rel="alternative" href="atom.xml" title="Herbert部落格" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -49,7 +43,7 @@ sudo nano /etc/apt,">
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Ubuntu环境安装docker记录</h3>
+        <h3 class="subtitle">关于for-editor的扩展开发及markedjs语法扩展的心得</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -79,29 +73,29 @@ sudo nano /etc/apt,">
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/Linux"><b>「
-                    </b>LINUX<b> 」</b></a>
+                <a href="/categories/JavaScript"><b>「
+                    </b>JAVASCRIPT<b> 」</b></a>
                 
-                一月 28, 2020
+                四月 14, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2020/01/28/Ubuntu环境安装docker记录/" title="Ubuntu环境安装docker记录">Ubuntu环境安装docker记录</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/04/14/关于for-editor的扩展开发及markedjs语法扩展的心得/" title="关于for-editor的扩展开发及markedjs语法扩展的心得">关于for-editor的扩展开发及markedjs语法扩展的心得</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    7.6k
+                    6.1k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    7 mins.
+                    6 mins.
                 </span>
                 
                 
-                <span id="/2020/01/28/Ubuntu环境安装docker记录/" class="leancloud_visitors" data-flag-title="Ubuntu环境安装docker记录">
+                <span id="/2020/04/14/关于for-editor的扩展开发及markedjs语法扩展的心得/" class="leancloud_visitors" data-flag-title="关于for-editor的扩展开发及markedjs语法扩展的心得">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">1000000</span>
                 </span>
@@ -110,7 +104,7 @@ sudo nano /etc/apt,">
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Linux/">Linux</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Ubuntu19/">Ubuntu19</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/docker/">docker</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/记录/">记录</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/React/">React</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/TypeScript/">TypeScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/markdown/">markdown</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/marked/">marked</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/npm/">npm</a></li></ul>
             
         </div>
     </div>
@@ -131,140 +125,33 @@ sudo nano /etc/apt,">
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="本地环境"><a href="#本地环境" class="headerlink" title="本地环境"></a>本地环境</h2><ul>
-<li>Ubuntu系统版本: Ubuntu19.10</li>
-<li>软件源: 清华大学Tuna</li>
-<li>虚拟机环境: VMware 15</li>
-</ul>
-<h2 id="新装Ubuntu基本配置"><a href="#新装Ubuntu基本配置" class="headerlink" title="新装Ubuntu基本配置"></a>新装Ubuntu基本配置</h2><pre><code class="shell"># 配置软件源
-sudo nano /etc/apt/sources.list</code></pre>
-<pre><code class="sources.list"># 首先注释掉所有的默认软件源
-# 添加清华源 (演示系统为Ubuntu19.10, 软件代号为eoan! )
-
-# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-updates main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-updates main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-backports main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-backports main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-security main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-security main restricted universe multiverse
-
-# 预发布软件源，不建议启用
-# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-proposed main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ eoan-proposed main restricted universe multiverse</code></pre>
-<blockquote>
-<p>Ubuntu各版本代号简介请参考: <a href="https://blog.csdn.net/zhengmx100/article/details/78352773" target="_blank" rel="noopener">传送门</a>, 不同版本对应的软件清华源: <a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">传送门</a></p>
+            <h2 id="关于for-editor"><a href="#关于for-editor" class="headerlink" title="关于for-editor"></a>关于<code>for-editor</code></h2><p>开始接触<code>for-editor</code>是因为想自己写一个基于Git的支持markdown的笔记本PC应用，常用开发框架是React、在PC端的开发工具的选择上选择了吃内存狂魔electron，就这样抱着能不造轮子就不造轮子的原则开始使用了<code>for-editor</code>（虽然之后没有打算继续开发）。<code>for-editor</code>如果对于语法的支持没有太高的要求的话，是一个非常优秀、简洁的编辑器组件。支持Tex渲染插入、mermaid流程图的支持、高级markdown或者扩展的markdown语法，随着需求的提升就准备了开始自己扩展语法之路，当然其中发现了很多需要优化和修改的地方。</p>
+<h2 id="开发之路"><a href="#开发之路" class="headerlink" title="开发之路"></a>开发之路</h2><h3 id="通读源码"><a href="#通读源码" class="headerlink" title="通读源码"></a>通读源码</h3><p>源码可以从<a href="https://github.com/kkfor/for-editor" target="_blank" rel="noopener">for-editor</a>中查看。</p>
+<p>首先，阅读<code>package.json</code>。<code>package.json</code>是所有React组件开发必不可少的环节，在此之前还是需要足够了解工程的<code>README.md</code>的。在<code>package.json</code>里，源工程对于markdown解析所用的引擎为<code>marked.js</code>和<code>highlight.js</code>。在之前了解<code>markdown</code> –&gt; <code>HTML</code>的渲染学习的时候所用的是<code>marked.js</code>，好处是足够简洁，坏处是语法很少并且扩展要求并不低。</p>
+<p>其次，对于源码结构的解读。<code>dist</code>为生成产物，<code>doc</code>为相关文档，<code>example</code>为演示文档，<code>src</code>为源码目录，<code>webpack</code>为配置项。在<code>src</code>下有<code>components</code>、<code>lib</code>和<code>index.tsx</code>，<code>components</code>为工具栏的组件，<code>lib</code>是开发的依赖和功能源码，<code>index.tsx</code>为整体的页面结构。</p>
+<h3 id="发现的问题"><a href="#发现的问题" class="headerlink" title="发现的问题"></a>发现的问题</h3><blockquote>
+<p>这里提到的问题其实有一些是还没有完全修复的，有些问题真的存在了很多年了，至今我也没能想到比较好的解决办法。</p>
 </blockquote>
-<pre><code class="shell">sudo apt update
-sudo apt upgrade</code></pre>
-<h2 id="安装docker社区版"><a href="#安装docker社区版" class="headerlink" title="安装docker社区版"></a>安装docker社区版</h2><p>安装docker可以参考docker官网的<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/" target="_blank" rel="noopener">Get Docker Engine - Community for Ubuntu</a>, 也可以使用清华源镜像, 下面是参考<em>docker官网</em>和<em>清华源</em>对于安装过程的总结</p>
-<p>docker支持的Ubuntu版本为:</p>
+<h4 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h4><p>在现代web开发中，响应式布局对于用户体验来说是非常好的，但是在访问速度上相比加载速度会稍微慢一些。针对于高标准的用户体验，我选择了牺牲掉一些访问速度，当然对于纯的通过CSS实现响应式布局在某些时候根本达不到好的效果，是需要JavaScript来加buff的，这也为之后的开发其实还挖了一个坑，对此我不得不做出妥协，完全的响应式目前看来是做不到的。在下面，我也会阐述具体的坑到底是什么。</p>
+<p>响应式布局方面我做出的优化是针对<code>900px</code>这个标准进行的分割，随着工具栏功能的拓展，原本工具栏的布局会溢出。因此对于没有二级菜单的工具栏button，我选择写在了more里，并且另开了<code>for-mobile</code>，<code>for-pc</code>，使用了<code>flex</code>布局来处理宽度不够换行处理的优化措施。在下一个坑没有遇到之前，这个方案我觉得解决的还算不错。（当然开了新得分支，还是被提了issue，主要是他遇到的浏览器尺寸在我测试的时候真的没有发现任何问题，很迷惑）</p>
+<h4 id="mermaid的引入"><a href="#mermaid的引入" class="headerlink" title="mermaid的引入"></a><code>mermaid</code>的引入</h4><p>这是我几个月都没有解决的问题，可能是打开方式不太对吧。。。参考了<code>mermaidAPI</code>和与<code>mermaid</code>开发者交流提了<code>issue</code>但是始终没有解决。难道mermaid真的是只能用已存在DOM节点来做渲染的吗？希望能有大佬带我深入了解一下。mermaid的渲染要写在主组件的生命周期里面，但是就我刚刚说的，如果已知存在，在什么时候插进去来触发渲染？最后我选择了原样插入，然后再触发渲染的方式，当我满心欢喜觉得一切都能如愿的时候。我发现真的能不能渲染出来都是薛定谔的猫:(然后不得不放弃，想想也真的可能跟后面那个深坑有关系，总有办法能解决这个问题，然后参考过CSDN的HTML代码，也就是我后来的考虑的深坑。对此，我移除了<code>mermaid</code>的渲染支持。</p>
+<h4 id="修复js对于二级菜单的控制"><a href="#修复js对于二级菜单的控制" class="headerlink" title="修复js对于二级菜单的控制"></a>修复js对于二级菜单的控制</h4><p>感谢<a href="https://github.com/ivanandonov" target="_blank" rel="noopener">@ivanandonov</a>的issue，之前我并不太觉得点击关掉二级菜单很重要，其实也就是添加个关掉二级菜单的事件，问题不大。</p>
+<h4 id="拓展marked-js的语法"><a href="#拓展marked-js的语法" class="headerlink" title="拓展marked.js的语法"></a>拓展<code>marked.js</code>的语法</h4><p>这是本部分最核心的内容了。如何去扩展<code>marked.js</code>的语法？？？我看到网上有很多小伙伴尝试去扩展语法，但是也有不少选择了放弃。</p>
+<p>如果你想尝试去扩展语法，熟读<code>marked.js</code>的<a href="https://marked.js.org/#/README.md#README.md" target="_blank" rel="noopener">使用指南</a>、<code>marked.js</code>的<a href="https://github.com/markedjs/marked" target="_blank" rel="noopener">源码</a>和实现逻辑，当然还需要写正则表达式:)</p>
+<p><code>marked.js</code>最牛逼的部分就在于正则表达式，就不重复匹配的问题，如何去用正则表达式去表示？因此重写renderer的时候我参考了很多源码部分的内容，这里就不针对<code>marked.js</code>详细展开介绍了，我只写一写我到底做了哪些事。</p>
 <ul>
-<li>Disco 19.04</li>
-<li>Cosmic 18.10</li>
-<li>Bionic 18.04 (LTS)</li>
-<li>Xenial 16.04 (LTS)</li>
+<li>抽离<code>highlight.js</code>。在原项目发现的问题之一就是——我如何去让使用者自行决定高亮的代码类型？我总不能把所有的语言都注册一遍吧？！不但增加了代码量，还需求不是很大，所以我选择了把<code>highlight.js</code>依赖给移除掉。让使用者传入<code>Hljs.highlightAuto</code>这个函数，其他的自己引入<code>highlight.js</code>然后自己注册就完事了。</li>
+<li>引入<code>emoji</code>、<code>Tex</code>、<code>diff</code>语法、<code>mark</code>做行内高亮。这就涉及了不少的正则表达式，尤其是在<code>mark</code>这个渲染上，你总不能把每一句都拿正则循环跑吧，根本不实际。所以得先把高亮块抽离出来然后再排回去，并且不能涉及需要使用的非特殊字符。感兴趣的小伙伴可以参考<a href="https://github.com/HerbertHe/for-editor-herb/blob/master/src/lib/helpers/marked.ts" target="_blank" rel="noopener">marked.ts</a>这个部分的源码。对于类似```这种就是对于code块的解析，如果是行内嵌入或者自定义渲染块呢就在<code>paragraph</code>的部分进行重写renderer就好了，但是记得一定要看源码对应的<code>html</code>的标签。</li>
 </ul>
-<blockquote>
-<p>社区版支持的架构为: <code>x86_64(amd64)</code>, <code>armhf</code>, <code>arm64</code>, <code>s390x</code>, <code>ppc64le</code>!<strong>Eoan 19.10软件源并不受支持!因此官网和清华源的命令在Ubuntu19.10下并不会成功!</strong>报错请参考: <a href="https://www.jb51.net/article/173316.htm" target="_blank" rel="noopener">分享Ubuntu19无法安装docker源问题</a></p>
-</blockquote>
-<h3 id="卸载旧版本的docker"><a href="#卸载旧版本的docker" class="headerlink" title="卸载旧版本的docker"></a>卸载旧版本的docker</h3><pre><code class="shell">sudo apt-get remove docker docker-engine docker.io containerd runc</code></pre>
-<blockquote>
-<p>docker社区版新版本名称为: docker-ce</p>
-</blockquote>
-<h3 id="更新软件源"><a href="#更新软件源" class="headerlink" title="更新软件源"></a>更新软件源</h3><pre><code class="shell">sudo apt update</code></pre>
-<h3 id="下载依赖"><a href="#下载依赖" class="headerlink" title="下载依赖"></a>下载依赖</h3><pre><code class="shell">sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common</code></pre>
-<h3 id="添加docker官方的GPG-key"><a href="#添加docker官方的GPG-key" class="headerlink" title="添加docker官方的GPG key"></a>添加docker官方的GPG key</h3><pre><code class="shell">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code></pre>
-<h3 id="验证指纹信息"><a href="#验证指纹信息" class="headerlink" title="验证指纹信息"></a>验证指纹信息</h3><pre><code class="shell">sudo apt-key fingerprint 0EBFCD88
-
-# 输出
-pub   rsa4096 2017-02-22 [SCEA]
-      9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
-uid           [ unknown] Docker Release (CE deb) &lt;docker@docker.com&gt;
-sub   rsa4096 2017-02-22 [S]</code></pre>
-<h3 id="设置软件源"><a href="#设置软件源" class="headerlink" title="设置软件源"></a>设置软件源</h3><blockquote>
-<p>这一步很关键！</p>
-</blockquote>
+<h4 id="扩展渲染的锚点和大纲"><a href="#扩展渲染的锚点和大纲" class="headerlink" title="扩展渲染的锚点和大纲"></a>扩展渲染的锚点和大纲</h4><p>渲染的锚点就是重写<code>heading</code>部分的HTML，不赘述了就是添加一个a标签就能解决的事情。大纲、目录、TOC，一个东西需要用到<code>marked.js</code>提供的解析器<code>lexer</code>，提取heading部分和深度，然后来写样式部分。</p>
+<h4 id="深坑——如何去调整textarea的高度"><a href="#深坑——如何去调整textarea的高度" class="headerlink" title="深坑——如何去调整textarea的高度"></a>深坑——如何去调整<code>textarea</code>的高度</h4><p>这一切的问题还是来源于，当我使用分栏的功能。我发现记行号并不正确，并且<code>textarea</code>的部分并不能很好的解决高度问题，因为高度不足以显示全部的内容。为什么<code>overflow: hidden</code>其实我在不断优化这个问题的时候也能体会到，因为外部的滚动条需要与行号对齐。</p>
 <ul>
-<li>官网命令</li>
+<li>修改一：换掉计算行号的方式。源代码的计算方式是通过计算<code>\n</code>来实现的，貌似<code>vscode</code>的markdown也是这么实现的，但是就优化而言<code>textarea</code>对于行号样式能有<code>vscode</code>这样的调整我是没有发现能有什么办法可以做到的。因此我也考虑了很多办法去优化这个问题，甚至重构编辑器。在目前<code>2.x.x</code>的版本中，我已经换成了根据textarea的高度来计算行号了。</li>
+<li>修改二：自适应调整textarea的高度。认真地说，这个坑都坑了多少年了，不知道坑过多少人，知乎还有很多的讨论。其实改起来也不算难，就是把<code>height: auto</code>，然后动态调整高度等于<code>scrollHeight</code>。然后我选择了把计算行号在重新计算高度的函数中进行了调用。看起来，<code>everything is ok</code>了是吧？：）惊喜的是当分栏激活的时候<code>scrollHeight</code>并不是会增大，是会减小的，没想到吧。然后我只能选择目前来说我能提供的最优的解决方案，仅当分栏关掉的时候计算高度，然后通过修改值就可以做到精确计算。原作者还提供了fontSize这个可选项，为此我去了解了<code>line-height</code>和<code>font-size</code>之间的关系，具体的源码请参考<code>index.tsx</code>的<code>reHeight</code>部分的源码。其实我还考虑过，根据上一时刻的面积除当前时刻的宽度来计算高度的，听起来是真的很美好。实际情况是，当你切换过快的时候，读取到的面积并不准确，因此这个方法就是<code>理想很丰满，现实很骨感</code>的问题。</li>
+<li>为什么不考虑去用可编辑div重写？下次一定，我是准备在<code>3.x.x</code>的版本重构的，但是我目前没有这么多时间去考虑这个问题了，是真的很麻烦。</li>
 </ul>
-<pre><code class="shell">sudo add-apt-repository \
-   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable&quot;</code></pre>
-<ul>
-<li>清华源命令</li>
-</ul>
-<pre><code class="shell">sudo add-apt-repository \
-   &quot;deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable&quot;</code></pre>
-<blockquote>
-<p>上面的命令会在<code>/etc/apt/sources.list</code>文件中添加下面的内容(以清华源为例), 执行之后会报上面提到的错误</p>
-</blockquote>
-<pre><code class="sources.list">deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu eoan stable
-# deb-src [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu eoan stable</code></pre>
-<blockquote>
-<p>正确的做法是手动更改添加<code>Disco 19.04</code>的docker软件源！</p>
-</blockquote>
-<pre><code class="shell">sudo nano /etc/apt/sources.list</code></pre>
-<pre><code class="sources.list">deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu disco stable
-# deb-src [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu disco stable</code></pre>
-<p>保存之后执行更新和下载</p>
-<pre><code class="shell">sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io</code></pre>
-<blockquote>
-<p>指定版本下载，列出软件源所有可下载的版本可以参考官网的<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1" target="_blank" rel="noopener">To install a specific version of Docker Engine - Community</a>, 用包下载安装可以参考<a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-from-a-package" target="_blank" rel="noopener">Install from a package</a></p>
-</blockquote>
-<h3 id="验证docker安装"><a href="#验证docker安装" class="headerlink" title="验证docker安装"></a>验证docker安装</h3><p>通过跑测试镜像<code>hello-world</code>验证</p>
-<pre><code class="shell">sudo docker run hello-world</code></pre>
-<blockquote>
-<p>可能会因为网络的原因报错, 参考这篇帖子: <a href="https://blog.csdn.net/anjie5595/article/details/101501786" target="_blank" rel="noopener">docker pull error pulling image configuration</a></p>
-</blockquote>
-<p>报错解决</p>
-<pre><code class="shell"># 停止docker服务
-systemctl stop docker
-# 修改daemon配置文件添加加速源
-sudo nano /etc/docker/daemon.json</code></pre>
-<pre><code class="daemon.json">{
-　　&quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;,&quot;http://hub-mirror.c.163.com&quot;]
-}</code></pre>
-<pre><code class="shell"># 重载配置
-systemctl daemon-reload
-# 重启docker服务
-systemctl restart docker</code></pre>
-<blockquote>
-<p>测试成功信息</p>
-</blockquote>
-<pre><code class="shell">Hello from Docker!
-This message shows that your installation appears to be working correctly.
-
-To generate this message, Docker took the following steps:
- 1. The Docker client contacted the Docker daemon.
- 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
-    (amd64)
- 3. The Docker daemon created a new container from that image which runs the
-    executable that produces the output you are currently reading.
- 4. The Docker daemon streamed that output to the Docker client, which sent it
-    to your terminal.
-
-To try something more ambitious, you can run an Ubuntu container with:
- \$ docker run -it ubuntu bash
-
-Share images, automate workflows, and more with a free Docker ID:
- https://hub.docker.com/
-
-For more examples and ideas, visit:
- https://docs.docker.com/get-started/
-</code></pre>
-<h3 id="docker更新"><a href="#docker更新" class="headerlink" title="docker更新"></a>docker更新</h3><p>直接使用<code>sudo apt upgrade</code>即可</p>
+<h2 id="心得感悟"><a href="#心得感悟" class="headerlink" title="心得感悟"></a>心得感悟</h2><p>小小的富文本编辑器竟然如此复杂，我突然发现我是想慢慢尝试去实现word的最基础的功能。在拓展<code>for-editor</code>的过程中我学到了很多根据教程根本是不可能学到的实际开发问题，为此我付出了很长的事件去研究源码，当然也去开始适应TypeScript来做开发。使用开源项目不是减少工作量，很大程度上其实增加了不少学习成本。</p>
+<p>如果喜欢<a href="https://github.com/HerbertHe/for-editor-herb" target="_blank" rel="noopener">for-editor-herb</a>我这个分支呢，请给<a href="https://github.com/kkfor/for-editor" target="_blank" rel="noopener">原项目</a>一个star。</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -308,7 +195,7 @@ For more examples and ideas, visit:
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地环境"><span class="toc-number">1.</span> <span class="toc-text">本地环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新装Ubuntu基本配置"><span class="toc-number">2.</span> <span class="toc-text">新装Ubuntu基本配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装docker社区版"><span class="toc-number">3.</span> <span class="toc-text">安装docker社区版</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载旧版本的docker"><span class="toc-number">3.1.</span> <span class="toc-text">卸载旧版本的docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新软件源"><span class="toc-number">3.2.</span> <span class="toc-text">更新软件源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载依赖"><span class="toc-number">3.3.</span> <span class="toc-text">下载依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加docker官方的GPG-key"><span class="toc-number">3.4.</span> <span class="toc-text">添加docker官方的GPG key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验证指纹信息"><span class="toc-number">3.5.</span> <span class="toc-text">验证指纹信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置软件源"><span class="toc-number">3.6.</span> <span class="toc-text">设置软件源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验证docker安装"><span class="toc-number">3.7.</span> <span class="toc-text">验证docker安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker更新"><span class="toc-number">3.8.</span> <span class="toc-text">docker更新</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#关于for-editor"><span class="toc-number">1.</span> <span class="toc-text">关于for-editor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发之路"><span class="toc-number">2.</span> <span class="toc-text">开发之路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通读源码"><span class="toc-number">2.1.</span> <span class="toc-text">通读源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发现的问题"><span class="toc-number">2.2.</span> <span class="toc-text">发现的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#心得感悟"><span class="toc-number">3.</span> <span class="toc-text">心得感悟</span></a></li></ol>
                 </div>
             </div>
             
