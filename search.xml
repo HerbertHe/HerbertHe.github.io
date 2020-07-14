@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>前端隐藏元素的区别</title>
+      <link href="/2020/07/14/%E5%89%8D%E7%AB%AF%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+      <url>/2020/07/14/%E5%89%8D%E7%AB%AF%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+      
+        <content type="html"><![CDATA[<h2 id="隐藏元素的方法"><a href="#隐藏元素的方法" class="headerlink" title="隐藏元素的方法"></a>隐藏元素的方法</h2><p>前端如果设置元素不可见，可以使用<code>display: none</code> <code>visibility:hidden</code> <code>opacity: 0</code></p><a id="more"></a><h2 id="空间占据"><a href="#空间占据" class="headerlink" title="空间占据"></a>空间占据</h2><ul><li><code>display: none</code>隐藏是不占用空间的，会产生回流和重绘</li><li><code>visibility: hidden</code>和<code>opacity: 0</code>隐藏了元素，但是仍然占据着空间，只会引起页面的重绘</li></ul><blockquote><p>回流(Layout): 根据生成的渲染树进行回流，得到节点的几何信息；<br>重绘(Painting): 根据渲染树得到的几何信息，得到节点的绝对像素</p></blockquote><h2 id="子元素继承"><a href="#子元素继承" class="headerlink" title="子元素继承"></a>子元素继承</h2><ul><li><code>display: none</code>这个父元素都不存在了</li><li><code>visibility: hidden</code>会被继承，通过对子元素设置<code>visibility: visible</code></li><li><code>opacity: 0</code>会被继承，子元素不能设置<code>opacity: 1</code>显示，因为<code>opacity</code>这个本就是设置透明度的！</li></ul><h2 id="事件触发"><a href="#事件触发" class="headerlink" title="事件触发"></a>事件触发</h2><ul><li><code>display: none</code>元素不存在，无法触发绑定事件</li><li><code>visibility: hidden</code>绑定事件无法触发</li><li><code>opacity: 0</code>绑定事件是可以触发的</li></ul><h2 id="过渡动画"><a href="#过渡动画" class="headerlink" title="过渡动画"></a>过渡动画</h2><p><code>transition</code>只对可数值化的属性有效，因此只有<code>opacity</code>有效</p><h2 id="一个需求"><a href="#一个需求" class="headerlink" title="一个需求"></a>一个需求</h2><p>建立一个搜索框，当<code>hover</code>搜索框的时候，<code>搜索提示元素</code>通过过渡动画展示；当仅<code>focus</code>搜索框时，<code>搜索提示元素</code>不展示，但搜索框长度通过过渡动画使宽度拉长；要求点击搜索提示框的内容时，可以跳转其他页面。</p><p>需求分析:</p><ul><li>定位问题：输入框和搜索提示的节点拥有父节点，并且父节点的<code>position</code>为<code>relative</code>，这样就可以设置<code>搜索提示框</code>的绝对定位来设置位置</li><li>事件处理问题：使用父元素的<code>hover</code>伪类控制子元素<code>搜索提示框</code>的<code>opacity</code>和<code>高度</code>；使用输入框的<code>focus</code>伪类撑起父元素的宽度；这样当整体被<code>hover</code>时，<code>搜索提示框</code>可以被展示，并且当点击<code>搜索提示框</code>里面的内容那一瞬间，输入框焦点失去，但事件可以被触发，也不用担心会被误触的情况</li></ul><blockquote><p>示例代码 <a href="https://github.com/NUCOSC/Nucers/blob/dev/site/components/common/NavBar.tsx#L173" target="_blank" rel="noopener">NavBar</a>和<a href="https://github.com/NUCOSC/Nucers/blob/dev/site/styles/components/common/NavBar.css#L32" target="_blank" rel="noopener">样式</a></p></blockquote><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ul><li><a href="https://segmentfault.com/a/1190000017329980" target="_blank" rel="noopener">你真的了解回流和重绘吗</a></li><li><a href="https://blog.csdn.net/github_39673115/article/details/77926351" target="_blank" rel="noopener">~之间的区别</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSS </tag>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CSS中的position</title>
+      <link href="/2020/07/09/CSS%E4%B8%AD%E7%9A%84position/"/>
+      <url>/2020/07/09/CSS%E4%B8%AD%E7%9A%84position/</url>
+      
+        <content type="html"><![CDATA[<h2 id="position"><a href="#position" class="headerlink" title="position"></a>position</h2><p>CSS的position属性用于元素的定位，可以实现下拉列表、提醒框等样式。分为：<code>absolute</code> <code>fixed</code> <code>relative</code> <code>static</code> 和 <code>sticky</code></p><a id="more"></a><h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><p><code>static</code>为默认值，不脱离文档流，并且<code>TRBL</code>属性不起作用。</p><h2 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h2><p><code>relative</code>相对定位，与<code>static</code>不同。<code>relative</code>的<code>TRBL</code>属性相对于<em>原本元素所在位置</em>进行定位，与<code>absolute</code>不同</p><h2 id="absolute"><a href="#absolute" class="headerlink" title="absolute"></a>absolute</h2><p><code>absolute</code>绝对定位，如果其父组件的position属性为<code>relative</code>，则其<code>top</code> <code>right</code> <code>bottom</code> <code>left</code>属性相对于父组件定位，如果不是则相对于全局定位，脱离文档流。</p><h2 id="fixed"><a href="#fixed" class="headerlink" title="fixed"></a>fixed</h2><p><code>fixed</code>与<code>absolute</code>不同，<code>fixed</code>为相对可视窗口的定位，无论窗口如何滚动，<code>fixed</code>定位的位置不会因此发生改变。但是，最好不用跟<code>&lt;input/&gt;</code>元素放在一起使用，当<code>fixed</code>作为footer元素固定在底部时，会导致移动端阻挡输入框的问题。</p><h2 id="sticky"><a href="#sticky" class="headerlink" title="sticky"></a>sticky</h2><p><code>sticky</code>属性类似于<code>relative</code>和<code>fixed</code>的结合，超出目标区域时与<code>fixed</code>相同。需要指定<code>TRBL</code>属性之一使之生效。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSS </tag>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于for-editor的扩展开发及markedjs语法扩展的心得</title>
       <link href="/2020/04/14/%E5%85%B3%E4%BA%8Efor-editor%E7%9A%84%E6%89%A9%E5%B1%95%E5%BC%80%E5%8F%91%E5%8F%8Amarkedjs%E8%AF%AD%E6%B3%95%E6%89%A9%E5%B1%95%E7%9A%84%E5%BF%83%E5%BE%97/"/>
       <url>/2020/04/14/%E5%85%B3%E4%BA%8Efor-editor%E7%9A%84%E6%89%A9%E5%B1%95%E5%BC%80%E5%8F%91%E5%8F%8Amarkedjs%E8%AF%AD%E6%B3%95%E6%89%A9%E5%B1%95%E7%9A%84%E5%BF%83%E5%BE%97/</url>

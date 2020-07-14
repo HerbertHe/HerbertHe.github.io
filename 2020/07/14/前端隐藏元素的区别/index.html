@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>自制操作系统log - Herbert部落格</title>
+    <title>前端隐藏元素的区别 - Herbert部落格</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Herbert He Blog,"> 
-    <meta name="description" content="Herbert技术分享博客,参考书
-《三十天自制操作系统（川合秀实）》
-《ORANGE’S：一个操作系统的实现》
+    <meta name="description" content="Herbert技术分享博客,隐藏元素的方法前端如果设置元素不可见，可以使用display: none visibility:hidden opacity: 0
 
-写在前面的本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书,"> 
+
+空间占据
+display: none隐藏是不占用空间的，会产生,"> 
     <meta name="author" content="Herbert He"> 
     <link rel="alternative" href="atom.xml" title="Herbert部落格" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -47,7 +47,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">自制操作系统log</h3>
+        <h3 class="subtitle">前端隐藏元素的区别</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -77,28 +77,29 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="javascript:;"><b>「 </b>文章<b> 」</b></a>
+                <a href="/categories/前端"><b>「
+                    </b>前端<b> 」</b></a>
                 
-                九月 15, 2019
+                七月 14, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/09/15/自制操作系统log/" title="自制操作系统log">自制操作系统log</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/07/14/前端隐藏元素的区别/" title="前端隐藏元素的区别">前端隐藏元素的区别</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    1.5k
+                    2.5k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    1 mins.
+                    2 mins.
                 </span>
                 
                 
-                <span id="/2019/09/15/自制操作系统log/" class="leancloud_visitors" data-flag-title="自制操作系统log">
+                <span id="/2020/07/14/前端隐藏元素的区别/" class="leancloud_visitors" data-flag-title="前端隐藏元素的区别">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">1000000</span>
                 </span>
@@ -107,7 +108,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/OS/">OS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/操作系统/">操作系统</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/自制/">自制</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/记录/">记录</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/CSS/">CSS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/前端/">前端</a></li></ul>
             
         </div>
     </div>
@@ -128,58 +129,40 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h2 id="参考书"><a href="#参考书" class="headerlink" title="参考书"></a>参考书</h2><ul>
-<li>《三十天自制操作系统（川合秀实）》</li>
-<li>《ORANGE’S：一个操作系统的实现》</li>
-</ul>
-<h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书籍中的内容根据自己的喜好、习惯，有一定的自己理解和改变！本记录默认对二进制、十六进制和基础硬件等都有一定的了解！</p>
+            <h2 id="隐藏元素的方法"><a href="#隐藏元素的方法" class="headerlink" title="隐藏元素的方法"></a>隐藏元素的方法</h2><p>前端如果设置元素不可见，可以使用<code>display: none</code> <code>visibility:hidden</code> <code>opacity: 0</code></p>
 <a id="more"></a>
 
-<h2 id="制作启动区-512字节"><a href="#制作启动区-512字节" class="headerlink" title="制作启动区(512字节)"></a>制作启动区(512字节)</h2><p>从开始我对两本书都是懵逼的，结合两本书涉及的启动盘代码总结一点东西</p>
-<pre><code class="asm">ORG 0x7c00                  ; 程序加载0x7c00
-
-; FAT12格式软盘代码位
-; (--省略--)
-
-JMP entry
-DB 0x90
-
-entry:
-        MOV AX, 0           ; 初始化寄存器
-        MOV SS, AX
-        MOV SP, 0x7c00
-        MOV DS, AX
-        MOV ES, AX
-
-        MOV SI, msg
-
-putloop:
-        MOV AL, [SI]        ; []表示内存中
-        ADD SI, 1           ; SI加一
-        CMP AL, 0
-
-        JE fin              ; jump if equal
-        MOV AH, 0x0e        ; 显示一个文字
-        MOV BX, 15          ; 指定字符颜色
-        INT 0x10            ; 调用显卡BIOS，INT软件中断指令
-        JMP putloop
-
-fin:
-        HLT                 ; 让CPU停止等待指令
-        JMP fin             ; 无限循环
-
-msg:
-        DB 0x0a, 0x0a       ; 换行
-        DB &quot;hello, world&quot;
-        DB 0x0a
-        DB 0
-
-        RESB 0x7dfe-$       ; 填写0x00直到0x001fe
-        DB 0x55, 0xaa       ; 结束</code></pre>
+<h2 id="空间占据"><a href="#空间占据" class="headerlink" title="空间占据"></a>空间占据</h2><ul>
+<li><code>display: none</code>隐藏是不占用空间的，会产生回流和重绘</li>
+<li><code>visibility: hidden</code>和<code>opacity: 0</code>隐藏了元素，但是仍然占据着空间，只会引起页面的重绘</li>
+</ul>
 <blockquote>
-<p>注意：30天那个书制作启动盘的部分完全可以看看就行。。。代码就是上面的，就是helloos.nas节选那个末尾加上了两行，写满512字节和结束标志！</p>
+<p>回流(Layout): 根据生成的渲染树进行回流，得到节点的几何信息；<br>重绘(Painting): 根据渲染树得到的几何信息，得到节点的绝对像素</p>
 </blockquote>
-<p>代码直接看<a href="https://github.com/yourtion/30dayMakeOS" target="_blank" rel="noopener">这个库</a></p>
+<h2 id="子元素继承"><a href="#子元素继承" class="headerlink" title="子元素继承"></a>子元素继承</h2><ul>
+<li><code>display: none</code>这个父元素都不存在了</li>
+<li><code>visibility: hidden</code>会被继承，通过对子元素设置<code>visibility: visible</code></li>
+<li><code>opacity: 0</code>会被继承，子元素不能设置<code>opacity: 1</code>显示，因为<code>opacity</code>这个本就是设置透明度的！</li>
+</ul>
+<h2 id="事件触发"><a href="#事件触发" class="headerlink" title="事件触发"></a>事件触发</h2><ul>
+<li><code>display: none</code>元素不存在，无法触发绑定事件</li>
+<li><code>visibility: hidden</code>绑定事件无法触发</li>
+<li><code>opacity: 0</code>绑定事件是可以触发的</li>
+</ul>
+<h2 id="过渡动画"><a href="#过渡动画" class="headerlink" title="过渡动画"></a>过渡动画</h2><p><code>transition</code>只对可数值化的属性有效，因此只有<code>opacity</code>有效</p>
+<h2 id="一个需求"><a href="#一个需求" class="headerlink" title="一个需求"></a>一个需求</h2><p>建立一个搜索框，当<code>hover</code>搜索框的时候，<code>搜索提示元素</code>通过过渡动画展示；当仅<code>focus</code>搜索框时，<code>搜索提示元素</code>不展示，但搜索框长度通过过渡动画使宽度拉长；要求点击搜索提示框的内容时，可以跳转其他页面。</p>
+<p>需求分析:</p>
+<ul>
+<li>定位问题：输入框和搜索提示的节点拥有父节点，并且父节点的<code>position</code>为<code>relative</code>，这样就可以设置<code>搜索提示框</code>的绝对定位来设置位置</li>
+<li>事件处理问题：使用父元素的<code>hover</code>伪类控制子元素<code>搜索提示框</code>的<code>opacity</code>和<code>高度</code>；使用输入框的<code>focus</code>伪类撑起父元素的宽度；这样当整体被<code>hover</code>时，<code>搜索提示框</code>可以被展示，并且当点击<code>搜索提示框</code>里面的内容那一瞬间，输入框焦点失去，但事件可以被触发，也不用担心会被误触的情况</li>
+</ul>
+<blockquote>
+<p>示例代码 <a href="https://github.com/NUCOSC/Nucers/blob/dev/site/components/common/NavBar.tsx#L173" target="_blank" rel="noopener">NavBar</a>和<a href="https://github.com/NUCOSC/Nucers/blob/dev/site/styles/components/common/NavBar.css#L32" target="_blank" rel="noopener">样式</a></p>
+</blockquote>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ul>
+<li><a href="https://segmentfault.com/a/1190000017329980" target="_blank" rel="noopener">你真的了解回流和重绘吗</a></li>
+<li><a href="https://blog.csdn.net/github_39673115/article/details/77926351" target="_blank" rel="noopener">~之间的区别</a></li>
+</ul>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -223,7 +206,7 @@ msg:
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考书"><span class="toc-number">1.</span> <span class="toc-text">参考书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写在前面的"><span class="toc-number">2.</span> <span class="toc-text">写在前面的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#制作启动区-512字节"><span class="toc-number">3.</span> <span class="toc-text">制作启动区(512字节)</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#隐藏元素的方法"><span class="toc-number">1.</span> <span class="toc-text">隐藏元素的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空间占据"><span class="toc-number">2.</span> <span class="toc-text">空间占据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子元素继承"><span class="toc-number">3.</span> <span class="toc-text">子元素继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件触发"><span class="toc-number">4.</span> <span class="toc-text">事件触发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过渡动画"><span class="toc-number">5.</span> <span class="toc-text">过渡动画</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个需求"><span class="toc-number">6.</span> <span class="toc-text">一个需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用"><span class="toc-number">7.</span> <span class="toc-text">引用</span></a></li></ol>
                 </div>
             </div>
             
