@@ -61,7 +61,7 @@
         
     </ul>
     <p class="copyright" id="copyright">
-        &copy; 2020 Herbert He.
+        &copy; 2021 Herbert He.
         Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
         Theme <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
     </p>
@@ -134,26 +134,26 @@
             <a href="/categories/前端"><b>「
                 </b>前端<b> 」</b></a>
             
-            七月 14, 2020
+            七月 23, 2020
         </p>
         <h3 class="post-title animated fadeInDown">
-            <a href="/2020/07/14/前端隐藏元素的区别/" title="前端隐藏元素的区别" class="posttitle">前端隐藏元素的区别</a></h3>
+            <a href="/2020/07/23/前端样式优先级的问题/" title="前端样式优先级的问题" class="posttitle">前端样式优先级的问题</a></h3>
         
         <p class="post-count animated fadeInDown">
             
             <span>
                 <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                2.5k
+                392
             </span>
             
             
             <span>
                 <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                2 mins.
+                1 mins.
             </span>
             
             
-            <span id="/2020/07/14/前端隐藏元素的区别/" class="leancloud_visitors" data-flag-title="">
+            <span id="/2020/07/23/前端样式优先级的问题/" class="leancloud_visitors" data-flag-title="">
                 <b class="iconfont icon-read"></b> <i>阅读次数</i>
                 <span class="leancloud-visitors-count">1000000</span>
             </span>
@@ -165,14 +165,21 @@
         
         <div class="md-content animated fadeIn">
             
-            <p>前端如果设置元素不可见，可以使用<code>display: none</code> <code>visibility:hidden</code> <code>opacity: 0</code></p>
-<a id="more"></a>
-
+            <ul>
+<li>ID选择器</li>
+<li>类选择器</li>
+<li>属性选择器</li>
+<li>伪类选择器</li>
+<li>类型选择器</li>
+<li>伪元素选择器</li>
+<li>!important</li>
+</ul>
 <ul>
-<li><code>display: none</code>隐藏是不占用空间的，会产生回流和重绘</li>
-<li><code>visibility...</code></li></ul>
+<li><a href="https://www.w3.org/TR/selectors/#specificity" target="_blank" rel="noopener">W3 Specificity</a></li>
+</ul>
+
             
-            <span class="read-more"><a href="/2020/07/14/前端隐藏元素的区别/" title="查看全文" class="posttitle">查看全文</a>
+            <span class="read-more"><a href="/2020/07/23/前端样式优先级的问题/" title="查看全文" class="posttitle">查看全文</a>
                 <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
@@ -193,6 +200,69 @@
 
     <div id="primary">
         
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="/categories/前端">
+                  <b>「 </b>前端<b> 」</b>
+                </a>
+            
+            七月 14, 2020
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/07/14/前端隐藏元素的区别/" title="前端隐藏元素的区别" class="posttitle">前端隐藏元素的区别</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                        2.5k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                        2 mins.
+                    </span>
+                
+                
+                    <span id="/2020/07/14/前端隐藏元素的区别/" class="leancloud_visitors" data-flag-title="">
+                        <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                        <span class="leancloud-visitors-count">1000000</span>
+                    </span>
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/CSS/">CSS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/前端/">前端</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <p>前端如果设置元素不可见，可以使用<code>display: none</code> <code>visibility:hidden</code> <code>opacity: 0</code></p>
+<a id="more"></a>
+
+<ul>
+<li><code>display: none</code>隐藏是不占用空间的，会产生回流和重绘</li>
+<li><code>visibility: hidden</code>和<code>opacity: 0</code>隐藏了元素，但是仍然占据着空间，只会引起页面的重绘</li>
+</ul>
+<blockquote>
+<p>回流(Layout): 根据生成的渲染树进行回流，得到节点的几何信息；<br>重绘(Painting): 根据渲染树得到的几何信息，得到节点的绝对像素</p>
+</blockquote>
+<ul>
+<li><code>display: none</code>这个父元素都不存在了</li>
+<li><code>visibility...</code></li></ul>
+            
+            <span class="read-more"><a href="/2020/07/14/前端隐藏元素的区别/" title="查看全文" class="posttitle">查看全文</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
 <div class="post" id="post">
     <div class="post-cover animated fadeIn" style="
             background-image:
@@ -263,7 +333,7 @@
 </body>
 <footer>
     <p class="copyright" id="copyright">
-        &copy; 2020
+        &copy; 2021
         <span class="gradient-text">
             Herbert He
         </span>.

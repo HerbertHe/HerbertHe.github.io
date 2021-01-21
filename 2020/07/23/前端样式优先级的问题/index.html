@@ -5,13 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>《将博客搬至CSDN》 - Herbert部落格</title>
+    <title>前端样式优先级的问题 - Herbert部落格</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Herbert He Blog,"> 
-    <meta name="description" content="Herbert技术分享博客,
-本篇帖子用于同步博客至CSDN
+    <meta name="description" content="Herbert技术分享博客,选择器类型
+ID选择器
+类选择器
+属性选择器
+伪类选择器
+类型选择器
+伪元素选择器
+!important
+
+参考
+W3 Specificity
 
 "> 
     <meta name="author" content="Herbert He"> 
@@ -46,7 +55,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">《将博客搬至CSDN》</h3>
+        <h3 class="subtitle">前端样式优先级的问题</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -76,18 +85,19 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="javascript:;"><b>「 </b>文章<b> 」</b></a>
+                <a href="/categories/前端"><b>「
+                    </b>前端<b> 」</b></a>
                 
-                二月 11, 2020
+                七月 23, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2020/02/11/《将博客搬至CSDN》/" title="《将博客搬至CSDN》">《将博客搬至CSDN》</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/07/23/前端样式优先级的问题/" title="前端样式优先级的问题">前端样式优先级的问题</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    50
+                    392
                 </span>
                 
                 
@@ -97,7 +107,7 @@
                 </span>
                 
                 
-                <span id="/2020/02/11/《将博客搬至CSDN》/" class="leancloud_visitors" data-flag-title="《将博客搬至CSDN》">
+                <span id="/2020/07/23/前端样式优先级的问题/" class="leancloud_visitors" data-flag-title="前端样式优先级的问题">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">1000000</span>
                 </span>
@@ -105,6 +115,8 @@
                 
             </p>
             
+            
+            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/CSS/">CSS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/前端/">前端</a></li></ul>
             
         </div>
     </div>
@@ -125,9 +137,18 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <blockquote>
-<p>本篇帖子用于同步博客至CSDN</p>
-</blockquote>
+            <h2 id="选择器类型"><a href="#选择器类型" class="headerlink" title="选择器类型"></a>选择器类型</h2><ul>
+<li>ID选择器</li>
+<li>类选择器</li>
+<li>属性选择器</li>
+<li>伪类选择器</li>
+<li>类型选择器</li>
+<li>伪元素选择器</li>
+<li>!important</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://www.w3.org/TR/selectors/#specificity" target="_blank" rel="noopener">W3 Specificity</a></li>
+</ul>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -160,13 +181,20 @@
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">20 <p>文章</p></a></li>
+                    <li><a href="/">21 <p>文章</p></a></li>
                     <li><a href="/categories">7 <p>分类</p></a></li>
-                    <li><a href="/tags">58 <p>标签</p></a></li>
+                    <li><a href="/tags">60 <p>标签</p></a></li>
                 </ul>
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>目录</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#选择器类型"><span class="toc-number">1.</span> <span class="toc-text">选择器类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+                </div>
+            </div>
             
             
         </div>
@@ -183,7 +211,7 @@
 </body>
 <footer>
     <p class="copyright" id="copyright">
-        &copy; 2020
+        &copy; 2021
         <span class="gradient-text">
             Herbert He
         </span>.
