@@ -14,9 +14,9 @@
       
         <tags>
             
-            <tag> Win10 </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> Win10 </tag>
             
             <tag> C盘清理 </tag>
             
@@ -265,9 +265,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> Vim </tag>
+            
+            <tag> Windows </tag>
             
             <tag> Vundle </tag>
             
