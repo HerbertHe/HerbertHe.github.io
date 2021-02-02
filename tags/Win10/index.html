@@ -5,16 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>自制操作系统log - Herbert部落格</title>
+    <title>Tag: Win10 - Herbert部落格</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Herbert He Blog,"> 
-    <meta name="description" content="Herbert技术分享博客,参考书
-《三十天自制操作系统（川合秀实）》
-《ORANGE’S：一个操作系统的实现》
-
-写在前面的本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书,"> 
+    <meta name="description" content="Herbert技术分享博客,"> 
     <meta name="author" content="Herbert He"> 
     <link rel="alternative" href="atom.xml" title="Herbert部落格" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -40,77 +36,142 @@
     </div>
     <span id="config-title" style="display:none">Herbert部落格</span>
     <div id="loader"></div>
-    <div id="single">
-    <div class="scrollbar gradient-bg-rev"></div>
-<div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <div class="navigation animated fadeIn fast delay-1s">
-        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
-        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">自制操作系统log</h3>
-        <div class="social">
-            <!--        <div class="like-icon">-->
-            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-            <!--        </div>-->
-            <div>
-                <div class="share">
-                    
-                        <a href="javascript:;" class="iconfont icon-share1"></a>
-                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
-                    
-                </div>
-            </div>
+    <div class="nav">
+    <ul id="menu-menu" class="menu">
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/categories/" title="CATEGORIES">CATEGORIES</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/tags/" title="TAGS">TAGS</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/archives/" title="ARCHIVES">ARCHIVES</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="https://server.jieec.cn" title="Jieec server">Jieec server</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="https://herberthe.gitee.io" title="国内镜像">国内镜像</a>
+        </li>
+        
+    </ul>
+    <p class="copyright" id="copyright">
+        &copy; 2021 Herbert He.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+    </p>
+</div>
+
+<div id="container">
+    
+<div class="search-box">
+    <form class="site-search-form">
+        <span class="iconfont icon-search"></span>
+        <input type="text" id="local-search-input" class="st-search-input" />
+        <div class="iconfont icon-cross search-box-close"></div>
+    </form>
+    <div class="search-scrollable">
+        <div id="local-search-result" class="local-search-result-cls" data-initialise="首次搜索，正在载入索引文件，请稍后……"
+            data-start="输入关键词搜索。" data-empty="没有找到内容，请尝试更换检索词。">
+            <span>输入关键词搜索。</span>
         </div>
     </div>
 </div>
-
-    <div class="section">
-        <div class=article-header-wrapper>
-    <div class="article-header">
-        <div class="article-cover animated fadeIn" style="
-            animation-delay: 600ms;
-            animation-duration: 1.2s;
-            background-image: 
-                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+<div id="header">
+    <div>
+        <div class="logo animated fadeInDown">
+            <img src="/img/favicon.png" alt="">
+            <a class="image-logo" href="/"></a>
+        </div>
+        <ul id="menu-menu" class="menu text-menu">
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/categories/" title="CATEGORIES" class="menu-link">CATEGORIES</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/tags/" title="TAGS" class="menu-link">TAGS</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/archives/" title="ARCHIVES" class="menu-link">ARCHIVES</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="https://server.jieec.cn" title="Jieec server" class="menu-link">Jieec server</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="https://herberthe.gitee.io" title="国内镜像" class="menu-link">国内镜像</a>
+            </li>
+            
+            
+            <li class="animated fadeInDown search-bar iconfont icon-search"></li>
+            
+        </ul>
+        <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
+    </div>
+</div>
+<div id="screen">
+    <div id="mark">
+        <div class="cover animated fadeIn" style="
+            animation-delay: 900ms;
+            animation-duration: 2.8s;
+            background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.56), #100e17),
                 url(/img/cover.jpg);">
         </div>
-        <div class="else">
-            <p class="animated fadeInDown">
-                
-                <a href="javascript:;"><b>「 </b>文章<b> 」</b></a>
-                
-                九月 15, 2019
-            </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/09/15/自制操作系统log/" title="自制操作系统log">自制操作系统log</a>
-            </h3>
+    </div>
+    
+    <div id="post0" class="else">
+        <p class="animated fadeInDown">
             
-            <p class="post-count animated fadeInDown">
-                
-                <span>
-                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    1.5k
-                </span>
-                
-                
-                <span>
-                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    1 mins.
-                </span>
-                
-                
-                <span id="/2019/09/15/自制操作系统log/" class="leancloud_visitors" data-flag-title="自制操作系统log">
-                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
-                    <span class="leancloud-visitors-count">1000000</span>
-                </span>
-                
-                
-            </p>
+            <a href="javascript:;"><b>「 </b>文章<b> 」</b></a>
+            
+            二月 02, 2021
+        </p>
+        <h3 class="post-title animated fadeInDown">
+            <a href="/2021/02/02/Win10体验优化策略/" title="Win10体验优化策略" class="posttitle">Win10体验优化策略</a></h3>
+        
+        <p class="post-count animated fadeInDown">
+            
+            <span>
+                <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                7k
+            </span>
             
             
-            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/OS/">OS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/操作系统/">操作系统</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/自制/">自制</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/记录/">记录</a></li></ul>
+            <span>
+                <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                6 mins.
+            </span>
             
+            
+            <span id="/2021/02/02/Win10体验优化策略/" class="leancloud_visitors" data-flag-title="">
+                <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                <span class="leancloud-visitors-count">1000000</span>
+            </span>
+            
+        </p>
+        
+        
+        <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/C盘清理/">C盘清理</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Win10/">Win10</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Windows/">Windows</a></li></ul>
+        
+        <div class="md-content animated fadeIn">
+            
+            <p>随着代码越写越多，越来越发现自己有很严重的精神洁癖。尤其在对于自己日常使用的软件体验上，无论是手机还是PC。这篇帖子着重讲述，这么多年来对于Win10系统使用的体验优化，还有对于C盘清理的经验。</p>
+<p>希望...</p>
+            
+            <span class="read-more"><a href="/2021/02/02/Win10体验优化策略/" title="查看全文" class="posttitle">查看全文</a>
+                <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
+    
 </div>
 
 <div class="screen-gradient-after">
@@ -118,122 +179,21 @@
         <div class="screen-gradient-content-inside">
             <div class="bold-underline-links screen-gradient-sponsor">
                 <p>
-                    <span class="animated fadeIn delay-1s"></span>
+                    <span class="typed-text"></span>
                 </p>
             </div>
         </div>
     </div>
 </div>
 
-<div class="article">
-    <div class='main'>
-        <div class="content markdown animated fadeIn">
-            <h2 id="参考书"><a href="#参考书" class="headerlink" title="参考书"></a>参考书</h2><ul>
-<li>《三十天自制操作系统（川合秀实）》</li>
-<li>《ORANGE’S：一个操作系统的实现》</li>
-</ul>
-<h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>本记录不展示原版书籍的内容，仅作为自己历程的记录和总结。两本书各有所长，根据自己的喜好选择和实践。书籍中的内容根据自己的喜好、习惯，有一定的自己理解和改变！本记录默认对二进制、十六进制和基础硬件等都有一定的了解！</p>
-<a id="more"></a>
-
-<h2 id="制作启动区-512字节"><a href="#制作启动区-512字节" class="headerlink" title="制作启动区(512字节)"></a>制作启动区(512字节)</h2><p>从开始我对两本书都是懵逼的，结合两本书涉及的启动盘代码总结一点东西</p>
-<pre><code class="asm">ORG 0x7c00                  ; 程序加载0x7c00
-
-; FAT12格式软盘代码位
-; (--省略--)
-
-JMP entry
-DB 0x90
-
-entry:
-        MOV AX, 0           ; 初始化寄存器
-        MOV SS, AX
-        MOV SP, 0x7c00
-        MOV DS, AX
-        MOV ES, AX
-
-        MOV SI, msg
-
-putloop:
-        MOV AL, [SI]        ; []表示内存中
-        ADD SI, 1           ; SI加一
-        CMP AL, 0
-
-        JE fin              ; jump if equal
-        MOV AH, 0x0e        ; 显示一个文字
-        MOV BX, 15          ; 指定字符颜色
-        INT 0x10            ; 调用显卡BIOS，INT软件中断指令
-        JMP putloop
-
-fin:
-        HLT                 ; 让CPU停止等待指令
-        JMP fin             ; 无限循环
-
-msg:
-        DB 0x0a, 0x0a       ; 换行
-        DB &quot;hello, world&quot;
-        DB 0x0a
-        DB 0
-
-        RESB 0x7dfe-$       ; 填写0x00直到0x001fe
-        DB 0x55, 0xaa       ; 结束</code></pre>
-<blockquote>
-<p>注意：30天那个书制作启动盘的部分完全可以看看就行。。。代码就是上面的，就是helloos.nas节选那个末尾加上了两行，写满512字节和结束标志！</p>
-</blockquote>
-<p>代码直接看<a href="https://github.com/yourtion/30dayMakeOS" target="_blank" rel="noopener">这个库</a></p>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls"
-                data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-            <ul id="audio-list" style="display:none">
-                
-            </ul>
-            
-            
-            
-            <div id="vcomments"></div>
-            
-        </div>
-        <div class="sidebar">
-            <div class="box animated fadeInRight">
-                <div class="subbox">
-                    <img src="https://tvax2.sinaimg.cn/crop.0.0.996.996.180/80bd8a7aly8fq8s0f4rqkj20ro0rowfz.jpg?KID=imgbed,tva&Expires=1580119427&ssig=wnI6HasDk5" height=300 width=300></img>
-                    <p>Herbert He</p>
-                    <span>Share Ideas, Share Tech, Share Life</span>
-                    <dl>
-                        <dd><a href="https://github.com/HerbertHe" target="_blank"><span
-                                    class=" iconfont icon-github"></span></a></dd>
-                        <dd><a href="" target="_blank"><span
-                                    class=" iconfont icon-twitter"></span></a></dd>
-                        <dd><a href="" target="_blank"><span
-                                    class=" iconfont icon-stack-overflow"></span></a></dd>
-                    </dl>
-                </div>
-                <ul>
-                    <li><a href="/">22 <p>文章</p></a></li>
-                    <li><a href="/categories">7 <p>分类</p></a></li>
-                    <li><a href="/tags">62 <p>标签</p></a></li>
-                </ul>
-            </div>
-            
-            
-            
-            <div class="box sticky animated fadeInRight faster">
-                <div id="toc" class="subbox">
-                    <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考书"><span class="toc-number">1.</span> <span class="toc-text">参考书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写在前面的"><span class="toc-number">2.</span> <span class="toc-text">写在前面的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#制作启动区-512字节"><span class="toc-number">3.</span> <span class="toc-text">制作启动区(512字节)</span></a></li></ol>
-                </div>
-            </div>
-            
-            
-        </div>
+    <div id="primary">
+        
     </div>
+    
 </div>
+<div id="preview"></div>
 
-    </div>
-</div>
+
     <div id="back-to-top" class="animated fadeIn faster">
         <div class="flow"></div>
         <span class="percentage animated fadeIn faster">0%</span>
