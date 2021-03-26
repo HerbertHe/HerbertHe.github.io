@@ -1,0 +1,131 @@
+<!doctype html><html lang=zh><meta charset=utf-8><meta name=viewport content="width=device-width"><title>Hexo基础搭建使用 | 惒泊の部落格</title><link rel=stylesheet href=/css/eureka.min.css><script defer src=/js/eureka.min.js></script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'"><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/javascript.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/typescript.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/matlab.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/verilog.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/shell.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/bash.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/latex.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/markdown.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script><link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png><link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png><meta name=description content="Hexo安装环境 Node.js (nvm) Git 推荐使用nvm，在实践之后发现nvm真的很好用，当然Windows用户可以直接"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"Hexo基础搭建使用","item":"/posts/hexo%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BA%E4%BD%BF%E7%94%A8/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/hexo%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BA%E4%BD%BF%E7%94%A8/"},"headline":"Hexo基础搭建使用 | 惒泊の部落格","datePublished":"2019-07-02T22:25:57+00:00","dateModified":"2019-07-02T22:25:57+00:00","wordCount":1988,"publisher":{"@type":"Person","name":"HerbertHe","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"Hexo安装环境 Node.js (nvm) Git 推荐使用nvm，在实践之后发现nvm真的很好用，当然Windows用户可以直接"}</script><meta property="og:title" content="Hexo基础搭建使用 | 惒泊の部落格"><meta property="og:type" content="article"><meta property="og:image" content="/images/icon.png"><meta property="og:url" content="/posts/hexo%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BA%E4%BD%BF%E7%94%A8/"><meta property="og:description" content="Hexo安装环境 Node.js (nvm) Git 推荐使用nvm，在实践之后发现nvm真的很好用，当然Windows用户可以直接"><meta property="og:locale" content="zh"><meta property="og:site_name" content="惒泊の部落格"><meta property="article:published_time" content="2019-07-02T22:25:57+00:00"><meta property="article:modified_time" content="2019-07-02T22:25:57+00:00"><meta property="article:section" content="posts"><meta property="article:tag" content="Hexo"><meta property="article:tag" content="nginx"><body class="flex flex-col min-h-screen"><header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm"><div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script><nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0"><a href=/ class="mr-6 text-primary-text text-xl font-bold">惒泊の部落格</a>
+<button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+<i class="fas fa-bars"></i></button><div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20"><div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0"><a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">文章</a>
+<a href=/categories/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">集合</a>
+<a href=/tags/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">标签</a>
+<a href=https://server.jieec.cn class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">Jieec Server</a>
+<a href=https://download.jieec.cn class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">Jieec Server Download</a></div><div class=flex><div class="relative pt-4 md:pt-0"><div class="cursor-pointer hover:text-eureka" id=lightDarkMode><i class="fas fa-adjust"></i></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open></div><div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions><span class="px-4 py-1 hover:text-eureka" name=Light>浅色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自动</span></div></div></div></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile></div></nav><script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{switchMode('Auto')}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script></div></header><main class="flex-grow pt-16"><div class=pl-scrollbar><div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto"><div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12"><div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8"><h1 class="font-bold text-3xl text-primary-text">Hexo基础搭建使用</h1><div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text"><div class="mr-6 my-2"><i class="fas fa-calendar mr-1"></i>
+<span>2019-07-02</span></div><div class="mr-6 my-2"><i class="fas fa-clock mr-1"></i>
+<span>4分钟阅读时长</span></div></div><div class=content><h2 id=hexo安装环境>Hexo安装环境</h2><ul><li><a href=http://nodejs.org/>Node.js</a> (<a href=https://github.com/creationix/nvm>nvm</a>)</li><li><a href=http://git-scm.com/>Git</a></li></ul><blockquote><p>推荐使用nvm，在实践之后发现nvm真的很好用，当然Windows用户可以直接下载安装</p></blockquote><pre><code class=language-shell># 下载node.js
+ nvm install stable
+</code></pre><h2 id=安装hexo>安装Hexo</h2><blockquote><p>Linux和Mac用户直接使用下面的shell就完事了，Windows用户可以使用在相应文件夹下使用Window Powershell或者git bash然后shell，国内推荐用npm下载cnpm，代替npm来提高依赖的下载速度和稳定性！！（cnpm用的是淘宝的镜像）</p></blockquote><pre><code class=language-shell># 下载cnpm
+ npm install -g cnpm --registry=https://registry.npm.taobao.org
+</code></pre><pre><code class=language-shell># 安装Hexo
+ cnpm install -g hexo-cli
+</code></pre><h2 id=文章迁移插件的安装没有需要的可以跳过>文章迁移插件的安装（没有需要的可以跳过）</h2><p>Hexo官方支持的迁移来源</p><ul><li><a href=https://hexo.io/zh-cn/docs/migration#RSS>RSS</a></li><li><a href=https://hexo.io/zh-cn/docs/migration#Jekyll>Jekyll</a></li><li><a href=https://hexo.io/zh-cn/docs/migration#Octopress>Octopress</a></li><li><a href=https://hexo.io/zh-cn/docs/migration#WordPress>WordPress</a></li><li><a href=https://hexo.io/zh-cn/docs/migration#Joomla>Joomla</a></li></ul><h2 id=初始化一个hexo项目>初始化一个Hexo项目</h2><pre><code class=language-shell># 初始化博客项目
+ hexo init &lt;项目名称&gt;
+ cd &lt;项目名称&gt;      # 打开项目文件夹
+
+# 下载Hexo server
+ cnpm install hexo-server --save
+
+# 启动本地预览
+ hexo server       # 默认http://localhost:4000
+</code></pre><blockquote><p>关于更改预览设置的请参考 <a href=https://hexo.io/zh-cn/docs/server>Hexo Server</a></p></blockquote><h2 id=修改hexo的主题>修改Hexo的主题</h2><p>这里以yilia为例（请保证网络环境）</p><pre><code class=language-git># 确保在上面项目文件夹下
+git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
+</code></pre><blockquote><p>themes/yilia 也就是下载到项目文件夹下的themes/yilia目录下</p></blockquote><p>进入themes/yilia下，修改_config.yml文件</p><pre><code class=language-shell># Linux的进入修改
+ cd themes/yilia
+ nano _config.yml
+</code></pre><blockquote><p>Windows建议使用vscode打开编辑</p></blockquote><pre><code class=language-yml># 修改内容
+themes: yilia        # (上面下载位置文件夹名)
+</code></pre><h2 id=生成保存更改>生成保存更改</h2><blockquote><p>Hexo每次修改或者添加等操作都需要重新生成文件，生成的文件在工程根目录的public文件夹下</p></blockquote><pre><code class=language-shell># 清除之前的文件
+ hexo clean
+
+# 生成新的文件
+ hexo generate
+# 或者
+ hexo g
+
+# 预览文件
+ hexo server
+# 或者
+ hexo start
+# 或者
+ hexo s
+
+</code></pre><blockquote><p>在生成操作时可以使用&ndash;watch来比较文件的SHA1 checksum仅生成不同的文件</p></blockquote><pre><code class=language-shell># 监视文件变动
+ hexo generate --watch
+</code></pre><p>一条命令也可以这样写</p><pre><code class=language-shell># 清除保存预览
+ hexo clean &amp;&amp; hexo g &amp;&amp; hexo s
+</code></pre><h2 id=hexo的目录树>Hexo的目录树</h2><p>目录树在此就不赘述了，请参考Hexo官方介绍 <a href=https://hexo.io/zh-cn/docs/asset-folders>资源文件夹</a> 和 <a href=https://hexo.io/zh-cn/docs/data-files>数据文件夹</a></p><blockquote><p>作为仅markdown用户个人没有采取官方的引用方式而是使用了! [ ] ( )</p></blockquote><h2 id=hexo新建文章>Hexo新建文章</h2><p>Hexo的文章放置在根目录的/sources/_post下</p><pre><code class=language-shell># 生成一篇md文章
+ hexo new &lt;文章名&gt;
+# 或者
+ hexo n &lt;文件名&gt;
+</code></pre><blockquote><p>相关关于写作的具体操作参考 <a href=https://hexo.io/zh-cn/docs/writing>写作</a></p></blockquote><h2 id=hexo的部署>Hexo的部署</h2><p>作为一个Git用户表示也习惯了git的使用，本文采取Gitpage来演示（其他参考 <a href=https://hexo.io/zh-cn/docs/deployment>官方教程</a>）</p><h3 id=首先得下载依赖根目录下>首先得下载依赖（根目录下）</h3><pre><code class=language-shell># 下载hexo-deployer-git
+ cnpm install hexo-deployer-git --save
+</code></pre><h3 id=修改配置文件>修改配置文件</h3><p>修改根目录下的_config.yml</p><pre><code class=language-yml>deploy:
+    type: git
+    repo: &lt;Gitpage仓库地址&gt;
+    branch: master            # 默认的分支就是master
+</code></pre><h3 id=重新生成更新文件同上>重新生成更新文件（同上）</h3><h3 id=发到部署仓库>发到部署仓库</h3><pre><code class=language-shell># 部署命令
+ hexo deploy
+# 这里采取非监视的一条shell
+ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d
+</code></pre><blockquote><p>私有库要求输入用户名和密码，首次安装git请参考git的设置</p></blockquote><h2 id=私人云服务器git仓库的搭建nginx配置及部署>私人云服务器Git仓库的搭建、nginx配置及部署</h2><h3 id=云git仓库的建立>云Git仓库的建立</h3><pre><code class=language-shell># 设置新的用户
+ useradd git           # 添加git用户
+ passwd git            # 设置git密码
+
+# 修改权限文件
+ chown 740 /etc/sudoers
+ nano /etc/sudoers
+
+# 添加内容
+# 找到 root ALL=(ALL:ALL) ALL
+# 下面添加
+git ALL=(ALL:ALL) ALL
+
+# 保存退出
+# 修改权限
+ chown 440 /etc/sudoers
+
+# 关闭git用户shell权限
+ nano /etc/passwd
+
+# 将git❌1001:1001:,,,:/home/git:/bin/bash改为
+git❌1001:1001:,,,:/home/git:/usr/bin/git-shell
+</code></pre><p>在网上教程中会要求su git切换用户！！这里有一个坑，会报错的！！因为上面禁掉了git的shell权限！！可以不切换的</p><pre><code class=language-shell># 创建git目录
+ cd /home/git                # 没有的进入home然后mkdir git
+ mkdir blog.git              # 这里以blog.git为例建立git仓库
+ git init --bare             # 创建空仓库
+
+# 创建网站目录
+ cd /var/www
+ mkdir blog                  # 这里/var/www/blog作为网站源码的存放位置
+</code></pre><p>网上教程在这里证书配置ssh免密码认证，个人没有采用这种方式（老老实实输密码）</p><p>用户组的管理</p><pre><code class=language-shell> ll /home/git/
+ ll /var/www/
+# 确保blog.git、blog目录的用户组权限为git:git
+</code></pre><blockquote><p>如果不是</p></blockquote><pre><code class=language-shell># 执行
+ chown git:git -R /var/www/blog
+ chown git:git -R /home/git/blog.git
+</code></pre><h3 id=配置nginx>配置nginx</h3><p>这里就不赘述nginx的参数意义和配置了，仅仅修改源码放置的配置！！！</p><pre><code class=language-nginx># 进入/etc/nginx/sites-available下
+ nano default
+
+# 修改配置文件的location下的root
+# 举个例子
+
+root /var/www/blog;
+</code></pre><p>保存退出！然后重新加载nginx</p><pre><code class=language-shell># 重新加载nginx
+ service nginx reload
+</code></pre><h3 id=配置git-hooks>配置Git Hooks</h3><pre><code class=language-shell># 创建post-receive文件并添加内容
+ cd /home/git/blog.git/hooks           # 切换目录
+
+ nano post-receive
+</code></pre><p>添加内容</p><pre><code class=language-post-receive>#!/bin/bash
+GIT_REPO=/home/git/blog.git
+TMP_GIT_CLONE=/tmp/blog
+PUBLIC_WWW=/var/www/blog
+rm -rf ${TMP_GIT_CLONE}
+git clone $GIT_REPO $TMP_GIT_CLONE
+rm -rf ${PUBLIC_WWW}/*
+cp -rf ${TMP_GIT_CLONE}/* ${PUBLIC_WWW}
+</code></pre><blockquote><p>上面内容可以按需要修改</p></blockquote><p>保存退出之后，chmod +x post-receive赋予可执行权限</p><h3 id=配置本地工程部署>配置本地工程部署</h3><p>上面是基于Gitpage配置的Hexo，在此只需要修改_config.yml的deploy下的repo</p><pre><code class=language-yml>repo: git@你的服务器IP:blog.git               # git访问对应服务器的blog.git仓库
+</code></pre><p>然后就是上面的部署操作就完成了！！</p><h2 id=yilia主题下文章预览设置more的操作>yilia主题下文章预览设置more的操作</h2><pre><code class=language-md>&lt;!-- 在你要中断文章结尾的位置添加下面的内容 --&gt;
+
+&lt;!-- more --&gt;
+</code></pre><h2 id=参考文档>参考文档</h2><ul><li><a href=https://hexo.io/zh-cn/docs/>官网文档</a></li><li><a href=https://www.jianshu.com/p/b926ecf1c6f6>简书博文</a></li></ul></div><div class=my-4><a href=/tags/hexo/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Hexo</a>
+<a href=/tags/nginx/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#nginx</a></div><div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t"><div><span class="block font-bold">上一页</span>
+<a href=/posts/emq%E8%AF%95%E7%94%A8log/ class=block>EMQ试用Log</a></div><div class="md:text-right mt-4 md:mt-0"><span class="block font-bold">下一页</span>
+<a href=/posts/dart%E4%B9%8B%E6%97%85/ class=block>Dart之旅</a></div></div></div><div class=col-span-2><div class="sticky top-16 z-10 hidden lg:block px-6 py-4 bg-primary-bg"><span class="text-lg font-semibold">本页内容</span></div><div class="sticky-toc hidden lg:block px-6 pb-6"><nav id=TableOfContents><ul><li><a href=#hexo安装环境>Hexo安装环境</a></li><li><a href=#安装hexo>安装Hexo</a></li><li><a href=#文章迁移插件的安装没有需要的可以跳过>文章迁移插件的安装（没有需要的可以跳过）</a></li><li><a href=#初始化一个hexo项目>初始化一个Hexo项目</a></li><li><a href=#修改hexo的主题>修改Hexo的主题</a></li><li><a href=#生成保存更改>生成保存更改</a></li><li><a href=#hexo的目录树>Hexo的目录树</a></li><li><a href=#hexo新建文章>Hexo新建文章</a></li><li><a href=#hexo的部署>Hexo的部署</a><ul><li><a href=#首先得下载依赖根目录下>首先得下载依赖（根目录下）</a></li><li><a href=#修改配置文件>修改配置文件</a></li><li><a href=#重新生成更新文件同上>重新生成更新文件（同上）</a></li><li><a href=#发到部署仓库>发到部署仓库</a></li></ul></li><li><a href=#私人云服务器git仓库的搭建nginx配置及部署>私人云服务器Git仓库的搭建、nginx配置及部署</a><ul><li><a href=#云git仓库的建立>云Git仓库的建立</a></li><li><a href=#配置nginx>配置nginx</a></li><li><a href=#配置git-hooks>配置Git Hooks</a></li><li><a href=#配置本地工程部署>配置本地工程部署</a></li></ul></li><li><a href=#yilia主题下文章预览设置more的操作>yilia主题下文章预览设置more的操作</a></li><li><a href=#参考文档>参考文档</a></li></ul></nav></div><script>window.addEventListener('DOMContentLoaded',()=>{enableStickyToc()})</script></div></div><script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script></div></div></main><footer class=pl-scrollbar><div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b"><p class="text-sm text-tertiary-text">&copy; 2018 ~ 2021 <a href=https://goer.icu>惒泊の部落格</a> All Rights Reserved!
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p></div></div></footer></body></html>
