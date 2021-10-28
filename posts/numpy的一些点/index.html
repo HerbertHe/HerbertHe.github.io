@@ -1,41 +1,444 @@
-<!doctype html><html lang=zh><meta charset=utf-8><meta name=viewport content="width=device-width"><title>NumPy的一些点 | 惒泊の部落格</title><link rel=stylesheet href=/css/eureka.min.css><script defer src=/js/eureka.min.js></script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'"><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/javascript.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/typescript.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/matlab.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/verilog.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/shell.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/bash.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/latex.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/markdown.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script><link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png><link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png><meta name=description content="参考教程 runoob numpy NumPy Ndarray对象 N维数组对象 同类型数据的集合 从0下标开始元素索引 组成 一个指向数据的指"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"NumPy的一些点","item":"/posts/numpy%E7%9A%84%E4%B8%80%E4%BA%9B%E7%82%B9/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/numpy%E7%9A%84%E4%B8%80%E4%BA%9B%E7%82%B9/"},"headline":"NumPy的一些点 | 惒泊の部落格","datePublished":"2019-07-16T10:13:57+00:00","dateModified":"2019-07-16T10:13:57+00:00","wordCount":2633,"publisher":{"@type":"Person","name":"惒泊(HerbertHe)","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"参考教程 runoob numpy NumPy Ndarray对象 N维数组对象 同类型数据的集合 从0下标开始元素索引 组成 一个指向数据的指"}</script><meta property="og:title" content="NumPy的一些点 | 惒泊の部落格"><meta property="og:type" content="article"><meta property="og:image" content="/images/icon.png"><meta property="og:url" content="/posts/numpy%E7%9A%84%E4%B8%80%E4%BA%9B%E7%82%B9/"><meta property="og:description" content="参考教程 runoob numpy NumPy Ndarray对象 N维数组对象 同类型数据的集合 从0下标开始元素索引 组成 一个指向数据的指"><meta property="og:locale" content="zh"><meta property="og:site_name" content="惒泊の部落格"><meta property="article:published_time" content="2019-07-16T10:13:57+00:00"><meta property="article:modified_time" content="2019-07-16T10:13:57+00:00"><meta property="article:section" content="posts"><meta property="article:tag" content="python"><meta property="article:tag" content="numpy"><meta property="article:tag" content="图像处理基础"><body class="flex flex-col min-h-screen"><header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm"><div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script><nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0"><a href=/ class="mr-6 text-primary-text text-xl font-bold">惒泊の部落格</a>
+<!doctype html><html lang=zh><meta charset=utf-8>
+<meta name=viewport content="width=device-width">
+<title>NumPy的一些点 | 惒泊の部落格</title>
+<meta name=generator content="Hugo Eureka 0.8.3">
+<link rel=stylesheet href=/css/eureka.min.css>
+<script defer src=/js/eureka.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/javascript.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/typescript.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/matlab.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/verilog.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/shell.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/bash.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/latex.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/markdown.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/ebnf.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
+<meta name=description content="参考教程 runoob numpy NumPy Ndarray对象 N维数组对象 同类型数据的集合 从0下标开始元素索引 组成 一个指向数据的指">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"NumPy的一些点","item":"/posts/numpy%E7%9A%84%E4%B8%80%E4%BA%9B%E7%82%B9/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/numpy%E7%9A%84%E4%B8%80%E4%BA%9B%E7%82%B9/"},"headline":"NumPy的一些点 | 惒泊の部落格","datePublished":"2019-07-16T10:13:57+00:00","dateModified":"2019-07-16T10:13:57+00:00","wordCount":2633,"publisher":{"@type":"Person","name":"惒泊(HerbertHe)","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"参考教程 runoob numpy NumPy Ndarray对象 N维数组对象 同类型数据的集合 从0下标开始元素索引 组成 一个指向数据的指"}</script><meta property="og:title" content="NumPy的一些点 | 惒泊の部落格">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/images/icon.png">
+<meta property="og:url" content="/posts/numpy%E7%9A%84%E4%B8%80%E4%BA%9B%E7%82%B9/">
+<meta property="og:description" content="参考教程 runoob numpy NumPy Ndarray对象 N维数组对象 同类型数据的集合 从0下标开始元素索引 组成 一个指向数据的指">
+<meta property="og:locale" content="zh">
+<meta property="og:site_name" content="惒泊の部落格">
+<meta property="article:published_time" content="2019-07-16T10:13:57+00:00">
+<meta property="article:modified_time" content="2019-07-16T10:13:57+00:00">
+<meta property="article:section" content="posts">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="numpy">
+<meta property="article:tag" content="图像处理基础">
+<body class="flex flex-col min-h-screen">
+<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+<a href=/ class="mr-6 text-primary-text text-xl font-bold">惒泊の部落格</a>
 <button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
-<i class="fas fa-bars"></i></button><div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20"><div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0"><a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">文章</a>
+<i class="fas fa-bars"></i>
+</button>
+<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">文章</a>
 <a href=/categories/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">集合</a>
-<a href=/tags/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">标签</a></div><div class=flex><div class="relative pt-4 md:pt-0"><div class="cursor-pointer hover:text-eureka" id=lightDarkMode><i class="fas fa-adjust"></i></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open></div><div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions><span class="px-4 py-1 hover:text-eureka" name=Light>浅色</span>
+<a href=/tags/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">标签</a>
+</div>
+<div class=flex>
+<div class="relative pt-4 md:pt-0">
+<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
+<i class="fas fa-adjust"></i>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
+</div>
+<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
+<span class="px-4 py-1 hover:text-eureka" name=Light>浅色</span>
 <span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
-<span class="px-4 py-1 hover:text-eureka" name=Auto>自动</span></div></div></div></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile></div></nav><script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{switchMode('Auto')}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script></div></header><main class="flex-grow pt-16"><div class=pl-scrollbar><div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto"><div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12"><div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8"><h1 class="font-bold text-3xl text-primary-text">NumPy的一些点</h1><div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text"><div class="mr-6 my-2"><i class="fas fa-calendar mr-1"></i>
-<span>2019-07-16</span></div><div class="mr-6 my-2"><i class="fas fa-clock mr-1"></i>
-<span>6分钟阅读时长</span></div></div><div class=content><h2 id=参考教程>参考教程</h2><p><a href=https://www.runoob.com/numpy>runoob numpy</a></p><h2 id=numpy-ndarray对象>NumPy Ndarray对象</h2><ul><li>N维数组对象</li><li>同类型数据的集合</li><li>从0下标开始元素索引</li></ul><p>组成</p><ul><li>一个指向数据的指针</li><li>数据类型/dtype(描述数组中固定大小值)</li><li>一个表示数组形状的元组(表示各维度大小的元组)</li><li>一个跨度元组，其中的整数是指为了前进到当前维度下一个元素所需要“跨过”的字节数</li></ul><blockquote><p>跨度可以是负数，这样会使数组在内存中后向移动</p></blockquote><pre><code class=language-python>numpy.array(object, dtype = None, copy = True, oreder = None, subok = False, ndmin = 0)
-</code></pre><table><thead><tr><th style=text-align:left>名称</th><th style=text-align:left>描述</th></tr></thead><tbody><tr><td style=text-align:left>object</td><td style=text-align:left>数组或嵌套的数列</td></tr><tr><td style=text-align:left>dtype</td><td style=text-align:left>元素的数据类型，可选</td></tr><tr><td style=text-align:left>copy</td><td style=text-align:left>对象是否需要复制，可选</td></tr><tr><td style=text-align:left>order</td><td style=text-align:left>创建数据的样式，C行，F列，A任意(默认)</td></tr><tr><td style=text-align:left>subok</td><td style=text-align:left>默认返回一个与基类类型一致的数组</td></tr><tr><td style=text-align:left>ndmin</td><td style=text-align:left>指定生成数组的最小维度</td></tr></tbody></table><h2 id=numpy数据类型>NumPy数据类型</h2><p>参考NumPy数据类型的<a href=https://www.runoob.com/numpy/numpy-dtype.html>教程</a>，主要规定数据类型对象的数据结构(类似于C的结构体，内建类型相当于是正则)</p><h2 id=numpy数组属性>NumPy数组属性</h2><p>NumPy数组的维数成为秩(rank)，一维数组的秩为1，以此类推。每一个一维线性数组称为一个轴(axis)，也就是维度(dimensions)。</p><p><img src=/img/20190219173235151.jpg alt=图片></p><blockquote><p>axis所代表的如上图所示，图片来源于 <a href=https://blog.csdn.net/Babyfatliang/article/details/87721282>CSDN</a></p></blockquote><table><thead><tr><th style=text-align:left>属性</th><th style=text-align:left>说明</th></tr></thead><tbody><tr><td style=text-align:left>ndarray.ndim</td><td style=text-align:left>秩，轴的数量(维度的数量)</td></tr><tr><td style=text-align:left>ndarray.shape</td><td style=text-align:left>数组的维度，对于矩阵， n行m列</td></tr><tr><td style=text-align:left>ndarray.size</td><td style=text-align:left>元素的总个数，相当于.shape中n*m的值</td></tr><tr><td style=text-align:left>ndarray.dtype</td><td style=text-align:left>ndarray对象的元素类型</td></tr><tr><td style=text-align:left>ndarray.itemsize</td><td style=text-align:left>ndarray对象中每个元素的大小，以字节为单位</td></tr><tr><td style=text-align:left>ndarray.flasgs</td><td style=text-align:left>ndarray对象的内存信息</td></tr><tr><td style=text-align:left>ndarray.real</td><td style=text-align:left>ndarray元素的实部</td></tr><tr><td style=text-align:left>ndarray.imag</td><td style=text-align:left>ndarray元素的虚部</td></tr><tr><td style=text-align:left>ndarray.data</td><td style=text-align:left>包含实际数组元素的缓冲区，通常不使用这个属性</td></tr></tbody></table><h2 id=numpy创建数组>NumPy创建数组</h2><h3 id=numpyempty>numpy.empty</h3><p>用来创建一个指定形状和数据类型的未初始化的数组：</p><pre><code class=language-python>numpy.empty(shape, dtype = float, order = 'C')
-</code></pre><table><thead><tr><th style=text-align:left>参数</th><th style=text-align:left>描述</th></tr></thead><tbody><tr><td style=text-align:left>shape</td><td style=text-align:left>数组形状</td></tr><tr><td style=text-align:left>dtype</td><td style=text-align:left>数据类型，可选</td></tr><tr><td style=text-align:left>order</td><td style=text-align:left>C行优先，F列优先</td></tr></tbody></table><h3 id=numpyzeros>numpy.zeros</h3><p>创建指定大小的数组，元素全是0</p><pre><code class=language-python>numpy.zeros(shape, dtype = float, order = 'C')
-</code></pre><table><thead><tr><th style=text-align:left>参数</th><th style=text-align:left>描述</th></tr></thead><tbody><tr><td style=text-align:left>shape</td><td style=text-align:left>数组的形状</td></tr><tr><td style=text-align:left>dtype</td><td style=text-align:left>数据类型，可选</td></tr><tr><td style=text-align:left>order</td><td style=text-align:left>C行数组，F列数组</td></tr></tbody></table><h3 id=numpyones>numpy.ones</h3><p>同上</p><h2 id=numpy从已有的数组创建数组>NumPy从已有的数组创建数组</h2><h3 id=numpyasarray>numpy.asarray</h3><p>numpy.asarray类似numpy.array，但numpy.asarray只有三个参数</p><pre><code class=language-python>numpy.asarray(a, dtype = None, order = None)
-</code></pre><table><thead><tr><th style=text-align:left>参数</th><th style=text-align:left>描述</th></tr></thead><tbody><tr><td style=text-align:left>a</td><td style=text-align:left>任意形式的输入参数，列表、元组及其嵌套和多维数组</td></tr><tr><td style=text-align:left>dtype</td><td style=text-align:left>数据类型，可选</td></tr><tr><td style=text-align:left>order</td><td style=text-align:left>C行优先，F列优先</td></tr></tbody></table><h3 id=numpyfrombuffer>numpy.frombuffer</h3><p>numpy.frombuffer用于实现动态数组</p><p>numpy.frombuffer接受buffer输入参数，以流的形式读入转化成ndarray对象</p><pre><code class=language-python>numpy.frombuffer(buffer, dtype = float, count = -1, offset = 0)
-</code></pre><blockquote><p>buffer是字符串的时候，python3默认str是Unicode，转化成bytestring在原str前加b</p></blockquote><p>报错：<strong>AttributeError: 'str' object has no attribute '__buffer__'</strong></p><table><thead><tr><th style=text-align:left>参数</th><th style=text-align:left>描述</th></tr></thead><tbody><tr><td style=text-align:left>buffer</td><td style=text-align:left>任意对象，流式读入</td></tr><tr><td style=text-align:left>dtype</td><td style=text-align:left>返回的数组数据类型</td></tr><tr><td style=text-align:left>count</td><td style=text-align:left>读取的数据数量，默认-1读取所有</td></tr><tr><td style=text-align:left>offset</td><td style=text-align:left>读取的起始位置，默认0</td></tr></tbody></table><pre><code class=language-python>s = b'Hello World'
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自动</span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
+</div>
+</nav>
+<script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
+</div>
+</header>
+<main class="flex-grow pt-16">
+<div class=pl-scrollbar>
+<div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+<div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+<h1 class="font-bold text-3xl text-primary-text">NumPy的一些点</h1>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2019-07-16</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>6分钟阅读时长</span>
+</div>
+</div>
+<div class=content>
+<h2 id=参考教程>参考教程</h2>
+<p><a href=https://www.runoob.com/numpy>runoob numpy</a></p>
+<h2 id=numpy-ndarray对象>NumPy Ndarray对象</h2>
+<ul>
+<li>N维数组对象</li>
+<li>同类型数据的集合</li>
+<li>从0下标开始元素索引</li>
+</ul>
+<p>组成</p>
+<ul>
+<li>一个指向数据的指针</li>
+<li>数据类型/dtype(描述数组中固定大小值)</li>
+<li>一个表示数组形状的元组(表示各维度大小的元组)</li>
+<li>一个跨度元组，其中的整数是指为了前进到当前维度下一个元素所需要“跨过”的字节数</li>
+</ul>
+<blockquote>
+<p>跨度可以是负数，这样会使数组在内存中后向移动</p>
+</blockquote>
+<pre><code class=language-python>numpy.array(object, dtype = None, copy = True, oreder = None, subok = False, ndmin = 0)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style=text-align:left>名称</th>
+<th style=text-align:left>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>object</td>
+<td style=text-align:left>数组或嵌套的数列</td>
+</tr>
+<tr>
+<td style=text-align:left>dtype</td>
+<td style=text-align:left>元素的数据类型，可选</td>
+</tr>
+<tr>
+<td style=text-align:left>copy</td>
+<td style=text-align:left>对象是否需要复制，可选</td>
+</tr>
+<tr>
+<td style=text-align:left>order</td>
+<td style=text-align:left>创建数据的样式，C行，F列，A任意(默认)</td>
+</tr>
+<tr>
+<td style=text-align:left>subok</td>
+<td style=text-align:left>默认返回一个与基类类型一致的数组</td>
+</tr>
+<tr>
+<td style=text-align:left>ndmin</td>
+<td style=text-align:left>指定生成数组的最小维度</td>
+</tr>
+</tbody>
+</table>
+<h2 id=numpy数据类型>NumPy数据类型</h2>
+<p>参考NumPy数据类型的<a href=https://www.runoob.com/numpy/numpy-dtype.html>教程</a>，主要规定数据类型对象的数据结构(类似于C的结构体，内建类型相当于是正则)</p>
+<h2 id=numpy数组属性>NumPy数组属性</h2>
+<p>NumPy数组的维数成为秩(rank)，一维数组的秩为1，以此类推。每一个一维线性数组称为一个轴(axis)，也就是维度(dimensions)。</p>
+<p><img src=/img/20190219173235151.jpg alt=图片></p>
+<blockquote>
+<p>axis所代表的如上图所示，图片来源于 <a href=https://blog.csdn.net/Babyfatliang/article/details/87721282>CSDN</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style=text-align:left>属性</th>
+<th style=text-align:left>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>ndarray.ndim</td>
+<td style=text-align:left>秩，轴的数量(维度的数量)</td>
+</tr>
+<tr>
+<td style=text-align:left>ndarray.shape</td>
+<td style=text-align:left>数组的维度，对于矩阵， n行m列</td>
+</tr>
+<tr>
+<td style=text-align:left>ndarray.size</td>
+<td style=text-align:left>元素的总个数，相当于.shape中n*m的值</td>
+</tr>
+<tr>
+<td style=text-align:left>ndarray.dtype</td>
+<td style=text-align:left>ndarray对象的元素类型</td>
+</tr>
+<tr>
+<td style=text-align:left>ndarray.itemsize</td>
+<td style=text-align:left>ndarray对象中每个元素的大小，以字节为单位</td>
+</tr>
+<tr>
+<td style=text-align:left>ndarray.flasgs</td>
+<td style=text-align:left>ndarray对象的内存信息</td>
+</tr>
+<tr>
+<td style=text-align:left>ndarray.real</td>
+<td style=text-align:left>ndarray元素的实部</td>
+</tr>
+<tr>
+<td style=text-align:left>ndarray.imag</td>
+<td style=text-align:left>ndarray元素的虚部</td>
+</tr>
+<tr>
+<td style=text-align:left>ndarray.data</td>
+<td style=text-align:left>包含实际数组元素的缓冲区，通常不使用这个属性</td>
+</tr>
+</tbody>
+</table>
+<h2 id=numpy创建数组>NumPy创建数组</h2>
+<h3 id=numpyempty>numpy.empty</h3>
+<p>用来创建一个指定形状和数据类型的未初始化的数组：</p>
+<pre><code class=language-python>numpy.empty(shape, dtype = float, order = 'C')
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style=text-align:left>参数</th>
+<th style=text-align:left>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>shape</td>
+<td style=text-align:left>数组形状</td>
+</tr>
+<tr>
+<td style=text-align:left>dtype</td>
+<td style=text-align:left>数据类型，可选</td>
+</tr>
+<tr>
+<td style=text-align:left>order</td>
+<td style=text-align:left>C行优先，F列优先</td>
+</tr>
+</tbody>
+</table>
+<h3 id=numpyzeros>numpy.zeros</h3>
+<p>创建指定大小的数组，元素全是0</p>
+<pre><code class=language-python>numpy.zeros(shape, dtype = float, order = 'C')
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style=text-align:left>参数</th>
+<th style=text-align:left>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>shape</td>
+<td style=text-align:left>数组的形状</td>
+</tr>
+<tr>
+<td style=text-align:left>dtype</td>
+<td style=text-align:left>数据类型，可选</td>
+</tr>
+<tr>
+<td style=text-align:left>order</td>
+<td style=text-align:left>C行数组，F列数组</td>
+</tr>
+</tbody>
+</table>
+<h3 id=numpyones>numpy.ones</h3>
+<p>同上</p>
+<h2 id=numpy从已有的数组创建数组>NumPy从已有的数组创建数组</h2>
+<h3 id=numpyasarray>numpy.asarray</h3>
+<p>numpy.asarray类似numpy.array，但numpy.asarray只有三个参数</p>
+<pre><code class=language-python>numpy.asarray(a, dtype = None, order = None)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style=text-align:left>参数</th>
+<th style=text-align:left>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>a</td>
+<td style=text-align:left>任意形式的输入参数，列表、元组及其嵌套和多维数组</td>
+</tr>
+<tr>
+<td style=text-align:left>dtype</td>
+<td style=text-align:left>数据类型，可选</td>
+</tr>
+<tr>
+<td style=text-align:left>order</td>
+<td style=text-align:left>C行优先，F列优先</td>
+</tr>
+</tbody>
+</table>
+<h3 id=numpyfrombuffer>numpy.frombuffer</h3>
+<p>numpy.frombuffer用于实现动态数组</p>
+<p>numpy.frombuffer接受buffer输入参数，以流的形式读入转化成ndarray对象</p>
+<pre><code class=language-python>numpy.frombuffer(buffer, dtype = float, count = -1, offset = 0)
+</code></pre>
+<blockquote>
+<p>buffer是字符串的时候，python3默认str是Unicode，转化成bytestring在原str前加b</p>
+</blockquote>
+<p>报错：<strong>AttributeError: 'str' object has no attribute '__buffer__'</strong></p>
+<table>
+<thead>
+<tr>
+<th style=text-align:left>参数</th>
+<th style=text-align:left>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>buffer</td>
+<td style=text-align:left>任意对象，流式读入</td>
+</tr>
+<tr>
+<td style=text-align:left>dtype</td>
+<td style=text-align:left>返回的数组数据类型</td>
+</tr>
+<tr>
+<td style=text-align:left>count</td>
+<td style=text-align:left>读取的数据数量，默认-1读取所有</td>
+</tr>
+<tr>
+<td style=text-align:left>offset</td>
+<td style=text-align:left>读取的起始位置，默认0</td>
+</tr>
+</tbody>
+</table>
+<pre><code class=language-python>s = b'Hello World'
 x = np.frombuffer(s, dtype = 'S1')
-</code></pre><h3 id=numpyfromiter>numpy.fromiter</h3><p>从可迭代对象中建立ndarray对象，返回一维数组</p><pre><code class=language-python>numpy.fromiter(iterable, dtype, count = -1)
-</code></pre><table><thead><tr><th style=text-align:left>参数</th><th style=text-align:left>描述</th></tr></thead><tbody><tr><td style=text-align:left>iterable</td><td style=text-align:left>可迭代对象</td></tr><tr><td style=text-align:left>dtype</td><td style=text-align:left>返回数组的数据类型</td></tr><tr><td style=text-align:left>count</td><td style=text-align:left>读取的数据数量</td></tr></tbody></table><h2 id=numpy从数值范围创建数组>NumPy从数值范围创建数组</h2><h3 id=numpyarange>numpy.arange</h3><p>使用arange函数创建数值范围并返回ndarray对象</p><pre><code class=language-python>numpy.arange(start, stop, step, dtype)
-</code></pre><p>参数说明，略</p><h3 id=numpylinspace>numpy.linspace</h3><p>numpy.linspace函数用于创建一个一维数组，并且为等差数列</p><pre><code class=language-python>np.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None)
-</code></pre><table><thead><tr><th style=text-align:left>参数</th><th style=text-align:left>描述</th></tr></thead><tbody><tr><td style=text-align:left>start</td><td style=text-align:left>序列起始值</td></tr><tr><td style=text-align:left>stop</td><td style=text-align:left>序列终止值，endpoint为True包含</td></tr><tr><td style=text-align:left>num</td><td style=text-align:left>要生成等步长的样本数量，默认50</td></tr><tr><td style=text-align:left>endpoint</td><td style=text-align:left>见上</td></tr><tr><td style=text-align:left>retstep</td><td style=text-align:left>True时生成数组会显示间距，反之</td></tr><tr><td style=text-align:left>dtype</td><td style=text-align:left>ndarray的数据类型</td></tr></tbody></table><h3 id=numpylogspace>numpy.logspace</h3><p>用于创建等比数列</p><pre><code class=language-python>np.logspace(start, stop, num=50, endpoint=True, base=10.0, dtype=None)
-</code></pre><p>base即为取对数的时候log的下标(底数)</p><h2 id=numpy切片和索引>NumPy切片和索引</h2><p>与python的list切片操作一样</p><p>完全可以使用列表的 <strong>start:stop:step</strong> 的切片操作！</p><p>或者：</p><pre><code class=language-python>a = np.arange(10)
+</code></pre>
+<h3 id=numpyfromiter>numpy.fromiter</h3>
+<p>从可迭代对象中建立ndarray对象，返回一维数组</p>
+<pre><code class=language-python>numpy.fromiter(iterable, dtype, count = -1)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style=text-align:left>参数</th>
+<th style=text-align:left>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>iterable</td>
+<td style=text-align:left>可迭代对象</td>
+</tr>
+<tr>
+<td style=text-align:left>dtype</td>
+<td style=text-align:left>返回数组的数据类型</td>
+</tr>
+<tr>
+<td style=text-align:left>count</td>
+<td style=text-align:left>读取的数据数量</td>
+</tr>
+</tbody>
+</table>
+<h2 id=numpy从数值范围创建数组>NumPy从数值范围创建数组</h2>
+<h3 id=numpyarange>numpy.arange</h3>
+<p>使用arange函数创建数值范围并返回ndarray对象</p>
+<pre><code class=language-python>numpy.arange(start, stop, step, dtype)
+</code></pre>
+<p>参数说明，略</p>
+<h3 id=numpylinspace>numpy.linspace</h3>
+<p>numpy.linspace函数用于创建一个一维数组，并且为等差数列</p>
+<pre><code class=language-python>np.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style=text-align:left>参数</th>
+<th style=text-align:left>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>start</td>
+<td style=text-align:left>序列起始值</td>
+</tr>
+<tr>
+<td style=text-align:left>stop</td>
+<td style=text-align:left>序列终止值，endpoint为True包含</td>
+</tr>
+<tr>
+<td style=text-align:left>num</td>
+<td style=text-align:left>要生成等步长的样本数量，默认50</td>
+</tr>
+<tr>
+<td style=text-align:left>endpoint</td>
+<td style=text-align:left>见上</td>
+</tr>
+<tr>
+<td style=text-align:left>retstep</td>
+<td style=text-align:left>True时生成数组会显示间距，反之</td>
+</tr>
+<tr>
+<td style=text-align:left>dtype</td>
+<td style=text-align:left>ndarray的数据类型</td>
+</tr>
+</tbody>
+</table>
+<h3 id=numpylogspace>numpy.logspace</h3>
+<p>用于创建等比数列</p>
+<pre><code class=language-python>np.logspace(start, stop, num=50, endpoint=True, base=10.0, dtype=None)
+</code></pre>
+<p>base即为取对数的时候log的下标(底数)</p>
+<h2 id=numpy切片和索引>NumPy切片和索引</h2>
+<p>与python的list切片操作一样</p>
+<p>完全可以使用列表的 <strong>start:stop:step</strong> 的切片操作！</p>
+<p>或者：</p>
+<pre><code class=language-python>a = np.arange(10)
 s = slice(2, 7, 2)
 print(a[s])
-</code></pre><p>切片还可以使用省略号 (&mldr;)</p><pre><code class=language-python>import numpy as np
+</code></pre>
+<p>切片还可以使用省略号 (&mldr;)</p>
+<pre><code class=language-python>import numpy as np
 
 a = np.array([[1,2,3],[3,4,5],[4,5,6]])
 print(a[...,1])   # 第2列元素
 print(a[1,...])   # 第2行元素
 print(a[...,1:])  # 第2列及剩下的所有元素
-</code></pre><p>输出结果：</p><blockquote><ol><li>[2 4 5]</li><li>[3 4 5]</li><li>[[2 3]
+</code></pre>
+<p>输出结果：</p>
+<blockquote>
+<ol>
+<li>[2 4 5]</li>
+<li>[3 4 5]</li>
+<li>[[2 3]
 [4 5]
-[5 6]]</li></ol></blockquote><h2 id=numpy高级索引>NumPy高级索引</h2><p>相比于Python的索引，numpy提供了更多的索引方式。数组可以整数数组索引、布尔索引及花式索引。</p><h3 id=整数数组索引>整数数组索引</h3><p>获取(0, 0) (1, 1) (2, 0)处的元素：</p><pre><code class=language-python>import numpy as np
+[5 6]]</li>
+</ol>
+</blockquote>
+<h2 id=numpy高级索引>NumPy高级索引</h2>
+<p>相比于Python的索引，numpy提供了更多的索引方式。数组可以整数数组索引、布尔索引及花式索引。</p>
+<h3 id=整数数组索引>整数数组索引</h3>
+<p>获取(0, 0) (1, 1) (2, 0)处的元素：</p>
+<pre><code class=language-python>import numpy as np
 
 x = np.array([[1, 2], [3, 4], [5, 6]])
 y = x[[0, 1, 2], [0, 1, 0]]
 print(y)
 
 # 输出 [1 4 5]
-</code></pre><blockquote><p>返回结果为ndarray对象</p></blockquote><p>可以借助 : , &mldr; 和索引数组组合</p><pre><code class=language-python>import numpy as np
+</code></pre>
+<blockquote>
+<p>返回结果为ndarray对象</p>
+</blockquote>
+<p>可以借助 : , &mldr; 和索引数组组合</p>
+<pre><code class=language-python>import numpy as np
 
 a = np.array([[1,2,3], [4,5,6],[7,8,9]])
 b = a[1:3, 1:3]
@@ -53,24 +456,34 @@ print(d)
 # [[2 3]
 #  [5 6]
 #  [8 9]]
-</code></pre><h3 id=布尔索引>布尔索引</h3><p>通过布尔数组索引目标数组，对数组元素进行布尔运算获取符合指定元素条件的数组。</p><pre><code class=language-python>import numpy as np
+</code></pre>
+<h3 id=布尔索引>布尔索引</h3>
+<p>通过布尔数组索引目标数组，对数组元素进行布尔运算获取符合指定元素条件的数组。</p>
+<pre><code class=language-python>import numpy as np
 
 x = np.array([[0, 1, 2],[3, 4, 5],[6, 7, 8],[9, 10, 11]])
 print(x[x &gt; 5])
 
 # 输出：[6 7 8 9 10 11]
-</code></pre><p>使用取补运算符 ~ 来过滤NaN</p><pre><code class=language-python>import numpy as np
+</code></pre>
+<p>使用取补运算符 ~ 来过滤NaN</p>
+<pre><code class=language-python>import numpy as np
 
 a = np.array([np.nan, 1, 2, np.nan, 3, 4, 5])
 print(a[~np.isnan(a)])
 
 # 输出：[1. 2. 3. 4. 5.]
-</code></pre><p>过滤非复数元素</p><pre><code class=language-python>import numpy as np
+</code></pre>
+<p>过滤非复数元素</p>
+<pre><code class=language-python>import numpy as np
 a = np.array([1, 2+6j, 5, 3.5+5j])
 print (a[np.iscomplex(a)])
 
 # 输出：[2.0+6.j 3.5+5.j]
-</code></pre><h3 id=花式索引>花式索引</h3><p>花式索引利用整数数组来索引，把整数索引当作轴进行索引。对于轴的理解，可以参考上面！跟切片不一样的是它将数据复制到新的数组中（对切片感兴趣的可以使用id()这个函数研究列表和元素对应关系的！这样便于理解这一句话！）</p><pre><code class=language-python>
+</code></pre>
+<h3 id=花式索引>花式索引</h3>
+<p>花式索引利用整数数组来索引，把整数索引当作轴进行索引。对于轴的理解，可以参考上面！跟切片不一样的是它将数据复制到新的数组中（对切片感兴趣的可以使用id()这个函数研究列表和元素对应关系的！这样便于理解这一句话！）</p>
+<pre><code class=language-python>
 import numpy as np
 
 x = np.arange(32).reshape((8, 4))
@@ -105,7 +518,11 @@ print(x[np.ix_([1, 5, 7, 2], [0, 3, 1, 2])])
 #  [20 23 21 22]
 #  [28 31 29 30]
 #  [ 8 11  9 10]]
-</code></pre><h2 id=numpy广播>NumPy广播</h2><p>广播(Broadcast)是 numpy 对不同形状(shape)的数组进行数值计算的方式， 对数组的算术运算通常在相应的元素上进行</p><p>如果形状相同即对应位运算，不同则触发广播机制。</p><pre><code class=language-python>import numpy as np
+</code></pre>
+<h2 id=numpy广播>NumPy广播</h2>
+<p>广播(Broadcast)是 numpy 对不同形状(shape)的数组进行数值计算的方式， 对数组的算术运算通常在相应的元素上进行</p>
+<p>如果形状相同即对应位运算，不同则触发广播机制。</p>
+<pre><code class=language-python>import numpy as np
 
 a = np.array([[0, 0, 0], [10, 10, 10], [20, 20, 20], [30, 30, 30]])
 b = np.array([1, 2, 3])
@@ -115,12 +532,53 @@ print(a + b)
 #  [11 12 13]
 #  [21 22 23]
 #  [31 32 33]]
-</code></pre><p><img src=/img/1222.png alt=图片></p><p>原理和要求请参考 <a href=https://www.runoob.com/numpy/numpy-broadcast.html>NumPy广播</a></p><h2 id=numpy迭代数组>NumPy迭代数组</h2><p>使用迭代器对象numpy.nditer访问元素</p><pre><code class=language-python>import numpy as np
+</code></pre>
+<p><img src=/img/1222.png alt=图片></p>
+<p>原理和要求请参考 <a href=https://www.runoob.com/numpy/numpy-broadcast.html>NumPy广播</a></p>
+<h2 id=numpy迭代数组>NumPy迭代数组</h2>
+<p>使用迭代器对象numpy.nditer访问元素</p>
+<pre><code class=language-python>import numpy as np
 a = np.arange(6).reshape(2, 3)
 
 for x in np.nditer(a):
     print (x, end=&quot;, &quot; )
-</code></pre><p>！！！默认行序优先！！！</p><p>可以通过传入nditer的order参数改变遍历顺序 order = 'F'</p><p>可以改变可选参数op_flags获得权限修改值，默认为 <em>readonly</em> 可以改为 <em>readwrite</em> 。op_flags=['readwrite']</p><p>flags参数：可选参数，用于外部循环</p><table><thead><tr><th style=text-align:center>参数</th><th style=text-align:left>描述</th></tr></thead><tbody><tr><td style=text-align:center>c_index</td><td style=text-align:left>C顺序索引</td></tr><tr><td style=text-align:center>f_index</td><td style=text-align:left>F顺序索引</td></tr><tr><td style=text-align:center>multi_index</td><td style=text-align:left>每次迭代可以跟踪一种索引类型</td></tr><tr><td style=text-align:center>external_loop</td><td style=text-align:left>给出的值是具有多个值的一维数组，而不是零维数组</td></tr></tbody></table><blockquote><p>NumPy的可选参数可以参考 <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.nditer.html?highlight=multi_index">scipy.org</a></p></blockquote><h3 id=广播迭代>广播迭代</h3><p>如果两个数组是可广播的，nditer 组合对象能够同时迭代它们。假设数组 a 的维度为 3X4，数组 b 的维度为 1X4，则使用以下迭代器（数组 b 被广播到 a 的大小）。</p><pre><code class=language-python>import numpy as np
+</code></pre>
+<p>！！！默认行序优先！！！</p>
+<p>可以通过传入nditer的order参数改变遍历顺序 order = 'F'</p>
+<p>可以改变可选参数op_flags获得权限修改值，默认为 <em>readonly</em> 可以改为 <em>readwrite</em> 。op_flags=['readwrite']</p>
+<p>flags参数：可选参数，用于外部循环</p>
+<table>
+<thead>
+<tr>
+<th style=text-align:center>参数</th>
+<th style=text-align:left>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:center>c_index</td>
+<td style=text-align:left>C顺序索引</td>
+</tr>
+<tr>
+<td style=text-align:center>f_index</td>
+<td style=text-align:left>F顺序索引</td>
+</tr>
+<tr>
+<td style=text-align:center>multi_index</td>
+<td style=text-align:left>每次迭代可以跟踪一种索引类型</td>
+</tr>
+<tr>
+<td style=text-align:center>external_loop</td>
+<td style=text-align:left>给出的值是具有多个值的一维数组，而不是零维数组</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>NumPy的可选参数可以参考 <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.nditer.html?highlight=multi_index">scipy.org</a></p>
+</blockquote>
+<h3 id=广播迭代>广播迭代</h3>
+<p>如果两个数组是可广播的，nditer 组合对象能够同时迭代它们。假设数组 a 的维度为 3X4，数组 b 的维度为 1X4，则使用以下迭代器（数组 b 被广播到 a 的大小）。</p>
+<pre><code class=language-python>import numpy as np
 
 a = np.arange(0,60,5)
 a = a.reshape(3,4)
@@ -148,10 +606,88 @@ for x,y in np.nditer([a,b]):
 
 # 修改后的数组为：
 # 0:1, 5:2, 10:3, 15:4, 20:1, 25:2, 30:3, 35:4, 40:1, 45:2, 50:3, 55:4,
-</code></pre><blockquote><p>上述例子来源于runoob</p></blockquote></div><div class=my-4><a href=/tags/python/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#python</a>
+</code></pre>
+<blockquote>
+<p>上述例子来源于runoob</p>
+</blockquote>
+</div>
+<div class=my-4>
+<a href=/tags/python/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#python</a>
 <a href=/tags/numpy/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#numpy</a>
-<a href=/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%9F%BA%E7%A1%80/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#图像处理基础</a></div><div class="flex md:justify-end my-4"><a href=https://github.com/HerbertHe/HerbertHe.github.io/blob/master/content/posts/NumPy%e7%9a%84%e4%b8%80%e4%ba%9b%e7%82%b9.md title="Edit this page"><i class="fas fa-edit mr-1"></i>
-<span>编辑本页</span></a></div><div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t"><div><span class="block font-bold">上一页</span>
-<a href=/posts/verilog-hdl%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E4%B8%8A/ class=block>Verilog HDL基础语法（上）</a></div><div class="md:text-right mt-4 md:mt-0"><span class="block font-bold">下一页</span>
-<a href=/posts/%E5%85%B3%E4%BA%8E%E6%88%91%E5%92%8C%E7%89%A9%E7%90%86/ class=block>关于我和物理</a></div></div></div><div class=col-span-2><div class="sticky top-16 z-10 hidden lg:block px-6 py-4 bg-primary-bg"><span class="text-lg font-semibold">本页内容</span></div><div class="sticky-toc hidden lg:block px-6 pb-6"><nav id=TableOfContents><ul><li><a href=#参考教程>参考教程</a></li><li><a href=#numpy-ndarray对象>NumPy Ndarray对象</a></li><li><a href=#numpy数据类型>NumPy数据类型</a></li><li><a href=#numpy数组属性>NumPy数组属性</a></li><li><a href=#numpy创建数组>NumPy创建数组</a><ul><li><a href=#numpyempty>numpy.empty</a></li><li><a href=#numpyzeros>numpy.zeros</a></li><li><a href=#numpyones>numpy.ones</a></li></ul></li><li><a href=#numpy从已有的数组创建数组>NumPy从已有的数组创建数组</a><ul><li><a href=#numpyasarray>numpy.asarray</a></li><li><a href=#numpyfrombuffer>numpy.frombuffer</a></li><li><a href=#numpyfromiter>numpy.fromiter</a></li></ul></li><li><a href=#numpy从数值范围创建数组>NumPy从数值范围创建数组</a><ul><li><a href=#numpyarange>numpy.arange</a></li><li><a href=#numpylinspace>numpy.linspace</a></li><li><a href=#numpylogspace>numpy.logspace</a></li></ul></li><li><a href=#numpy切片和索引>NumPy切片和索引</a></li><li><a href=#numpy高级索引>NumPy高级索引</a><ul><li><a href=#整数数组索引>整数数组索引</a></li><li><a href=#布尔索引>布尔索引</a></li><li><a href=#花式索引>花式索引</a></li></ul></li><li><a href=#numpy广播>NumPy广播</a></li><li><a href=#numpy迭代数组>NumPy迭代数组</a><ul><li><a href=#广播迭代>广播迭代</a></li></ul></li></ul></nav></div><script>window.addEventListener('DOMContentLoaded',()=>{enableStickyToc()})</script></div></div><script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script></div></div></main><footer class=pl-scrollbar><div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b"><p class="text-sm text-tertiary-text">Copyright &copy; 2018 ~ 2021 <a href=https://goer.icu>惒泊の部落格</a> All Rights Reserved!
-&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p></div></div></footer></body></html>
+<a href=/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%9F%BA%E7%A1%80/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#图像处理基础</a>
+</div>
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+<div>
+<span class="block font-bold">上一页</span>
+<a href=/posts/verilog-hdl%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E4%B8%8A/ class=block>Verilog HDL基础语法（上）</a>
+</div>
+<div class="md:text-right mt-4 md:mt-0">
+<span class="block font-bold">下一页</span>
+<a href=/posts/%E5%85%B3%E4%BA%8E%E6%88%91%E5%92%8C%E7%89%A9%E7%90%86/ class=block>关于我和物理</a>
+</div>
+</div>
+</div>
+<div class=col-span-2>
+<div class="sticky top-16 z-10 hidden lg:block px-6 py-4 bg-primary-bg">
+<span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#参考教程>参考教程</a></li>
+<li><a href=#numpy-ndarray对象>NumPy Ndarray对象</a></li>
+<li><a href=#numpy数据类型>NumPy数据类型</a></li>
+<li><a href=#numpy数组属性>NumPy数组属性</a></li>
+<li><a href=#numpy创建数组>NumPy创建数组</a>
+<ul>
+<li><a href=#numpyempty>numpy.empty</a></li>
+<li><a href=#numpyzeros>numpy.zeros</a></li>
+<li><a href=#numpyones>numpy.ones</a></li>
+</ul>
+</li>
+<li><a href=#numpy从已有的数组创建数组>NumPy从已有的数组创建数组</a>
+<ul>
+<li><a href=#numpyasarray>numpy.asarray</a></li>
+<li><a href=#numpyfrombuffer>numpy.frombuffer</a></li>
+<li><a href=#numpyfromiter>numpy.fromiter</a></li>
+</ul>
+</li>
+<li><a href=#numpy从数值范围创建数组>NumPy从数值范围创建数组</a>
+<ul>
+<li><a href=#numpyarange>numpy.arange</a></li>
+<li><a href=#numpylinspace>numpy.linspace</a></li>
+<li><a href=#numpylogspace>numpy.logspace</a></li>
+</ul>
+</li>
+<li><a href=#numpy切片和索引>NumPy切片和索引</a></li>
+<li><a href=#numpy高级索引>NumPy高级索引</a>
+<ul>
+<li><a href=#整数数组索引>整数数组索引</a></li>
+<li><a href=#布尔索引>布尔索引</a></li>
+<li><a href=#花式索引>花式索引</a></li>
+</ul>
+</li>
+<li><a href=#numpy广播>NumPy广播</a></li>
+<li><a href=#numpy迭代数组>NumPy迭代数组</a>
+<ul>
+<li><a href=#广播迭代>广播迭代</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<script>window.addEventListener('DOMContentLoaded',()=>{enableStickyToc()})</script>
+</div>
+</div>
+<script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script>
+</div>
+</div>
+</main>
+<footer class=pl-scrollbar>
+<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+<p class="text-sm text-tertiary-text">Copyright &copy; 2018 ~ 2021 <a href=https://goer.icu>惒泊の部落格</a> All Rights Reserved!
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
+</div></div>
+</footer>
+</body>
+</html>

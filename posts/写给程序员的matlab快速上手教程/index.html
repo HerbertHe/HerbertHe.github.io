@@ -1,12 +1,132 @@
-<!doctype html><html lang=zh><meta charset=utf-8><meta name=viewport content="width=device-width"><title>写给程序员的MATLAB快速上手教程 | 惒泊の部落格</title><link rel=stylesheet href=/css/eureka.min.css><script defer src=/js/eureka.min.js></script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'"><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/javascript.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/typescript.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/matlab.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/verilog.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/shell.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/bash.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/latex.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/markdown.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script><link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png><link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png><meta name=description content="写在前面的 MATLAB更多的是一门面向非程序员的计算机编程语言, 因此其教程往往对于程序员同学来说并不"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"写给程序员的MATLAB快速上手教程","item":"/posts/%E5%86%99%E7%BB%99%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84matlab%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%95%99%E7%A8%8B/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/%E5%86%99%E7%BB%99%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84matlab%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%95%99%E7%A8%8B/"},"headline":"写给程序员的MATLAB快速上手教程 | 惒泊の部落格","datePublished":"2021-03-21T21:37:42+00:00","dateModified":"2021-03-21T21:37:42+00:00","wordCount":597,"publisher":{"@type":"Person","name":"惒泊(HerbertHe)","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"写在前面的 MATLAB更多的是一门面向非程序员的计算机编程语言, 因此其教程往往对于程序员同学来说并不"}</script><meta property="og:title" content="写给程序员的MATLAB快速上手教程 | 惒泊の部落格"><meta property="og:type" content="article"><meta property="og:image" content="/images/icon.png"><meta property="og:url" content="/posts/%E5%86%99%E7%BB%99%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84matlab%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%95%99%E7%A8%8B/"><meta property="og:description" content="写在前面的 MATLAB更多的是一门面向非程序员的计算机编程语言, 因此其教程往往对于程序员同学来说并不"><meta property="og:locale" content="zh"><meta property="og:site_name" content="惒泊の部落格"><meta property="article:published_time" content="2021-03-21T21:37:42+00:00"><meta property="article:modified_time" content="2021-03-21T21:37:42+00:00"><meta property="article:section" content="posts"><meta property="article:tag" content="MATLAB"><meta property="article:tag" content="快速上手"><meta property="article:tag" content="程序员"><body class="flex flex-col min-h-screen"><header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm"><div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script><nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0"><a href=/ class="mr-6 text-primary-text text-xl font-bold">惒泊の部落格</a>
+<!doctype html><html lang=zh><meta charset=utf-8>
+<meta name=viewport content="width=device-width">
+<title>写给程序员的MATLAB快速上手教程 | 惒泊の部落格</title>
+<meta name=generator content="Hugo Eureka 0.8.3">
+<link rel=stylesheet href=/css/eureka.min.css>
+<script defer src=/js/eureka.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/javascript.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/typescript.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/matlab.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/verilog.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/shell.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/bash.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/latex.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/markdown.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/ebnf.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
+<meta name=description content="写在前面的 MATLAB更多的是一门面向非程序员的计算机编程语言, 因此其教程往往对于程序员同学来说并不">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"写给程序员的MATLAB快速上手教程","item":"/posts/%E5%86%99%E7%BB%99%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84matlab%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%95%99%E7%A8%8B/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/%E5%86%99%E7%BB%99%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84matlab%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%95%99%E7%A8%8B/"},"headline":"写给程序员的MATLAB快速上手教程 | 惒泊の部落格","datePublished":"2021-03-21T21:37:42+00:00","dateModified":"2021-03-21T21:37:42+00:00","wordCount":597,"publisher":{"@type":"Person","name":"惒泊(HerbertHe)","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"写在前面的 MATLAB更多的是一门面向非程序员的计算机编程语言, 因此其教程往往对于程序员同学来说并不"}</script><meta property="og:title" content="写给程序员的MATLAB快速上手教程 | 惒泊の部落格">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/images/icon.png">
+<meta property="og:url" content="/posts/%E5%86%99%E7%BB%99%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84matlab%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%95%99%E7%A8%8B/">
+<meta property="og:description" content="写在前面的 MATLAB更多的是一门面向非程序员的计算机编程语言, 因此其教程往往对于程序员同学来说并不">
+<meta property="og:locale" content="zh">
+<meta property="og:site_name" content="惒泊の部落格">
+<meta property="article:published_time" content="2021-03-21T21:37:42+00:00">
+<meta property="article:modified_time" content="2021-03-21T21:37:42+00:00">
+<meta property="article:section" content="posts">
+<meta property="article:tag" content="MATLAB">
+<meta property="article:tag" content="快速上手">
+<meta property="article:tag" content="程序员">
+<body class="flex flex-col min-h-screen">
+<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+<a href=/ class="mr-6 text-primary-text text-xl font-bold">惒泊の部落格</a>
 <button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
-<i class="fas fa-bars"></i></button><div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20"><div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0"><a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">文章</a>
+<i class="fas fa-bars"></i>
+</button>
+<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">文章</a>
 <a href=/categories/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">集合</a>
-<a href=/tags/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">标签</a></div><div class=flex><div class="relative pt-4 md:pt-0"><div class="cursor-pointer hover:text-eureka" id=lightDarkMode><i class="fas fa-adjust"></i></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open></div><div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions><span class="px-4 py-1 hover:text-eureka" name=Light>浅色</span>
+<a href=/tags/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">标签</a>
+</div>
+<div class=flex>
+<div class="relative pt-4 md:pt-0">
+<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
+<i class="fas fa-adjust"></i>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
+</div>
+<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
+<span class="px-4 py-1 hover:text-eureka" name=Light>浅色</span>
 <span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
-<span class="px-4 py-1 hover:text-eureka" name=Auto>自动</span></div></div></div></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile></div></nav><script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{switchMode('Auto')}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script></div></header><main class="flex-grow pt-16"><div class=pl-scrollbar><div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto"><div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12"><div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8"><h1 class="font-bold text-3xl text-primary-text">写给程序员的MATLAB快速上手教程</h1><div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text"><div class="mr-6 my-2"><i class="fas fa-calendar mr-1"></i>
-<span>2021-03-21</span></div><div class="mr-6 my-2"><i class="fas fa-clock mr-1"></i>
-<span>2分钟阅读时长</span></div></div><div class=content><h2 id=写在前面的>写在前面的</h2><p>MATLAB更多的是一门面向非程序员的计算机编程语言, 因此其教程往往对于程序员同学来说并不算是很"友好"。因为自己的本科毕业论文是利用MATLAB来研究光的波动性, 之前因为教程的问题一直感觉MATLAB这个语言奇奇怪怪的, 故作为一个程序员的视角自己来写一份教程。本教程会对比其它语言或者编程语言通用的概念来书写, 所以需要至少有一门语言的编程经验。</p><h2 id=基本架构图>基本架构图</h2><ul><li>参考书籍: 北京航空航天大学出版的由胡章芳老师编写的《matlab仿真及其在光学课程中的应用》（第二版）</li></ul><p>使用软件:</p><ul><li>MindLine</li><li>Matlab</li><li>GNU Octave</li><li>Anoc Octave Pro Editor</li></ul><p><img src=/img/matlab基础.jpg></p><h2 id=变量>变量</h2><h3 id=标识符>标识符</h3><p>MATLAB的标识符的规则符合下面的正则表达式:</p><blockquote><p>^[A-Za-z]{1}[A-Za-z0-9_]*</p></blockquote><ul><li>标识符只能以 <strong>英文字母</strong> 开头</li><li>标识符只能由 <strong>大小写字母、数字、下划线（_）</strong> 组成</li><li>标识符不能与 <strong><a href=#%E5%85%B3%E9%94%AE%E5%AD%97>关键字</a> 和 预定义量</strong> 重复</li><li>长度不超过 <strong>namelengthmax</strong> （不同的MATLAB版本长度也不一样）</li></ul><blockquote><p>那本书把预定义量叫做const, 这个跟我们常规编程语言理解的const（常量）意义不太一样, 因此我翻译为了 <strong>预定义量</strong></p></blockquote><h4 id=关键字>关键字</h4><blockquote><p>执行<code>iskeyword</code>输出关键字</p></blockquote><pre><code class=language-matlab>iskeyword
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自动</span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
+</div>
+</nav>
+<script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
+</div>
+</header>
+<main class="flex-grow pt-16">
+<div class=pl-scrollbar>
+<div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+<div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+<h1 class="font-bold text-3xl text-primary-text">写给程序员的MATLAB快速上手教程</h1>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2021-03-21</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>2分钟阅读时长</span>
+</div>
+</div>
+<div class=content>
+<h2 id=写在前面的>写在前面的</h2>
+<p>MATLAB更多的是一门面向非程序员的计算机编程语言, 因此其教程往往对于程序员同学来说并不算是很"友好"。因为自己的本科毕业论文是利用MATLAB来研究光的波动性, 之前因为教程的问题一直感觉MATLAB这个语言奇奇怪怪的, 故作为一个程序员的视角自己来写一份教程。本教程会对比其它语言或者编程语言通用的概念来书写, 所以需要至少有一门语言的编程经验。</p>
+<h2 id=基本架构图>基本架构图</h2>
+<ul>
+<li>参考书籍: 北京航空航天大学出版的由胡章芳老师编写的《matlab仿真及其在光学课程中的应用》（第二版）</li>
+</ul>
+<p>使用软件:</p>
+<ul>
+<li>MindLine</li>
+<li>Matlab</li>
+<li>GNU Octave</li>
+<li>Anoc Octave Pro Editor</li>
+</ul>
+<p><img src=/img/matlab基础.jpg></p>
+<h2 id=变量>变量</h2>
+<h3 id=标识符>标识符</h3>
+<p>MATLAB的标识符的规则符合下面的正则表达式:</p>
+<blockquote>
+<p>^[A-Za-z]{1}[A-Za-z0-9_]*</p>
+</blockquote>
+<ul>
+<li>标识符只能以 <strong>英文字母</strong> 开头</li>
+<li>标识符只能由 <strong>大小写字母、数字、下划线（_）</strong> 组成</li>
+<li>标识符不能与 <strong><a href=#%E5%85%B3%E9%94%AE%E5%AD%97>关键字</a> 和 预定义量</strong> 重复</li>
+<li>长度不超过 <strong>namelengthmax</strong> （不同的MATLAB版本长度也不一样）</li>
+</ul>
+<blockquote>
+<p>那本书把预定义量叫做const, 这个跟我们常规编程语言理解的const（常量）意义不太一样, 因此我翻译为了 <strong>预定义量</strong></p>
+</blockquote>
+<h4 id=关键字>关键字</h4>
+<blockquote>
+<p>执行<code>iskeyword</code>输出关键字</p>
+</blockquote>
+<pre><code class=language-matlab>iskeyword
 
 % ans =
 
@@ -32,13 +152,65 @@
 %     {'switch'    }
 %     {'try'       }
 %     {'while'     }
-</code></pre><h3 id=默认变量>默认变量</h3><p>MATLAB是一门默认支持REPL的语言而且与计算有关, 因此MATLAB定义了一个默认变量 <code>ans</code> 作为未赋值的计算结果的赋值, eg.</p><pre><code class=language-matlab>2 * 3
+</code></pre>
+<h3 id=默认变量>默认变量</h3>
+<p>MATLAB是一门默认支持REPL的语言而且与计算有关, 因此MATLAB定义了一个默认变量 <code>ans</code> 作为未赋值的计算结果的赋值, eg.</p>
+<pre><code class=language-matlab>2 * 3
 
 % 输出: ans = 6
-</code></pre><p>未完待续&mldr;</p></div><div class=my-4><a href=/tags/matlab/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#MATLAB</a>
+</code></pre>
+<p>未完待续&mldr;</p>
+</div>
+<div class=my-4>
+<a href=/tags/matlab/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#MATLAB</a>
 <a href=/tags/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#快速上手</a>
-<a href=/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#程序员</a></div><div class="flex md:justify-end my-4"><a href=https://github.com/HerbertHe/HerbertHe.github.io/blob/master/content/posts/%e5%86%99%e7%bb%99%e7%a8%8b%e5%ba%8f%e5%91%98%e7%9a%84MATLAB%e5%bf%ab%e9%80%9f%e4%b8%8a%e6%89%8b%e6%95%99%e7%a8%8b.md title="Edit this page"><i class="fas fa-edit mr-1"></i>
-<span>编辑本页</span></a></div><div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t"><div><span class="block font-bold">上一页</span>
-<a href=/posts/leetcode-206-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/ class=block>Leetcode-206-反转链表</a></div><div class="md:text-right mt-4 md:mt-0"><span class="block font-bold">下一页</span>
-<a href=/posts/markdown%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E6%80%9D%E8%80%83/ class=block>markdown自定义的思考</a></div></div></div><div class=col-span-2><div class="sticky top-16 z-10 hidden lg:block px-6 py-4 bg-primary-bg"><span class="text-lg font-semibold">本页内容</span></div><div class="sticky-toc hidden lg:block px-6 pb-6"><nav id=TableOfContents><ul><li><a href=#写在前面的>写在前面的</a></li><li><a href=#基本架构图>基本架构图</a></li><li><a href=#变量>变量</a><ul><li><a href=#标识符>标识符</a><ul><li><a href=#关键字>关键字</a></li></ul></li><li><a href=#默认变量>默认变量</a></li></ul></li></ul></nav></div><script>window.addEventListener('DOMContentLoaded',()=>{enableStickyToc()})</script></div></div><script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script></div></div></main><footer class=pl-scrollbar><div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b"><p class="text-sm text-tertiary-text">Copyright &copy; 2018 ~ 2021 <a href=https://goer.icu>惒泊の部落格</a> All Rights Reserved!
-&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p></div></div></footer></body></html>
+<a href=/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#程序员</a>
+</div>
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+<div>
+<span class="block font-bold">上一页</span>
+<a href=/posts/leetcode-206-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/ class=block>Leetcode-206-反转链表</a>
+</div>
+<div class="md:text-right mt-4 md:mt-0">
+<span class="block font-bold">下一页</span>
+<a href=/posts/markdown%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E6%80%9D%E8%80%83/ class=block>markdown自定义的思考</a>
+</div>
+</div>
+</div>
+<div class=col-span-2>
+<div class="sticky top-16 z-10 hidden lg:block px-6 py-4 bg-primary-bg">
+<span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#写在前面的>写在前面的</a></li>
+<li><a href=#基本架构图>基本架构图</a></li>
+<li><a href=#变量>变量</a>
+<ul>
+<li><a href=#标识符>标识符</a>
+<ul>
+<li><a href=#关键字>关键字</a></li>
+</ul>
+</li>
+<li><a href=#默认变量>默认变量</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<script>window.addEventListener('DOMContentLoaded',()=>{enableStickyToc()})</script>
+</div>
+</div>
+<script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script>
+</div>
+</div>
+</main>
+<footer class=pl-scrollbar>
+<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+<p class="text-sm text-tertiary-text">Copyright &copy; 2018 ~ 2021 <a href=https://goer.icu>惒泊の部落格</a> All Rights Reserved!
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
+</div></div>
+</footer>
+</body>
+</html>

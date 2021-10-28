@@ -1,14 +1,115 @@
-<!doctype html><html lang=zh><meta charset=utf-8><meta name=viewport content="width=device-width"><title>Windows下Vim的安装与插件管理 | 惒泊の部落格</title><link rel=stylesheet href=/css/eureka.min.css><script defer src=/js/eureka.min.js></script><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'"><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/javascript.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/typescript.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/matlab.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/verilog.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/shell.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/bash.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/latex.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/markdown.min.js crossorigin></script><script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script><link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_2.png><link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_2.png><meta name=description content="关于Vim Vim是一款优秀的编辑器，可以在环境艰苦的纯shell端进行代码及配置文件的编辑。相比于带"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"Windows下Vim的安装与插件管理","item":"/posts/windows%E4%B8%8Bvim%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/windows%E4%B8%8Bvim%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86/"},"headline":"Windows下Vim的安装与插件管理 | 惒泊の部落格","datePublished":"2020-02-04T15:37:07+00:00","dateModified":"2020-02-04T15:37:07+00:00","wordCount":2607,"publisher":{"@type":"Person","name":"惒泊(HerbertHe)","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"关于Vim Vim是一款优秀的编辑器，可以在环境艰苦的纯shell端进行代码及配置文件的编辑。相比于带"}</script><meta property="og:title" content="Windows下Vim的安装与插件管理 | 惒泊の部落格"><meta property="og:type" content="article"><meta property="og:image" content="/images/icon.png"><meta property="og:url" content="/posts/windows%E4%B8%8Bvim%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86/"><meta property="og:description" content="关于Vim Vim是一款优秀的编辑器，可以在环境艰苦的纯shell端进行代码及配置文件的编辑。相比于带"><meta property="og:locale" content="zh"><meta property="og:site_name" content="惒泊の部落格"><meta property="article:published_time" content="2020-02-04T15:37:07+00:00"><meta property="article:modified_time" content="2020-02-04T15:37:07+00:00"><meta property="article:section" content="posts"><meta property="article:tag" content="Vim"><meta property="article:tag" content="Windows"><meta property="article:tag" content="Vundle"><body class="flex flex-col min-h-screen"><header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm"><div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script><nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0"><a href=/ class="mr-6 text-primary-text text-xl font-bold">惒泊の部落格</a>
+<!doctype html><html lang=zh><meta charset=utf-8>
+<meta name=viewport content="width=device-width">
+<title>Windows下Vim的安装与插件管理 | 惒泊の部落格</title>
+<meta name=generator content="Hugo Eureka 0.8.3">
+<link rel=stylesheet href=/css/eureka.min.css>
+<script defer src=/js/eureka.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload="this.onload=null,this.rel='stylesheet'">
+<link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/dart.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/javascript.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/typescript.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/matlab.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/go.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/verilog.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/shell.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/bash.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/latex.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/markdown.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/languages/ebnf.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js integrity="sha256-uNYoXefWRqv+PsIF/OflNmwtKM4lStn9yrz2gVl6ymo=" crossorigin></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X media=print onload="this.media='all',this.onload=null" crossorigin>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+<link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
+<meta name=description content="关于Vim Vim是一款优秀的编辑器，可以在环境艰苦的纯shell端进行代码及配置文件的编辑。相比于带">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"Windows下Vim的安装与插件管理","item":"/posts/windows%E4%B8%8Bvim%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/windows%E4%B8%8Bvim%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86/"},"headline":"Windows下Vim的安装与插件管理 | 惒泊の部落格","datePublished":"2020-02-04T15:37:07+00:00","dateModified":"2020-02-04T15:37:07+00:00","wordCount":2607,"publisher":{"@type":"Person","name":"惒泊(HerbertHe)","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"关于Vim Vim是一款优秀的编辑器，可以在环境艰苦的纯shell端进行代码及配置文件的编辑。相比于带"}</script><meta property="og:title" content="Windows下Vim的安装与插件管理 | 惒泊の部落格">
+<meta property="og:type" content="article">
+<meta property="og:image" content="/images/icon.png">
+<meta property="og:url" content="/posts/windows%E4%B8%8Bvim%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86/">
+<meta property="og:description" content="关于Vim Vim是一款优秀的编辑器，可以在环境艰苦的纯shell端进行代码及配置文件的编辑。相比于带">
+<meta property="og:locale" content="zh">
+<meta property="og:site_name" content="惒泊の部落格">
+<meta property="article:published_time" content="2020-02-04T15:37:07+00:00">
+<meta property="article:modified_time" content="2020-02-04T15:37:07+00:00">
+<meta property="article:section" content="posts">
+<meta property="article:tag" content="Vim">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="Vundle">
+<body class="flex flex-col min-h-screen">
+<header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+<div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+<a href=/ class="mr-6 text-primary-text text-xl font-bold">惒泊の部落格</a>
 <button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
-<i class="fas fa-bars"></i></button><div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20"><div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0"><a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">文章</a>
+<i class="fas fa-bars"></i>
+</button>
+<div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+<div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">文章</a>
 <a href=/categories/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">集合</a>
-<a href=/tags/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">标签</a></div><div class=flex><div class="relative pt-4 md:pt-0"><div class="cursor-pointer hover:text-eureka" id=lightDarkMode><i class="fas fa-adjust"></i></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open></div><div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions><span class="px-4 py-1 hover:text-eureka" name=Light>浅色</span>
+<a href=/tags/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">标签</a>
+</div>
+<div class=flex>
+<div class="relative pt-4 md:pt-0">
+<div class="cursor-pointer hover:text-eureka" id=lightDarkMode>
+<i class="fas fa-adjust"></i>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open>
+</div>
+<div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions>
+<span class="px-4 py-1 hover:text-eureka" name=Light>浅色</span>
 <span class="px-4 py-1 hover:text-eureka" name=Dark>深色</span>
-<span class="px-4 py-1 hover:text-eureka" name=Auto>自动</span></div></div></div></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile></div></nav><script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{switchMode('Auto')}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script></div></header><main class="flex-grow pt-16"><div class=pl-scrollbar><div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto"><div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12"><div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8"><h1 class="font-bold text-3xl text-primary-text">Windows下Vim的安装与插件管理</h1><div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text"><div class="mr-6 my-2"><i class="fas fa-calendar mr-1"></i>
-<span>2020-02-04</span></div><div class="mr-6 my-2"><i class="fas fa-clock mr-1"></i>
-<span>6分钟阅读时长</span></div></div><div class=content><h2 id=关于vim>关于Vim</h2><p>Vim是一款优秀的编辑器，可以在环境艰苦的纯shell端进行代码及配置文件的编辑。相比于带有GUI的vscode、notepad++等编辑器，Vim的学习成本比较高，但是却被称为“上古神器”。在Linux端<code>vi</code>、<code>vim</code>经常是修改配置文件教程的首选，Linux发行版也大都自带Vim；现在很多的Linux发行版开始自带<code>nano</code>编辑器，相比于Vim足够简单，但是所提供的功能甚少可以做简单编辑操作，对于完全无需鼠标的编辑操作Vim仍然是不二之选！</p><p>大多的Vim使用场景在Linux端，很多的教程和配置文件并不适用Windows的环境，这一路走来遇到了不少的坑。因为在学《汇编语言》下纯的shell环境相较于GUI的编辑器更能提高编辑效率，本篇心得将从Windows的环境下说明和配置Vim结构与配置文件</p><h2 id=下载与安装vim>下载与安装Vim</h2><p>在GitHub仓库下的<a href=https://github.com/vim/vim-win32-installer/releases>releases</a>下选择对应的<code>.exe</code>可执行文件，<code>x86</code>32位，<code>x64</code>64位。</p><blockquote><p>在Windows的环境下默认vim默认为带GUI的<code>gvim</code></p></blockquote><p>根据安装教程来，均无需修改配置，没有默认将Vim装到C盘，请尽量把软件隔离系统盘安装！这里的安装路径是<code>D:\Vim</code></p><p>安装完成之后，在<code>D:\Vim</code>的目录下有<code>vim82</code>和<code>_vimrc</code>两个子项，对应于linux的<code>.vim</code>和<code>.vimrc</code></p><h2 id=测试安装>测试安装</h2><pre><code class=language-shell># 打开powershell
+<span class="px-4 py-1 hover:text-eureka" name=Auto>自动</span>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile>
+</div>
+</nav>
+<script>let element=document.getElementById('lightDarkMode');storageColorScheme==null||storageColorScheme=='Auto'?document.addEventListener('DOMContentLoaded',()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change',switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'sun'),element.firstElementChild.classList.add('fa-sun')):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove('fa-adjust'),element.firstElementChild.setAttribute("data-icon",'moon'),element.firstElementChild.classList.add('fa-moon')),document.addEventListener('DOMContentLoaded',()=>{getcolorscheme(),switchBurger()})</script>
+</div>
+</header>
+<main class="flex-grow pt-16">
+<div class=pl-scrollbar>
+<div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+<div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+<h1 class="font-bold text-3xl text-primary-text">Windows下Vim的安装与插件管理</h1>
+<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+<div class="mr-6 my-2">
+<i class="fas fa-calendar mr-1"></i>
+<span>2020-02-04</span>
+</div>
+<div class="mr-6 my-2">
+<i class="fas fa-clock mr-1"></i>
+<span>6分钟阅读时长</span>
+</div>
+</div>
+<div class=content>
+<h2 id=关于vim>关于Vim</h2>
+<p>Vim是一款优秀的编辑器，可以在环境艰苦的纯shell端进行代码及配置文件的编辑。相比于带有GUI的vscode、notepad++等编辑器，Vim的学习成本比较高，但是却被称为“上古神器”。在Linux端<code>vi</code>、<code>vim</code>经常是修改配置文件教程的首选，Linux发行版也大都自带Vim；现在很多的Linux发行版开始自带<code>nano</code>编辑器，相比于Vim足够简单，但是所提供的功能甚少可以做简单编辑操作，对于完全无需鼠标的编辑操作Vim仍然是不二之选！</p>
+<p>大多的Vim使用场景在Linux端，很多的教程和配置文件并不适用Windows的环境，这一路走来遇到了不少的坑。因为在学《汇编语言》下纯的shell环境相较于GUI的编辑器更能提高编辑效率，本篇心得将从Windows的环境下说明和配置Vim结构与配置文件</p>
+<h2 id=下载与安装vim>下载与安装Vim</h2>
+<p>在GitHub仓库下的<a href=https://github.com/vim/vim-win32-installer/releases>releases</a>下选择对应的<code>.exe</code>可执行文件，<code>x86</code>32位，<code>x64</code>64位。</p>
+<blockquote>
+<p>在Windows的环境下默认vim默认为带GUI的<code>gvim</code></p>
+</blockquote>
+<p>根据安装教程来，均无需修改配置，没有默认将Vim装到C盘，请尽量把软件隔离系统盘安装！这里的安装路径是<code>D:\Vim</code></p>
+<p>安装完成之后，在<code>D:\Vim</code>的目录下有<code>vim82</code>和<code>_vimrc</code>两个子项，对应于linux的<code>.vim</code>和<code>.vimrc</code></p>
+<h2 id=测试安装>测试安装</h2>
+<pre><code class=language-shell># 打开powershell
 vim --version
-</code></pre><h2 id=基本配置_vimrc>基本配置<code>_vimrc</code></h2><p>这里贴上我的基本配置文件</p><pre><code class=language-_vimrc>&quot; Vim with all enhancements
+</code></pre>
+<h2 id=基本配置_vimrc>基本配置<code>_vimrc</code></h2>
+<p>这里贴上我的基本配置文件</p>
+<pre><code class=language-_vimrc>&quot; Vim with all enhancements
 source $VIMRUNTIME/vimrc_example.vim
 
 &quot; Use the internal diff if available.
@@ -91,14 +192,41 @@ set smartindent &quot; 智能对齐
 set autoindent &quot; 设置自动对齐
 set ai! &quot; 设置自动缩进
 set fdm=indent
-</code></pre><p>关于<code>vimrc</code>文件的配置可以直接百度或者GitHub搜索<code>vimrc配置</code>的相关词条，<code>vimrc</code>的配置确实让很多人看到就会想放弃Vim (￣▽￣)"</p><h2 id=设置vundle插件管理>设置Vundle插件管理</h2><p>Vundle是一个很棒的Vim插件管理工具，同样它也是Vim的插件。根据搜到的配置教程和官方仓库的关于Windows的配置教程，尽量简化了Vundle的安装，但是同样带来了默认C盘的尴尬事情发生，你如果按照官方配置文件来一定会在C盘的<code>User(用户)</code>目录下多出一个<code>.vim</code>的文件夹！！</p><blockquote><p>官方配置流程: <a href=https://github.com/VundleVim/Vundle.vim/wiki/Vundle-for-Windows>Vundle-for-Windows</a></p></blockquote><p>下面是详细的配置过程</p><h3 id=下载安装-git-on-windowshttpsgit-scmcomdownloadwin>下载安装 <a href=https://git-scm.com/download/win>Git on Windows</a></h3><p>在<code>Adjusting your PATH environment</code>这一步，一定要勾选<code>Use Git from the Windows Command Prompt</code>这一项配置<code>PATH</code>！</p><h3 id=下载安装-curl-on-windowshttpscurlhaxxsewindows>下载安装 <a href=https://curl.haxx.se/windows/>Curl on Windows</a></h3><ol><li>下载完成之后解压缩文件获取里面的内容，我解压缩到了<code>D:\curl</code>这个文件夹下！</li><li><code>bin</code>文件夹添加到系统的环境变量<code>Path</code>，我的配置是<code>D:\curl\bin</code> <strong>这一步不做无法在命令行使用curl命令</strong></li></ol><h3 id=测试安装git和curl>测试安装git和curl</h3><pre><code class=language-shell>git --version
+</code></pre>
+<p>关于<code>vimrc</code>文件的配置可以直接百度或者GitHub搜索<code>vimrc配置</code>的相关词条，<code>vimrc</code>的配置确实让很多人看到就会想放弃Vim (￣▽￣)"</p>
+<h2 id=设置vundle插件管理>设置Vundle插件管理</h2>
+<p>Vundle是一个很棒的Vim插件管理工具，同样它也是Vim的插件。根据搜到的配置教程和官方仓库的关于Windows的配置教程，尽量简化了Vundle的安装，但是同样带来了默认C盘的尴尬事情发生，你如果按照官方配置文件来一定会在C盘的<code>User(用户)</code>目录下多出一个<code>.vim</code>的文件夹！！</p>
+<blockquote>
+<p>官方配置流程: <a href=https://github.com/VundleVim/Vundle.vim/wiki/Vundle-for-Windows>Vundle-for-Windows</a></p>
+</blockquote>
+<p>下面是详细的配置过程</p>
+<h3 id=下载安装-git-on-windowshttpsgit-scmcomdownloadwin>下载安装 <a href=https://git-scm.com/download/win>Git on Windows</a></h3>
+<p>在<code>Adjusting your PATH environment</code>这一步，一定要勾选<code>Use Git from the Windows Command Prompt</code>这一项配置<code>PATH</code>！</p>
+<h3 id=下载安装-curl-on-windowshttpscurlhaxxsewindows>下载安装 <a href=https://curl.haxx.se/windows/>Curl on Windows</a></h3>
+<ol>
+<li>下载完成之后解压缩文件获取里面的内容，我解压缩到了<code>D:\curl</code>这个文件夹下！</li>
+<li><code>bin</code>文件夹添加到系统的环境变量<code>Path</code>，我的配置是<code>D:\curl\bin</code> <strong>这一步不做无法在命令行使用curl命令</strong></li>
+</ol>
+<h3 id=测试安装git和curl>测试安装git和curl</h3>
+<pre><code class=language-shell>git --version
 
 curl --version
-</code></pre><h3 id=vundle-on-windows>Vundle on Windows</h3><blockquote><p>与官方文档不同！很重要！</p></blockquote><p>打开到<code>vim</code>的安装目录<code>D:\Vim</code>，在此目录下打开<code>PowerShell</code></p><pre><code class=language-shell>git clone https://github.com/VundleVim/Vundle.vim.git /vim82/bundle/Vundle.vim
+</code></pre>
+<h3 id=vundle-on-windows>Vundle on Windows</h3>
+<blockquote>
+<p>与官方文档不同！很重要！</p>
+</blockquote>
+<p>打开到<code>vim</code>的安装目录<code>D:\Vim</code>，在此目录下打开<code>PowerShell</code></p>
+<pre><code class=language-shell>git clone https://github.com/VundleVim/Vundle.vim.git /vim82/bundle/Vundle.vim
 
 # 你同样也可以使用我在Gitee备份的仓库，提高下载速度
 git clone https://gitee.com/HerbertHe/Vundle.vim.git /vim82/bundle/Vundle.vim
-</code></pre><blockquote><p>说明：命令里的<code>vim82</code>对应的就是<code>.vim</code>这个目录！因为Vim版本的不同可能会导致目录的名称不同，请参考修改！</p></blockquote><p>配置插件，打开修改<code>_vimrc</code>文件</p><pre><code class=language-_vimrc>set nocompatible              &quot; 去除VI一致性,必须
+</code></pre>
+<blockquote>
+<p>说明：命令里的<code>vim82</code>对应的就是<code>.vim</code>这个目录！因为Vim版本的不同可能会导致目录的名称不同，请参考修改！</p>
+</blockquote>
+<p>配置插件，打开修改<code>_vimrc</code>文件</p>
+<pre><code class=language-_vimrc>set nocompatible              &quot; 去除VI一致性,必须
 filetype off                  &quot; 必须
 
 &quot; 设置包括vundle和初始化相关的runtime path，重要！！
@@ -141,7 +269,9 @@ filetype plugin indent on    &quot; 必须 加载vim自带和插件相应的语�
 &quot;
 &quot; 查阅 :h vundle 获取更多细节和wiki以及FAQ
 &quot; 将你自己对非插件片段放在这行之后
-</code></pre><p>在配置内容中，我额外配置的是</p><pre><code class=language-_vimrc>&quot; 设置Vundle插件管理
+</code></pre>
+<p>在配置内容中，我额外配置的是</p>
+<pre><code class=language-_vimrc>&quot; 设置Vundle插件管理
 set nocompatible
 filetype off
 
@@ -179,10 +309,66 @@ endif
 &quot; 主题设置为 solarized
 colorscheme solarized
 
-</code></pre><h2 id=命令行启动vim并且安装插件>命令行启动Vim并且安装插件</h2><ul><li>打开PowerShell</li><li>键入<code>vim</code>命令行下打开编辑器</li><li>在视图模式下键入<code>:PluginInstall</code>回车</li></ul><p>安装完成后即可使用插件，上面的配置中我使用了<code>Plugin 'scrooloose/nerdtree'</code>和<code>Plugin 'altercation/vim-colors-solarized'</code></p></div><div class=my-4><a href=/tags/vim/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Vim</a>
+</code></pre>
+<h2 id=命令行启动vim并且安装插件>命令行启动Vim并且安装插件</h2>
+<ul>
+<li>打开PowerShell</li>
+<li>键入<code>vim</code>命令行下打开编辑器</li>
+<li>在视图模式下键入<code>:PluginInstall</code>回车</li>
+</ul>
+<p>安装完成后即可使用插件，上面的配置中我使用了<code>Plugin 'scrooloose/nerdtree'</code>和<code>Plugin 'altercation/vim-colors-solarized'</code></p>
+</div>
+<div class=my-4>
+<a href=/tags/vim/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Vim</a>
 <a href=/tags/windows/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Windows</a>
-<a href=/tags/vundle/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Vundle</a></div><div class="flex md:justify-end my-4"><a href=https://github.com/HerbertHe/HerbertHe.github.io/blob/master/content/posts/Windows%e4%b8%8bVim%e7%9a%84%e5%ae%89%e8%a3%85%e4%b8%8e%e6%8f%92%e4%bb%b6%e7%ae%a1%e7%90%86.md title="Edit this page"><i class="fas fa-edit mr-1"></i>
-<span>编辑本页</span></a></div><div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t"><div><span class="block font-bold">上一页</span>
-<a href=/posts/%E9%85%8D%E7%BD%AEgoland%E4%B8%BB%E9%A2%98%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%8E%AF%E5%A2%83/ class=block>配置Goland主题与工程环境</a></div><div class="md:text-right mt-4 md:mt-0"><span class="block font-bold">下一页</span>
-<a href=/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1js%E7%BA%BF%E7%A8%8B%E9%97%AE%E9%A2%98/ class=block>记一次JS线程问题</a></div></div></div><div class=col-span-2><div class="sticky top-16 z-10 hidden lg:block px-6 py-4 bg-primary-bg"><span class="text-lg font-semibold">本页内容</span></div><div class="sticky-toc hidden lg:block px-6 pb-6"><nav id=TableOfContents><ul><li><a href=#关于vim>关于Vim</a></li><li><a href=#下载与安装vim>下载与安装Vim</a></li><li><a href=#测试安装>测试安装</a></li><li><a href=#基本配置_vimrc>基本配置<code>_vimrc</code></a></li><li><a href=#设置vundle插件管理>设置Vundle插件管理</a><ul><li><a href=#下载安装-git-on-windowshttpsgit-scmcomdownloadwin>下载安装 <a href=https://git-scm.com/download/win>Git on Windows</a></a></li><li><a href=#下载安装-curl-on-windowshttpscurlhaxxsewindows>下载安装 <a href=https://curl.haxx.se/windows/>Curl on Windows</a></a></li><li><a href=#测试安装git和curl>测试安装git和curl</a></li><li><a href=#vundle-on-windows>Vundle on Windows</a></li></ul></li><li><a href=#命令行启动vim并且安装插件>命令行启动Vim并且安装插件</a></li></ul></nav></div><script>window.addEventListener('DOMContentLoaded',()=>{enableStickyToc()})</script></div></div><script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script></div></div></main><footer class=pl-scrollbar><div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b"><p class="text-sm text-tertiary-text">Copyright &copy; 2018 ~ 2021 <a href=https://goer.icu>惒泊の部落格</a> All Rights Reserved!
-&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p></div></div></footer></body></html>
+<a href=/tags/vundle/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Vundle</a>
+</div>
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+<div>
+<span class="block font-bold">上一页</span>
+<a href=/posts/%E9%85%8D%E7%BD%AEgoland%E4%B8%BB%E9%A2%98%E4%B8%8E%E5%B7%A5%E7%A8%8B%E7%8E%AF%E5%A2%83/ class=block>配置Goland主题与工程环境</a>
+</div>
+<div class="md:text-right mt-4 md:mt-0">
+<span class="block font-bold">下一页</span>
+<a href=/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1js%E7%BA%BF%E7%A8%8B%E9%97%AE%E9%A2%98/ class=block>记一次JS线程问题</a>
+</div>
+</div>
+</div>
+<div class=col-span-2>
+<div class="sticky top-16 z-10 hidden lg:block px-6 py-4 bg-primary-bg">
+<span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#关于vim>关于Vim</a></li>
+<li><a href=#下载与安装vim>下载与安装Vim</a></li>
+<li><a href=#测试安装>测试安装</a></li>
+<li><a href=#基本配置_vimrc>基本配置<code>_vimrc</code></a></li>
+<li><a href=#设置vundle插件管理>设置Vundle插件管理</a>
+<ul>
+<li><a href=#下载安装-git-on-windowshttpsgit-scmcomdownloadwin>下载安装 <a href=https://git-scm.com/download/win>Git on Windows</a></a></li>
+<li><a href=#下载安装-curl-on-windowshttpscurlhaxxsewindows>下载安装 <a href=https://curl.haxx.se/windows/>Curl on Windows</a></a></li>
+<li><a href=#测试安装git和curl>测试安装git和curl</a></li>
+<li><a href=#vundle-on-windows>Vundle on Windows</a></li>
+</ul>
+</li>
+<li><a href=#命令行启动vim并且安装插件>命令行启动Vim并且安装插件</a></li>
+</ul>
+</nav>
+</div>
+<script>window.addEventListener('DOMContentLoaded',()=>{enableStickyToc()})</script>
+</div>
+</div>
+<script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script>
+</div>
+</div>
+</main>
+<footer class=pl-scrollbar>
+<div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+<p class="text-sm text-tertiary-text">Copyright &copy; 2018 ~ 2021 <a href=https://goer.icu>惒泊の部落格</a> All Rights Reserved!
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p>
+</div></div>
+</footer>
+</body>
+</html>
