@@ -109,18 +109,18 @@
 </ul>
 <h2 id=配置goland主题和字体>配置Goland主题和字体</h2>
 <p>在这里我使用的是<code>Material Theme UI</code>这个插件，<code>File</code>-><code>Settings</code>-><code>Plugins</code>-><code>Marketplace</code>搜索就好了，选择一个自己喜欢的主题。</p>
-<p><img src=/img/Snipaste_2020-03-09_14-28-07.png></p>
+<img src=/img/Snipaste_2020-03-09_14-28-07.png>
 <p>字体的配置在<code>File</code>-><code>Settings</code>-><code>Editor</code>的<code>Font</code>、<code>Color Scheme</code>的<code>Color Scheme Font</code>和<code>Console Font</code>下</p>
-<p><img src=/img/Snipaste_2020-03-09_14-42-25.png></p>
+<img src=/img/Snipaste_2020-03-09_14-42-25.png>
 <p>字体推荐使用的是<code>Fira Code</code>看起来很舒服，但是在显示的时候如果习惯普通的符号的话，对于<code>===</code>、<code>!=</code>、<code>!==</code>等这些符号看起来可能会比较陌生。字体链接: <a href=https://github.com/tonsky/FiraCode>GitHub</a></p>
 <blockquote>
 <p>一定要配置<code>Fallback font</code>这一项不然汉字可能出现渲染问题！</p>
 </blockquote>
 <h2 id=关于ide配置和项目配置>关于IDE配置和项目配置</h2>
 <p>默认情况下，只要你根据golang的配置要求配置了<code>GOROOT</code>和<code>GOPATH</code>，IDE都会默认找到对应的本地库，可以通过下图的位置来检查。</p>
-<p><img src=/img/Snipaste_2020-03-09_14-54-57.png></p>
-<p><img src=/img/Snipaste_2020-03-09_14-55-42.png></p>
-<p><img src=/img/Snipaste_2020-03-09_14-57-00.png></p>
+<img src=/img/Snipaste_2020-03-09_14-54-57.png>
+<img src=/img/Snipaste_2020-03-09_14-55-42.png>
+<img src=/img/Snipaste_2020-03-09_14-57-00.png>
 <h2 id=从别的ide迁到goland>从别的IDE迁到Goland</h2>
 <p>根据go语言的特性，默认go的源代码必须位于<code>GOPATH</code>的<code>src</code>下，go在更新后提供了<code>go module</code>的包管理工具，强烈建议在新的项目中使用<code>go mod init xxx.xxx</code>的方式使用<code>go module</code>来初始化项目的包管理，以此来抽离项目于默认的文件夹。从别的IDE迁移至<code>Goland</code>请仔细检查上图中的配置，否则可能会导致本地包智能提示无法识别的问题。</p>
 <p>在上图<code>Go Modules</code>的proxy配置中，强烈建议改为上图配置以解决国内网络环境对于包下载的不友好，配置 <code>https://goproxy.cn,direct</code></p>

@@ -1,6 +1,6 @@
 <!doctype html><html lang=zh><meta charset=utf-8>
 <meta name=viewport content="width=device-width">
-<title>惒泊の部落格</title>
+<title>ES6 | 惒泊の部落格</title>
 <meta name=generator content="Hugo Eureka 0.8.3">
 <link rel=stylesheet href=/css/eureka.min.css>
 <script defer src=/js/eureka.min.js></script>
@@ -27,16 +27,17 @@
 <link rel=icon type=image/png sizes=32x32 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png>
 <link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
 <meta name=description content="Herbert He's Blog">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hexo基础搭建使用","description":"Hexo安装环境 Node.js (nvm) Git 推荐使用nvm，在实践之后发现nvm真的很好用，当然Windows用户可以直接","url":"/posts/hexo%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BA%E4%BD%BF%E7%94%A8/"},{"@type":"ListItem","position":2,"name":"Dart之旅","description":"本文于2020/1/27修订 写在前面 本文是参考了Dart官网 的教程、参考的机翻以及对于其他语言学习的","url":"/posts/dart%E4%B9%8B%E6%97%85/"}]}</script><meta property="og:title" content="惒泊の部落格">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Tags","item":"/tags/"},{"@type":"ListItem","position":2,"name":"ES6","item":"/tags/es6/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"JavaScript中的ArrayBuffer","description":"写在前面的 在尝试用国密算法实现 jwt 的时候, 发现可以使用的库很少, 便根据 jwt 的生成规则和国密 SM3 算法自行参考","url":"/posts/javascript%E4%B8%AD%E7%9A%84arraybuffer/"}]}</script><meta property="og:title" content="ES6 | 惒泊の部落格">
 <meta property="og:type" content="website">
 <meta property="og:image" content="/images/icon.png">
-<meta property="og:url" content="/posts/">
+<meta property="og:url" content="/tags/es6/">
 <meta property="og:description" content="Herbert He's Blog">
 <meta property="og:locale" content="zh">
 <meta property="og:site_name" content="惒泊の部落格">
 <meta property="og:updated_time" content="2021-11-17T01:16:10+08:00">
-<meta property="article:section" content="posts">
-<link rel=alternate type=application/rss+xml href=/posts/index.xml title=惒泊の部落格>
+<meta property="article:section" content="tags">
+<link rel=alternate type=application/rss+xml href=/tags/es6/index.xml title=惒泊の部落格>
 <body class="flex flex-col min-h-screen">
 <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
 <div class="w-full max-w-screen-xl mx-auto"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=='Auto'||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName('html')[0].classList.add('dark')</script>
@@ -47,9 +48,9 @@
 </button>
 <div id=target class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
 <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
-<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">文章</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">文章</a>
 <a href=/categories/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">集合</a>
-<a href=/tags/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent mr-4">标签</a>
+<a href=/tags/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item mr-4">标签</a>
 </div>
 <div class=flex>
 <div class="relative pt-4 md:pt-0">
@@ -76,7 +77,7 @@
 <div class=pl-scrollbar>
 <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
 <article class="mx-6 my-8">
-<h1 class="font-bold text-3xl text-primary-text">Posts</h1>
+<h1 class="font-bold text-3xl text-primary-text">ES6</h1>
 </article>
 <div class="bg-secondary-bg rounded px-6">
 <div class="overflow-hidden divide-y">
@@ -84,45 +85,19 @@
 <div class="flex flex-col-reverse lg:flex-row justify-between">
 <div class=w-full>
 <div class=mb-4>
-<a href=/posts/hexo%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BA%E4%BD%BF%E7%94%A8/ class="font-bold text-xl hover:text-eureka">Hexo基础搭建使用</a>
+<a href=/posts/javascript%E4%B8%AD%E7%9A%84arraybuffer/ class="font-bold text-xl hover:text-eureka">JavaScript中的ArrayBuffer</a>
 </div>
 <div class=content>
-Hexo安装环境 Node.js (nvm) Git 推荐使用nvm，在实践之后发现nvm真的很好用，当然Windows用户可以直接
+写在前面的 在尝试用国密算法实现 jwt 的时候, 发现可以使用的库很少, 便根据 jwt 的生成规则和国密 SM3 算法自行参考
 </div>
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
 <div class="mr-6 my-2">
 <i class="fas fa-calendar mr-1"></i>
-<span>2019-07-02</span>
+<span>2021-11-17</span>
 </div>
 <div class="mr-6 my-2">
 <i class="fas fa-clock mr-1"></i>
-<span>4分钟阅读时长</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=py-6>
-<div class="flex flex-col-reverse lg:flex-row justify-between">
-<div class=w-full>
-<div class=mb-4>
-<a href=/posts/dart%E4%B9%8B%E6%97%85/ class="font-bold text-xl hover:text-eureka">Dart之旅</a>
-</div>
-<div class=content>
-本文于2020/1/27修订 写在前面 本文是参考了Dart官网 的教程、参考的机翻以及对于其他语言学习的
-</div>
-<div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-<div class="mr-6 my-2">
-<i class="fas fa-calendar mr-1"></i>
-<span>2018-12-02</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-clock mr-1"></i>
-<span>44分钟阅读时长</span>
-</div>
-<div class="mr-6 my-2">
-<i class="fas fa-folder mr-1"></i>
-<a href=/categories/%E8%AF%AD%E8%A8%80/ class=hover:text-eureka>语言</a>
+<span>2分钟阅读时长</span>
 </div>
 </div>
 </div>
@@ -130,32 +105,6 @@ Hexo安装环境 Node.js (nvm) Git 推荐使用nvm，在实践之后发现nvm真
 </div>
 </div>
 </div>
-<ul class="pagination pagination-default">
-<li class=page-item>
-<a href=/posts/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a>
-</li>
-<li class=page-item>
-<a href=/posts/page/3/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a>
-</li>
-<li class=page-item>
-<a href=/posts/ aria-label="Page 1" class=page-link role=button>1</a>
-</li>
-<li class=page-item>
-<a href=/posts/page/2/ aria-label="Page 2" class=page-link role=button>2</a>
-</li>
-<li class=page-item>
-<a href=/posts/page/3/ aria-label="Page 3" class=page-link role=button>3</a>
-</li>
-<li class="page-item active">
-<a href=# aria-current=page aria-label="Page 4" class=page-link role=button>4</a>
-</li>
-<li class="page-item disabled">
-<a href=# aria-disabled=true aria-label=Next class=page-link role=button tabindex=-1><span aria-hidden=true>&#187;</span></a>
-</li>
-<li class="page-item disabled">
-<a href=# aria-disabled=true aria-label=Last class=page-link role=button tabindex=-1><span aria-hidden=true>&#187;&#187;</span></a>
-</li>
-</ul>
 </div>
 </div>
 </main>
