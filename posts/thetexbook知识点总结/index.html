@@ -28,7 +28,7 @@
 <link rel=apple-touch-icon sizes=180x180 href=/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png>
 <meta name=description content="阅读背景 《The TEXbook》是由 TeX 作者 DONALD E. KNUTH 编写的一本关于 TeX 设计的书, 介绍了 TeX 在设计时所考虑到的">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"/posts/"},{"@type":"ListItem","position":2,"name":"The TEXbook 知识点总结","item":"/posts/thetexbook%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/thetexbook%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"},"headline":"The TEXbook 知识点总结 | 惒泊の部落格","datePublished":"2021-12-20T20:26:05+08:00","dateModified":"2021-12-20T20:26:05+08:00","wordCount":1061,"publisher":{"@type":"Person","name":"惒泊(HerbertHe)","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"阅读背景 《The TEXbook》是由 TeX 作者 DONALD E. KNUTH 编写的一本关于 TeX 设计的书, 介绍了 TeX 在设计时所考虑到的"}</script><meta property="og:title" content="The TEXbook 知识点总结 | 惒泊の部落格">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"/posts/thetexbook%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"},"headline":"The TEXbook 知识点总结 | 惒泊の部落格","datePublished":"2021-12-20T20:26:05+08:00","dateModified":"2021-12-20T20:26:05+08:00","wordCount":2260,"publisher":{"@type":"Person","name":"惒泊(HerbertHe)","logo":{"@type":"ImageObject","url":"/images/icon.png"}},"description":"阅读背景 《The TEXbook》是由 TeX 作者 DONALD E. KNUTH 编写的一本关于 TeX 设计的书, 介绍了 TeX 在设计时所考虑到的"}</script><meta property="og:title" content="The TEXbook 知识点总结 | 惒泊の部落格">
 <meta property="og:type" content="article">
 <meta property="og:image" content="/images/icon.png">
 <meta property="og:url" content="/posts/thetexbook%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">
@@ -78,7 +78,7 @@
 <div class=pl-scrollbar>
 <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
 <div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
-<div class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+<div class="col-span-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
 <h1 class="font-bold text-3xl text-primary-text">The TEXbook 知识点总结</h1>
 <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
 <div class="mr-6 my-2">
@@ -87,7 +87,7 @@
 </div>
 <div class="mr-6 my-2">
 <i class="fas fa-clock mr-1"></i>
-<span>3分钟阅读时长</span>
+<span>5分钟阅读时长</span>
 </div>
 </div>
 <div class=content>
@@ -114,7 +114,7 @@
 </ul>
 <p>第一类控制系列后面的空格会被忽略掉, 并不看作为 “实际” 空格。<strong>但是, 出现在第二类控制系列后面会看作是实际空格</strong>。</p>
 <p><strong>TeX 把多个连续空格看作单个空格</strong>。键入控制空格解决此问题 <code>\ (控制空格)</code></p>
-<p><strong>TeX 把 <code>\r</code> 和 <code>\t</code> 看作同 <code>\ (控制空格)</code></strong>, 控制空格属于第二类控制系列。</p>
+<p><strong>TeX 把 <code>&lt;return></code> 看作同 <code>\ (控制空格)</code></strong>, 控制空格属于第二类控制系列。</p>
 <blockquote>
 <p>TeX 的第二类控制系列的实现在 OLeX 中也没有严格实现, OLeX 借助于 HTML 和一部分的 SVG 进行实现, 所以并没有完全严格按照 TeX 的规范, 为了消除 TeX 本身可能语法带来的歧义导致给用户带来心智负担。</p>
 </blockquote>
@@ -126,6 +126,146 @@
 -&gt; \kern .16667em .
 </code></pre>
 <p><code>\show</code> 的结果被保存在 log 文件中。</p>
+<p>plain TeX 大约有 600 个基本控制系列, 加上 300 个左右的原始控制系列, 构成了TeX 基本的文本排版控制。</p>
+<h2 id=字体>字体</h2>
+<p>默认情况下, 不定义其他字体将使用 <strong>roman</strong> 字体。</p>
+<pre><code class=language-text>\rm --&gt; Roman
+\sl --&gt; Slanted
+\it --&gt; Italic
+\tt --&gt; Typewriter
+\bf --&gt; Bold
+</code></pre>
+<p>字体的外形会随着大小而改变, 单位设计使用 points(即pt)。</p>
+<pre><code class=language-text>10 points --&gt; \tenrm
+9 points --&gt; \ninerm
+10 points slanted --&gt; \tensl
+</code></pre>
+<p>对于字体名称的处理, <code>\font\cs=&lt;external font name></code> 把一个特殊字体的有关信息载入内存; 在控制系列 <code>\cs</code> 将在排版时选择那个字体。Plain TeX 最初只定义了 16 个字体, 可以使用 <code>\font</code> 把系统字体库中字体为 TeX 所用。</p>
+<p>因为对于字体设计来说, 随着字号的不同并不是单纯的放大或缩小, 因此放缩字体还是存在与调整字号大小不同之意义的。通过 <code>\font\cs=&lt;external font name> at &lt;desired size></code> 命令实现。</p>
+<p>另一种方法是, 相对于设计尺寸给出放大因子。规定为整数, 等于放大比例乘上 1000.1200 即是放大 1.2 倍。<code>\font\manifiedfiverm=cmr5 scaled 2000</code>。Plain TeX 提供了缩略命令, <code>\magstep0</code> 放大因子为 1000、<code>\magstep1</code> 放大因子为 1200, <code>\magstep2</code> 为 1440 &mldr; <code>\magstep5</code></p>
+<p><code>\magstephalf</code> 放大 $\sqrt{1.2}$ 倍。</p>
+<h2 id=编组>编组</h2>
+<p>编组即是使用一对 <code>{}</code> 对内容进行包围的操作, 实现隔绝渲染环境, OLeX 对编组进行了实现。但是为了更好的歧义消除效果, 对于 OLeX 来说, 还是更推荐使用 <code>\CommandName{}</code> 的形式, 会在语法上对非控制系列分组进行<strong>考虑实现</strong>。</p>
+<p>类似于 <code>{\it centered}</code> 这种组内语句, <code>\it</code> 对其**后面组内的文本渲染(局部作用域)**都起作用, 这一点需要注意。</p>
+<blockquote>
+<p>需要注意: TeX 里面有个控制系列 <code>\/</code> 可以作为 unslanted 转化过渡。</p>
+</blockquote>
+<p><strong>编组还有一个作用: 将文本的多个单词看作一个单一对象!</strong>(OLeX 在词法分析上已经对此部分进行了实现, 需要修改语法分析部分, 并且对不正确编组进行修正)</p>
+<p><strong>编组创造了局部作用域的环境。</strong> 有时候为了突破当前局部作用域, 可以通过定义加上前缀 <code>\global</code> 而实现。例如, TeX 把当前页码放在一个叫 <code>\count0</code> 的寄存器中, 输出一页增加页数。放在组中可以避免上下文影响; 但是对于输出来说 <code>\count0</code> 为局部变量, 会产生掩盖, 命令 <code>\global\advance\count0 by 1</code> 可以实现组内生命周期结束, 对寄存器进行保留。<code>\global</code> 使其后紧接的定义适用在所有存在的组, 无所谓深度。</p>
+<blockquote>
+<p>OLeX 在生命周期通过上下文对此特性进行实现, 并且通过上下文进行传递。</p>
+</blockquote>
+<p>除了上述模块结构的方法, 另一种方法为原始的 <code>\begingroup</code> <code>\endgroup</code>, 但需要保证实际执行文本必须是嵌套组, 组不能交叉!</p>
+<p>定义控制系列 <code>\beginthe&lt;block name></code> <code>\endthe&lt;block name></code>, 只有嵌套才是合法的。</p>
+<h2 id=运行-tex-跳过此部分>运行 TeX (跳过此部分)</h2>
+<p>运行 TeX 程序会生成一个 <code>.dvi</code> 文件, 不依赖于任何设备, 可以在几乎所有的印刷设备打印出来。</p>
+<blockquote>
+<p><code>~</code> 称为<strong>带子</strong>, (OLeX 暂不对此部分进行实现), 对应书 p17~28。</p>
+</blockquote>
+<h2 id=tex-工作原理-跳过实现>TeX 工作原理 (跳过实现)</h2>
+<ul>
+<li>一个 <code>&lt;return></code> 与一个空格类似</li>
+<li>一行中的两个空格看作一个 (合并空格操作)</li>
+<li>一个空行表示一段的结束</li>
+</ul>
+<blockquote>
+<p>上面的规则并不准确</p>
+</blockquote>
+<p>TeX 可以见到直接由键盘输入的字符行中字符有 256 个, 可以分为 16 类:</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th style=text-align:left>意义</th>
+<th>字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td style=text-align:left>转义符</td>
+<td><code>\</code></td>
+</tr>
+<tr>
+<td>1</td>
+<td style=text-align:left>组开始</td>
+<td><code>{</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td style=text-align:left>组结束</td>
+<td><code>}</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td style=text-align:left>数学环境</td>
+<td><code>$</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td style=text-align:left>表格对齐</td>
+<td><code>&</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td style=text-align:left>换行</td>
+<td><code>&lt;return></code></td>
+</tr>
+<tr>
+<td>6</td>
+<td style=text-align:left>参数</td>
+<td><code>#</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td style=text-align:left>上标</td>
+<td><code>^</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td style=text-align:left>下标</td>
+<td><code>_</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td style=text-align:left>可忽略字符</td>
+<td><code>&lt;null></code></td>
+</tr>
+<tr>
+<td>10</td>
+<td style=text-align:left>空格</td>
+<td><code> </code></td>
+</tr>
+<tr>
+<td>11</td>
+<td style=text-align:left>字母</td>
+<td><code>[a-zA-Z]</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td style=text-align:left>其他字符</td>
+<td>不在上下文的其他字符</td>
+</tr>
+<tr>
+<td>13</td>
+<td style=text-align:left>活动符</td>
+<td><code>~</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td style=text-align:left>注释符</td>
+<td><code>%</code></td>
+</tr>
+<tr>
+<td>15</td>
+<td style=text-align:left>无用符</td>
+<td><code>&lt;delete></code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>OLeX 支持的字符远超上述所述内容, 换行使用 <code>\n</code> 规范化解决了 CRLF 的问题。</p>
+</blockquote>
 </div>
 <div class=my-4>
 <a href=/tags/tex/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#TeX</a>
@@ -138,6 +278,25 @@
 <a href=/posts/javascript%E4%B8%AD%E7%9A%84arraybuffer/ class=block>JavaScript中的ArrayBuffer</a>
 </div>
 </div>
+</div>
+<div class=col-span-2>
+<div class="sticky top-16 z-10 hidden lg:block px-6 py-4 bg-primary-bg">
+<span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#阅读背景>阅读背景</a></li>
+<li><a href=#排版>排版</a></li>
+<li><a href=#tex-控制系列>TeX 控制系列</a></li>
+<li><a href=#字体>字体</a></li>
+<li><a href=#编组>编组</a></li>
+<li><a href=#运行-tex-跳过此部分>运行 TeX (跳过此部分)</a></li>
+<li><a href=#tex-工作原理-跳过实现>TeX 工作原理 (跳过实现)</a></li>
+</ul>
+</nav>
+</div>
+<script>window.addEventListener('DOMContentLoaded',()=>{enableStickyToc()})</script>
 </div>
 </div>
 <script>document.addEventListener('DOMContentLoaded',()=>{hljs.initHighlightingOnLoad()})</script>
