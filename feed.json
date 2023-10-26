@@ -1,0 +1,13 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Herbert He",
+    "home_page_url": "https://ibert.me/",
+    "feed_url": "https://ibert.me/feed.json",
+    "description": "Herbert He's Blog",
+    "icon": "https://ibert.me/avatar.jpeg",
+    "author": {
+        "name": "Herbert He",
+        "url": "https://ibert.me"
+    },
+    "items": []
+}

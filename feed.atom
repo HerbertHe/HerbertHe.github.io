@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://ibert.me/</id>
+    <title>Herbert He</title>
+    <updated>2023-10-26T12:40:35.690Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <author>
+        <name>Herbert He</name>
+        <email>hi@ibert.me</email>
+        <uri>https://ibert.me</uri>
+    </author>
+    <link rel="alternate" href="https://ibert.me/"/>
+    <link rel="self" href="https://ibert.me/feed.atom"/>
+    <subtitle>Herbert He's Blog</subtitle>
+    <logo>https://ibert.me/avatar.jpeg</logo>
+    <icon>https://ibert.me/avatar.jpeg</icon>
+    <rights>MIT License</rights>
+</feed>
