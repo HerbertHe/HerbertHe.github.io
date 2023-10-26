@@ -1,0 +1,8 @@
+# Build and Release Folders
+node_modules
+.vitepress/dist
+.vitepress/cache
+.DS_Store
+.vscode
+
+pnpm-lock.yaml
