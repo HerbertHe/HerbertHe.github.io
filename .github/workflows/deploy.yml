@@ -23,8 +23,8 @@ jobs:
                   node-version: ${{ matrix.node-version }}
                   cache: "npm"
             - name: install pnpm
-              run: npm i yarn -g
-            - run: yarn i
+              run: npm install yarn -g
+            - run: yarn install
             - run: yarn build
 
             - name: Deploy
