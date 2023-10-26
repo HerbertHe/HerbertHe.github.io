@@ -65,11 +65,11 @@ async function config() {
           link: "/archives",
         },
         {
-          text: "Idea",
+          text: "💡Idea",
           link: "https://idea.ibert.me"
         },
         {
-          text: "Resume",
+          text: "📄Resume",
           link: "https://resume.ibert.me"
         },
         {
