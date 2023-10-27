@@ -79,7 +79,7 @@ async function config() {
       ],
       socialLinks: [
         { icon: "github", link: "https://github.com/HerbertHe" },
-        { icon: "twitter", link: "https://twitter.com/Herbert_He_" },
+        { icon: "twitter", link: "https://twitter.com/HerbertHe_" },
         {
           icon: {
             svg: `<svg role="img" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20">
