@@ -1,7 +1,6 @@
 import globby from "globby";
 import matter from "gray-matter";
 import fs from "fs-extra";
-import path from "path";
 
 export async function getPosts() {
   let paths = await getPostMDFilePaths();
