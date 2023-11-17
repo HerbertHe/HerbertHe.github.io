@@ -65,6 +65,6 @@
 }
 
 .gt-container .gt-comment-content:hover {
-    -webkit-box-shadow: 0 0 2px grey;
+    -webkit-box-shadow: 0 0 2px black;
     box-shadow: 0 0 2px black;
 }
