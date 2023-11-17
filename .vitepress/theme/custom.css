@@ -23,8 +23,8 @@
     --vp-avator-border: #ffffff;
 
     --vp-code-block-bg: #2e3440ff;
-    --vp-code-line-number-color: #88C0D0;
-    --vp-code-block-divider-color: #81A1C1;
+    --vp-code-line-number-color: #88c0d0;
+    --vp-code-block-divider-color: #81a1c1;
 }
 
 .dark {
@@ -53,6 +53,18 @@
     display: none !important;
 }
 
-.vp-doc div[class*='language-'], .vp-block {
-  box-shadow: 0 0 2px grey;
+.vp-doc div[class*="language-"],
+.vp-block {
+    box-shadow: 0 0 2px grey;
+}
+
+.gt-container .gt-comment-content {
+    border-radius: 8px;
+    -webkit-box-shadow: 0 0 2px grey;
+    box-shadow: 0 0 2px grey;
+}
+
+.gt-container .gt-comment-content:hover {
+    -webkit-box-shadow: 0 0 2px grey;
+    box-shadow: 0 0 2px black;
 }
