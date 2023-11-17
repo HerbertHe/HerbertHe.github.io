@@ -5,6 +5,7 @@
   "author": "clark-cui <cuirongchuan@163.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^20.9.1",
     "fast-glob": "^3.2.12",
     "feed": "^4.2.2",
     "fs-extra": "^11.1.0",
