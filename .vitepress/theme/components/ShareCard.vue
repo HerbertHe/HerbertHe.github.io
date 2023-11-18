@@ -23,6 +23,7 @@
   align-items: center;
   font-size: 2.2em;
   font-weight: bold;
+  line-height: 1.2em;
 }
 .description {
   margin: 1em 0;

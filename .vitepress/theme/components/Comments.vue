@@ -25,7 +25,7 @@ onContentUpdated(() => {
     owner: "HerbertHe",
     admin: ["HerbertHe"],
     id: location.pathname.substring(0, 50), // Ensure uniqueness and length less than 50
-    language: "zh-CN",
+    language: "en",
     distractionFreeMode: true, // Facebook-like distraction free mode
   });
   gitalk.render("gitalk-container");

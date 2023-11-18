@@ -1,4 +1,5 @@
 @import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.6.0/style.min.css");
+@import "./css/comment.css";
 
 :root {
     --vp-c-brand: #a27b5c;
@@ -58,13 +59,23 @@
     box-shadow: 0 0 2px grey;
 }
 
-.gt-container .gt-comment-content {
-    border-radius: 8px;
-    -webkit-box-shadow: 0 0 2px grey;
-    box-shadow: 0 0 2px grey;
+.VPHome,
+.VPContent,
+.VPDoc,
+.content {
+    padding-bottom: 0 !important;
 }
 
-.gt-container .gt-comment-content:hover {
-    -webkit-box-shadow: 0 0 2px black;
-    box-shadow: 0 0 2px black;
+@media (min-width: 768px) {
+    .VPHome,
+    .VPContent,
+    .VPDoc {
+        padding-bottom: 0 !important;
+    }
+}
+
+@media (min-width: 960px) {
+    .content {
+        padding-bottom: 0 !important;
+    }
 }

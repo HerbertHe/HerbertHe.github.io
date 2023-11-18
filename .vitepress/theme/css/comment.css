@@ -1,0 +1,80 @@
+:root {
+    --gt-main-color: var(--vp-c-color-d);
+    --gt-secondary-color: #3f4e4f;
+}
+
+.gt-container {
+    font-family: var(--vp-font-family-base);
+}
+
+.gt-container a {
+    color: var(--gt-main-color);
+}
+
+.gt-container .gt-link {
+    border-bottom: 1px dotted var(--gt-main-color);
+}
+
+.gt-container .gt-header-textarea {
+    border: 1px solid var(--gt-main-color);
+    font-family: var(--vp-font-family-base);
+    color: var(--gt-secondary-color);
+}
+
+.gt-container .gt-header-textarea::placeholder {
+    color: var(--gt-secondary-color);
+}
+
+.gt-container .gt-btn {
+    border: 1px solid var(--gt-main-color);
+}
+
+.gt-container .gt-btn-preview {
+    color: var(--gt-main-color);
+}
+
+.gt-container .gt-btn-login {
+    background-color: var(--gt-main-color);
+}
+
+.gt-container .gt-svg svg {
+    fill: var(--gt-main-color);
+}
+
+.gt-container .gt-avatar-github svg {
+    fill: var(--gt-secondary-color);
+}
+
+.gt-container .gt-avatar {
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 2px var(--gt-secondary-color);
+}
+
+.gt-container .gt-header-controls-tip {
+    color: var(--gt-main-color);
+}
+
+.gt-container .gt-comment-username {
+    color: var(--gt-main-color);
+}
+
+.gt-container .gt-comment-text {
+    color: var(--gt-secondary-color);
+}
+
+.gt-container .gt-comment-content {
+    border-radius: 8px;
+    -webkit-box-shadow: 0 0 2px var(--gt-secondary-color);
+    box-shadow: 0 0 2px var(--gt-secondary-color);
+}
+
+.gt-container .gt-comment-content:hover {
+    -webkit-box-shadow: 0 0 2px var(--gt-main-color);
+    box-shadow: 0 0 2px var(--gt-main-color);
+}
+
+.gt-container .gt-comment-body {
+    font-family: var(--vp-font-family-base);
+}
+
