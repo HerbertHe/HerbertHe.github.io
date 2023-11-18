@@ -29,6 +29,7 @@
     padding-bottom: 14px;
     font-size: 2.25em;
     margin-top: 24px;
+    line-height: 1.3em;
 }
 
 .ol {
