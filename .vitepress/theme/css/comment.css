@@ -33,7 +33,8 @@
     color: var(--gt-main-color);
 }
 
-.gt-container .gt-btn-login {
+.gt-container .gt-btn-login,
+.gt-container .gt-btn-public {
     background-color: var(--gt-main-color);
 }
 
@@ -77,4 +78,3 @@
 .gt-container .gt-comment-body {
     font-family: var(--vp-font-family-base);
 }
-
