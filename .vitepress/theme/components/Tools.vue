@@ -9,6 +9,10 @@
             <li>
                 <a href="https://zlib.ibert.me">Book Searcher</a>
             </li>
+
+            <li>
+                <a href="https://tools.jieec.cn">IT Tools</a>
+            </li>
         </ol>
     </div>
 </template>
