@@ -77,6 +77,10 @@ async function config() {
                     link: "https://resume.ibert.me",
                 },
                 {
+                    text: "⛽️Sponsor",
+                    link: "https://sponsor.ibert.me",
+                },
+                {
                     text: "🔥RSS",
                     link: "https://ibert.me/feed.xml",
                 },
