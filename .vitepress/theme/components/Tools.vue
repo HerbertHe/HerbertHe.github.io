@@ -1,24 +1,29 @@
 <template>
     <div class="main">
         <h1 class="header">Self-deployed Tools</h1>
-        <ol class="ol">
-            <li>
-                <a href="https://drawio.ibert.me">Drawio</a>
-            </li>
-
-            <li>
-                <a href="https://zlib.ibert.me">Book Searcher</a>
-            </li>
-
-            <li>
-                <a href="https://tools.jieec.cn">IT Tools</a>
+        <ol class="tool-ol">
+            <li class="tool-li" v-for="tool in tools">
+                <a :href="tool.href">{{ tool.name }}</a>
             </li>
         </ol>
     </div>
 </template>
 
 <script setup lang="ts">
-
+const tools = [{
+    name: 'Drawio',
+    href: "https://drawio.ibert.me"
+}, {
+    name: 'Book Searcher',
+    href: "https://zlib.ibert.me"
+}, {
+    name: "Chat酱",
+    href: "https://ichat.ibert.me"
+},
+{
+    name: 'IT Tools',
+    href: "https://tools.jieec.cn"
+}]
 </script>
 
 <style scoped>
@@ -36,8 +41,12 @@
     line-height: 1.3em;
 }
 
-.ol {
+.tool-ol {
     list-style: upper-roman;
     margin: 20px 0;
+}
+
+.tool-li {
+    margin: 10px;
 }
 </style>
