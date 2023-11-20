@@ -27,6 +27,10 @@ const tools = [{
     href: "https://ichat.ibert.me"
 },
 {
+    name: "ChatGPT Next",
+    href: "https://nchat.ibert.me"
+},
+{
     name: 'IT Tools',
     href: "https://tools.jieec.cn"
 }]
