@@ -6,6 +6,12 @@
                 <a :href="tool.href">{{ tool.name }}</a>
             </li>
         </ol>
+
+        <div>
+            <p>自部署平台可能会因为代码更新、服务上下线、运维维护等原因，导致某时段服务不可用，建议关注下面的微信公众号，便于及时获取通知信息。</p>
+
+            <img style="margin: 15px 0;" src="/img/mp-qrcode.png" alt="微信公众号二维码" width="300">
+        </div>
     </div>
 </template>
 
