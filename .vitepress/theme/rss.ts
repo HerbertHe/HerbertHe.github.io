@@ -40,7 +40,7 @@ export async function buildBlogRSS() {
 }
 
 async function generateRSS() {
-  const files = await fg("posts/*.md");
+  const files = await fg("posts/**/*.md");
 
   const posts: any[] = (
     await Promise.all(
