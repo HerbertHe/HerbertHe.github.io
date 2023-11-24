@@ -152,7 +152,7 @@ const transDate = (date: string) => {
   width: 85%;
   display: block;
   border-radius: 10px;
-  padding: 10px 20px;
+  padding: 5px 20px;
   margin: 10px;
   background: var(--vp-c-bg);
   max-width: 600px;
