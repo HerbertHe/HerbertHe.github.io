@@ -3,6 +3,10 @@ import { buildBlogRSS } from "./theme/rss"
 
 async function config() {
     return {
+        // 对 `pin` 路径进行重写覆盖
+        rewrites: {
+            "posts/:lang/\$pin( *):md": "posts/:lang/:md"
+        },
         lang: "en-US",
         title: "Herbert He's Blog",
         description: "Herbert He's Blog",
@@ -105,12 +109,12 @@ async function config() {
         buildEnd: buildBlogRSS,
         markdown: {
             theme: "nord",
-            languages: [ "diff", "rust", "vhdl", "git-commit", "dart" ],
+            languages: ["diff", "rust", "vhdl", "git-commit", "dart"],
             lineNumbers: true,
             config: (md) => {
                 md.use(require("markdown-it-mathjax3"))
             },
-            math: true
+            math: true,
         },
     }
 }

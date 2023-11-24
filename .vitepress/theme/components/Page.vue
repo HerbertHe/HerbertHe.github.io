@@ -4,7 +4,7 @@
   <h1 class="blog-title">Blogs</h1>
   <div class="blogList">
     <a class="blog" v-for="item in posts" :href="withBase(item.regularPath)">
-      <div class="title">{{ item.frontMatter.title }}</div>
+      <div class="title">{{ item.frontMatter.title }}{{ !!item.pin ? " 📌" : "" }}</div>
       <div class="date">{{ transDate(item.frontMatter.date) }}</div>
     </a>
   </div>
@@ -30,6 +30,7 @@ import { useData, withBase } from "vitepress";
 interface post {
   regularPath: string;
   frontMatter: object;
+  pin?: boolean;
 }
 const { theme } = useData();
 
@@ -65,7 +66,7 @@ for (let i = 0; i < postsAll.length; i++) {
   allMap[index].push(postsAll[i]);
 }
 // set posts
-let posts = ref([]);
+let posts = ref<post[]>([]);
 posts.value = allMap[pageCurrent.value - 1];
 
 // click pagination
@@ -151,7 +152,7 @@ const transDate = (date: string) => {
   width: 85%;
   display: block;
   border-radius: 10px;
-  padding: 0 20px;
+  padding: 10px 20px;
   margin: 10px;
   background: var(--vp-c-bg);
   max-width: 600px;
