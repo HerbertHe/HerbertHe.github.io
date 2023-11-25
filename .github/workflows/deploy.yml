@@ -22,7 +22,7 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
                   cache: "npm"
-            - name: install pnpm
+            - name: install yarn
               run: npm install yarn -g
             - run: yarn install
             - run: yarn build
@@ -33,3 +33,9 @@ jobs:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   publish_dir: ./.vitepress/dist
                   cname: ibert.me
+
+            - name: Discord
+              uses: sebastianpopp/discord-action@releases/v2
+              with:
+                  webhook: ${{ secrets.DISCORD_WEBHOOK }}
+                  message: Herbert He's Blog has been successfullly updated, see https://ibert.me to get more. And you can also subscribe Rss Feed at https://ibert.me/feed.xml
