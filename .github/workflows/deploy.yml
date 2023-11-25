@@ -38,4 +38,4 @@ jobs:
               uses: sebastianpopp/discord-action@releases/v2
               with:
                   webhook: ${{ secrets.DISCORD_WEBHOOK }}
-                  message: Herbert He's Blog has been successfullly updated, see https://ibert.me to get more. And you can also subscribe Rss Feed at https://ibert.me/feed.xml
+                  message: Herbert He's Blog has been successfullly updated, see https://ibert.me to get more. And you can also subscribe RSS Feed at https://ibert.me/feed.xml
