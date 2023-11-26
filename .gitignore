@@ -6,3 +6,4 @@ node_modules
 .vscode
 
 __try__
+.env

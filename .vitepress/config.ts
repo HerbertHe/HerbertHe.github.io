@@ -4,7 +4,10 @@ import { buildBlogRSS } from "./theme/rss"
 async function config() {
     return {
         // 对 `pin` 路径进行重写覆盖，对 `draft` 路径进行忽略
-        srcExclude: ["posts/**/$draft*.md"],
+        srcExclude:
+            process.env.NODE_ENV === "development"
+                ? []
+                : ["posts/**/$draft*.md"],
         rewrites: {
             "posts/:lang/$pin( *):md": "posts/:lang/:md",
         },

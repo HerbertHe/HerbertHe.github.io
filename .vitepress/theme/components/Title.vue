@@ -1,5 +1,5 @@
 <template>
-  <h1 class="title">{{ pageData.title }}</h1>
+  <h1 class="title">{{ pageData.relativePath.includes("$draft") ? "📑[draft] " : "" }}{{ pageData.title }}</h1>
   <div class="date">🕒 Published at: {{ publishDate }}</div>
 </template>
 <script lang="ts" setup>
@@ -37,6 +37,7 @@ onContentUpdated(() => {
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Noto Color Emoji";
 }
+
 .date {
   font-size: 0.875rem;
   line-height: 1.25rem;

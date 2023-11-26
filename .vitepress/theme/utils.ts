@@ -126,6 +126,10 @@ export function resolveHeaders(headers: any, range?: any): any {
 }
 
 export const pathsFilter = (paths: string[]) => {
+    if (process.env.NODE_ENV === "development") {
+        return paths
+    }
+
     return paths.filter(
         (path) => !/^\$draft */.test(path.split("/").at(-1) as string)
     )

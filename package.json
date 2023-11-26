@@ -6,6 +6,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.9.1",
+    "cross-env": "^7.0.3",
     "fast-glob": "^3.2.12",
     "feed": "^4.2.2",
     "fs-extra": "^11.1.0",
@@ -16,7 +17,7 @@
     "vitepress": "^1.0.0-rc.24"
   },
   "scripts": {
-    "dev": "vitepress dev",
+    "dev": "cross-env NODE_ENV=development vitepress dev",
     "build": "vitepress build",
     "serve": "vitepress serve"
   },
