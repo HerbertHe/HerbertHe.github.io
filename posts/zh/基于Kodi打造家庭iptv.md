@@ -79,7 +79,7 @@ Kodi 的插件托管在 GitHub 上，国内能不能连上纯粹是个玄学问�
 - Kodi 安装客户端插件 `IPTV Simple Client`
 - 添加 `IPTV Simple Client` 配置文件
 
-安装客户端插件的流程与上面一致，通过 `插件 -> 从库里安装 -> Kodi 官方库 -> PVR 客户端 - IPTV Simple Client` 安装即可。
+安装客户端插件的流程与上面一致，通过 `插件 -> 从库里安装 -> Kodi 官方库 -> PVR 客户端 -> IPTV Simple Client` 安装即可。
 
 配置 `IPTV Simple Client`：`插件的设置 -> 添加附加设置` 分别填写 **名称** 、 **位置选择：远程路径（互联网地址）** 和 **M3U播放列表URL**
 
