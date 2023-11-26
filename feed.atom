@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ibert.me/</id>
     <title>Herbert He</title>
-    <updated>2023-11-26T14:11:58.622Z</updated>
+    <updated>2023-11-26T14:13:50.778Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Herbert He</name>
@@ -150,7 +150,7 @@
 <li>Kodi 安装客户端插件 <code>IPTV Simple Client</code></li>
 <li>添加 <code>IPTV Simple Client</code> 配置文件</li>
 </ul>
-<p>安装客户端插件的流程与上面一致，通过 <code>插件 -&gt; 从库里安装 -&gt; Kodi 官方库 -&gt; PVR 客户端 - IPTV Simple Client</code> 安装即可。</p>
+<p>安装客户端插件的流程与上面一致，通过 <code>插件 -&gt; 从库里安装 -&gt; Kodi 官方库 -&gt; PVR 客户端 -&gt; IPTV Simple Client</code> 安装即可。</p>
 <p>配置 <code>IPTV Simple Client</code>：<code>插件的设置 -&gt; 添加附加设置</code> 分别填写 <strong>名称</strong> 、 <strong>位置选择：远程路径（互联网地址）</strong> 和 <strong>M3U播放列表URL</strong></p>
 <p>你可以使用 <a href="https://epg.pw/test_channel_page.html">https://epg.pw/test_channel_page.html</a> 提供的 m3u 服务，或者使用我维护的 <a href="https://m3u.ibert.me">https://m3u.ibert.me</a> 服务</p>
 <h2>关于 <code>HerbertHe/iptv-sources</code></h2>
