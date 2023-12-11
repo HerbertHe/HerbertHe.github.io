@@ -12,8 +12,8 @@
             
             <br>
             <p>建议加入 Discord 服务</p>
-            <a href="https://discord.gg/b8YRyyaj">
-                <img src="https://dcbadge.vercel.app/api/server/b8YRyyaj" alt="Discord">
+            <a href="https://discord.gg/VZRPE9qeVv">
+                <img src="https://discord.badge.ibert.me/api/server/VZRPE9qeVv" alt="Discord">
             </a>
 
             <br>

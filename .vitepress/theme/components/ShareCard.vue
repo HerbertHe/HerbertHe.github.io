@@ -7,8 +7,8 @@
       A frondend developer, gopher & open-source developer.
     </p>
     <div class="discord">
-      <a href="https://discord.gg/FhsqwcnC">
-        <img src="https://dcbadge.vercel.app/api/server/FhsqwcnC" alt="Discord">
+      <a href="https://discord.gg/VZRPE9qeVv">
+        <img src="https://discord.badge.ibert.me/api/server/VZRPE9qeVv" alt="Discord">
       </a>
     </div>
   </div>
