@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ibert.me/</id>
     <title>Herbert He</title>
-    <updated>2024-03-21T03:17:21.902Z</updated>
+    <updated>2024-03-23T15:04:03.828Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Herbert He</name>
@@ -81,6 +81,215 @@
 <li><a href="https://github.com/NucoTech/nuco-docsify">nuco-docsify</a> 这是为了团队项目生成文档模板的工具，支持很多feature。这样我们就不必要每一次都配置文档了，<code>nbc</code> 也提供了<code>nbc docs</code> 直接生成文档，并且可以通过<code>nbc serve</code> 直接启动静态预览！</li>
 </ul>
 <p>还有一些文档翻译什么的，如果你觉得好用的话给个Star嗷~哈哈哈哈</p>
+]]></content>
+        <author>
+            <name>Herbert He</name>
+            <email>hi@ibert.me</email>
+            <uri>https://ibert.me</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[创建一个unified插件]]></title>
+        <id>https://ibert.me/posts/zh/创建一个unified插件.html</id>
+        <link href="https://ibert.me/posts/zh/创建一个unified插件.html"/>
+        <updated>2024-03-23T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>原文 <a href="https://unifiedjs.com/learn/guide/create-a-plugin/">Creating a plugin with unified</a></p>
+</blockquote>
+<p>本教程展示了如何为 <a href="https://unifiedjs.com/explore/project/retextjs/retext/">retext</a> 创建一个插件用于检测句子之间的空格数量。这里的概念也适用于 <a href="https://unifiedjs.com/explore/package/unified/">unified</a> 的其他语法。</p>
+<blockquote>
+<p>在这卡住了？想去看看其他的教程吗？参阅 <a href="https://github.com/unifiedjs/.github/blob/main/support.md">support.md</a></p>
+</blockquote>
+<h2>插件基础</h2>
+<p><a href="https://unifiedjs.com/explore/package/unified/">unified</a> 插件在几个方面改变了应用处理器(processor) 的工作方式。在这篇教程中，我们将检阅(review) 如何检查语法树。</p>
+<p>插件包含两部分： attacher，一个被 <code>.use</code> 方法调用的函数；transformer，一个当每次文件被通过语法树和虚拟文件处理时调用的可选函数。</p>
+<p>在这个案例中，我们想检查每个被处理文件的语法树，所以我们确实需要指定一个 tansformer。</p>
+<p>现在你知道了 <a href="https://unifiedjs.com/explore/package/unified/">unified</a> 插件的基础组成。开始我们的案例吧！</p>
+<h2>案例</h2>
+<p>在开始之前，先明确我们需要实现什么样的效果。有以下的文本文件：</p>
+<pre><code class="language-text">One sentence. Two sentences.
+
+One sentence.  Two sentences.
+</code></pre>
+<p>我们想在第二段获得一个警告，说明句子之间应该用一个空格，而不是两个。</p>
+<p>下一步，将编写代码来使用我们的插件。</p>
+<h2>配置</h2>
+<p>让我们配置一个工程。创建文件夹 <code>example</code>，进入它，并创建一个新的工程。</p>
+<pre><code class="language-bash">mkdir example
+cd example
+npm init -y
+</code></pre>
+<p>然后，确保这个工程是一个 module，以保证 <code>import</code> 和 <code>export</code> 的正常工作。通过修改 <code>package.json</code> 实现：</p>
+<pre><code class="language-diff">--- a/package.json
++++ b/package.json
+@@ -2,6 +2,7 @@
+   &quot;name&quot;: &quot;example&quot;,
+   &quot;version&quot;: &quot;1.0.0&quot;,
+   &quot;description&quot;: &quot;&quot;,
++  &quot;type&quot;: &quot;module&quot;,
+   &quot;main&quot;: &quot;index.js&quot;,
+   &quot;scripts&quot;: {
+     &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+</code></pre>
+<p>确保 <code>example.md</code> 文件存在，并且内容如下：</p>
+<pre><code class="language-text">One sentence. Two sentences.
+
+One sentence.  Two sentences.
+</code></pre>
+<p>现在，我们创建一个 <code>example.js</code> 文件，将用于处理我们的文本文件，并报告一些发现的问题.</p>
+<pre><code class="language-js">import fs from 'fs'
+import {retext} from 'retext'
+import {reporter} from 'vfile-reporter'
+import retextSentenceSpacing from './index.js'
+
+const buffer = fs.readFileSync('example.md')
+
+retext()
+  .use(retextSentenceSpacing)
+  .process(buffer)
+  .then((file) =&gt; {
+    console.error(reporter(file))
+  })
+</code></pre>
+<blockquote>
+<p>不要忘记去 <code>npm install</code> 依赖 (<code>retext</code>, <code>vfile-reporter</code>)！</p>
+</blockquote>
+<p>如果你阅读 <a href="https://unifiedjs.com/learn/guide/using-unified/">使用 unified</a> 教程，将会发现一些类似的语句。首先，我们加载了依赖项，然后读取了文件。我们使用了将在第二步创建的插件对文件进行处理，最后报告一个致命错误，或者被发现的一些规范化消息。</p>
+<p>注意我们直接依赖 <a href="https://unifiedjs.com/explore/project/retextjs/retext/">retext</a>。这个包暴露了一个 <a href="https://unifiedjs.com/explore/package/unified/">unified</a> 处理器，并附带了解析器(parser) 和编译器(compiler)。</p>
+<p>当运行我们的示例之时（它现在还不能工作）我们希望看到第二段的一条消息，告诉应该用一个空格取代两个空格。</p>
+<p>现在我们配置完成了除了插件本身的所有部分。我们将在下一章节进行实现。</p>
+<h2>插件</h2>
+<p>当我们阅读了插件基础的部分，我们知道了需要一个插件，并且我们的案例需要一个 transformer。让我们开始在插件文件 <code>index.js</code> 中创建他们吧：</p>
+<pre><code class="language-js">export default function retextSentenceSpacing() {
+  return (tree, file) =&gt; {
+  }
+}
+</code></pre>
+<p>首先要做的事情是，我们需要检查 <code>tree</code> 的数据样式。可以使用名为 <a href="https://unifiedjs.com/explore/package/unist-util-visit/">unist-util-visit</a> 的工具帮助我们递归树结构。现在让我们添加它。</p>
+<pre><code class="language-diff">--- a/index.js
++++ b/index.js
+@@ -1,4 +1,9 @@
++import {visit} from 'unist-util-visit'
++
+ export default function retextSentenceSpacing() {
+   return (tree, file) =&gt; {
++    visit(tree, 'ParagraphNode', (node) =&gt; {
++      console.log(node)
++    })
+   }
+ }
+</code></pre>
+<blockquote>
+<p>不要忘了去 <code>npm install</code> 这个工具！</p>
+</blockquote>
+<p>如果我们现在使用 Node.js 运行我们的示例，正如下面展示的，将看见在我们的示例中的两个段落调用了观察者(visitor)：</p>
+<pre><code class="language-bash">node expample.js
+</code></pre>
+<pre><code class="language-text">{
+  type: 'ParagraphNode',
+  children: [
+    { type: 'SentenceNode', children: [Array], position: [Object] },
+    { type: 'WhiteSpaceNode', value: ' ', position: [Position] },
+    { type: 'SentenceNode', children: [Array], position: [Object] }
+  ],
+  position: {
+    start: { line: 1, column: 1, offset: 0 },
+    end: { line: 1, column: 29, offset: 28 }
+  }
+}
+{
+  type: 'ParagraphNode',
+  children: [
+    { type: 'SentenceNode', children: [Array], position: [Object] },
+    { type: 'WhiteSpaceNode', value: '  ', position: [Position] },
+    { type: 'SentenceNode', children: [Array], position: [Object] }
+  ],
+  position: {
+    start: { line: 3, column: 1, offset: 30 },
+    end: { line: 3, column: 30, offset: 59 }
+  }
+}
+no issues found
+</code></pre>
+<p>输出内容展示了段落包含两种类型的节点(nodes)：<code>SentenceNode</code> 和 <code>WhiteSpaceNode</code>。后者是我们想要去检查的，但是前者是重要的，因为在这个插件中我们只想在句子之间的地方警告空白空格。（不过，这可能是另一个可以实现的插件）</p>
+<p>现在循环每个段落的子节点。只检查句子之间的空白空格。我们使用一个小工具来检查节点的类型：<a href="https://unifiedjs.com/explore/package/unist-util-is/"><code>unist-util-is/</code></a>。</p>
+<pre><code class="language-diff">--- a/index.js
++++ b/index.js
+@@ -1,9 +1,20 @@
+ import {visit} from 'unist-util-visit'
++import {is} from 'unist-util-is'
+
+ export default function retextSentenceSpacing() {
+   return (tree, file) =&gt; {
+     visit(tree, 'ParagraphNode', (node) =&gt; {
+-      console.log(node)
++      const children = node.children
++
++      children.forEach((child, index) =&gt; {
++        if (
++          is(children[index - 1], 'SentenceNode') &amp;&amp;
++          is(child, 'WhiteSpaceNode') &amp;&amp;
++          is(children[index + 1], 'SentenceNode')
++        ) {
++          console.log(child)
++        }
++      })
+     })
+   }
+ }
+</code></pre>
+<blockquote>
+<p>不要忘记去 <code>npm install</code> 这个工具！</p>
+</blockquote>
+<p>如果现在运行我们的示例，我们将会看到仅句子之间的空白空格被记录。</p>
+<pre><code class="language-bash">node example.js
+</code></pre>
+<pre><code class="language-text">{
+  type: 'WhiteSpaceNode',
+  value: ' ',
+  position: Position {
+    start: { line: 1, column: 14, offset: 13 },
+    end: { line: 1, column: 15, offset: 14 }
+  }
+}
+{
+  type: 'WhiteSpaceNode',
+  value: '  ',
+  position: Position {
+    start: { line: 3, column: 14, offset: 43 },
+    end: { line: 3, column: 16, offset: 45 }
+  }
+}
+no issues found
+</code></pre>
+<p>最后，我们在为第二个空白空格添加警告，表示它实际拥有字符超过了所需的。我们使用 <a href="https://unifiedjs.com/explore/package/vfile/#vfilemessagereason-position-origin"><code>file.message()</code></a> 方法将文件和消息联系在一起。</p>
+<pre><code class="language-diff">--- a/index.js
++++ b/index.js
+@@ -12,7 +12,12 @@ export default function retextSentenceSpacing() {
+           is(child, 'WhiteSpaceNode') &amp;&amp;
+           is(children[index + 1], 'SentenceNode')
+         ) {
+-          console.log(child)
++          if (child.value.length !== 1) {
++            file.message(
++              'Expected 1 space between sentences, not ' + child.value.length,
++              child
++            )
++          }
+         }
+       })
+     })
+</code></pre>
+<p>如果我们现在最后一次运行示例，我们将看见问题的一条警告消息。</p>
+<pre><code class="language-text">$ node example.js
+3:14-3:16  warning  Expected 1 space between sentences, not 2
+
+⚠ 1 warning
+</code></pre>
+<h2>进一步练习</h2>
+<p>在句子之间的一个空格并不适用于所有人。这个插件接收想要的空格数量，来替代硬编码 <code>1</code>。</p>
+<p>如果你想要警告句子之间的缩进或者新行，也可以创建一个插件？</p>
+<p>如果你还没准备好，可以看看 <a href="https://unifiedjs.com/learn/">学习章节</a> 的其他文章。</p>
 ]]></content>
         <author>
             <name>Herbert He</name>
