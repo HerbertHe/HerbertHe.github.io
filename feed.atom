@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ibert.me/</id>
     <title>Herbert He</title>
-    <updated>2024-03-23T15:04:03.828Z</updated>
+    <updated>2024-03-23T15:20:32.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Herbert He</name>
@@ -103,7 +103,7 @@
 <h2>插件基础</h2>
 <p><a href="https://unifiedjs.com/explore/package/unified/">unified</a> 插件在几个方面改变了应用处理器(processor) 的工作方式。在这篇教程中，我们将检阅(review) 如何检查语法树。</p>
 <p>插件包含两部分： attacher，一个被 <code>.use</code> 方法调用的函数；transformer，一个当每次文件被通过语法树和虚拟文件处理时调用的可选函数。</p>
-<p>在这个案例中，我们想检查每个被处理文件的语法树，所以我们确实需要指定一个 tansformer。</p>
+<p>在这个案例中，我们想检查每个被处理文件的语法树，所以我们确实需要指定一个 transformer。</p>
 <p>现在你知道了 <a href="https://unifiedjs.com/explore/package/unified/">unified</a> 插件的基础组成。开始我们的案例吧！</p>
 <h2>案例</h2>
 <p>在开始之前，先明确我们需要实现什么样的效果。有以下的文本文件：</p>
