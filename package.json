@@ -1,8 +1,8 @@
 {
-  "name": "viteDoc",
+  "name": "blog",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "clark-cui <cuirongchuan@163.com>",
+  "author": "Herbert He<Herbert.He0229@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.9.1",
@@ -19,7 +19,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development vitepress dev",
     "build": "vitepress build",
-    "serve": "vitepress serve"
+    "serve": "vitepress serve",
+    "post:new": "node scripts/new_post.mjs"
   },
   "dependencies": {
     "dayjs": "^1.11.7",
