@@ -1,5 +1,5 @@
 <template>
-  <h1 class="title">{{ pageData.relativePath.includes("$draft") ? "📑[draft] " : "" }}{{ pageData.title }}</h1>
+  <h1 class="title">{{ data.relativePath.includes("$draft") ? "📑[draft] " : "" }}{{ data.title }}</h1>
   <div class="date">🕒 Published at: {{ publishDate }}</div>
 </template>
 <script lang="ts" setup>
@@ -16,12 +16,12 @@ type pageData = {
   lastUpdated: number;
   relativePath: string;
 };
-const pageData: pageData = useData().page;
+const data: pageData = useData().page;
 const publishDate = ref("");
 dayjs.extend(relativeTime);
 onContentUpdated(() => {
-  const { frontmatter } = pageData.value;
-  publishDate.value = dayjs().to(dayjs(frontmatter.date || Date.now()));
+  const { frontmatter } = data.value;
+  publishDate.value = `${frontmatter.date}  (${dayjs(frontmatter.date).fromNow()})`;
 });
 </script>
 <style scoped>

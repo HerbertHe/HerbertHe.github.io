@@ -113,7 +113,15 @@ async function config() {
         buildEnd: buildBlogRSS,
         markdown: {
             theme: "nord",
-            languages: ["diff", "rust", "vhdl", "git-commit", "dart"],
+            languages: [
+                "diff",
+                "rust",
+                "vhdl",
+                "git-commit",
+                "dart",
+                "ts",
+                "js",
+            ],
             lineNumbers: true,
             config: (md) => {
                 md.use(require("markdown-it-mathjax3"))
