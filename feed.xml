@@ -4,7 +4,7 @@
         <title>Herbert He</title>
         <link>https://ibert.me/</link>
         <description>Herbert He's Blog</description>
-        <lastBuildDate>Tue, 26 Mar 2024 05:08:02 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Mar 2024 09:13:02 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -190,7 +190,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 </code></pre>
 <p>上面的内容非常直观。我们需要一个 access token和一个仓库列表。每个仓库必须拥有 <code>path</code> 键，并且可以可选有一个 <code>name</code> 键。我们也可选地允许 <code>url</code> 键，用于指定 GitHub Enterprise 服务器的 URL。</p>
 <p>上面的代码本质上扩展了 Home Assistant platform 配置方案，添加了我们自己的域名 <code>github_custom</code>。它将为我们处理认证和展示适当的错误。</p>
-<h3>注册传感器(snesors)</h3>
+<h3>注册传感器(sensors)</h3>
 <p>下一步注册我们所有的传感器。将为在 platform 配置中的每一个仓库创建一个传感器。习惯上，Home Assistant 会查看你 <code>sensor.py</code> 文件中的 <code>setup_platform</code> 或者 <code>async_setup_platform</code> 函数。如果你的数据通过库来更新，使用 <a href="https://docs.python.org/3/library/asyncio.html">asyncio</a> 来异步获取数据，那就需要使用 <code>async_setup_platform</code> 函数，否则应该创建 <code>setup_platform</code> 函数。自我们使用 <a href="https://github.com/brettcannon/gidgethub/">gidgethub</a> 库，他就支持异步，所以我们使用 <code>async_setup_platform</code> 函数。</p>
 <pre><code class="language-python">async def async_setup_platform(
     hass: HomeAssistantType,
