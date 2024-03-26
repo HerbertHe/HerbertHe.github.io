@@ -137,7 +137,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 
 上面的代码本质上扩展了 Home Assistant platform 配置方案，添加了我们自己的域名 `github_custom`。它将为我们处理认证和展示适当的错误。
 
-### 注册传感器(snesors)
+### 注册传感器(sensors)
 
 下一步注册我们所有的传感器。将为在 platform 配置中的每一个仓库创建一个传感器。习惯上，Home Assistant 会查看你 `sensor.py` 文件中的 `setup_platform` 或者 `async_setup_platform` 函数。如果你的数据通过库来更新，使用 [asyncio](https://docs.python.org/3/library/asyncio.html) 来异步获取数据，那就需要使用 `async_setup_platform` 函数，否则应该创建 `setup_platform` 函数。自我们使用 [gidgethub](https://github.com/brettcannon/gidgethub/) 库，他就支持异步，所以我们使用 `async_setup_platform` 函数。
 
