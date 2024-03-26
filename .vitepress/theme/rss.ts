@@ -18,7 +18,7 @@ const OPTIONS: FeedOptions = {
     description: "Herbert He's Blog",
     id: `${DOMAIN}/`,
     link: `${DOMAIN}/`,
-    copyright: "MIT License",
+    copyright: "CC BY-NC-SA 4.0",
     feedLinks: {
         json: DOMAIN + "/feed.json",
         atom: DOMAIN + "/feed.atom",
