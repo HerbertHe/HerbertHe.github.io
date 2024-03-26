@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ibert.me/</id>
     <title>Herbert He</title>
-    <updated>2024-03-24T05:41:51.192Z</updated>
+    <updated>2024-03-26T05:08:02.884Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Herbert He</name>
@@ -81,6 +81,145 @@
 <li><a href="https://github.com/NucoTech/nuco-docsify">nuco-docsify</a> 这是为了团队项目生成文档模板的工具，支持很多feature。这样我们就不必要每一次都配置文档了，<code>nbc</code> 也提供了<code>nbc docs</code> 直接生成文档，并且可以通过<code>nbc serve</code> 直接启动静态预览！</li>
 </ul>
 <p>还有一些文档翻译什么的，如果你觉得好用的话给个Star嗷~哈哈哈哈</p>
+]]></content>
+        <author>
+            <name>Herbert He</name>
+            <email>hi@ibert.me</email>
+            <uri>https://ibert.me</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[为HomeAssistant创建一个自定义组件]]></title>
+        <id>https://ibert.me/posts/zh/为HomeAssistant创建一个自定义组件.html</id>
+        <link href="https://ibert.me/posts/zh/为HomeAssistant创建一个自定义组件.html"/>
+        <updated>2024-03-24T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<h2>前言</h2>
+<p>关于 Home Assistant 的顶级玩法，可以去看看我的b站视频合集 <a href="https://space.bilibili.com/137683614/channel/collectiondetail?sid=2050382">Home Assistant顶级玩法</a></p>
+<blockquote>
+<p>本教程为 Home Assistant 社区的文章翻译，原文链接为：<a href="https://community.home-assistant.io/t/tutorial-for-creating-a-custom-component/204793">https://community.home-assistant.io/t/tutorial-for-creating-a-custom-component/204793</a>，作者：Aaron Godfrey。</p>
+</blockquote>
+<p>下面是原作者的帖子内容：</p>
+<blockquote>
+<p>我开始了一个如何为 HomeAssistant 创建自定义组件的教程。<a href="https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_1/">https://aarongodfrey.dev/home automation/building_a_home_assistant_custom_component_part_1/</a><br>
+想要获得一些反馈，看看其中的一些内容是否有用，或者我是否忽略了一些显而易见的东西。</p>
+</blockquote>
+<ul>
+<li><a href="https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_1/">第一部分 如何创建一个基础集成(integration)</a></li>
+<li><a href="https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_2/">第二部分 讨论单元测试和持续集成</a></li>
+<li><a href="https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_3/">第三部分 重点添加一个配置流(Config Flow)</a></li>
+<li><a href="https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_4/">第四部分 重点添加一个选项s流(Options Flow)</a></li>
+<li><a href="https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_5/">第五部分 讨论使用 devcontainer 进行调试</a></li>
+</ul>
+<h2>构建一个 Home Assistant 自定义组件</h2>
+<h2>第一部分：项目结构和基础</h2>
+<h3>介绍</h3>
+<p>这个系列的文章为一个教程，旨在教会我们为 Home Assistant 创建一个自定义组件。我们将从一个组件骨架开始，然后在每篇教程里添加内容。在本系列教程文章的最后，你将会拥有一个完整的功能组件，至少可以在 <a href="https://developers.home-assistant.io/docs/integration_quality_scale_index/">集成质量衡量(Integration Quality Scale)</a> 中拿到 Sliver 级别的分数。</p>
+<p>在这个项目中，我们将使用 <a href="https://developer.github.com/v3/">GitHub API</a> 来为我们的组件提供数据。这已经有一个存在的 <a href="https://www.home-assistant.io/integrations/github/">GitHub 集成</a>，但我们将自己去实现并尝试去通过单元测试去提升这个已有的组件质量。可以通过 UI 来进行配置，并添加一些实用的功能。</p>
+<p>每篇文章都是 <a href="https://github.com/boralyl/github-custom-component-tutorial">GitHub 仓库</a> 的不同分支。所以你可以在自己的编辑器中跟随学习，或者浏览适当分支中的代码。此部分的更改都可以在 <a href="https://github.com/boralyl/github-custom-component-tutorial/compare/feature/bare-repo...feature/part1?expand=1">feature/part1 分支</a> 中查阅。</p>
+<p>我建议去查阅官方的 <a href="https://developers.home-assistant.io/">开发者文档</a>，从 Home Assistant 架构中的概念获得一些灵感。</p>
+<h3>项目结构</h3>
+<p>一开始，我们需要为自定义组件生成基础的文件。幸运的是，通过 <a href="https://github.com/boralyl/cookiecutter-homeassistant-component">cookiecutter project template</a> 项目做这件事很容易。</p>
+<p>让我们安装 <a href="https://github.com/cookiecutter/cookiecutter">cokkiecutter</a>，并且通过问答的方式创建我们的工程。</p>
+<pre><code class="language-text">$ pip install cookiecutter
+$ cookiecutter https://github.com/boralyl/cookiecutter-homeassistant-component
+domain [my_component]: github_custom
+name [My Component]: Github Custom
+docs_url [https://github.com/user/my_component/]: https://github.com/boralyl/github-custom-component-tutorial
+owner [@user]: @boralyl
+Select config_flow:
+1 - yes
+2 - no
+Choose from 1, 2 [1]: 2
+Select iot_class:
+1 - Assumed State
+2 - Cloud Polling
+3 - Cloud Push
+4 - Local Polling
+5 - Local Push
+Choose from 1, 2, 3, 4, 5 [1]: 2
+</code></pre>
+<blockquote>
+<p>注意：一开始我们跳过了使用配置流(Config Flow)。我们将在教程的后续文章中添加这部分功能。</p>
+</blockquote>
+<p><img src="https://aarongodfrey.dev/assets/images/0012_project_tree.png" alt="项目结构树"></p>
+<p>现在我们忽略根目录文件夹下的文件和测试文件夹。让我们关注 <code>custom_components</code> 和<code>github_custom</code> 文件夹。<a href="https://developers.home-assistant.io/docs/creating_integration_manifest">manifest.json</a> 包含了一些我们这个组件的基础信息，Home Assistant 在加载的时候会用到。<code>const.py</code> 只包含了我们的常量，在这个案例中，我们只有组件的 <a href="https://developers.home-assistant.io/docs/creating_integration_manifest#domain">DOMAIN</a>。<code>__init__.py</code> 包含了 <code>async_setup</code> 方法，用于 Home Assistant 加载我们的组件。</p>
+<p>此时自定义组件是合法的，如果你放在自己的 Home Assistant <code>config</code> 目录下，Home Assistant 会正常加载，并不会实际创建任何实体(entities)。</p>
+<h3>实现组件</h3>
+<p>现在，是时候开始编写我们的组件了。有四个基本部分去实现。</p>
+<ol>
+<li>在 <code>manifest.json</code> 添加我们的 requrements。如果我们需要添加额外的 python 依赖，就需要在这添加。</li>
+<li>添加我么自己的配置规则。将用于定义我们希望用户添加进他们的 <code>configuration.yaml</code> 文件的值。</li>
+<li>在 Home Assistant 中注册我们所有的传感器。将在 <code>async_setuo_platform</code> 函数中进行实现。</li>
+<li>创建一个实体，用于代表我们希望手收集关于 GitHub 仓库的状态和数据。这个实体也应该实现 <code>async_update</code> 方法，从 GitHub 来更新数据。</li>
+</ol>
+<p>这四处的最终实现，可以看这个 <a href="https://github.com/boralyl/github-custom-component-tutorial/compare/feature/bare-repo...feature/part1?expand=1">diff</a>。在这个 diff 中需要注意的是，我从 <code>__init__.py</code> 中移除了 <code>async_setup</code> 函数。因为我们集成使用了 platform，所以我们可以移除这部分的代码。这些 platforms 允许你在集成中拥有多个实例，而不是仅一个。如果你正在同时监控公共仓库和一些使用 GitHub Enterprise 服务的私有仓库，是非常有用的。</p>
+<h3>向 manifest.json 添加 requirements</h3>
+<p>我们将使用 <a href="https://github.com/brettcannon/gidgethub">gidgethub</a> 库来与 GitHub API 进行交互。它支持开箱即用的异步通信，可以非常简单直接使用。</p>
+<pre><code class="language-diff">  &quot;documentation&quot;: &quot;https://github.com/boralyl/github-custom-component-tutorial&quot;,
+  &quot;domain&quot;: &quot;github_custom&quot;,
+  &quot;name&quot;: &quot;Github Custom&quot;,
+-  &quot;requirements&quot;: []
++  &quot;requirements&quot;: [&quot;gidgethub[aiohttp]==4.1.1&quot;]
+}
+</code></pre>
+<p>我们向 <code>requirements</code> 数组添加了指定版本的依赖。值得注意的是，指定一个异步库是可选的。为了保证这些依赖被正确安装，我们需要额外在 requirement 中额外指定 <code>aiohttp</code>。</p>
+<h3>platform 配置方案</h3>
+<p>对于我们的 platform 配置方案来说，我们需要根据官方的 <a href="https://www.home-assistant.io/integrations/github/">GitHub 集成</a> 来实现。下面是一个基础的示例：</p>
+<pre><code class="language-yaml"># Example configuration.yaml entry
+sensor:
+  - platform: github_custom
+    access_token: !secret github_access_token
+    repositories:
+      - path: &quot;home-assistant/core&quot;
+        name: &quot;Home Assistant Core&quot;
+      - path: &quot;boralyl/steam-wishlist&quot;
+
+  - platform: github_custom
+    url: https://my.enterprisegithubserver.com
+    access_token: !secret github_access_token
+    repositories:
+      - path: &quot;company/some-repo&quot;
+</code></pre>
+<p>我们不需要去修改任何内容，所以配置方案与官方集成的完全一致：</p>
+<pre><code class="language-text">REPO_SCHEMA = vol.Schema(
+    {vol.Required(CONF_PATH): cv.string, vol.Optional(CONF_NAME): cv.string}
+)
+
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
+    {
+        vol.Required(CONF_ACCESS_TOKEN): cv.string,
+        vol.Required(CONF_REPOS): vol.All(cv.ensure_list, [REPO_SCHEMA]),
+        vol.Optional(CONF_URL): cv.url,
+    }
+)
+</code></pre>
+<p>上面的内容非常直观。我们需要一个 access token和一个仓库列表。每个仓库必须拥有 <code>path</code> 键，并且可以可选有一个 <code>name</code> 键。我们也可选地允许 <code>url</code> 键，用于指定 GitHub Enterprise 服务器的 URL。</p>
+<p>上面的代码本质上扩展了 Home Assistant platform 配置方案，添加了我们自己的域名 <code>github_custom</code>。它将为我们处理认证和展示适当的错误。</p>
+<h3>注册传感器(snesors)</h3>
+<p>下一步注册我们所有的传感器。将为在 platform 配置中的每一个仓库创建一个传感器。习惯上，Home Assistant 会查看你 <code>sensor.py</code> 文件中的 <code>setup_platform</code> 或者 <code>async_setup_platform</code> 函数。如果你的数据通过库来更新，使用 <a href="https://docs.python.org/3/library/asyncio.html">asyncio</a> 来异步获取数据，那就需要使用 <code>async_setup_platform</code> 函数，否则应该创建 <code>setup_platform</code> 函数。自我们使用 <a href="https://github.com/brettcannon/gidgethub/">gidgethub</a> 库，他就支持异步，所以我们使用 <code>async_setup_platform</code> 函数。</p>
+<pre><code class="language-python">async def async_setup_platform(
+    hass: HomeAssistantType,
+    config: ConfigType,
+    async_add_entities: Callable,
+    discovery_info: Optional[DiscoveryInfoType] = None,
+) -&gt; None:
+    &quot;&quot;&quot;Set up the sensor platform.&quot;&quot;&quot;
+    session = async_get_clientsession(hass)
+    github = GitHubAPI(session, &quot;requester&quot;, oauth_token=config[CONF_ACCESS_TOKEN])
+    sensors = [GitHubRepoSensor(github, repo) for repo in config[CONF_REPOS]]
+    async_add_entities(sensors, update_before_add=True)
+</code></pre>
+<p>在这个函数中，我们首先恢复了一个 aiohttp 客户端会话。这个帮助函数关注于为我们恢复和关闭会话（少了一件需要考虑的事情）。我们初始化了 GitHub API 客户端，并为在我们的 <code>configuration.yaml</code> 中指定的每个仓库创建了一个 <code>GitHubRepoSensor</code>。</p>
+<p><code>async_add_entities</code> 函数将会处理在 Home Assistant 中添加和注册这些传感器。第二个参数也值得注意。将它设置为 <code>True</code> 的时候，是告诉 Home Assistant 应该在集成完成加载之后进行数据更新。没有这项配置（或者将它设置为 <code>False</code>），它将等待直到 <code>SCAN_INTERVAL</code> 的时候再从 GitHub 获取数据。这个常量被设置为 10 分钟，意味着在 Home Assistant 重启之后的十分钟，我们的传感器是没有数据的。（或者，它将在恢复重新启动之前的上一次更新的数据）</p>
+<h3>GitHub 仓库传感器实体和 async_update</h3>
+<p>上一部分我们定义了组件的实体和指定了一个更新方法。简而言之，并没有包含完整的类（的代码），但你可以在 <a href="https://github.com/boralyl/github-custom-component-tutorial/blob/3ee4d35f4bb08ec92098e7932fd4ae29ef59591f/custom_components/github_custom/sensor.py#L98-L212">GitHub</a> 中查看。</p>
+<p>最主要的部分是它继承了 <code>homeassistant.helpers.entity.Entity</code>，这个类为你实现了必要的逻辑。我们定义自己的返回传感器的 <code>状态(state)</code> 属性。这个传感器，我们将使用 commit sha 的前7个字符。我们也定义了一个返回和状态相关的 <code>device_state_attributes</code> 的属性，可以被自动化(automations) 和 lovelace UI 所使用。</p>
+<p>我们的自定义传感器类必须指定一个 <code>update</code> 或者 <code>async_update</code> 方法，为了从 GitHub 获取数据用于更新 state 和 device_state_attributes。再者，我们的组件使用了一个支持异步的库，包含了 <code>async_update</code> 方法，用于从 GitHub 获取需要的数据。Home Assistant 将基于我们定义的间隔调用这个方法，习惯上去寻找一个叫做 <code>SCAN_INTERVAL</code> 的常量。如果你在自己的文件中定义了它，它的值是一个 <code>datetime.timedelta</code> 实例。我们为自己的组件使用10分钟作为更新的间隔。</p>
+<pre><code class="language-python">SCAN_INTERVAL = timedelta(minutes=10)
+</code></pre>
+<h3>结语</h3>
+<p>我们现在有了一个完整功能的异步自定义组件，是官方集成的提升版。</p>
+<p>在后面的文章中，我们将简单的讨论如何去为帮助提升自定义组件，来添加单元测试和捕获 bugs。我们也会使用 <a href="https://github.com/features/actions">GitHub Actions</a> 来为自定义组件添加持续集成。</p>
 ]]></content>
         <author>
             <name>Herbert He</name>
