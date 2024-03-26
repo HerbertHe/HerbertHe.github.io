@@ -9,6 +9,7 @@ tags: [ unified, 语法树, TypeScript, unist ]
 [unified]: https://unifiedjs.com/explore/package/unified/
 [mdast]: https://github.com/syntax-tree/mdast
 [hast]: https://github.com/syntax-tree/hast
+[xast]: https://github.com/syntax-tree/xast#readme
 
 > 原文链接：<https://unifiedjs.com/learn/guide/syntax-trees-typescript/>
 
