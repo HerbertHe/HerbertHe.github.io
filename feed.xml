@@ -4,7 +4,7 @@
         <title>Herbert He</title>
         <link>https://ibert.me/</link>
         <description>Herbert He's Blog</description>
-        <lastBuildDate>Tue, 26 Mar 2024 14:22:32 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Mar 2024 14:35:18 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -219,7 +219,7 @@ export interface Parent extends Node {
  */
 </code></pre>
 <h2>xast(XML)</h2>
-<p>[xast] (e<strong>x</strong>tensible <strong>a</strong>bstract <strong>s</strong>yntax <strong>t</strong>ree) 继承于 <a href="https://github.com/syntax-tree/unist">unist</a>，并且为 XML 具像化类型，例如 <code>Element</code> <code>CData</code> <code>Instruction</code> 等。这些具像化的类型包含了一个完整的节点列表。这些类型可以通过一个类型包进行使用。<a href="https://www.npmjs.com/package/@types/xast"><code>@types/xast</code></a>。</p>
+<p><a href="https://github.com/syntax-tree/xast#readme">xast</a> (e<strong>x</strong>tensible <strong>a</strong>bstract <strong>s</strong>yntax <strong>t</strong>ree) 继承于 <a href="https://github.com/syntax-tree/unist">unist</a>，并且为 XML 具像化类型，例如 <code>Element</code> <code>CData</code> <code>Instruction</code> 等。这些具像化的类型包含了一个完整的节点列表。这些类型可以通过一个类型包进行使用。<a href="https://www.npmjs.com/package/@types/xast"><code>@types/xast</code></a>。</p>
 <p>安装：</p>
 <pre><code class="language-bash">npm install --save-dev @types/xast
 </code></pre>
