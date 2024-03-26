@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ibert.me/</id>
     <title>Herbert He</title>
-    <updated>2024-03-26T10:20:40.395Z</updated>
+    <updated>2024-03-26T14:22:32.687Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Herbert He</name>
@@ -249,6 +249,108 @@ export interface Parent extends Node {
 <li><a href="https://unifiedjs.com/learn/recipe/narrow-node-typescript/">学习压缩节点</a></li>
 <li><a href="https://unifiedjs.com/learn/recipe/build-a-syntax-tree/">学习构建语法树</a></li>
 </ul>
+]]></content>
+        <author>
+            <name>Herbert He</name>
+            <email>hi@ibert.me</email>
+            <uri>https://ibert.me</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[如何构建一颗语法树]]></title>
+        <id>https://ibert.me/posts/zh/如何构建一颗语法树.html</id>
+        <link href="https://ibert.me/posts/zh/如何构建一颗语法树.html"/>
+        <updated>2024-03-26T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>原文链接：<a href="https://unifiedjs.com/learn/recipe/build-a-syntax-tree/">https://unifiedjs.com/learn/recipe/build-a-syntax-tree/</a></p>
+</blockquote>
+<p>当添加或者替换内容时，构建一颗新的语法树往往非常实用。使用纯对象和数组字面量(JSON) 或者用一个小工具编程来创建树，是可行的方案。甚至可以使用 JSX 来构建树。</p>
+<h2>JSON</h2>
+<p>创建树最基本的方法是使用纯对象和数组。为了避免类型问题，可以使用给定语法树语言的类型进行检查，在 <a href="https://github.com/syntax-tree/mdast">mdast</a> 的案例：</p>
+<pre><code class="language-typescript">import type { Root } from 'mdast'
+
+// Note the `: Root` is a TypeScript annotation. Remove it (and the import) for plain JavaScript.
+const mdast: Root = {
+  type: 'root',
+  children: [
+    {
+      type: 'paragraph',
+      children: [
+        {
+          type: 'text',
+          value: 'example'
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<h2><code>unist-builder</code></h2>
+<p>也可以使用 <a href="https://unifiedjs.com/explore/package/unist-builder/"><code>unist-builder</code></a> 来构建树。它会使之更加简洁，类 &quot;hyperscript&quot; 的语法(也同样与 <code>React.createElement</code> 类似)：</p>
+<pre><code class="language-typescript">import { u } from 'unist-builder'
+
+const mdast = u('root', [
+  u('paragraph', [
+    u('text', 'example')
+  ])
+])
+</code></pre>
+<h2><code>hastscript</code></h2>
+<p>当使用 <a href="https://github.com/syntax-tree/hast">hast</a> (HTML) 时，可以使用 <a href="https://unifiedjs.com/explore/package/hastscript/"><code>hastscript</code></a>。</p>
+<pre><code class="language-typescript">import { h, s } from 'hastscript'
+
+console.log(
+  h('div#some-id.foo', [
+    h('span', 'some text'),
+    h('input', {type: 'text', value: 'foo'}),
+    h('a.alpha.bravo.charlie', {download: true}, 'delta')
+  ])
+)
+
+// SVG:
+console.log(
+  s('svg', {xmlns: 'http://www.w3.org/2000/svg', viewbox: '0 0 500 500'}, [
+    s('title', 'SVG `&lt;circle&gt;` element'),
+    s('circle', {cx: 120, cy: 120, r: 100})
+  ])
+)
+</code></pre>
+<p><code>hastscript</code> 也可以用作 JSX 配置注释：</p>
+<pre><code class="language-jsx">/** @jsx h @jsxFrag null */
+import { h } from 'hastscript'
+
+console.log(
+  &lt;form method=&quot;POST&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;foo&quot; /&gt;
+    &lt;input type=&quot;text&quot; name=&quot;bar&quot; /&gt;
+    &lt;input type=&quot;submit&quot; name=&quot;send&quot; /&gt;
+  &lt;/form&gt;
+)
+</code></pre>
+<h2><code>xastscript</code></h2>
+<p>当使用 <a href="https://github.com/syntax-tree/xast">xast</a> (XML) 时，可以使用 <a href="https://unifiedjs.com/explore/package/xastscript/"><code>xastscript</code></a>。</p>
+<pre><code class="language-typescript">import { x } from 'xastscript'
+
+console.log(
+  x('album', {id: 123}, [
+    x('name', 'Exile in Guyville'),
+    x('artist', 'Liz Phair'),
+    x('releasedate', '1993-06-22')
+  ])
+)
+</code></pre>
+<p><code>xastscript</code> 也可以用作 JSX 配置注释：</p>
+<pre><code class="language-jsx">/** @jsx x @jsxFrag null */
+import { x } from 'xastscript'
+
+console.log(
+  &lt;album id={123}&gt;
+    &lt;name&gt;Born in the U.S.A.&lt;/name&gt;
+    &lt;artist&gt;Bruce Springsteen&lt;/artist&gt;
+    &lt;releasedate&gt;1984-04-06&lt;/releasedate&gt;
+  &lt;/album&gt;
+)
+</code></pre>
 ]]></content>
         <author>
             <name>Herbert He</name>
