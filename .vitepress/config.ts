@@ -121,7 +121,8 @@ async function config() {
                 "dart",
                 "ts",
                 "js",
-                "python"
+                "python",
+                "jsx"
             ],
             lineNumbers: true,
             config: (md) => {
