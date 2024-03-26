@@ -4,7 +4,7 @@
         <title>Herbert He</title>
         <link>https://ibert.me/</link>
         <description>Herbert He's Blog</description>
-        <lastBuildDate>Tue, 26 Mar 2024 14:38:43 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 26 Mar 2024 14:43:30 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -12,7 +12,7 @@
             <url>https://ibert.me/avatar.jpeg</url>
             <link>https://ibert.me/</link>
         </image>
-        <copyright>MIT License</copyright>
+        <copyright>CC BY-NC-SA 4.0</copyright>
         <atom:link href="https://ibert.me/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[markdown自定义的思考 📌]]></title>
