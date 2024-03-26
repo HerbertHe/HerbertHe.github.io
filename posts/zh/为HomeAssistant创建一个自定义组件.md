@@ -19,7 +19,7 @@ tags: [ homeassistant, ha, 自定义组件, 教程 ]
 - [第一部分 如何创建一个基础集成(integration)](https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_1/)
 - [第二部分 讨论单元测试和持续集成](https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_2/)
 - [第三部分 重点添加一个配置流(Config Flow)](https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_3/)
-- [第四部分 重点添加一个选项s流(Options Flow)](https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_4/)
+- [第四部分 重点添加一个选项流(Options Flow)](https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_4/)
 - [第五部分 讨论使用 devcontainer 进行调试](https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_5/)
 
 ## 构建一个 Home Assistant 自定义组件
