@@ -5,6 +5,8 @@ toc: true
 tags: [ homeassistant, ha, 自定义组件, 教程 ]
 ---
 
+> 更新于 2024-03-27
+
 ## 前言
 
 关于 Home Assistant 的顶级玩法，可以去看看我的b站视频合集 [Home Assistant顶级玩法](https://space.bilibili.com/137683614/channel/collectiondetail?sid=2050382)
@@ -176,3 +178,212 @@ SCAN_INTERVAL = timedelta(minutes=10)
 我们现在有了一个完整功能的异步自定义组件，是官方集成的提升版。
 
 在后面的文章中，我们将简单的讨论如何去为帮助提升自定义组件，来添加单元测试和捕获 bugs。我们也会使用 [GitHub Actions](https://github.com/features/actions) 来为自定义组件添加持续集成。
+
+## 第二部分：单元测试和持续集成
+
+> 原文链接：<https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_2/>
+
+### 介绍
+
+这篇教程我们将讨论如何对自定义组件进行单元测试，并和 GitHub 的持续集成一起使用。我们仍然使用一样的示例项目 [github-custom-component](https://github.com/boralyl/github-custom-component-tutorial)，我已经为此添加了单元测试和一些持续集成的配置。你可以在 [feature/part2 分支](https://github.com/boralyl/github-custom-component-tutorial/compare/feature/part1...feature/part2?expand=1) 寻找这篇文章带来的差异。
+
+### 单元测试
+
+通常来说测试 Home Assistant 自定义组件并没有什么特殊之处，与其他的 python 项目的流程非常相似。然而，在某些情况下，访问一些 Home Assistant 的特定功能会使编写测试变得容易得多。
+
+Home Assistant 有一堆测试工具集和 [pytest fixturew](https://docs.pytest.org/en/latest/fixture.html)，可以帮组我们对 [core repo](https://github.com/home-assistant/core) 写单元测试更加简单（比如获取 `hass` 实例），但是它们并没有被对外暴露，你可以完全不需要复制/粘贴代码直接进行使用。为了使这些对自定义组件的复用性，你可以下载 [pytest 插件](https://github.com/MatthewFlamm/pytest-homeassistant-custom-component) 可以提供这类特性。
+
+如果你使用 [cookiecutter project template](https://github.com/boralyl/cookiecutter-homeassistant-component) 项目来为 Home Assistant 创建自定义组件，在你的 `requirements.test.txt` 中早已包含了这个依赖。如果需要在已经存在的组件中添加单元测试，你可以通过 pip 安装这个依赖。
+
+```bash
+pip install pytest-homeassistant-custom-component
+```
+
+你不必去做任何额外的事情，`pytest-homeassistant-custom-component` 插件早已提供了 pytest fixtures 的权限。pytest 会自动获取知道这些，你可以直接在测试中进行使用。其中最有用的当属 `hass`，为我们提供了一个 `hass` 实例，可以用于测试环境的启动。当测试配置流的时候，这也非常有用。看看下面的例子：
+
+```python
+async def test_flow_user_step_no_input(hass):
+    """Test appropriate error when no input is provided."""
+    _result = await hass.config_entries.flow.async_init(
+        config_flow.DOMAIN, context={"source": "user"}
+    )
+    result = await hass.config_entries.flow.async_configure(
+        _result["flow_id"], user_input={}
+    )
+    assert {"base": "missing"} == result["errors"]
+```
+
+当 pytest 看到你测试函数的参数之时，它将基于名称和所有被注册的插件进行检查。`pytest-homeassistant-custom-component` 对此进行注册，当测试函数被调用的时候将在合适的时候进行初始化。现在我们可以通过配置流的不同的值来运行不同的步骤，并且断言返回的数据。在特定的 case，如果在配置流程中，用户没有配置组件提供任何输入，我们将测试并展示适当的错误。
+
+另外来自 Home Assistant 非常有用的是，`pytest-homeassistant-custom-component` 提供了 `AsyncMock` 用于模拟从异步函数中返回值。在这个例子中，我们对 `github.getitem` 异步函数进行模拟，扔出一个异常。
+
+```python
+from pytest_homeassistant_custom_component.async_mock import AsyncMock, MagicMock
+
+from custom_components.github_custom.sensor import GitHubRepoSensor
+
+async def test_async_update_failed():
+    """Tests a failed async_update."""
+    github = MagicMock()
+    github.getitem = AsyncMock(side_effect=GitHubException)
+
+    sensor = GitHubRepoSensor(github, {"path": "homeassistant/core"})
+    await sensor.async_update()
+
+    assert sensor.available is False
+    assert {"path": "homeassistant/core"} == sensor.attrs
+```
+
+在这个测试中，验证了当我们设置传感器的可用性为 `False`，`async_update` 函数是否抛出了异常。
+
+我建议在 Home Assistant Core 中阅读一些 [platinum 质量等级](https://github.com/home-assistant/core/search?q=platinum&unscoped_q=platinum) 的组件，以获取关于应该测试什么、如何去测试的灵感。写这篇文章时的推荐：
+
+- [Brother Printer](https://github.com/home-assistant/core/tree/dev/tests/components/brother)
+- [Daikin AC](https://github.com/home-assistant/core/tree/dev/tests/components/daikin)
+- [deCONZ](https://github.com/home-assistant/core/tree/dev/tests/components/deconz)
+- [Elgato Key Light](https://github.com/home-assistant/core/tree/dev/tests/components/elgato)
+- [Global Disaster Alert and Coordination System (GDACS)](https://github.com/home-assistant/core/tree/dev/tests/components/gdacs)
+- [GeoNet NZ Quakes](https://github.com/home-assistant/core/tree/dev/tests/components/geonetnz_quakes)
+- [HomematicIP Cloud](https://github.com/home-assistant/core/tree/dev/tests/components/homematicip_cloud)
+- [Philips Hue](https://github.com/home-assistant/core/tree/dev/tests/components/hue)
+- [Internet Printing Protocol (IPP)](https://github.com/home-assistant/core/tree/dev/tests/components/ipp)
+- [National Weather Service (NWS)](https://github.com/home-assistant/core/tree/dev/tests/components/nws)
+- [Spain electricity hourly pricing (PVPC)](https://github.com/home-assistant/core/tree/dev/tests/components/pvpc_hourly_pricing)
+- [Ubiquiti UniFi](https://github.com/home-assistant/core/tree/dev/tests/components/unifi)
+- [VIZIO SmartCast](https://github.com/home-assistant/core/tree/dev/tests/components/vizio)
+- [WLED](https://github.com/home-assistant/core/tree/dev/tests/components/wled)
+
+你也可以检查我如何在自己的自定义组件中实现的测试：
+
+- [github-custom-component-tutorial](https://github.com/boralyl/github-custom-component-tutorial/tree/master/tests/)
+- [nintendo-wishlist](https://github.com/custom-components/sensor.nintendo_wishlist/tree/master/tests)
+- [steam-wishlist](https://github.com/boralyl/steam-wishlist/tree/master/tests)
+
+### 持续集成
+
+[持续集成](https://en.wikipedia.org/wiki/Continuous_integration) 允许你每次向仓库提交的时候进行各种检查（在其他任务中）。在这篇文章中，我将特别介绍 [GitHub Actions](https://github.com/features/actions)，但是你可以使用类似于 [Travis CI](https://travis-ci.org/) 这样的其他服务实现相同的效果。
+
+你的 GitHub actions 将会被放置在仓库根目录结构的 `.github/workflows/` 下。每个工作流都是不同的运行任务，通常是在向 GitHub 推送代码的时候触发。
+
+### Hassfest
+
+[@ludeeus](https://www.github.com/ludeeus) 创建了一个 GitHub action 为你的组件进行验证。（也是超棒的 [Home Assistant Store](https://hacs.xyz/) 的背后实现）。看看在 [Home Assistant Developers Blog](https://developers.home-assistant.io/blog/2020/04/16/hassfest/) 上的文章了解更多信息。
+
+下面是 `.github/workflows/hassfest.yaml` 的内容：
+
+```yaml
+name: Validate with hassfest
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  validate:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v2"
+      - uses: home-assistant/actions/hassfest@master
+```
+
+这个本质上是对你自定义组件的合法配置项进行检查。
+
+### Python 构建
+
+在我们 python 构建之中，我们想要在每次推送代码运行所有的单元测试。下面是 `.github/workflows/pythonpackage.yaml` 的内容：
+
+```yaml
+name: Python package
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.7]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Set PY env
+        run: echo "::set-env name=PY::$(python -VV | sha256sum | cut -d' ' -f1)"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.test.txt
+      - name: Run pytest
+        run: |
+          pytest
+```
+
+在每次推送代码时，它将默认会把 python 的版本环境设置为 `3.7`。然后将下载我们所有的测试依赖，最终运行 `pytest` 执行我们的测试。如果测试没问题，构建将会成功完成，并且在你的 GitHub 提交信息之后获得一个绿色的成功检查标记。（这也代表了 `hassfest` 检查也成功了）
+
+### 预提交(Pre-Commit)
+
+[预提交(Pre-Commit)](https://pre-commit.com/) 在提交之前，提供了一个任意数量检查代码的方式。这将帮助去检查一些常见的问题，根据仓库和其他检查对代码进行规范。
+
+如果你使用 cookie-cutter template，在你的生成代码中早已包含了[`.pre-commit-config.yaml`](https://github.com/boralyl/cookiecutter-homeassistant-component/blob/master/%7B%7B%20cookiecutter.domain%20%7D%7D/.pre-commit-config.yaml)，其中包含了大部分 Home Assistant 核心使用的检查。在现有的组件中，可以简单的添加到你自己的项目之中，选用你想要去对代码进行的检查。
+
+由 cookie-cutter template 生成的文件会帮助你的代码和 Home Assistant 标准更加兼容。当你向将组件合并到核心仓库的时候，省去很多麻烦。
+
+开始如果没有的话，在你的仓库根目录添加 `.pre-commit-config.yaml`。然后安装 pre-commit。
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+现在，下次你进行提交的时候，它将运行所有的检查来检查你的试图提交，任一检查失败就将失败。一个成功的提交如下面的输出：
+
+```text
+$ git commit -a
+pyupgrade..........................Passed
+black..............................Passed
+codespell..........................Passed
+flake8.............................Passed
+bandit.............................Passed
+isort..............................Passed
+Check JSON.........................Passed
+mypy...............................Passed
+```
+
+失败的检查可能像这样：
+
+```text
+$ git commit -a
+pyupgrade........................(no files to check)Skipped
+black............................(no files to check)Skipped
+codespell........................Failed
+- hook id: codespell
+- exit code: 1
+
+README.md:21: recommend  ==> recommend
+
+flake8...........................(no files to check)Skipped
+bandit...........................(no files to check)Skipped
+isort............................(no files to check)Skipped
+Check JSON.......................(no files to check)Skipped
+mypy.............................(no files to check)Skipped
+```
+
+任何检查的失败都会打断你的提交，你需要对问题进行修复然后再次提交。如果一些原因你想进行提交并跳过检查，可以在提交的时候添加 `--no-verify` 标记。
+
+```bash
+git commit -a --no-verify
+```
+
+### 结语
+
+在这篇文章中，我们接触了如何在自定义组件中开始单元测试，并将此与 GitHub 工作流的持续集成或者第三方解决方案连接起来。使用这些将会使你的自定义组件不仅更加健壮和无 bug，并且与 Home Assistant 核心代码的标准保持一致。
+
+在下篇文章中，我们将关注于如何在 [github-custom-component-tutorial](https://github.com/boralyl/github-custom-component-tutorial/) 项目中添加 [配置流Config Flow](https://developers.home-assistant.io/docs/config_entries_config_flow_handler)。
