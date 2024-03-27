@@ -75,7 +75,7 @@ Choose from 1, 2, 3, 4, 5 [1]: 2
 现在，是时候开始编写我们的组件了。有四个基本部分去实现。
 
 1. 在 `manifest.json` 添加我们的 requrements。如果我们需要添加额外的 python 依赖，就需要在这添加。
-2. 添加我么自己的配置规则。将用于定义我们希望用户添加进他们的 `configuration.yaml` 文件的值。
+2. 添加我们自己的配置规则。将用于定义我们希望用户添加进他们的 `configuration.yaml` 文件的值。
 3. 在 Home Assistant 中注册我们所有的传感器。将在 `async_setuo_platform` 函数中进行实现。
 4. 创建一个实体，用于代表我们希望手收集关于 GitHub 仓库的状态和数据。这个实体也应该实现 `async_update` 方法，从 GitHub 来更新数据。
 
