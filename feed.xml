@@ -4,7 +4,7 @@
         <title>Herbert He</title>
         <link>https://ibert.me/</link>
         <description>Herbert He's Blog</description>
-        <lastBuildDate>Tue, 26 Mar 2024 14:43:30 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 27 Mar 2024 02:25:14 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -405,7 +405,7 @@ Choose from 1, 2, 3, 4, 5 [1]: 2
 <p>现在，是时候开始编写我们的组件了。有四个基本部分去实现。</p>
 <ol>
 <li>在 <code>manifest.json</code> 添加我们的 requrements。如果我们需要添加额外的 python 依赖，就需要在这添加。</li>
-<li>添加我么自己的配置规则。将用于定义我们希望用户添加进他们的 <code>configuration.yaml</code> 文件的值。</li>
+<li>添加我们自己的配置规则。将用于定义我们希望用户添加进他们的 <code>configuration.yaml</code> 文件的值。</li>
 <li>在 Home Assistant 中注册我们所有的传感器。将在 <code>async_setuo_platform</code> 函数中进行实现。</li>
 <li>创建一个实体，用于代表我们希望手收集关于 GitHub 仓库的状态和数据。这个实体也应该实现 <code>async_update</code> 方法，从 GitHub 来更新数据。</li>
 </ol>
