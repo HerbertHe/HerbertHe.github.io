@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.6.0/style.min.css");
+@import url("https://unpkg.com/browse/firacode@2.0.0/distr/fira_code.css");
 @import "./css/comment.css";
 
 :root {
@@ -14,13 +14,11 @@
     --vp-c-color-d: #a15000;
     --vp-c-color-e: #ed7c0c;
 
-    --vp-font-family-base: "LXGW WenKai Lite", "Inter var experimental",
-        "Inter var", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
-    --vp-font-family-mono: "LXGW WenKai Mono Lite", ui-monospace, SFMono-Regular,
-        "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-        monospace;
+    --vp-font-family-base: "Fira Code", "Inter var experimental", "Inter var",
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    --vp-font-family-mono: "Fira Code", ui-monospace, SFMono-Regular, "SF Mono",
+        Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --vp-avator-border: #ffffff;
 
     --vp-code-block-bg: #2e3440ff;

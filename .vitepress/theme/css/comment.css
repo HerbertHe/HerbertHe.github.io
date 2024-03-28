@@ -38,6 +38,10 @@
     background-color: var(--gt-main-color);
 }
 
+.gt-container .gt-btn-login {
+    margin-top: 10px;
+}
+
 .gt-container .gt-svg svg {
     fill: var(--gt-main-color);
 }
