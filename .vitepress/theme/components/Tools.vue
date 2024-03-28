@@ -18,7 +18,7 @@
 
             <br>
             <p>或者，关注下面的微信公众号，便于及时获取通知信息。</p>
-            <img style="margin: 15px 0;" src="/img/mp-qrcode.png" alt="微信公众号二维码" width="300">
+            <img src="/img/mp-qrcode.png" alt="微信公众号二维码" width="300">
         </div>
     </div>
 </template>
@@ -64,7 +64,15 @@ const tools = [{
     margin: 20px 0;
 }
 
+.tool-ol a:hover {
+    text-decoration: underline;
+}
+
 .tool-li {
     margin: 10px;
+}
+
+img {
+    margin: 15px 0;
 }
 </style>
