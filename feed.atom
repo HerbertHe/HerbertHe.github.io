@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ibert.me/</id>
     <title>Herbert He</title>
-    <updated>2024-03-30T14:12:01.227Z</updated>
+    <updated>2024-03-30T14:12:59.216Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Herbert He</name>
@@ -6121,22 +6121,65 @@ cp -rf ${TMP_GIT_CLONE}/* ${PUBLIC_WWW}
 </code></pre>
 <p>（<strong>组合赋值运算符，略</strong>）</p>
 <h3>逻辑运算符</h3>
-<p>| 运算符 |  意义  |<br>
-| ------ | :----: | : |<br>
-| !expr  | 非运算 |<br>
-| 丨丨   | 或运算 |<br>
-| &amp;&amp;     | 与运算 |</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>!expr</td>
+<td style="text-align:center">非运算</td>
+</tr>
+<tr>
+<td>`</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td style="text-align:center">与运算</td>
+</tr>
+</tbody>
+</table>
 <h3>按位和移位运算符</h3>
 <p>（<strong>运算之前，将值转化为二进制</strong>）</p>
 <p>（<strong>译者按照 1为真，0为假编写解释</strong>）</p>
-<p>| 运算符 |            意义            |<br>
-| ------ | :------------------------: | : |<br>
-| &amp;      |     全真则真，一假则假     |<br>
-| 丨     |     一真则真，全假为假     |<br>
-| ^      | 位异或运算，同为假，异为真 |<br>
-| ~expr  |       假为真，真为假       |<br>
-| &lt;&lt;     |           左移位           |<br>
-| &gt;&gt;     |           右移位           |</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;</td>
+<td style="text-align:center">全真则真，一假则假</td>
+</tr>
+<tr>
+<td>`</td>
+<td style="text-align:center">`</td>
+</tr>
+<tr>
+<td>^</td>
+<td style="text-align:center">位异或运算，同为假，异为真</td>
+</tr>
+<tr>
+<td>~expr</td>
+<td style="text-align:center">假为真，真为假</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td style="text-align:center">左移位</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td style="text-align:center">右移位</td>
+</tr>
+</tbody>
+</table>
 <h3>条件表达式</h3>
 <p>Dart有两种运算符，可以简明使用if-else表达式</p>
 <blockquote>
