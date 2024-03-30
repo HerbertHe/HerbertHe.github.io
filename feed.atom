@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ibert.me/</id>
     <title>Herbert He</title>
-    <updated>2024-03-28T10:17:44.613Z</updated>
+    <updated>2024-03-30T14:12:01.227Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Herbert He</name>
@@ -5252,25 +5252,21 @@ cp -rf ${TMP_GIT_CLONE}/* ${PUBLIC_WWW}
 </blockquote>
 <h2>写在前面</h2>
 <blockquote>
-<p>本文是参考了<a href="https://www.dartlang.org">Dart官网</a> 的教程、参考的机翻以及对于其他语言学习的经验来翻译的本入门教程，译者精力和学历有限，如有不妥之处欢迎指正。</p>
-</blockquote>
-<blockquote>
-<p>本文出于知识共享的目的，转载请注明出处，如果用于商用请联系 <a href="mailto:admin@jieec.cn">admin@jieec.cn</a></p>
+<p>本文是参考了 <a href="https://www.dartlang.org">Dart官网</a> 的教程、参考的机翻以及对于其他语言学习的经验来翻译的本入门教程，译者精力和学历有限，如有不妥之处欢迎指正。</p>
 </blockquote>
 <h2>在线编译</h2>
 <blockquote>
 <p><a href="https://dartpad.dartlang.org/">DartPad</a></p>
 </blockquote>
-<!-- more -->
 <h2>概念</h2>
 <ul>
-<li>Dart变量中的内容都是对象，对象都是类的实例，所有对象都是从Object类继承的</li>
-<li>Dart要求规定类型，但是可以自行推断类型。var num = 10; 就可以推断其类型为int（<strong>不需要类型之dynamic</strong>）</li>
-<li>Dart之泛型类型List &lt;int&gt; (<em>整数列表</em>)or List &lt;dynamic&gt;（<em>任何类型的对象列表</em>）</li>
-<li>主函数main(),支持自定义函数和函数嵌套</li>
+<li>Dart 变量中的内容都是对象，对象都是类的实例，所有对象都是从 Object 类继承而来的</li>
+<li>Dart 要求规定类型，但是可以自行推断类型。<code>var num = 10;</code> 就可以推断其类型为int（<strong>不需要类型之dynamic</strong>）</li>
+<li>Dart 之泛型类型 <code>List&lt;int&gt;</code> (<em>整数列表</em>) or <code>List&lt;dynamic&gt;</code>（<em>任何类型的对象列表</em>）</li>
+<li>主函数 <code>main()</code>, 支持自定义函数和函数嵌套</li>
 <li>支持全局变量，私有变量。实例的变量可以称为字段或者属性</li>
-<li>不具备数据保护相关的关键字，用（_)开头确定私有</li>
-<li>标识符可以以字母或者（_）下划线开头，后面字母和数字任意组合</li>
+<li>不具备数据保护相关的关键字，用 <code>_</code> 开头确定私有</li>
+<li>标识符可以以字母或者 <code>_</code>下划线开头，后面字母和数字任意组合</li>
 </ul>
 <h2>关键字</h2>
 <table>
@@ -5405,14 +5401,14 @@ cp -rf ${TMP_GIT_CLONE}/* ${PUBLIC_WWW}
 <p>const不仅仅可以声明常变量，也可以用来创建常量值constant values，以及声明常量值的构造函数，任何变量都可以具有常量值。</p>
 <pre><code class="language-dart">  var foo = const [];
   final bar = const [];
-  const baz = [];//与&quot;const []&quot;等价
+  const baz = []; //与&quot;const []&quot;等价
 </code></pre>
 <ul>
 <li>可以省略声明const的初始化表达式，如上所示。不要冗余使用const！</li>
 <li>你可以修改非final，非const变量的值，即使变量曾用过const的值</li>
 </ul>
-<pre><code class="language-dart">  foo = [1,2,3];√
-  baz = [1,2,3];×
+<pre><code class="language-dart">  foo = [1,2,3]; // √
+  baz = [1,2,3]; // ×
 </code></pre>
 <h2>内置类型</h2>
 <ul>
@@ -5420,12 +5416,12 @@ cp -rf ${TMP_GIT_CLONE}/* ${PUBLIC_WWW}
 <li>字符串</li>
 <li>布尔型</li>
 <li>列表（数组）</li>
-<li>地图map</li>
+<li>Map</li>
 <li>符文runes（用于在字符串中表示Unicode字符）</li>
-<li>符号symbols</li>
+<li>symbols</li>
 </ul>
 <blockquote>
-<p>因为Dart中的每个变量都引用一个对象 - 一个类的实例 - 您通常可以使用构造函数来初始化变量。一些内置类型有自己的构造函数。例如，您可以使用Map()构造函数来创建地图。 ——来源于官网引用</p>
+<p>因为Dart中的每个变量都引用一个对象 - 一个类的实例 - 您通常可以使用构造函数来初始化变量。一些内置类型有自己的构造函数。例如，您可以使用 <code>Map()</code> 构造函数来创建 Map。 ——来源于官网引用</p>
 </blockquote>
 <h3>数字</h3>
 <ul>
@@ -5516,12 +5512,12 @@ cp -rf ${TMP_GIT_CLONE}/* ${PUBLIC_WWW}
 <p>有关如何在字符串中表示Unicode字符的详细信息，请参阅<em>Runes</em>。</p>
 <p>只要任何插值表达式是一个编译时常量，其值为null或数值，字符串或布尔值；文字字符串即为编译时常量。</p>
 <p>演示代码</p>
-<pre><code class="language-dart">  // 常字符串
+<pre><code class="language-dart">  // 常量字符串
   const aConstNum = 0;
   const aConstBool = true;
   const aConstString = 'a constant string';
 
-  // 并非常字符串
+  // 并非常量字符串
   var aNum = 0;
   var aBool = true;
   var aString = 'a string';
@@ -6084,11 +6080,28 @@ cp -rf ${TMP_GIT_CLONE}/* ${PUBLIC_WWW}
 <p>（<strong>举例略</strong>）</p>
 <h3>键入测试运算符</h3>
 <p>在程序运行的时候，as、is、is!运算符用于检查类型。</p>
-<p>| 运算符 |           意义           |<br>
-| ------ | :----------------------: | : |<br>
-| as     |         类型转换         |<br>
-| is     |  如果是指定类型返回true  |<br>
-| is!    | 如果不是指定类型返回true |</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th style="text-align:center">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>as</td>
+<td style="text-align:center">类型转换</td>
+</tr>
+<tr>
+<td>is</td>
+<td style="text-align:center">如果是指定类型返回true</td>
+</tr>
+<tr>
+<td>is!</td>
+<td style="text-align:center">如果不是指定类型返回true</td>
+</tr>
+</tbody>
+</table>
 <p>使用as运算符将对象强制转换为特定的类型。通常，应该使用它作为is对使用该对象的表达式后跟对象的测试的简写。</p>
 <pre><code class="language-dart">  if(emp is Person){
     // 检查类型
@@ -7381,9 +7394,9 @@ cp -rf ${TMP_GIT_CLONE}/* ${PUBLIC_WWW}
 <p>Dart支持单行、多行、文档评论。</p>
 <h3>单行（以&quot;//&quot;开头，忽略后面内容）</h3>
 <h3>多行（介于/* */之间，可以嵌套）</h3>
-<h3>文档</h3>
-<p>文档评论是以///或者/**开头的多行或者单行评论，在连续的行使用///的效果与多行评论的效果相同。</p>
-<p>在文档评论中，Dart编译器忽略所有的文本，除非它在括号之中。使用括号，可以引用类、方法、字段、顶级变量、函数和参数。括号中的名称在已记录的程序元素的词法范围内得到解析。</p>
+<h3>文档注释</h3>
+<p>文档注释是以///或者/**开头的多行或者单行评论，在连续的行使用///的效果与多行评论的效果相同。</p>
+<p>在文档注释中，Dart编译器忽略所有的文本，除非它在括号之中。使用括号，可以引用类、方法、字段、顶级变量、函数和参数。括号中的名称在已记录的程序元素的词法范围内得到解析。</p>
 <p>以下是文档注释的示例，包含对其他的类和参数的引用：</p>
 <pre><code class="language-dart">  /// A domesticated South American camelid (Lama glama).
   ///
