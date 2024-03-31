@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ibert.me/</id>
     <title>Herbert He</title>
-    <updated>2024-03-31T09:55:36.592Z</updated>
+    <updated>2024-03-31T11:02:52.330Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Herbert He</name>
@@ -654,6 +654,9 @@ mypy.............................(no files to check)Skipped
 <p>在这篇文章中，我们接触了如何在自定义组件中开始单元测试，并将此与 GitHub 工作流的持续集成或者第三方解决方案连接起来。使用这些将会使你的自定义组件不仅更加健壮和无 bug，并且与 Home Assistant 核心代码的标准保持一致。</p>
 <p>在下篇文章中，我们将关注于如何在 <a href="https://github.com/boralyl/github-custom-component-tutorial/">github-custom-component-tutorial</a> 项目中添加 <a href="https://developers.home-assistant.io/docs/config_entries_config_flow_handler">配置流Config Flow</a>。</p>
 <h2>第三部分：配置流</h2>
+<blockquote>
+<p>原文链接：<a href="https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_3/">https://aarongodfrey.dev/home automation/building_a_home_assistant_custom_component_part_3/</a></p>
+</blockquote>
 <h3>摘要</h3>
 <p>在这篇文章中，我们将更新自定义组件，使之可以通过 UI 进行配置，通过添加 <a href="https://developers.home-assistant.io/docs/config_entries_config_flow_handler">配置流</a> 进行实现。我们仍然使用相同的示例项目 <a href="https://github.com/boralyl/github-custom-component-tutorial">github-component-tutorial</a>。你可以在 <a href="https://github.com/boralyl/github-custom-component-tutorial/compare/feature/part2...feature/part3">feature/part3</a> 分支查看本篇文章带来的不同。</p>
 <h3>更新 manifest.json</h3>
