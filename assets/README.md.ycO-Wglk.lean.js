@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as e,a6 as l}from"./chunks/framework.BDSt01_6.js";const b=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"README.md","filePath":"README.md"}'),n={name:"README.md"},t=l("",8),i=[t];function o(p,r,c,d,h,u){return e(),a("div",null,i)}const y=s(n,[["render",o]]);export{b as __pageData,y as default};
