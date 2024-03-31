@@ -535,7 +535,7 @@ async def async_setup_entry(
 
 ### 单元测试
 
-我想简要说一下如何对配置流进行单元测试。如果你安装和使用了 [pytest-homeassistant-custom-component](https://github.com/MatthewFlamm/pytest-homeassistant-custom-component)，你可以使用一些i pytest fixtures 来简化测试。
+我想简要说一下如何对配置流进行单元测试。如果你安装和使用了 [pytest-homeassistant-custom-component](https://github.com/MatthewFlamm/pytest-homeassistant-custom-component)，你可以使用一些 pytest fixtures 来简化测试。
 
 让我们看一看如果 GitHub access token 是非法的，如何进行验证并展示错误。
 

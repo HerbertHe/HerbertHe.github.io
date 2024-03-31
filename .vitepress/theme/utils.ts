@@ -27,7 +27,7 @@ export function initTags(post: Post[]) {
 }
 
 export function useYearSort(post: Post[]) {
-    const data = []
+    let data: Post[][] = []
     let year = "0"
     let num = -1
     for (let index = 0; index < post.length; index++) {
@@ -38,7 +38,7 @@ export function useYearSort(post: Post[]) {
                 data[num].push(element)
             } else {
                 num++
-                data[num] = [] as any
+                data[num] = [] as Post[]
                 data[num].push(element)
                 year = y
             }

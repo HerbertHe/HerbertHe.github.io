@@ -1,5 +1,6 @@
 import { getPosts, getPostLength } from "./theme/serverUtils"
 import { buildBlogRSS } from "./theme/rss"
+import MathJax from "markdown-it-mathjax3"
 
 async function config() {
     return {
@@ -126,7 +127,7 @@ async function config() {
             ],
             lineNumbers: true,
             config: (md) => {
-                md.use(require("markdown-it-mathjax3"))
+                md.use(MathJax)
             },
             math: true,
         },
