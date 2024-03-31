@@ -4,7 +4,7 @@
         <title>Herbert He</title>
         <link>https://ibert.me/</link>
         <description>Herbert He's Blog</description>
-        <lastBuildDate>Sun, 31 Mar 2024 11:02:52 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 31 Mar 2024 11:04:49 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -15,338 +15,7 @@
         <copyright>CC BY-NC-SA 4.0</copyright>
         <atom:link href="https://ibert.me/feed.xml" rel="self" type="application/rss+xml"/>
         <item>
-            <title><![CDATA[markdown自定义的思考 📌]]></title>
-            <link>https://ibert.me/posts/zh/markdown自定义的思考.html</link>
-            <guid>https://ibert.me/posts/zh/markdown自定义的思考.html</guid>
-            <pubDate>Sun, 07 Feb 2021 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[<h2>写在前面的</h2>
-<p>已经记不清什么时候开始接触的markdown了，好像是从我的一个学长做了我们学校的大数据协会论坛开始的。如果我没记错的话用的还是b3log的开源项目，应该是使用的<a href="https://github.com/88250/symphony">Symphony</a>。后来听学长说太复杂了，维护无从下手然后删库跑路了😂</p>
-<p>也正是他画的这个饼，让我从零开始设计一个社区给不同学科、不同专业的同学来使用，之前实现过的版本并不是很满意（应该在我的链滴帖子里还能找到），然后又开始了重构之路。也正是不断的与markdown不同的编辑器接触，也让我对marked.js、markdown-it、for-editor、lute、vditor等等的编辑器、编译器、渲染器有了很多的接触，对于markdown及其拓展语法有了各种奇奇怪怪的想法</p>
-<!-- more -->
-<h2>for-editor-herb</h2>
-<p>for-editor是一个UI设计非常不错的编辑器，它的底层解析引擎为marked.js。marked.js对于markdown的解析渲染在前端非常有名，并且在很多的编辑器上面也得到了应用。for-editor很轻、很小、很美，但是也避免不了出现了不少的bug，也不支持很多的features。当时只算是个开源项目的萌新，给作者提PR没有得到回复，然后给作者发邮件还是没有回复23333我明显感觉到作者好像无意再继续维护下去了，在issues里面也帮助了一些老哥解决了一些问题。</p>
-<p>直到有个老哥建议我不如去自己新开一个仓库，然后自己来打包发布2333 其实吧，当时做前端顶多算个页面仔，也就是自己写写页面这个样子，压根也没接触过npm的库咋发布，然后就试错硬着头皮来呗。修复了很多的bug，一度怀疑人生😑尤其是那个编辑器-简直是噩梦，有兴趣的同学可以了解一下前端如何实现一个富文本编辑器🤣我当时一度怀疑我是不是在试图写一个word！！在编辑器开发里其实说问题吧，多也不多，也就是怎么撑开textarea、怎么控制焦点、怎么获取选区这点问题😈当然这只是开个玩笑，实操起来真的是怀疑人生。</p>
-<p>for-editor计算行号就明显有个问题，它的行号是基于 <code>\n</code> 来计算的，这根本是不准确的。在打开和关闭渲染的时候由于textarea的宽度会发生改变。这就直接会导致，其实字它会换行，其实这跟行号就完全不匹配了。后来我的改进方案是获取容器的实际高度，然后根据字高来算实际的行数。一般默认的字体大小 <code>font-size: 16px;</code> ，然后明面上解决了这个问题，但是还是没能解决开关渲染导致的不准确，因为根本不会触发height发生改变。。。这个很大程度上跟设计机制有关系（随便看一看HTML就知道问题了），不过整体体验影响还可以，虽然一度让我想重构整个编辑器。愚以为vscode的体验真的是神仙，vscode其实知道的都知道是基于electron开发的，叹为观止。。。</p>
-<p>上面就是举个例子，在for-editor里面也就实现了下面的一些功能，好像有老哥还把这个用于项目了😨</p>
-<ul>
-<li>更多的工具栏按钮</li>
-<li>支持数学公式的渲染</li>
-<li>支持响应式布局</li>
-<li>支持大纲跳转锚点</li>
-<li>支持大纲直接生成插入</li>
-<li>内置简繁体中文、英文和日文的支持</li>
-<li>支持自定义支持编辑器国际化</li>
-<li>支持GitHub Diff语法渲染（这个vditor好像并没有完全支持）</li>
-<li>支持自定义注册代码高亮的语言类型</li>
-<li>支持emoji短码渲染绘文字emoji</li>
-<li>支持<code>==markdown==</code> 语法行内高亮</li>
-</ul>
-<p>其实我之前还准备支持mermaid的，但是之前我一直没有解决渲染的问题，没找到渲染的时机，后来放弃支持了。到后来我其实比较抗拒维护这个项目了，因为我能明显感觉到渲染越来越慢。在这个项目的issue里，也有老哥给我安利过vditor，但是他貌似不会在React里面用emmm。这个项目我几乎调整了80%的代码结构，有一些问题不是很好修复，只能寄希望于重构😭 但是当时又在同步写着pyvm，没有想法继续重构下去。后来业务代码越来越多就没有继续了，被我Achieved了，有4个fork，应该还有老哥还在维护，项目可以在 <a href="https://goer.icu/for-editor-herb/">for-editor-herb</a> 体验。</p>
-<p>在这个项目的开发中，我为了实现一些解析语法去阅读了marked.js的源码。marked.js整个项目的灵魂在于正则表达式，里面的正则表达式写的非常非常厉害。在部分features实现的时候也参考了，marked.js一直到高级使用部分都非常非常熟悉。但是，性能和维护永远是最大的问题。</p>
-<h2>lute</h2>
-<p>先写lute的原因是vditor我一直在不断地关注着，并且一直发现问题和提feature疯狂“作妖”😁希望 @Vanessa V姐不会觉得我超级烦😥</p>
-<p>接触lute的原因是有一些feature依靠vditor没办法实现。举个例子，在React Native中如何实现markdown渲染？难道是套一个WebView加载H5？虽然在某些场景不得不去这么实现，比如依赖KaTeX做数学公式渲染、abcjs做五线谱渲染，要不就自己再写一个库？emmm WebView会有很多的限制，而且其实在移动端做markdown即时渲染的体验不会很好。即使是GitHub官方的APP也没有实现，然后我的眼光就放到了lute的身上23333</p>
-<p>lute是基于编译原理使用go开发的，刚好一不小心之前自学过golang，然后开始研究lute。看的很浅显，并没有关注生成AST的部分，自己关注的主要是在渲染的处理上。lute关于内部实现方面没有文档，只能自己去看源码。lute的代码结构设计很优秀，很容易上手去阅读定位具体的问题和实现的位置。</p>
-<p>分析需求和具体实现：基于lute直接实现组件渲染其实是不实际的，即使后来vditor支持了自定义渲染器，但是其实仍然是string类型的。而React Native的组件是JSX，所以我需要一棵树，自己根据这棵树来遍历递归渲染。很遗憾，lute其实并没有提供这个方法，lute并不是一个纯粹的解析器，而是同时是一个渲染器，直接生成了DOM！如果你尝试在js里面调用lute暴露的某些在godoc有的方法，会直接报错。</p>
-<p>其实，lute的节点细分比vditor多很多，好像是有一百四十多个。并且随着特性的不断增加，这个数量还在增加。最后还是实现了“这棵树”的输出，自lute v1.7.1之后支持，是 <code>lute.RenderJSON()</code> 这个方法。这棵树实现了vditor绝大多数支持的语法输出，但其实vditor有很多很多的渲染都是在前端完成的。其实依靠这个方法，是可以自行实现与vditor兼容的一个纯粹的渲染器，可以自行看lute的文档 <a href="https://github.com/88250/lute#%E5%85%B3%E4%BA%8E-luterenderjson-%E7%9A%84%E4%BD%BF%E7%94%A8">如何使用</a></p>
-<p>当我开始基于lute写npm包的时候，发现了一个很严重的问题。lute的包太大了，打包失败。lute是通过gopherjs打包成js的，没办法拆包。上文提到lute其实并不是一个纯粹的解析器，包含了渲染的部分，不知道 @88250 D哥有没有计划把解析的部分单独分离出去，新成立一个极高效率的markdown解析器的项目emmm</p>
-<p>如果你想要使用lute自定义渲染器，或者写个库什么的，这并不影响你在web端的使用。可以参考rollup外部依赖的这部分，通过CDN外部引入问题不大的，只是把lute打包会出现问题而已。</p>
-<h2>vditor</h2>
-<p>刚刚查了一下，在vditor总共提过9个issues，开始提的问题是极蠢的，对8起，浪费V姐的时间了。不过好像我提的好几个issue后来的版本实现了2333。比如这个 <a href="https://github.com/Vanessa219/vditor/issues/592">使用hint at方法报错</a> ，我希望通过拓展 <code>@</code> 这个方法，实现at的并不只是一个用户，甚至是可以引用一篇文章等。</p>
-<p>不过有一说一，我回顾了一下我的issue还是觉得有一些是真的low😥vditor的源码看了一部分，有的部分还是很有意思的，我也知道了vditor为什么有的方法那么实现。vditor的features更新速度总是比文档快很多，如果想尝鲜之类的话，建议去阅读源码（手动滑稽）</p>
-<p>不过，这几天发现vditor有一个问题我还是感觉挺严重的。当vditor和SSR一起使用的时候，可能会导致页面崩溃，甚至是浏览器崩溃。当你在sv模式下输入iframe这个HTML标签，可能会导致一些问题。具体讨论可以看这个issue <a href="https://github.com/Vanessa219/vditor/issues/918">#918</a> ，需求是在这个issue <a href="https://github.com/Vanessa219/vditor/issues/906">#906</a> 提出的。</p>
-<p><strong>需要提醒把vditor当作编辑器的项目，markdown原生支持HTML标签，所以除了开启vditor的安全过滤规避XSS攻击（默认打开的）之外，还需要过滤iframe这个标签！如果是论坛等交互式网站的话，可能无法控制用户通过iframe植入广告甚至是非法网站！</strong></p>
-<p>iframe渲染这个需求，其实实现起来并不简单，需要尤其注意过滤iframe的domain和减少iframe导致的GET请求，有的引用网站不排除有访问的风控。在上面issue的讨论里我提供了两种思路，目的就是为了iframe的请求和过滤非法域名，我已经自行实现了第一种思路，依赖下面介绍的库实现起来其实非常简单。其实就是延时渲染或者防抖，这些其实在前端优化里面都有实际的应用，每个人都有不同的实现方式，不赘述了。</p>
-<h2>codeblock-iframe语法</h2>
-<p>这是我在上面的思考中提出的一种语法，也许之前可能有人提也能不一定的。方法特别简单，即把iframe当作代码块处理，遵循TOML的语法，这样对代码侵入很小。</p>
-<p>基于这个思想，我写了两个库分别支持了webpack等打包工具的调用和web端直接通过script进行引用，并且为docsify写了插件支持这种语法。</p>
-<p>转化过程可以在这个demo里体验 <a href="https://goer.icu/codeblock-iframe/demo/">demo</a></p>
-<p>docsify的使用在这个demo里体验 <a href="https://goer.icu/docsify-codeblock-iframe/demo/#/">demo</a></p>
-<p>仓库地址如下</p>
-<ul>
-<li><a href="https://github.com/HerbertHe/toml2iframe">toml2iframe</a> 支持webpack等打包工具</li>
-<li><a href="https://github.com/HerbertHe/codeblock-iframe">codeblock-iframe</a> 支持web端通过CDN导入</li>
-<li><a href="https://github.com/HerbertHe/docsify-codeblock-iframe">docsify-codeblock-iframe</a> 为docsify提供的支持插件</li>
-</ul>
-<h2>Todos</h2>
-<p>在我的脑子里，还有很多很多的feature提供给markdown进行支持，比如最近对markdown支持化学结构式很感兴趣。看了现存的极少的实现方案，感觉不怎么样，可能的话只能自己去研究了，比如zrender</p>
-<p>因为自己是物理系的，对公式输入很敏感所以早都基于KaTeX尝试实现了Tex</p>
-<p>更多的想法的话，可能会为飞书写应用或者单独开发一个PC端为协同办公提供服务。虽然飞书的云文档很好用，但是还是避免不了它还是不能支撑很多的协同文档问题。所以，为团队的项目开发的话，可能会基于vditor实现一个协同文档的服务，有想法是借鉴slack实现。目标跟思源笔记的方向完全不一样，主要协同文档、文档安全、权限控制等，实现起来的架构设计和算法还是挺难的。</p>
-<p>因为idea太多了，导致自己写代码的速度跟不上哈哈哈哈哈</p>
-<h2>我的其他开源项目</h2>
-<p>就写我认为好用的吧，其他的小插件都在我的仓库里很好找的</p>
-<ul>
-<li><a href="https://github.com/NucoTech/nuco-backend-cli">nbc</a> 全称<strong>nuco-backend-cli</strong> 是我针对限制团队commit风格和开发有的常用需求写的命令行工具，基于golang开发，支持MacOS、Linux和Windows三端，已经投入平时的开发之中使用了，并且提供了详细的文档<a href="https://nucotech.github.io/nuco-backend-cli">使用文档</a></li>
-<li><a href="https://github.com/NucoTech/nuco-docsify">nuco-docsify</a> 这是为了团队项目生成文档模板的工具，支持很多feature。这样我们就不必要每一次都配置文档了，<code>nbc</code> 也提供了<code>nbc docs</code> 直接生成文档，并且可以通过<code>nbc serve</code> 直接启动静态预览！</li>
-</ul>
-<p>还有一些文档翻译什么的，如果你觉得好用的话给个Star嗷~哈哈哈哈</p>
-]]></content:encoded>
-            <author>hi@ibert.me (Herbert He)</author>
-        </item>
-        <item>
-            <title><![CDATA[如何使用TypeScript操作语法树]]></title>
-            <link>https://ibert.me/posts/zh/如何使用TypeScript操作语法树.html</link>
-            <guid>https://ibert.me/posts/zh/如何使用TypeScript操作语法树.html</guid>
-            <pubDate>Tue, 26 Mar 2024 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[<blockquote>
-<p>原文链接：<a href="https://unifiedjs.com/learn/guide/syntax-trees-typescript/">https://unifiedjs.com/learn/guide/syntax-trees-typescript/</a></p>
-</blockquote>
-<p>本教程将向你介绍 TypeScript 使用 <a href="https://github.com/syntax-tree/unist">unist</a> 和 <a href="https://unifiedjs.com/explore/package/unified/">unified</a>。</p>
-<h2>基础</h2>
-<p>所有的 <a href="https://unifiedjs.com/explore/package/unified/">unified</a> 语法树都是基于 <a href="https://github.com/syntax-tree/unist">unist</a>(<strong>uni</strong>versal <strong>s</strong>yntax <strong>t</strong>ree)。可用的核心类型包只包含类型：<a href="https://www.npmjs.com/package/@types/unist"><code>@types/unist</code></a>。主要的类型是 <code>节点(Node)</code>，其他的都继承于此。<code>字面量(Literal)</code> 和 <code>父节点(Parent)</code> 这些更具体的类型也是继承于 <code>节点(Node)</code>。</p>
-<p>由 <a href="https://github.com/syntax-tree/unist">unist</a> 提供的类型为抽象接口(Abstract Interfaces)，通常情况下，你需要根据所使用的语言来选择更加实用的接口。<a href="https://unifiedjs.com/explore/package/unified/">unified</a> 所支持的每种语言，例如：markdown、HTML 和 XML 都有他们自己继承于 <code>unist</code> 的语法树标准。</p>
-<p>让我们一起来看看。</p>
-<h2>unist</h2>
-<h3><code>节点(Node)</code></h3>
-<p><code>节点(Node)</code> 是语法树的句法单位。每个节点都继承于 <code>节点(Node)</code>（有时候是 <code>字面量(Literal)</code> 或者 <code>父节点(Parent)</code>）。并且设置 <code>type</code> 为一个 <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types">字符串字面量(string literal)</a>。这个类型字段用于告诉我们节点内容的类型是什么。这个字段唯一标识一种内容，在 TypeScript 中，被称为 <a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions">可辨识联合/可区分联合(discriminated union)</a>。举个在 ，markdown(<a href="https://github.com/syntax-tree/mdast">mdast</a>) 中的例子：<code>Node</code> 被继承用于一些节点 <code>Heading</code> 或 <code>Link</code>，以取代使用 <code>type</code> 字段设置为 <code>heading</code> 和 <code>link</code>。</p>
-<p>一个节点可以可选地包含一个 <code>Data</code> 接口于 <code>data</code> 字段。这是一个对象用于存储额外的原始数据，并不是节点的标准，但在生态中被定义（工具类(utilities)和插件(plugins)）。</p>
-<p>当从文件中解析语法树时，会包含坐标信息：一个 <code>Position</code> 接口于 <code>position</code> 字段，这用于描述节点在源文件中的位置。</p>
-<pre><code class="language-typescript">/**
- * Syntactic units in unist syntax trees are called nodes.
- */
-interface Node {
-  /**
-   * The variant of a node.
-   */
-  type: string
-
-  /**
-   * Information from the ecosystem.
-   */
-  data?: Data | undefined
-
-  /**
-   * Location of a node in a source document.
-   * Must not be present if a node is generated.
-   */
-  position?: Position | undefined
-}
-
-/**
- * Information associated by the ecosystem with the node.
- * Space is guaranteed to never be specified by unist or specifications
- * implementing unist.
- */
-export interface Data {
-  [key: string]: unknown
-}
-
-/**
- * Location of a node in a source file.
- */
-export interface Position {
-  /**
-   * Place of the first character of the parsed source region.
-   */
-  start: Point
-
-  /**
-   * Place of the first character after the parsed source region.
-   */
-  end: Point
-
-  /**
-   * Start column at each index (plus start line) in the source region,
-   * for elements that span multiple lines.
-   */
-  indent?: number[] | undefined
-}
-
-</code></pre>
-<h3><code>字面量(Literal)</code></h3>
-<p><code>字面量(Literal)</code> 继承于 <code>节点(Node)</code>，并添加了一个 <code>value</code> 属性。举个例子，一个 markdown <code>Code</code> 节点继承 <code>Literal</code>，并设置 <code>value</code> 为 <code>string</code>。</p>
-<pre><code class="language-typescript">/**
- * Nodes containing a value.
- */
-export interface Literal extends Node {
-  value: unknown
-}
-</code></pre>
-<h3><code>父节点(Parent)</code></h3>
-<p><code>父节点(Parent)</code> 继承于 <code>节点(Node)</code>，并添加了一个 <code>子节点(children)</code> 属性。子节点代表其他内容在 <code>父节点(Parent)</code> 内部，或者就是这个节点的一部分。</p>
-<pre><code class="language-typescript">/**
- * Nodes containing other nodes.
- */
-export interface Parent extends Node {
-  /**
-   * List representing the children of a node.
-   */
-  children: Node[];
-}
-</code></pre>
-<h3>在项目中拉取 unist</h3>
-<p>安装：</p>
-<pre><code class="language-bash">npm install --save-dev @types/unist
-</code></pre>
-<p>在一个 TypeScript 文件中导入类型，如下：</p>
-<pre><code class="language-typescript">import type { Node, Literal, Parent } from 'unist'
-</code></pre>
-<p>在 <a href="https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html">JSDoc TypeScript</a> 导入类型，如下：</p>
-<pre><code class="language-typescript">/**
- * @typedef {import('unist').Node} Node
- * @typedef {import('unist').Literal} Literal
- * @typedef {import('unist').Parent} Parent
- */
-</code></pre>
-<h2>mdast(markdown)</h2>
-<p><a href="https://github.com/syntax-tree/mdast">mdast</a> (<strong>m</strong>arkdown <strong>a</strong>bstract <strong>s</strong>yntax <strong>t</strong>ree) 继承于 <a href="https://github.com/syntax-tree/unist">unist</a>，并且为 markdown 具像化类型，例如 <code>Heading</code> <code>Code</code> <code>Link</code> 等。这些具像化的类型包含了一个完整的节点列表。这些类型可以通过一个类型包进行使用。<a href="https://www.npmjs.com/package/@types/mdast"><code>@types/mdast</code></a>。</p>
-<p>安装：</p>
-<pre><code class="language-bash">npm install --save-dev @types/mdast
-</code></pre>
-<p>在一个 TypeScript 文件中导入类型，如下：</p>
-<pre><code class="language-typescript">import type { Heading, Code, Link } from 'mdast'
-</code></pre>
-<p>在 <a href="https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html">JSDoc TypeScript</a> 导入类型，如下：</p>
-<pre><code class="language-typescript">/**
- * @typedef {import('mdast').Heading} Heading
- * @typedef {import('mdast').Code} Code
- * @typedef {import('mdast').Link} Link
- */
-</code></pre>
-<h2>hast(HTML)</h2>
-<p><a href="https://github.com/syntax-tree/hast">hast</a> (<strong>h</strong>ypertext <strong>a</strong>bstract <strong>s</strong>yntax <strong>t</strong>ree) 继承于 <a href="https://github.com/syntax-tree/unist">unist</a>，并且为 HTML 具像化类型，例如 <code>Element</code> <code>Comment</code> <code>DocType</code> 等。这些具像化的类型包含了一个完整的节点列表。这些类型可以通过一个类型包进行使用。<a href="https://www.npmjs.com/package/@types/hast"><code>@types/hast</code></a>。</p>
-<p>安装：</p>
-<pre><code class="language-bash">npm install --save-dev @types/hast
-</code></pre>
-<p>在一个 TypeScript 文件中导入类型，如下：</p>
-<pre><code class="language-typescript">import type { Element, Comment, DocType } from 'hast'
-</code></pre>
-<p>在 <a href="https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html">JSDoc TypeScript</a> 导入类型，如下：</p>
-<pre><code class="language-typescript">/**
- * @typedef {import('hast').Element} Element
- * @typedef {import('hast').Comment} Comment
- * @typedef {import('hast').DocType} DocType
- */
-</code></pre>
-<h2>xast(XML)</h2>
-<p><a href="https://github.com/syntax-tree/xast#readme">xast</a> (e<strong>x</strong>tensible <strong>a</strong>bstract <strong>s</strong>yntax <strong>t</strong>ree) 继承于 <a href="https://github.com/syntax-tree/unist">unist</a>，并且为 XML 具像化类型，例如 <code>Element</code> <code>CData</code> <code>Instruction</code> 等。这些具像化的类型包含了一个完整的节点列表。这些类型可以通过一个类型包进行使用。<a href="https://www.npmjs.com/package/@types/xast"><code>@types/xast</code></a>。</p>
-<p>安装：</p>
-<pre><code class="language-bash">npm install --save-dev @types/xast
-</code></pre>
-<p>在一个 TypeScript 文件中导入类型，如下：</p>
-<pre><code class="language-typescript">import type { Element, CData, Instruction } from 'xast'
-</code></pre>
-<p>在 <a href="https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html">JSDoc TypeScript</a> 导入类型，如下：</p>
-<pre><code class="language-typescript">/**
- * @typedef {import('xast').Element} Element
- * @typedef {import('xast').CData} CData
- * @typedef {import('xast').Instruction} Instruction
- */
-</code></pre>
-<h2>总结</h2>
-<ul>
-<li><a href="https://unifiedjs.com/explore/package/unified/">unified</a> 提供了不同语言的语法树类型</li>
-<li>这些类型可以被 TypeScript 和 JSDoc 项目导入</li>
-</ul>
-<h2>进一步</h2>
-<ul>
-<li><a href="https://unifiedjs.com/learn/recipe/tree-traversal-typescript/">学习使用 TypeScript 遍历语法树</a></li>
-<li><a href="https://unifiedjs.com/learn/recipe/narrow-node-typescript/">学习压缩节点</a></li>
-<li><a href="https://unifiedjs.com/learn/recipe/build-a-syntax-tree/">学习构建语法树</a></li>
-</ul>
-]]></content:encoded>
-            <author>hi@ibert.me (Herbert He)</author>
-        </item>
-        <item>
-            <title><![CDATA[如何构建一颗语法树]]></title>
-            <link>https://ibert.me/posts/zh/如何构建一颗语法树.html</link>
-            <guid>https://ibert.me/posts/zh/如何构建一颗语法树.html</guid>
-            <pubDate>Tue, 26 Mar 2024 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[<blockquote>
-<p>原文链接：<a href="https://unifiedjs.com/learn/recipe/build-a-syntax-tree/">https://unifiedjs.com/learn/recipe/build-a-syntax-tree/</a></p>
-</blockquote>
-<p>当添加或者替换内容时，构建一颗新的语法树往往非常实用。使用纯对象和数组字面量(JSON) 或者用一个小工具编程来创建树，是可行的方案。甚至可以使用 JSX 来构建树。</p>
-<h2>JSON</h2>
-<p>创建树最基本的方法是使用纯对象和数组。为了避免类型问题，可以使用给定语法树语言的类型进行检查，在 <a href="https://github.com/syntax-tree/mdast">mdast</a> 的案例：</p>
-<pre><code class="language-typescript">import type { Root } from 'mdast'
-
-// Note the `: Root` is a TypeScript annotation. Remove it (and the import) for plain JavaScript.
-const mdast: Root = {
-  type: 'root',
-  children: [
-    {
-      type: 'paragraph',
-      children: [
-        {
-          type: 'text',
-          value: 'example'
-        }
-      ]
-    }
-  ]
-}
-</code></pre>
-<h2><code>unist-builder</code></h2>
-<p>也可以使用 <a href="https://unifiedjs.com/explore/package/unist-builder/"><code>unist-builder</code></a> 来构建树。它会使之更加简洁，类 &quot;hyperscript&quot; 的语法(也同样与 <code>React.createElement</code> 类似)：</p>
-<pre><code class="language-typescript">import { u } from 'unist-builder'
-
-const mdast = u('root', [
-  u('paragraph', [
-    u('text', 'example')
-  ])
-])
-</code></pre>
-<h2><code>hastscript</code></h2>
-<p>当使用 <a href="https://github.com/syntax-tree/hast">hast</a> (HTML) 时，可以使用 <a href="https://unifiedjs.com/explore/package/hastscript/"><code>hastscript</code></a>。</p>
-<pre><code class="language-typescript">import { h, s } from 'hastscript'
-
-console.log(
-  h('div#some-id.foo', [
-    h('span', 'some text'),
-    h('input', {type: 'text', value: 'foo'}),
-    h('a.alpha.bravo.charlie', {download: true}, 'delta')
-  ])
-)
-
-// SVG:
-console.log(
-  s('svg', {xmlns: 'http://www.w3.org/2000/svg', viewbox: '0 0 500 500'}, [
-    s('title', 'SVG `&lt;circle&gt;` element'),
-    s('circle', {cx: 120, cy: 120, r: 100})
-  ])
-)
-</code></pre>
-<p><code>hastscript</code> 也可以用作 JSX 配置注释：</p>
-<pre><code class="language-jsx">/** @jsx h @jsxFrag null */
-import { h } from 'hastscript'
-
-console.log(
-  &lt;form method=&quot;POST&quot;&gt;
-    &lt;input type=&quot;text&quot; name=&quot;foo&quot; /&gt;
-    &lt;input type=&quot;text&quot; name=&quot;bar&quot; /&gt;
-    &lt;input type=&quot;submit&quot; name=&quot;send&quot; /&gt;
-  &lt;/form&gt;
-)
-</code></pre>
-<h2><code>xastscript</code></h2>
-<p>当使用 <a href="https://github.com/syntax-tree/xast">xast</a> (XML) 时，可以使用 <a href="https://unifiedjs.com/explore/package/xastscript/"><code>xastscript</code></a>。</p>
-<pre><code class="language-typescript">import { x } from 'xastscript'
-
-console.log(
-  x('album', {id: 123}, [
-    x('name', 'Exile in Guyville'),
-    x('artist', 'Liz Phair'),
-    x('releasedate', '1993-06-22')
-  ])
-)
-</code></pre>
-<p><code>xastscript</code> 也可以用作 JSX 配置注释：</p>
-<pre><code class="language-jsx">/** @jsx x @jsxFrag null */
-import { x } from 'xastscript'
-
-console.log(
-  &lt;album id={123}&gt;
-    &lt;name&gt;Born in the U.S.A.&lt;/name&gt;
-    &lt;artist&gt;Bruce Springsteen&lt;/artist&gt;
-    &lt;releasedate&gt;1984-04-06&lt;/releasedate&gt;
-  &lt;/album&gt;
-)
-</code></pre>
-]]></content:encoded>
-            <author>hi@ibert.me (Herbert He)</author>
-        </item>
-        <item>
-            <title><![CDATA[为HomeAssistant创建一个自定义组件]]></title>
+            <title><![CDATA[为HomeAssistant创建一个自定义组件 📌]]></title>
             <link>https://ibert.me/posts/zh/为HomeAssistant创建一个自定义组件.html</link>
             <guid>https://ibert.me/posts/zh/为HomeAssistant创建一个自定义组件.html</guid>
             <pubDate>Sun, 24 Mar 2024 00:00:00 GMT</pubDate>
@@ -771,6 +440,337 @@ async def test_flow_user_init_invalid_auth_token(m_validate_auth, hass):
 <h3>下一步</h3>
 <p>通过这部分的代码，现在我们可以通过 UI 来设置和添加仓库，替代 <code>configuration.yaml</code> 文件。当你正在开发一个新的工作流，请确保在修改文件和重启 Home Assistant 之时，在浏览器中强制刷新。我注意到浏览器可以缓存信息，导致你看见过期的数据。</p>
 <p>在我们的实现中，有一个明显的问题是，不通过初始化流的方式创建一个新的 config entry 的话，没法去移除或者添加新的仓库。虽然可以工作，但是非常不理想的是每次都得重新输入 GitHub access token。在下一篇文章中，我们将使用 <a href="https://developers.home-assistant.io/docs/config_entries_options_flow_handler">OptionsFlowHandler</a> 去跳出这个限制。</p>
+]]></content:encoded>
+            <author>hi@ibert.me (Herbert He)</author>
+        </item>
+        <item>
+            <title><![CDATA[markdown自定义的思考 📌]]></title>
+            <link>https://ibert.me/posts/zh/markdown自定义的思考.html</link>
+            <guid>https://ibert.me/posts/zh/markdown自定义的思考.html</guid>
+            <pubDate>Sun, 07 Feb 2021 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<h2>写在前面的</h2>
+<p>已经记不清什么时候开始接触的markdown了，好像是从我的一个学长做了我们学校的大数据协会论坛开始的。如果我没记错的话用的还是b3log的开源项目，应该是使用的<a href="https://github.com/88250/symphony">Symphony</a>。后来听学长说太复杂了，维护无从下手然后删库跑路了😂</p>
+<p>也正是他画的这个饼，让我从零开始设计一个社区给不同学科、不同专业的同学来使用，之前实现过的版本并不是很满意（应该在我的链滴帖子里还能找到），然后又开始了重构之路。也正是不断的与markdown不同的编辑器接触，也让我对marked.js、markdown-it、for-editor、lute、vditor等等的编辑器、编译器、渲染器有了很多的接触，对于markdown及其拓展语法有了各种奇奇怪怪的想法</p>
+<!-- more -->
+<h2>for-editor-herb</h2>
+<p>for-editor是一个UI设计非常不错的编辑器，它的底层解析引擎为marked.js。marked.js对于markdown的解析渲染在前端非常有名，并且在很多的编辑器上面也得到了应用。for-editor很轻、很小、很美，但是也避免不了出现了不少的bug，也不支持很多的features。当时只算是个开源项目的萌新，给作者提PR没有得到回复，然后给作者发邮件还是没有回复23333我明显感觉到作者好像无意再继续维护下去了，在issues里面也帮助了一些老哥解决了一些问题。</p>
+<p>直到有个老哥建议我不如去自己新开一个仓库，然后自己来打包发布2333 其实吧，当时做前端顶多算个页面仔，也就是自己写写页面这个样子，压根也没接触过npm的库咋发布，然后就试错硬着头皮来呗。修复了很多的bug，一度怀疑人生😑尤其是那个编辑器-简直是噩梦，有兴趣的同学可以了解一下前端如何实现一个富文本编辑器🤣我当时一度怀疑我是不是在试图写一个word！！在编辑器开发里其实说问题吧，多也不多，也就是怎么撑开textarea、怎么控制焦点、怎么获取选区这点问题😈当然这只是开个玩笑，实操起来真的是怀疑人生。</p>
+<p>for-editor计算行号就明显有个问题，它的行号是基于 <code>\n</code> 来计算的，这根本是不准确的。在打开和关闭渲染的时候由于textarea的宽度会发生改变。这就直接会导致，其实字它会换行，其实这跟行号就完全不匹配了。后来我的改进方案是获取容器的实际高度，然后根据字高来算实际的行数。一般默认的字体大小 <code>font-size: 16px;</code> ，然后明面上解决了这个问题，但是还是没能解决开关渲染导致的不准确，因为根本不会触发height发生改变。。。这个很大程度上跟设计机制有关系（随便看一看HTML就知道问题了），不过整体体验影响还可以，虽然一度让我想重构整个编辑器。愚以为vscode的体验真的是神仙，vscode其实知道的都知道是基于electron开发的，叹为观止。。。</p>
+<p>上面就是举个例子，在for-editor里面也就实现了下面的一些功能，好像有老哥还把这个用于项目了😨</p>
+<ul>
+<li>更多的工具栏按钮</li>
+<li>支持数学公式的渲染</li>
+<li>支持响应式布局</li>
+<li>支持大纲跳转锚点</li>
+<li>支持大纲直接生成插入</li>
+<li>内置简繁体中文、英文和日文的支持</li>
+<li>支持自定义支持编辑器国际化</li>
+<li>支持GitHub Diff语法渲染（这个vditor好像并没有完全支持）</li>
+<li>支持自定义注册代码高亮的语言类型</li>
+<li>支持emoji短码渲染绘文字emoji</li>
+<li>支持<code>==markdown==</code> 语法行内高亮</li>
+</ul>
+<p>其实我之前还准备支持mermaid的，但是之前我一直没有解决渲染的问题，没找到渲染的时机，后来放弃支持了。到后来我其实比较抗拒维护这个项目了，因为我能明显感觉到渲染越来越慢。在这个项目的issue里，也有老哥给我安利过vditor，但是他貌似不会在React里面用emmm。这个项目我几乎调整了80%的代码结构，有一些问题不是很好修复，只能寄希望于重构😭 但是当时又在同步写着pyvm，没有想法继续重构下去。后来业务代码越来越多就没有继续了，被我Achieved了，有4个fork，应该还有老哥还在维护，项目可以在 <a href="https://goer.icu/for-editor-herb/">for-editor-herb</a> 体验。</p>
+<p>在这个项目的开发中，我为了实现一些解析语法去阅读了marked.js的源码。marked.js整个项目的灵魂在于正则表达式，里面的正则表达式写的非常非常厉害。在部分features实现的时候也参考了，marked.js一直到高级使用部分都非常非常熟悉。但是，性能和维护永远是最大的问题。</p>
+<h2>lute</h2>
+<p>先写lute的原因是vditor我一直在不断地关注着，并且一直发现问题和提feature疯狂“作妖”😁希望 @Vanessa V姐不会觉得我超级烦😥</p>
+<p>接触lute的原因是有一些feature依靠vditor没办法实现。举个例子，在React Native中如何实现markdown渲染？难道是套一个WebView加载H5？虽然在某些场景不得不去这么实现，比如依赖KaTeX做数学公式渲染、abcjs做五线谱渲染，要不就自己再写一个库？emmm WebView会有很多的限制，而且其实在移动端做markdown即时渲染的体验不会很好。即使是GitHub官方的APP也没有实现，然后我的眼光就放到了lute的身上23333</p>
+<p>lute是基于编译原理使用go开发的，刚好一不小心之前自学过golang，然后开始研究lute。看的很浅显，并没有关注生成AST的部分，自己关注的主要是在渲染的处理上。lute关于内部实现方面没有文档，只能自己去看源码。lute的代码结构设计很优秀，很容易上手去阅读定位具体的问题和实现的位置。</p>
+<p>分析需求和具体实现：基于lute直接实现组件渲染其实是不实际的，即使后来vditor支持了自定义渲染器，但是其实仍然是string类型的。而React Native的组件是JSX，所以我需要一棵树，自己根据这棵树来遍历递归渲染。很遗憾，lute其实并没有提供这个方法，lute并不是一个纯粹的解析器，而是同时是一个渲染器，直接生成了DOM！如果你尝试在js里面调用lute暴露的某些在godoc有的方法，会直接报错。</p>
+<p>其实，lute的节点细分比vditor多很多，好像是有一百四十多个。并且随着特性的不断增加，这个数量还在增加。最后还是实现了“这棵树”的输出，自lute v1.7.1之后支持，是 <code>lute.RenderJSON()</code> 这个方法。这棵树实现了vditor绝大多数支持的语法输出，但其实vditor有很多很多的渲染都是在前端完成的。其实依靠这个方法，是可以自行实现与vditor兼容的一个纯粹的渲染器，可以自行看lute的文档 <a href="https://github.com/88250/lute#%E5%85%B3%E4%BA%8E-luterenderjson-%E7%9A%84%E4%BD%BF%E7%94%A8">如何使用</a></p>
+<p>当我开始基于lute写npm包的时候，发现了一个很严重的问题。lute的包太大了，打包失败。lute是通过gopherjs打包成js的，没办法拆包。上文提到lute其实并不是一个纯粹的解析器，包含了渲染的部分，不知道 @88250 D哥有没有计划把解析的部分单独分离出去，新成立一个极高效率的markdown解析器的项目emmm</p>
+<p>如果你想要使用lute自定义渲染器，或者写个库什么的，这并不影响你在web端的使用。可以参考rollup外部依赖的这部分，通过CDN外部引入问题不大的，只是把lute打包会出现问题而已。</p>
+<h2>vditor</h2>
+<p>刚刚查了一下，在vditor总共提过9个issues，开始提的问题是极蠢的，对8起，浪费V姐的时间了。不过好像我提的好几个issue后来的版本实现了2333。比如这个 <a href="https://github.com/Vanessa219/vditor/issues/592">使用hint at方法报错</a> ，我希望通过拓展 <code>@</code> 这个方法，实现at的并不只是一个用户，甚至是可以引用一篇文章等。</p>
+<p>不过有一说一，我回顾了一下我的issue还是觉得有一些是真的low😥vditor的源码看了一部分，有的部分还是很有意思的，我也知道了vditor为什么有的方法那么实现。vditor的features更新速度总是比文档快很多，如果想尝鲜之类的话，建议去阅读源码（手动滑稽）</p>
+<p>不过，这几天发现vditor有一个问题我还是感觉挺严重的。当vditor和SSR一起使用的时候，可能会导致页面崩溃，甚至是浏览器崩溃。当你在sv模式下输入iframe这个HTML标签，可能会导致一些问题。具体讨论可以看这个issue <a href="https://github.com/Vanessa219/vditor/issues/918">#918</a> ，需求是在这个issue <a href="https://github.com/Vanessa219/vditor/issues/906">#906</a> 提出的。</p>
+<p><strong>需要提醒把vditor当作编辑器的项目，markdown原生支持HTML标签，所以除了开启vditor的安全过滤规避XSS攻击（默认打开的）之外，还需要过滤iframe这个标签！如果是论坛等交互式网站的话，可能无法控制用户通过iframe植入广告甚至是非法网站！</strong></p>
+<p>iframe渲染这个需求，其实实现起来并不简单，需要尤其注意过滤iframe的domain和减少iframe导致的GET请求，有的引用网站不排除有访问的风控。在上面issue的讨论里我提供了两种思路，目的就是为了iframe的请求和过滤非法域名，我已经自行实现了第一种思路，依赖下面介绍的库实现起来其实非常简单。其实就是延时渲染或者防抖，这些其实在前端优化里面都有实际的应用，每个人都有不同的实现方式，不赘述了。</p>
+<h2>codeblock-iframe语法</h2>
+<p>这是我在上面的思考中提出的一种语法，也许之前可能有人提也能不一定的。方法特别简单，即把iframe当作代码块处理，遵循TOML的语法，这样对代码侵入很小。</p>
+<p>基于这个思想，我写了两个库分别支持了webpack等打包工具的调用和web端直接通过script进行引用，并且为docsify写了插件支持这种语法。</p>
+<p>转化过程可以在这个demo里体验 <a href="https://goer.icu/codeblock-iframe/demo/">demo</a></p>
+<p>docsify的使用在这个demo里体验 <a href="https://goer.icu/docsify-codeblock-iframe/demo/#/">demo</a></p>
+<p>仓库地址如下</p>
+<ul>
+<li><a href="https://github.com/HerbertHe/toml2iframe">toml2iframe</a> 支持webpack等打包工具</li>
+<li><a href="https://github.com/HerbertHe/codeblock-iframe">codeblock-iframe</a> 支持web端通过CDN导入</li>
+<li><a href="https://github.com/HerbertHe/docsify-codeblock-iframe">docsify-codeblock-iframe</a> 为docsify提供的支持插件</li>
+</ul>
+<h2>Todos</h2>
+<p>在我的脑子里，还有很多很多的feature提供给markdown进行支持，比如最近对markdown支持化学结构式很感兴趣。看了现存的极少的实现方案，感觉不怎么样，可能的话只能自己去研究了，比如zrender</p>
+<p>因为自己是物理系的，对公式输入很敏感所以早都基于KaTeX尝试实现了Tex</p>
+<p>更多的想法的话，可能会为飞书写应用或者单独开发一个PC端为协同办公提供服务。虽然飞书的云文档很好用，但是还是避免不了它还是不能支撑很多的协同文档问题。所以，为团队的项目开发的话，可能会基于vditor实现一个协同文档的服务，有想法是借鉴slack实现。目标跟思源笔记的方向完全不一样，主要协同文档、文档安全、权限控制等，实现起来的架构设计和算法还是挺难的。</p>
+<p>因为idea太多了，导致自己写代码的速度跟不上哈哈哈哈哈</p>
+<h2>我的其他开源项目</h2>
+<p>就写我认为好用的吧，其他的小插件都在我的仓库里很好找的</p>
+<ul>
+<li><a href="https://github.com/NucoTech/nuco-backend-cli">nbc</a> 全称<strong>nuco-backend-cli</strong> 是我针对限制团队commit风格和开发有的常用需求写的命令行工具，基于golang开发，支持MacOS、Linux和Windows三端，已经投入平时的开发之中使用了，并且提供了详细的文档<a href="https://nucotech.github.io/nuco-backend-cli">使用文档</a></li>
+<li><a href="https://github.com/NucoTech/nuco-docsify">nuco-docsify</a> 这是为了团队项目生成文档模板的工具，支持很多feature。这样我们就不必要每一次都配置文档了，<code>nbc</code> 也提供了<code>nbc docs</code> 直接生成文档，并且可以通过<code>nbc serve</code> 直接启动静态预览！</li>
+</ul>
+<p>还有一些文档翻译什么的，如果你觉得好用的话给个Star嗷~哈哈哈哈</p>
+]]></content:encoded>
+            <author>hi@ibert.me (Herbert He)</author>
+        </item>
+        <item>
+            <title><![CDATA[如何使用TypeScript操作语法树]]></title>
+            <link>https://ibert.me/posts/zh/如何使用TypeScript操作语法树.html</link>
+            <guid>https://ibert.me/posts/zh/如何使用TypeScript操作语法树.html</guid>
+            <pubDate>Tue, 26 Mar 2024 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<blockquote>
+<p>原文链接：<a href="https://unifiedjs.com/learn/guide/syntax-trees-typescript/">https://unifiedjs.com/learn/guide/syntax-trees-typescript/</a></p>
+</blockquote>
+<p>本教程将向你介绍 TypeScript 使用 <a href="https://github.com/syntax-tree/unist">unist</a> 和 <a href="https://unifiedjs.com/explore/package/unified/">unified</a>。</p>
+<h2>基础</h2>
+<p>所有的 <a href="https://unifiedjs.com/explore/package/unified/">unified</a> 语法树都是基于 <a href="https://github.com/syntax-tree/unist">unist</a>(<strong>uni</strong>versal <strong>s</strong>yntax <strong>t</strong>ree)。可用的核心类型包只包含类型：<a href="https://www.npmjs.com/package/@types/unist"><code>@types/unist</code></a>。主要的类型是 <code>节点(Node)</code>，其他的都继承于此。<code>字面量(Literal)</code> 和 <code>父节点(Parent)</code> 这些更具体的类型也是继承于 <code>节点(Node)</code>。</p>
+<p>由 <a href="https://github.com/syntax-tree/unist">unist</a> 提供的类型为抽象接口(Abstract Interfaces)，通常情况下，你需要根据所使用的语言来选择更加实用的接口。<a href="https://unifiedjs.com/explore/package/unified/">unified</a> 所支持的每种语言，例如：markdown、HTML 和 XML 都有他们自己继承于 <code>unist</code> 的语法树标准。</p>
+<p>让我们一起来看看。</p>
+<h2>unist</h2>
+<h3><code>节点(Node)</code></h3>
+<p><code>节点(Node)</code> 是语法树的句法单位。每个节点都继承于 <code>节点(Node)</code>（有时候是 <code>字面量(Literal)</code> 或者 <code>父节点(Parent)</code>）。并且设置 <code>type</code> 为一个 <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types">字符串字面量(string literal)</a>。这个类型字段用于告诉我们节点内容的类型是什么。这个字段唯一标识一种内容，在 TypeScript 中，被称为 <a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions">可辨识联合/可区分联合(discriminated union)</a>。举个在 ，markdown(<a href="https://github.com/syntax-tree/mdast">mdast</a>) 中的例子：<code>Node</code> 被继承用于一些节点 <code>Heading</code> 或 <code>Link</code>，以取代使用 <code>type</code> 字段设置为 <code>heading</code> 和 <code>link</code>。</p>
+<p>一个节点可以可选地包含一个 <code>Data</code> 接口于 <code>data</code> 字段。这是一个对象用于存储额外的原始数据，并不是节点的标准，但在生态中被定义（工具类(utilities)和插件(plugins)）。</p>
+<p>当从文件中解析语法树时，会包含坐标信息：一个 <code>Position</code> 接口于 <code>position</code> 字段，这用于描述节点在源文件中的位置。</p>
+<pre><code class="language-typescript">/**
+ * Syntactic units in unist syntax trees are called nodes.
+ */
+interface Node {
+  /**
+   * The variant of a node.
+   */
+  type: string
+
+  /**
+   * Information from the ecosystem.
+   */
+  data?: Data | undefined
+
+  /**
+   * Location of a node in a source document.
+   * Must not be present if a node is generated.
+   */
+  position?: Position | undefined
+}
+
+/**
+ * Information associated by the ecosystem with the node.
+ * Space is guaranteed to never be specified by unist or specifications
+ * implementing unist.
+ */
+export interface Data {
+  [key: string]: unknown
+}
+
+/**
+ * Location of a node in a source file.
+ */
+export interface Position {
+  /**
+   * Place of the first character of the parsed source region.
+   */
+  start: Point
+
+  /**
+   * Place of the first character after the parsed source region.
+   */
+  end: Point
+
+  /**
+   * Start column at each index (plus start line) in the source region,
+   * for elements that span multiple lines.
+   */
+  indent?: number[] | undefined
+}
+
+</code></pre>
+<h3><code>字面量(Literal)</code></h3>
+<p><code>字面量(Literal)</code> 继承于 <code>节点(Node)</code>，并添加了一个 <code>value</code> 属性。举个例子，一个 markdown <code>Code</code> 节点继承 <code>Literal</code>，并设置 <code>value</code> 为 <code>string</code>。</p>
+<pre><code class="language-typescript">/**
+ * Nodes containing a value.
+ */
+export interface Literal extends Node {
+  value: unknown
+}
+</code></pre>
+<h3><code>父节点(Parent)</code></h3>
+<p><code>父节点(Parent)</code> 继承于 <code>节点(Node)</code>，并添加了一个 <code>子节点(children)</code> 属性。子节点代表其他内容在 <code>父节点(Parent)</code> 内部，或者就是这个节点的一部分。</p>
+<pre><code class="language-typescript">/**
+ * Nodes containing other nodes.
+ */
+export interface Parent extends Node {
+  /**
+   * List representing the children of a node.
+   */
+  children: Node[];
+}
+</code></pre>
+<h3>在项目中拉取 unist</h3>
+<p>安装：</p>
+<pre><code class="language-bash">npm install --save-dev @types/unist
+</code></pre>
+<p>在一个 TypeScript 文件中导入类型，如下：</p>
+<pre><code class="language-typescript">import type { Node, Literal, Parent } from 'unist'
+</code></pre>
+<p>在 <a href="https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html">JSDoc TypeScript</a> 导入类型，如下：</p>
+<pre><code class="language-typescript">/**
+ * @typedef {import('unist').Node} Node
+ * @typedef {import('unist').Literal} Literal
+ * @typedef {import('unist').Parent} Parent
+ */
+</code></pre>
+<h2>mdast(markdown)</h2>
+<p><a href="https://github.com/syntax-tree/mdast">mdast</a> (<strong>m</strong>arkdown <strong>a</strong>bstract <strong>s</strong>yntax <strong>t</strong>ree) 继承于 <a href="https://github.com/syntax-tree/unist">unist</a>，并且为 markdown 具像化类型，例如 <code>Heading</code> <code>Code</code> <code>Link</code> 等。这些具像化的类型包含了一个完整的节点列表。这些类型可以通过一个类型包进行使用。<a href="https://www.npmjs.com/package/@types/mdast"><code>@types/mdast</code></a>。</p>
+<p>安装：</p>
+<pre><code class="language-bash">npm install --save-dev @types/mdast
+</code></pre>
+<p>在一个 TypeScript 文件中导入类型，如下：</p>
+<pre><code class="language-typescript">import type { Heading, Code, Link } from 'mdast'
+</code></pre>
+<p>在 <a href="https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html">JSDoc TypeScript</a> 导入类型，如下：</p>
+<pre><code class="language-typescript">/**
+ * @typedef {import('mdast').Heading} Heading
+ * @typedef {import('mdast').Code} Code
+ * @typedef {import('mdast').Link} Link
+ */
+</code></pre>
+<h2>hast(HTML)</h2>
+<p><a href="https://github.com/syntax-tree/hast">hast</a> (<strong>h</strong>ypertext <strong>a</strong>bstract <strong>s</strong>yntax <strong>t</strong>ree) 继承于 <a href="https://github.com/syntax-tree/unist">unist</a>，并且为 HTML 具像化类型，例如 <code>Element</code> <code>Comment</code> <code>DocType</code> 等。这些具像化的类型包含了一个完整的节点列表。这些类型可以通过一个类型包进行使用。<a href="https://www.npmjs.com/package/@types/hast"><code>@types/hast</code></a>。</p>
+<p>安装：</p>
+<pre><code class="language-bash">npm install --save-dev @types/hast
+</code></pre>
+<p>在一个 TypeScript 文件中导入类型，如下：</p>
+<pre><code class="language-typescript">import type { Element, Comment, DocType } from 'hast'
+</code></pre>
+<p>在 <a href="https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html">JSDoc TypeScript</a> 导入类型，如下：</p>
+<pre><code class="language-typescript">/**
+ * @typedef {import('hast').Element} Element
+ * @typedef {import('hast').Comment} Comment
+ * @typedef {import('hast').DocType} DocType
+ */
+</code></pre>
+<h2>xast(XML)</h2>
+<p><a href="https://github.com/syntax-tree/xast#readme">xast</a> (e<strong>x</strong>tensible <strong>a</strong>bstract <strong>s</strong>yntax <strong>t</strong>ree) 继承于 <a href="https://github.com/syntax-tree/unist">unist</a>，并且为 XML 具像化类型，例如 <code>Element</code> <code>CData</code> <code>Instruction</code> 等。这些具像化的类型包含了一个完整的节点列表。这些类型可以通过一个类型包进行使用。<a href="https://www.npmjs.com/package/@types/xast"><code>@types/xast</code></a>。</p>
+<p>安装：</p>
+<pre><code class="language-bash">npm install --save-dev @types/xast
+</code></pre>
+<p>在一个 TypeScript 文件中导入类型，如下：</p>
+<pre><code class="language-typescript">import type { Element, CData, Instruction } from 'xast'
+</code></pre>
+<p>在 <a href="https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html">JSDoc TypeScript</a> 导入类型，如下：</p>
+<pre><code class="language-typescript">/**
+ * @typedef {import('xast').Element} Element
+ * @typedef {import('xast').CData} CData
+ * @typedef {import('xast').Instruction} Instruction
+ */
+</code></pre>
+<h2>总结</h2>
+<ul>
+<li><a href="https://unifiedjs.com/explore/package/unified/">unified</a> 提供了不同语言的语法树类型</li>
+<li>这些类型可以被 TypeScript 和 JSDoc 项目导入</li>
+</ul>
+<h2>进一步</h2>
+<ul>
+<li><a href="https://unifiedjs.com/learn/recipe/tree-traversal-typescript/">学习使用 TypeScript 遍历语法树</a></li>
+<li><a href="https://unifiedjs.com/learn/recipe/narrow-node-typescript/">学习压缩节点</a></li>
+<li><a href="https://unifiedjs.com/learn/recipe/build-a-syntax-tree/">学习构建语法树</a></li>
+</ul>
+]]></content:encoded>
+            <author>hi@ibert.me (Herbert He)</author>
+        </item>
+        <item>
+            <title><![CDATA[如何构建一颗语法树]]></title>
+            <link>https://ibert.me/posts/zh/如何构建一颗语法树.html</link>
+            <guid>https://ibert.me/posts/zh/如何构建一颗语法树.html</guid>
+            <pubDate>Tue, 26 Mar 2024 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<blockquote>
+<p>原文链接：<a href="https://unifiedjs.com/learn/recipe/build-a-syntax-tree/">https://unifiedjs.com/learn/recipe/build-a-syntax-tree/</a></p>
+</blockquote>
+<p>当添加或者替换内容时，构建一颗新的语法树往往非常实用。使用纯对象和数组字面量(JSON) 或者用一个小工具编程来创建树，是可行的方案。甚至可以使用 JSX 来构建树。</p>
+<h2>JSON</h2>
+<p>创建树最基本的方法是使用纯对象和数组。为了避免类型问题，可以使用给定语法树语言的类型进行检查，在 <a href="https://github.com/syntax-tree/mdast">mdast</a> 的案例：</p>
+<pre><code class="language-typescript">import type { Root } from 'mdast'
+
+// Note the `: Root` is a TypeScript annotation. Remove it (and the import) for plain JavaScript.
+const mdast: Root = {
+  type: 'root',
+  children: [
+    {
+      type: 'paragraph',
+      children: [
+        {
+          type: 'text',
+          value: 'example'
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<h2><code>unist-builder</code></h2>
+<p>也可以使用 <a href="https://unifiedjs.com/explore/package/unist-builder/"><code>unist-builder</code></a> 来构建树。它会使之更加简洁，类 &quot;hyperscript&quot; 的语法(也同样与 <code>React.createElement</code> 类似)：</p>
+<pre><code class="language-typescript">import { u } from 'unist-builder'
+
+const mdast = u('root', [
+  u('paragraph', [
+    u('text', 'example')
+  ])
+])
+</code></pre>
+<h2><code>hastscript</code></h2>
+<p>当使用 <a href="https://github.com/syntax-tree/hast">hast</a> (HTML) 时，可以使用 <a href="https://unifiedjs.com/explore/package/hastscript/"><code>hastscript</code></a>。</p>
+<pre><code class="language-typescript">import { h, s } from 'hastscript'
+
+console.log(
+  h('div#some-id.foo', [
+    h('span', 'some text'),
+    h('input', {type: 'text', value: 'foo'}),
+    h('a.alpha.bravo.charlie', {download: true}, 'delta')
+  ])
+)
+
+// SVG:
+console.log(
+  s('svg', {xmlns: 'http://www.w3.org/2000/svg', viewbox: '0 0 500 500'}, [
+    s('title', 'SVG `&lt;circle&gt;` element'),
+    s('circle', {cx: 120, cy: 120, r: 100})
+  ])
+)
+</code></pre>
+<p><code>hastscript</code> 也可以用作 JSX 配置注释：</p>
+<pre><code class="language-jsx">/** @jsx h @jsxFrag null */
+import { h } from 'hastscript'
+
+console.log(
+  &lt;form method=&quot;POST&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;foo&quot; /&gt;
+    &lt;input type=&quot;text&quot; name=&quot;bar&quot; /&gt;
+    &lt;input type=&quot;submit&quot; name=&quot;send&quot; /&gt;
+  &lt;/form&gt;
+)
+</code></pre>
+<h2><code>xastscript</code></h2>
+<p>当使用 <a href="https://github.com/syntax-tree/xast">xast</a> (XML) 时，可以使用 <a href="https://unifiedjs.com/explore/package/xastscript/"><code>xastscript</code></a>。</p>
+<pre><code class="language-typescript">import { x } from 'xastscript'
+
+console.log(
+  x('album', {id: 123}, [
+    x('name', 'Exile in Guyville'),
+    x('artist', 'Liz Phair'),
+    x('releasedate', '1993-06-22')
+  ])
+)
+</code></pre>
+<p><code>xastscript</code> 也可以用作 JSX 配置注释：</p>
+<pre><code class="language-jsx">/** @jsx x @jsxFrag null */
+import { x } from 'xastscript'
+
+console.log(
+  &lt;album id={123}&gt;
+    &lt;name&gt;Born in the U.S.A.&lt;/name&gt;
+    &lt;artist&gt;Bruce Springsteen&lt;/artist&gt;
+    &lt;releasedate&gt;1984-04-06&lt;/releasedate&gt;
+  &lt;/album&gt;
+)
+</code></pre>
 ]]></content:encoded>
             <author>hi@ibert.me (Herbert He)</author>
         </item>
