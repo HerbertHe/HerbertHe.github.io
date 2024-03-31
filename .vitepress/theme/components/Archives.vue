@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div v-for="(yearList, index) in data" class="yearItem">
+    <div v-for="yearList in data" class="yearItem">
       <div class="year">
         <!-- 对此进行修正，支持 pined -->
         {{ !!yearList[0].pin ? "Pinned 📌" : yearList[0].frontMatter.date.split("-")[0] }}
