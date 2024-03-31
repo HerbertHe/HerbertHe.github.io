@@ -63,6 +63,10 @@
     padding-bottom: 0 !important;
 }
 
+html:not(.dark) .language-txt .vp-code span {
+    color: white !important;
+}
+
 @media (min-width: 768px) {
     .VPHome,
     .VPContent,

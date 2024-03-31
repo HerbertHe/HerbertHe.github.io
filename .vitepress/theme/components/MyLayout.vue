@@ -2,6 +2,7 @@
   <Layout>
     <template #doc-before>
       <Title />
+      <div id="category-container"></div>
       <Category />
     </template>
     <template #doc-after>

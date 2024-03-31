@@ -755,6 +755,11 @@ domutils@^2.4.2, domutils@^2.5.2, domutils@^2.8.0:
     domelementtype "^2.2.0"
     domhandler "^4.2.0"
 
+easyqrcodejs@^4.6.1:
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/easyqrcodejs/-/easyqrcodejs-4.6.1.tgz#e9b2230852cda7a63ecb47d9b3856348cc29a52c"
+  integrity sha512-J9C7UOJ67sZvu1Ei6JS/YHgmTVfl7jD+zPloxZGMtjGz+r9s0APJVxdPlGIYJsI9JEfgE6Q3ZfMEl/6+TL4BGA==
+
 entities@^2.0.0:
   version "2.2.0"
   resolved "https://registry.npmmirror.com/entities/-/entities-2.2.0.tgz#098dc90ebb83d8dffa089d55256b351d34c4da55"

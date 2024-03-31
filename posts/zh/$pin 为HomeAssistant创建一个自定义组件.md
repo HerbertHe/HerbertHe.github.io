@@ -44,7 +44,7 @@ tags: [ homeassistant, ha, 自定义组件, 教程 ]
 
 让我们安装 [cokkiecutter](https://github.com/cookiecutter/cookiecutter)，并且通过问答的方式创建我们的工程。
 
-```text
+```txt
 $ pip install cookiecutter
 $ cookiecutter https://github.com/boralyl/cookiecutter-homeassistant-component
 domain [my_component]: github_custom
@@ -121,7 +121,7 @@ sensor:
 
 我们不需要去修改任何内容，所以配置方案与官方集成的完全一致：
 
-```text
+```txt
 REPO_SCHEMA = vol.Schema(
     {vol.Required(CONF_PATH): cv.string, vol.Optional(CONF_NAME): cv.string}
 )
@@ -345,7 +345,7 @@ pre-commit install
 
 现在，下次你进行提交的时候，它将运行所有的检查来检查你的试图提交，任一检查失败就将失败。一个成功的提交如下面的输出：
 
-```text
+```txt
 $ git commit -a
 pyupgrade..........................Passed
 black..............................Passed
@@ -359,7 +359,7 @@ mypy...............................Passed
 
 失败的检查可能像这样：
 
-```text
+```txt
 $ git commit -a
 pyupgrade........................(no files to check)Skipped
 black............................(no files to check)Skipped
