@@ -26,7 +26,6 @@
   },
   "dependencies": {
     "@giscus/vue": "^3.0.0",
-    "dayjs": "^1.11.10",
-    "easyqrcodejs": "^4.6.1"
+    "dayjs": "^1.11.10"
   }
 }

@@ -22,7 +22,6 @@ import { getHeaders } from "../utils";
 const { frontmatter, theme } = useData();
 const headers = shallowRef<any>([]);
 const showIndent = ref(false);
-const domRef = ref("#app")
 
 onContentUpdated(() => {
   headers.value = getHeaders(frontmatter.value.outline ?? theme.value.outline);
