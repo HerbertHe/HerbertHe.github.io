@@ -15,17 +15,17 @@
           </li>
         </ul>
       </div>
-      <div class="qrcode-container">
+      <!-- <div class="qrcode-container">
         <div>Scan the QRcode to visit on mobile phone</div>
         <div id="qrcode"></div>
-      </div>
+      </div> -->
     </div>
   </Teleport>
 </template>
 <script lang="ts" setup>
 import { useData, onContentUpdated } from "vitepress";
 import { shallowRef, ref, onMounted, onUpdated } from "vue";
-import QRCode from "easyqrcodejs"
+// import QRCode from "easyqrcodejs"
 import { getHeaders } from "../utils";
 
 const { frontmatter, theme } = useData();
@@ -56,17 +56,17 @@ onMounted(() => {
   }
 })
 
-onUpdated(() => {
-  const qrcode = document.getElementById("qrcode")!
-  if (qrcode?.childNodes.length > 0) {
-    qrcode.removeChild(qrcode.childNodes[0])
-  }
-  new QRCode(qrcode, {
-    text: location.href,
-    width: 128,
-    height: 128,
-  })
-})
+// onUpdated(() => {
+//   const qrcode = document.getElementById("qrcode")!
+//   if (qrcode?.childNodes.length > 0) {
+//     qrcode.removeChild(qrcode.childNodes[0])
+//   }
+//   new QRCode(qrcode, {
+//     text: location.href,
+//     width: 128,
+//     height: 128,
+//   })
+// })
 </script>
 <style scoped>
 .container {
@@ -90,7 +90,7 @@ onUpdated(() => {
   max-height: 23rem !important;
 }
 
-.qrcode-container {
+/* .qrcode-container {
   width: 100%;
   display: flex;
   margin-top: 2rem;
@@ -98,7 +98,7 @@ onUpdated(() => {
   background-color: var(--vp-c-bg-alt);
   border-radius: 1rem;
   font-size: smaller;
-}
+} */
 
 @media screen and (max-width: 1340px) {
   .container {
@@ -115,11 +115,11 @@ onUpdated(() => {
     flex: 1;
   }
 
-  .qrcode-container {
+  /* .qrcode-container {
     margin-top: 0;
     margin-left: 1rem;
     width: 16rem;
-  }
+  } */
 }
 
 @media screen and (max-width: 768px) {
@@ -127,9 +127,9 @@ onUpdated(() => {
     width: 100%;
   }
 
-  .qrcode-container {
+  /* .qrcode-container {
     display: none;
-  }
+  } */
 }
 
 .list {
