@@ -4,7 +4,7 @@
         <title>Herbert He</title>
         <link>https://ibert.me/</link>
         <description>Herbert He's Blog</description>
-        <lastBuildDate>Sat, 30 Mar 2024 14:12:59 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 31 Mar 2024 08:47:42 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -372,7 +372,7 @@ console.log(
 </ul>
 <h2>构建一个 Home Assistant 自定义组件</h2>
 <h2>第一部分：项目结构和基础</h2>
-<h3>介绍</h3>
+<h3>摘要</h3>
 <p>这个系列的文章为一个教程，旨在教会我们为 Home Assistant 创建一个自定义组件。我们将从一个组件骨架开始，然后在每篇教程里添加内容。在本系列教程文章的最后，你将会拥有一个完整的功能组件，至少可以在 <a href="https://developers.home-assistant.io/docs/integration_quality_scale_index/">集成质量衡量(Integration Quality Scale)</a> 中拿到 Sliver 级别的分数。</p>
 <p>在这个项目中，我们将使用 <a href="https://developer.github.com/v3/">GitHub API</a> 来为我们的组件提供数据。这已经有一个存在的 <a href="https://www.home-assistant.io/integrations/github/">GitHub 集成</a>，但我们将自己去实现并尝试去通过单元测试去提升这个已有的组件质量。可以通过 UI 来进行配置，并添加一些实用的功能。</p>
 <p>每篇文章都是 <a href="https://github.com/boralyl/github-custom-component-tutorial">GitHub 仓库</a> 的不同分支。所以你可以在自己的编辑器中跟随学习，或者浏览适当分支中的代码。此部分的更改都可以在 <a href="https://github.com/boralyl/github-custom-component-tutorial/compare/feature/bare-repo...feature/part1?expand=1">feature/part1 分支</a> 中查阅。</p>
@@ -484,7 +484,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 <blockquote>
 <p>原文链接：<a href="https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_2/">https://aarongodfrey.dev/home automation/building_a_home_assistant_custom_component_part_2/</a></p>
 </blockquote>
-<h3>介绍</h3>
+<h3>摘要</h3>
 <p>这篇教程我们将讨论如何对自定义组件进行单元测试，并和 GitHub 的持续集成一起使用。我们仍然使用一样的示例项目 <a href="https://github.com/boralyl/github-custom-component-tutorial">github-custom-component</a>，我已经为此添加了单元测试和一些持续集成的配置。你可以在 <a href="https://github.com/boralyl/github-custom-component-tutorial/compare/feature/part1...feature/part2?expand=1">feature/part2 分支</a> 寻找这篇文章带来的差异。</p>
 <h3>单元测试</h3>
 <p>通常来说测试 Home Assistant 自定义组件并没有什么特殊之处，与其他的 python 项目的流程非常相似。然而，在某些情况下，访问一些 Home Assistant 的特定功能会使编写测试变得容易得多。</p>
@@ -640,6 +640,134 @@ mypy.............................(no files to check)Skipped
 <h3>结语</h3>
 <p>在这篇文章中，我们接触了如何在自定义组件中开始单元测试，并将此与 GitHub 工作流的持续集成或者第三方解决方案连接起来。使用这些将会使你的自定义组件不仅更加健壮和无 bug，并且与 Home Assistant 核心代码的标准保持一致。</p>
 <p>在下篇文章中，我们将关注于如何在 <a href="https://github.com/boralyl/github-custom-component-tutorial/">github-custom-component-tutorial</a> 项目中添加 <a href="https://developers.home-assistant.io/docs/config_entries_config_flow_handler">配置流Config Flow</a>。</p>
+<h2>第三部分：配置流</h2>
+<h3>摘要</h3>
+<p>在这篇文章中，我们将更新自定义组件，使之可以通过 UI 进行配置，通过添加 <a href="https://developers.home-assistant.io/docs/config_entries_config_flow_handler">配置流</a> 进行实现。我们仍然使用相同的示例项目 <a href="https://github.com/boralyl/github-custom-component-tutorial">github-component-tutorial</a>。你可以在 <a href="https://github.com/boralyl/github-custom-component-tutorial/compare/feature/part2...feature/part3">feature/part3</a> 分支查看本篇文章带来的不同。</p>
+<h3>更新 manifest.json</h3>
+<p>首先，我们需要更新 <code>manifest.json</code> 文件。将 <code>config_flow</code> 的值设为 <code>true</code>，这一步是让 Home Assistant 知道这个组件可以通过配置 UI 添加。</p>
+<pre><code class="language-diff">{
+   &quot;codeowners&quot;: [&quot;@boralyl&quot;],
+-  &quot;config_flow&quot;: false,
++  &quot;config_flow&quot;: true,
+   &quot;dependencies&quot;: [],
+   &quot;documentation&quot;: &quot;https://github.com/boralyl/github-custom-component-tutorial&quot;,
+   &quot;domain&quot;: &quot;github_custom&quot;,
+</code></pre>
+<h3>添加配置流</h3>
+<p>接下来，我们将创建自己的 <a href="https://github.com/boralyl/github-custom-component-tutorial/blob/master/custom_components/github_custom/config_flow.py">config_flow.py</a> 文件。在这这个文件中，我们将继承 <code>ConfigFlow</code> 类，并且定义当用户首次配置组件时所在 UI 展示的不同步骤。</p>
+<p>截止本文撰写，通过配置流，拥有需要未知大小的配置值列表的组件并不是最简单的事情。为了绕过这个限制，我决定设计配置流有两个步骤。第一步是问询用户的 GitHub access token 和可选的 enterprise server URL。提交该信息后，用户将进入第二步，该步骤允许他们为其输入存储库和可选名称。为了允许用户添加额外的存储库，我添加了一个复选框，如果选中该复选框将重复第二步。用户可以重复多次去添加仓库，直到他们添加所有为创建传感器的仓库。</p>
+<h3>用户步骤</h3>
+<p>当用户点击添加按钮和选择 GitHub Custom 集成的时候，我们配置流类的 <a href="https://github.com/boralyl/github-custom-component-tutorial/blob/master/custom_components/github_custom/config_flow.py#L55">async_step_user</a> 方法将被调用。</p>
+<p><img src="https://aarongodfrey.dev/assets/images/0014_init_flow.gif" alt="gif"></p>
+<p>让我们看看那这个方法做了什么。</p>
+<pre><code class="language-python">async def async_step_user(self, user_input: Optional[Dict[str, Any]] = None):
+    &quot;&quot;&quot;Invoked when a user initiates a flow via the user interface.&quot;&quot;&quot;
+    errors: Dict[str, str] = {}
+    if user_input is not None:
+        try:
+            await validate_auth(user_input[CONF_ACCESS_TOKEN], self.hass)
+        except ValueError:
+            errors[&quot;base&quot;] = &quot;auth&quot;
+        if not errors:
+            # Input is valid, set data.
+            self.data = user_input
+            self.data[CONF_REPOS] = []
+            # Return the form of the next step.
+            return await self.async_step_repo()
+
+    return self.async_show_form(
+        step_id=&quot;user&quot;, data_schema=AUTH_SCHEMA, errors=errors
+    )
+</code></pre>
+<p>在这一步首次被调用的时候，变量 <code>user_input</code> 的默认值为 <code>None</code>。当用户点击提交按钮的时候，变量的值将被填入一个包含他们输入数据的字典。Home Assistant 将基于你定义的数据结构代表你去做一些基本的验证检查。我添加了一些额外的验证方法，确保 access token 是合法的。如果失败了，我们将为 <code>auth</code> 设置基本错误。这个值与 <a href="https://github.com/boralyl/github-custom-component-tutorial/blob/master/custom_components/github_custom/strings.json#L4">strings.json</a> 中的 errors 对象相关，将展示在此定义的描述。</p>
+<p>如果没错误，数据将会被存储在类的 <code>self.data</code> 属性。除了存储输入的数据，我也为下一步添加的仓库初始化了一个空列表。最后，我们调用下一步的 <code>async_step_repo</code> 方法去推进用户进入第二步的表单，以输入他们所有想监控的仓库。</p>
+<h3>仓库步骤</h3>
+<p>在用户成功完成初始化步骤之后，<a href="https://github.com/boralyl/github-custom-component-tutorial/blob/master/custom_components/github_custom/config_flow.py#L74">async_step_repo</a> 方法被调用。这一步是响应式展示输入仓库信息的表单。如果用户选择了 <code>Add another repo</code>，我们将在提交之后保存输入的数据并重置表单。</p>
+<p><img src="https://aarongodfrey.dev/assets/images/0014_repo_flow.gif" alt="gif"></p>
+<p>这个方法的逻辑和第一步的非常相似。</p>
+<pre><code class="language-python">async def async_step_repo(self, user_input: Optional[Dict[str, Any]] = None):
+    &quot;&quot;&quot;Second step in config flow to add a repo to watch.&quot;&quot;&quot;
+    errors: Dict[str, str] = {}
+    if user_input is not None:
+        # Validate the path.
+        try:
+            validate_path(user_input[CONF_PATH])
+        except ValueError:
+            errors[&quot;base&quot;] = &quot;invalid_path&quot;
+
+        if not errors:
+            # Input is valid, set data.
+            self.data[CONF_REPOS].append(
+                {
+                    &quot;path&quot;: user_input[CONF_PATH],
+                    &quot;name&quot;: user_input.get(CONF_NAME, user_input[CONF_PATH]),
+                }
+            )
+            # If user ticked the box show this form again so they can add an
+            # additional repo.
+            if user_input.get(&quot;add_another&quot;, False):
+                return await self.async_step_repo()
+
+            # User is done adding repos, create the config entry.
+            return self.async_create_entry(title=&quot;GitHub Custom&quot;, data=self.data)
+
+    return self.async_show_form(
+        step_id=&quot;repo&quot;, data_schema=REPO_SCHEMA, errors=errors
+    )
+</code></pre>
+<p>一个关键的不同点是，如果 <code>add_another</code> 复选框被选中，我们将返回当前的步骤。当用户完成最后一步时，调用 <code>async_create_entry</code> 方法创建我们的 config entry 并在 Home Assistant 中注册。</p>
+<h3>设置 Config Entry</h3>
+<p>下一件需要做的事情是，通过 config entry 设置我们创建的传感器。在 <code>__init__.py</code> 文件，我们定义了 <code>async_setup_entry</code> 函数将转发任务到 sensor platform。更多关于这如何工作的细节，我建议你去看非常棒的 <a href="https://developers.home-assistant.io/docs/config_entries_index/">专题文档</a>。</p>
+<pre><code class="language-python">async def async_setup_entry(
+    hass: core.HomeAssistant, entry: config_entries.ConfigEntry
+) -&gt; bool:
+    &quot;&quot;&quot;Set up platform from a ConfigEntry.&quot;&quot;&quot;
+    hass.data.setdefault(DOMAIN, {})
+    hass.data[DOMAIN][entry.entry_id] = entry.data
+
+    # Forward the setup to the sensor platform.
+    hass.async_create_task(
+        hass.config_entries.async_forward_entry_setup(entry, &quot;sensor&quot;)
+    )
+    return True
+</code></pre>
+<p>在上面的方法中，我们在 hass 自己的 <code>DOMAIN</code> 字段下存储了 config entry 的数据。这样允许我们存储用户多次配置集成的 config entries。可能他们拥有一个 enterprise server 账户为了工作和一个常规的个人账户。他们可以设置两个不同的输入，连链接那些不同的情况。</p>
+<p>我们将转发这些设置到 <code>sensor</code> platform。在 <a href="https://github.com/boralyl/github-custom-component-tutorial/blob/master/custom_components/github_custom/sensor.py">sensor.py</a> 中，我们添加了一个接收 config entry 实例，并为组件创建传感器的 <code>async_setup_entry</code> 函数。你会注意到这个函数近似等同于下面的 <code>async_setup_platform</code> 函数，这个函数被用于从 <code>configuration.yaml</code> 设置传感器。唯一的区别是我们从 config entry 实例中获取配置数据。</p>
+<pre><code class="language-python">async def async_setup_entry(
+    hass: core.HomeAssistant,
+    config_entry: config_entries.ConfigEntry,
+    async_add_entities,
+):
+    &quot;&quot;&quot;Setup sensors from a config entry created in the integrations UI.&quot;&quot;&quot;
+    config = hass.data[DOMAIN][config_entry.entry_id]
+    session = async_get_clientsession(hass)
+    github = GitHubAPI(session, &quot;requester&quot;, oauth_token=config[CONF_ACCESS_TOKEN])
+    sensors = [GitHubRepoSensor(github, repo) for repo in config[CONF_REPOS]]
+    async_add_entities(sensors, update_before_add=True)
+</code></pre>
+<h3>翻译</h3>
+<p>我简要创建了 <a href="https://github.com/boralyl/github-custom-component-tutorial/blob/master/custom_components/github_custom/strings.json">strings.json</a> 用于解释错误是如何被定义的。这个文件包含了在配置流进程中被使用的字符串。我将 <code>strings.json</code> 文件复制到了 <code>translations</code> 文件夹下，并将其改为 <code>en.json</code> 表示因为翻译。你可以如你所想添加doge翻译文件，可以使用两个字符的 ISO<br>
+639-2 语言代码来命名。所有的字段必须和 <code>strings.json</code> 保持一致，其值为翻译后的字符串。举个例子，在我的组件里有另外的挪威语翻译：<a href="https://github.com/boralyl/steam-wishlist/blob/master/custom_components/steam_wishlist/translations/nb.json">nb.json</a>。</p>
+<p>获取更多在自定义组件中的翻译信息，查阅 <a href="https://developers.home-assistant.io/docs/internationalization/custom_integration/#translation-strings">官方文档</a>。</p>
+<h3>单元测试</h3>
+<p>我想简要说一下如何对配置流进行单元测试。如果你安装和使用了 <a href="https://github.com/MatthewFlamm/pytest-homeassistant-custom-component">pytest-homeassistant-custom-component</a>，你可以使用一些 pytest fixtures 来简化测试。</p>
+<p>让我们看一看如果 GitHub access token 是非法的，如何进行验证并展示错误。</p>
+<pre><code class="language-python">@patch(&quot;custom_components.github_custom.config_flow.validate_auth&quot;)
+async def test_flow_user_init_invalid_auth_token(m_validate_auth, hass):
+    &quot;&quot;&quot;Test errors populated when auth token is invalid.&quot;&quot;&quot;
+    m_validate_auth.side_effect = ValueError
+    _result = await hass.config_entries.flow.async_init(
+        config_flow.DOMAIN, context={&quot;source&quot;: &quot;user&quot;}
+    )
+    result = await hass.config_entries.flow.async_configure(
+        _result[&quot;flow_id&quot;], user_input={CONF_ACCESS_TOKEN: &quot;bad&quot;}
+    )
+    assert {&quot;base&quot;: &quot;auth&quot;} == result[&quot;errors&quot;]
+</code></pre>
+<p>在这个测试中，我们模拟了 <code>validate_auth</code> 函数，并使之扔出 <code>ValueError</code> 错误。从 <code>pytest-homeassistant-custom-component</code> 的 pytest fixture 来的 <code>hass</code> 参数，传给我们的测试函数。首先在 <code>user</code> 中，我们通过指定 domain 和步骤初始化了一个流。我们接着在流中运行那个步骤并传递用户输入。结果中包含了一个 <code>errors</code> 字段，我们断言匹配异常。</p>
+<h3>下一步</h3>
+<p>通过这部分的代码，现在我们可以通过 UI 来设置和添加仓库，替代 <code>configuration.yaml</code> 文件。当你正在开发一个新的工作流，请确保在修改文件和重启 Home Assistant 之时，在浏览器中强制刷新。我注意到浏览器可以缓存信息，导致你看见过期的数据。</p>
+<p>在我们的实现中，有一个明显的问题是，不通过初始化流的方式创建一个新的 config entry 的话，没法去移除或者添加新的仓库。虽然可以工作，但是非常不理想的是每次都得重新输入 GitHub access token。在下一篇文章中，我们将使用 <a href="https://developers.home-assistant.io/docs/config_entries_options_flow_handler">OptionsFlowHandler</a> 去跳出这个限制。</p>
 ]]></content:encoded>
             <author>hi@ibert.me (Herbert He)</author>
         </item>
