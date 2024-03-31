@@ -390,6 +390,8 @@ git commit -a --no-verify
 
 ## 第三部分：配置流
 
+> 原文链接：<https://aarongodfrey.dev/home%20automation/building_a_home_assistant_custom_component_part_3/>
+
 ### 摘要
 
 在这篇文章中，我们将更新自定义组件，使之可以通过 UI 进行配置，通过添加 [配置流](https://developers.home-assistant.io/docs/config_entries_config_flow_handler) 进行实现。我们仍然使用相同的示例项目 [github-component-tutorial](https://github.com/boralyl/github-custom-component-tutorial)。你可以在 [feature/part3](https://github.com/boralyl/github-custom-component-tutorial/compare/feature/part2...feature/part3) 分支查看本篇文章带来的不同。
