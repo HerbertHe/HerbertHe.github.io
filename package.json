@@ -25,7 +25,7 @@
     "bump": "node scripts/bump_dep.js"
   },
   "dependencies": {
-    "dayjs": "^1.11.10",
-    "gitalk": "^1.8.0"
+    "@giscus/vue": "^3.0.0",
+    "dayjs": "^1.11.10"
   }
 }
