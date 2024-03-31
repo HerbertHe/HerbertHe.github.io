@@ -4,7 +4,7 @@
         <title>Herbert He</title>
         <link>https://ibert.me/</link>
         <description>Herbert He's Blog</description>
-        <lastBuildDate>Sun, 31 Mar 2024 11:04:49 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 31 Mar 2024 16:45:17 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -49,7 +49,7 @@
 <h3>项目结构</h3>
 <p>一开始，我们需要为自定义组件生成基础的文件。幸运的是，通过 <a href="https://github.com/boralyl/cookiecutter-homeassistant-component">cookiecutter project template</a> 项目做这件事很容易。</p>
 <p>让我们安装 <a href="https://github.com/cookiecutter/cookiecutter">cokkiecutter</a>，并且通过问答的方式创建我们的工程。</p>
-<pre><code class="language-text">$ pip install cookiecutter
+<pre><code class="language-txt">$ pip install cookiecutter
 $ cookiecutter https://github.com/boralyl/cookiecutter-homeassistant-component
 domain [my_component]: github_custom
 name [My Component]: Github Custom
@@ -110,7 +110,7 @@ sensor:
       - path: &quot;company/some-repo&quot;
 </code></pre>
 <p>我们不需要去修改任何内容，所以配置方案与官方集成的完全一致：</p>
-<pre><code class="language-text">REPO_SCHEMA = vol.Schema(
+<pre><code class="language-txt">REPO_SCHEMA = vol.Schema(
     {vol.Required(CONF_PATH): cv.string, vol.Optional(CONF_NAME): cv.string}
 )
 
@@ -277,7 +277,7 @@ jobs:
 pre-commit install
 </code></pre>
 <p>现在，下次你进行提交的时候，它将运行所有的检查来检查你的试图提交，任一检查失败就将失败。一个成功的提交如下面的输出：</p>
-<pre><code class="language-text">$ git commit -a
+<pre><code class="language-txt">$ git commit -a
 pyupgrade..........................Passed
 black..............................Passed
 codespell..........................Passed
@@ -288,7 +288,7 @@ Check JSON.........................Passed
 mypy...............................Passed
 </code></pre>
 <p>失败的检查可能像这样：</p>
-<pre><code class="language-text">$ git commit -a
+<pre><code class="language-txt">$ git commit -a
 pyupgrade........................(no files to check)Skipped
 black............................(no files to check)Skipped
 codespell........................Failed
