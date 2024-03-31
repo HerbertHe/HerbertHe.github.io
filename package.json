@@ -21,8 +21,8 @@
     "dev": "cross-env NODE_ENV=development vitepress dev",
     "build": "vitepress build",
     "serve": "vitepress serve",
-    "post:new": "node scripts/new_post.mjs",
-    "bump": "node scripts/bump_dep.mjs"
+    "post:new": "node scripts/new_post.js",
+    "bump": "node scripts/bump_dep.js"
   },
   "dependencies": {
     "dayjs": "^1.11.10",
