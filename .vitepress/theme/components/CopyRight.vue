@@ -19,8 +19,8 @@
     <div>
       Copyright &copy; 2018-{{ date }} <a href="https://github.com/HerbertHe" target="_blank" title="作者">Herbert He</a>
       All
-      Rights Reserved! | Powered by Vitepress with Theme
-      <a href="https://github.com/clark-cui/vitepress-blog-zaun" target="_blank" title="作者">vitepress-blog-zaun</a>
+      Rights Reserved! | Powered by Vitepress with Theme developed with
+      <a href="https://github.com/clark-cui/vitepress-blog-zaun" target="_blank" title="主题">vitepress-blog-zaun</a>
     </div>
   </footer>
 </template>
@@ -30,9 +30,7 @@ const date = new Date().getFullYear();
 <style scoped>
 footer {
   text-align: center;
-  /* position: absolute; */
   width: 100%;
-  /* bottom: 20px; */
   padding: 30px 20px;
   background: var(--vp-c-bg);
   color: var(--vp-c-text);

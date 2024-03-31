@@ -11,14 +11,19 @@
       <Comments />
     </template>
     <!-- Home slot-->
-    <template #home-hero-before><HomeHero /> </template>
-    <template #home-features-after> <Page /></template>
+    <template #home-hero-before>
+      <HomeHero />
+    </template>
+    <template #home-features-after>
+      <Page />
+    </template>
   </Layout>
   <!-- copyright -->
   <CopyRight />
 </template>
 <script lang="ts" setup>
 import DefaultTheme from "vitepress/theme";
+import { onMounted } from "vue"
 import HomeHero from "./HomeHero.vue";
 import CopyRight from "./CopyRight.vue";
 import Comments from "./Comments.vue";
@@ -29,6 +34,13 @@ const { Layout } = DefaultTheme;
 const back = () => {
   history.back();
 };
+
+// 触发刷新
+onMounted(() => {
+  document.querySelector(".VPSwitch")?.addEventListener("click", () => {
+    location.reload()
+  })
+})
 </script>
 <style scoped>
 button {
@@ -52,6 +64,7 @@ button::after {
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
+
 button:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
