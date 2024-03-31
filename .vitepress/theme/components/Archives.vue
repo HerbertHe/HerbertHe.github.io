@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div v-for="yearList in data" class="yearItem">
+    <div v-for="(yearList, index) in data" class="yearItem">
       <div class="year">
         <!-- 对此进行修正，支持 pined -->
         {{ !!yearList[0].pin ? "Pinned 📌" : yearList[0].frontMatter.date.split("-")[0] }}
@@ -8,7 +8,7 @@
       <a :href="withBase(article.regularPath)" v-for="(article, index) in yearList" :key="index" class="article">
         <div class="title">
           <div class="title-o"></div>
-          {{ article.frontMatter.title }}{{ !!article.pin ? ` (${yearList[0].frontMatter.date.split("-")[0]})` : "" }}
+          {{ article.frontMatter.title }}{{ !!article.pin ? ` (${yearList[index].frontMatter.date.split("-")[0]})` : "" }}
         </div>
         <div class="date">{{ article.frontMatter.date.slice(5) }}</div>
       </a>

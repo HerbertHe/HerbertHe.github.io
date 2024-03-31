@@ -6,6 +6,7 @@ type Post = {
         description?: string
     }
     regularPath: string
+    pin: boolean
 }
 
 export function initTags(post: Post[]) {
@@ -34,7 +35,14 @@ export function useYearSort(post: Post[]) {
         const element = post[index]
         if (element.frontMatter.date) {
             const y = element.frontMatter.date.split("-")[0]
-            if (y === year) {
+            if (element.pin) {
+                num = 0
+                if (!!data[num] && data[num].length > 0) {
+                    data[num].push(element)
+                } else {
+                    data[num] = [element]
+                }
+            } else if (y === year) {
                 data[num].push(element)
             } else {
                 num++
