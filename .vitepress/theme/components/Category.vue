@@ -16,7 +16,7 @@
 </template>
 <script lang="ts" setup>
 import { useData, onContentUpdated } from "vitepress";
-import { shallowRef, ref, onMounted, onUpdated } from "vue";
+import { shallowRef, ref } from "vue";
 import { getHeaders } from "../utils";
 
 const { frontmatter, theme } = useData();
