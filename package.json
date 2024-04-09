@@ -26,6 +26,8 @@
   },
   "dependencies": {
     "@giscus/vue": "^3.0.0",
-    "dayjs": "^1.11.10"
+    "dayjs": "^1.11.10",
+    "mermaid": "^10.9.0",
+    "mermaid-it-markdown": "^1.0.7"
   }
 }

@@ -2,7 +2,6 @@
   <Layout>
     <template #doc-before>
       <Title />
-      <div id="category-container"></div>
       <Category />
     </template>
     <template #doc-after>
@@ -38,9 +37,16 @@ const back = () => {
 
 // 触发刷新
 onMounted(() => {
-  document.querySelector(".VPSwitch")?.addEventListener("click", () => {
-    location.reload()
+  const htmlDom = document.querySelector("html")!
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === "class") {
+        location.reload()
+      }
+    })
   })
+
+  observer.observe(htmlDom, { attributes: true })
 })
 </script>
 <style scoped>

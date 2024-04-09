@@ -1,6 +1,7 @@
 import { getPosts, getPostLength } from "./theme/serverUtils"
 import { buildBlogRSS } from "./theme/rss"
 import MathJax from "markdown-it-mathjax3"
+import MermaidItMarkdown from "mermaid-it-markdown"
 
 async function config() {
     return {
@@ -123,11 +124,11 @@ async function config() {
                 "ts",
                 "js",
                 "python",
-                "jsx"
+                "jsx",
             ],
             lineNumbers: true,
             config: (md) => {
-                md.use(MathJax)
+                md.use(MathJax).use(MermaidItMarkdown)
             },
             math: true,
         },
