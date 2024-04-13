@@ -4,7 +4,7 @@
         <title>Herbert He</title>
         <link>https://ibert.me/</link>
         <description>Herbert He's Blog</description>
-        <lastBuildDate>Tue, 09 Apr 2024 03:15:34 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 13 Apr 2024 04:57:02 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -509,6 +509,128 @@ async def test_flow_user_init_invalid_auth_token(m_validate_auth, hass):
 <li><a href="https://github.com/NucoTech/nuco-docsify">nuco-docsify</a> 这是为了团队项目生成文档模板的工具，支持很多feature。这样我们就不必要每一次都配置文档了，<code>nbc</code> 也提供了<code>nbc docs</code> 直接生成文档，并且可以通过<code>nbc serve</code> 直接启动静态预览！</li>
 </ul>
 <p>还有一些文档翻译什么的，如果你觉得好用的话给个Star嗷~哈哈哈哈</p>
+]]></content:encoded>
+            <author>hi@ibert.me (Herbert He)</author>
+        </item>
+        <item>
+            <title><![CDATA[JavaScript的import语法]]></title>
+            <link>https://ibert.me/posts/zh/JavaScript的import语法.html</link>
+            <guid>https://ibert.me/posts/zh/JavaScript的import语法.html</guid>
+            <pubDate>Fri, 12 Apr 2024 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<h2>写在前面的</h2>
+<p><em>dynamic import</em> 是一个熟悉但却有点不太被注意的语法，在按需动态加载的场景下，常常被用来进行异步加载优化。MDN 暂无对这部分的中文技术文档，本篇为 MDN 此部分技术文档的翻译，同样为自己更好理解这部分语法的特性进行备用。</p>
+<h2>import()</h2>
+<p><code>import()</code> 语法，通常被称作 <code>dynamic import</code>，它是一个类函数表达式，允许异步和动态加载 ECMAScript 模块到一个潜在的非模块化(non-module) 环境中。</p>
+<p>与 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">声明式导入</a> 不同，dynamic import 只在被需要的时候被计算，并允许更大的句法灵活性。</p>
+<h2>语法</h2>
+<pre><code class="language-javascript">import(moduleName)
+</code></pre>
+<p><code>import()</code> 的调用非常类似于一个函数调用，但是 <code>import</code> 本身是一个关键字，并不是一个函数。你不能用类似 <code>const myImport=import</code> 的语句进行别名，否则将会抛出一个 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError">SyntaxError</a></p>
+<h3>参数</h3>
+<p><code>moduleName</code></p>
+<p>导入的模块来源。标识符的计算是由主机指定的，但是总遵循着与静态 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">import 声明</a> 一致的算法。</p>
+<h3>返回值</h3>
+<p>返回一个状态为 fulfilled，值为 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import#module_namespace_object">模块命名空间对象(module namespace object)</a> 的 promise：一个包含从 <code>moduleName</code> 所有导出的对象。</p>
+<p><code>import()</code> 的计算从不会同步抛出错误，<code>moduleName</code> 是 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion">被强制要求为字符串</a>，如果抛出错误，则 promise 的状态为 reject 并且值为被抛出的错误。</p>
+<h3>描述</h3>
+<p>import 声明语法 (import something from &quot;somewhere&quot;) 是静态的，并且总是在加载的时候才会计算导入的模块结果。Dynamic imports 允许绕过 import 声明的句法强制，并在需要的时候才加载模块。下面是你可能需要使用 dynamic import 的理由：</p>
+<ul>
+<li>当静态导入严重拖慢了代码的加载速度或者增加程序内存使用，那么加载缓慢可能即是与导入的代码相关，你可以在之后需要的时候再进行导入。</li>
+<li>当导入的模块在加载之时并不存在。</li>
+<li>当 import 标识符需要被动态构造。（静态导入只支持静态标识符。）</li>
+<li>当模块的导入有副作用，并且你只想在受控的情况下才需要这些副作用。（并不建议在模块中有任何副作用，但是有些时候你无法控制模块的依赖。）</li>
+<li>当在非模块环境中（例如：<code>eval</code> 或者 script 文件）。</li>
+</ul>
+<p>只有在必要的时候再使用 dynamic import，静态形式非常适合加载初始化依赖，并且可以更加容易在静态分析工具和 <a href="https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking">tree shaking</a> 中受益。</p>
+<p>如果你的文件并不是如模块化运行的（在 HTML 文件中引用，script 标签必须有 <code>type=&quot;module&quot;</code> 属性），你将无法使用静态声明，但是异步动态导入语法仍然可用，并且运行你将模块导入非模块环境中。</p>
+<p>动态模块导入并不是在所有的执行上下文中都被允许。举个例子，<code>import()</code> 可以被用于主线程、shared worker，或者 dedicated worker，但是当在 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">service worker</a> 或者 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Worklet">worklet</a> 中被调用的时候会报错。</p>
+<h3>模块命名空间对象</h3>
+<p><strong>模块命名空间对象</strong> 是用于描述从模块中所有导出的对象。当模块被计算的时候，它就会被创建为一个静态对象。有两种从模块访问命名对象的方法：通过 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#namespace_import">命名空间导入 namespace import</a> (<code>import * as name from moduleName</code>)，或者通过 dynamic import 导入 fulfill 的值。</p>
+<p>模块命名空间对象是一个有 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects"><code>null</code> 原型</a> 的 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed">sealed</a> 对象。这也就意味着对象的所有字符串字段键与模块的导出有关，并且不存在额外的字段键。所有的键按字典顺序是 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">可被枚举的</a>。（举个例子，<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#description"><code>Array.prototype.sort()</code></a> 的默认行为），默认导出可以通过 <code>default</code> 键进行调用。另外，模块命名空间对象有一个 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag"><code>@@toStringTag</code></a> 属性值为 <code>&quot;Module&quot;</code>，被用于 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString"><code>Object.prototype.toString()</code></a>。</p>
+<p>字符串属性是不可被配置的(non-configurable) 和 可写的(writable)，当你使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors"><code>Object.getOwnPropertyDescriptor()</code></a> 获取他们的描述符的时候。所以，他们是有效只读的，因为你不能将属性赋予新的值。与之相对应的是，静态导入创建 &quot;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#imported_values_can_only_be_modified_by_the_exporter">live bindings</a>&quot;——值可以被导出他们的模块重新赋值，但是不能被导入模块赋值。可写的属性反应了值被修改的可能性，因为不可被配置和不可被写的属性一定是常量。举个例子，你可以对导出的变量值进行重新赋值，新的值将会被模块命名空间对象所观察到。</p>
+<p>每个模块标识符都与唯一的模块命名空间对象相关，下面的代码通常是正确的：</p>
+<pre><code class="language-javascript">import * as mod from &quot;/my-module.js&quot;;
+
+import(&quot;/my-module.js&quot;).then((mod2) =&gt; {
+    console.log(mod === mod2); // true
+});
+</code></pre>
+<p>除了一种奇异的情况：因为 promise 永远不会被 fulfilled 为一个 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#thenables">thenable</a>，如果 <code>my-module.js</code> 模块导出了一个函数叫做 <code>then()</code>，函数将会自动在 dynamic import 的 promise 被 fulfilled 的时候被调用，作为 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise#the_resolve_function">promise resolution</a> 进程的一部分。</p>
+<pre><code class="language-javascript">// my-module.js
+export function then(resolve) {
+    console.log(&quot;then() called&quot;);
+    resolve(1);
+}
+</code></pre>
+<pre><code class="language-javascript">// main.js
+import * as mod from &quot;/my-module.js&quot;;
+
+import(&quot;/my-module.js&quot;).then((mod2) =&gt; {
+    // Logs &quot;then() called&quot;
+    console.log(mod === mod2); // false
+});
+</code></pre>
+<p>::: danger WARNING<br>
+注意：不要从模块中导出一个叫做 <code>then()</code> 的函数。这会导致在动态导入的时候与静态导入的行为不一致。<br>
+:::</p>
+<h2>示例</h2>
+<h3>仅为副作用导入一个模块</h3>
+<pre><code class="language-javascript">(async () =&gt; {
+    if (somethingIsTrue) {
+        // import module for side effects
+        await import(&quot;/modules/my-module.js&quot;);
+    }
+})
+</code></pre>
+<p>如果你的项目使用导出的 ESM 包，你也可以仅为了副作用导入他们。将仅会在包导入的入口文件（或者导入的文件）运行这些代码。</p>
+<h3>导入默认</h3>
+<p>你需要解构返回的对象，并且对 &quot;default&quot; 键进行重命名。</p>
+<pre><code class="language-javascript">(async () =&gt; {
+    if (somethingIsTrue) {
+      const {
+        default: myDefault,
+        foo,
+        bar,
+      } = await import(&quot;/modules/my-module.js&quot;);
+  }
+})();
+</code></pre>
+<h3>根据用户的动作响应时导入</h3>
+<p>这个例子展示了如何基于用户的动作来向页面加载功能，这个例子是按钮点击，在模块中调用功能。这并不是实现功能的唯一方式。<code>import()</code> 函数也支持 <code>await</code>。</p>
+<pre><code class="language-javascript">const main = document.querySelector(&quot;main&quot;);
+for (const link of document.querySelectorAll(&quot;nav &gt; a&quot;)) {
+  link.addEventListener(&quot;click&quot;, (e) =&gt; {
+    e.preventDefault();
+
+    import(&quot;/modules/my-module.js&quot;)
+      .then((module) =&gt; {
+        module.loadPageInto(main);
+      })
+      .catch((err) =&gt; {
+        main.textContent = err.message;
+      });
+  });
+}
+</code></pre>
+<h3>基于环境导入不同的模块</h3>
+<p>在例如服务端渲染的处理中，你可与需要在服务端或者浏览器端加载不同的逻辑，因为他们有着不同的全局环境或者模块（举个例子，浏览器代码有访问如 <code>document</code> 和 <code>navigator</code> 的 web APIs 权限，而服务端代码有当问服务器文件系统的权限）。你可以通过控制 dynamic import 来实现。</p>
+<pre><code class="language-javascript">let myModule;
+
+if (typeof window === &quot;undefined&quot;) {
+  myModule = await import(&quot;module-used-on-server&quot;);
+} else {
+  myModule = await import(&quot;module-used-in-browser&quot;);
+}
+</code></pre>
+<h3>非文本 (non-literal) 标识符导入模块</h3>
+<p>Dynamic import 运行任何表达式作为模块标识符，并不一定非要是字符串文本。</p>
+<p>这里，我们导入了10个模块，<code>/modules/module-0.js</code>、<code>/modules/module-1.js</code> 等等，同时，调用了每个模块导出的 <code>load</code> 函数。</p>
+<pre><code class="language-javascript">Promise.all(
+  Array.from({ length: 10 }).map(
+    (_, index) =&gt; import(`/modules/module-${index}.js`),
+  ),
+).then((modules) =&gt; modules.forEach((module) =&gt; module.load()));
+</code></pre>
 ]]></content:encoded>
             <author>hi@ibert.me (Herbert He)</author>
         </item>
