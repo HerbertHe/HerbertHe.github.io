@@ -33,7 +33,7 @@ onContentUpdated(() => {
 </script>
 <style scoped>
 .category {
-  width: 100%;
+  width: 16rem;
   background: var(--vp-c-bg);
   box-shadow: 6px 6px var(--vp-c-brand);
   border: 4px solid #3f4e4f;

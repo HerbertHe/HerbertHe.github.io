@@ -17,10 +17,11 @@ export function initTags(post: Post[]) {
         // tags是数组，需要tags按照数组语法的格式书写
         if (Array.isArray(tags)) {
             tags.forEach((item) => {
-                if (!data[item]) {
-                    data[item] = []
+                const i = item.toLowerCase()
+                if (!data[i]) {
+                    data[i] = []
                 }
-                data[item].push(element)
+                data[i].push(element)
             })
         }
     }
