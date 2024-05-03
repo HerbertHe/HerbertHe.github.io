@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ibert.me/</id>
     <title>Herbert He</title>
-    <updated>2024-04-15T16:29:47.498Z</updated>
+    <updated>2024-05-03T13:34:05.293Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Herbert He</name>
@@ -514,6 +514,152 @@ async def test_flow_user_init_invalid_auth_token(m_validate_auth, hass):
 <li><a href="https://github.com/NucoTech/nuco-docsify">nuco-docsify</a> 这是为了团队项目生成文档模板的工具，支持很多feature。这样我们就不必要每一次都配置文档了，<code>nbc</code> 也提供了<code>nbc docs</code> 直接生成文档，并且可以通过<code>nbc serve</code> 直接启动静态预览！</li>
 </ul>
 <p>还有一些文档翻译什么的，如果你觉得好用的话给个Star嗷~哈哈哈哈</p>
+]]></content>
+        <author>
+            <name>Herbert He</name>
+            <email>hi@ibert.me</email>
+            <uri>https://ibert.me</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[迭代器辅助方法]]></title>
+        <id>https://ibert.me/posts/zh/迭代器辅助方法.html</id>
+        <link href="https://ibert.me/posts/zh/迭代器辅助方法.html"/>
+        <updated>2024-04-27T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>本篇文章来源于 v8.dev, 原文链接: <a href="https://v8.dev/features/iterator-helpers">https://v8.dev/features/iterator-helpers</a>, 作者: Rezvan Mahdavi Hezaveh</p>
+</blockquote>
+<p><em>迭代器辅助方法(Iterator helpers)</em> 是迭代器原型上的新方法集合，旨在帮助迭代器的通用使用。自迭代器原型上存在这些辅助方法开始，任何在其原型链上有 <code>Iterator.prototype</code> 的对象（如：数组迭代器）都会获得这些方法。<br>
+在下面的子章节，我们将解释这些迭代器辅助方法。所有提供的示例都在博客存档页面中工作，该页面包含博客文章列表，说明了迭代器辅助方法如何有助于查找和处理帖子。你可以在 <a href="https://v8.dev/blog">V8 博客页面</a> 中进行尝试。</p>
+<h2>.map(mapperFn)</h2>
+<p><code>map</code> 接收一个 mapper 函数作为参数。此辅助方法返回值的迭代器，其中 mapper 函数作用于原始迭代器值。</p>
+<pre><code class="language-javascript">// Select the list of blog posts from a blog archive page.
+const posts = document.querySelectorAll('li:not(header li)');
+
+// Get the list of posts, return a list of their text content (titles) and log them.
+for (const post of posts.values().map((x) =&gt; x.textContent)) {
+  console.log(post);
+}
+</code></pre>
+<h2>.filter(filterFn)</h2>
+<p><code>filter</code> 接收一个 filter 函数作为参数。此辅助方法返回值的迭代器，其中 filter 函数返回判断为真的原始迭代器值。</p>
+<pre><code class="language-javascript">// Select the list of blog posts from a blog archive page.
+const posts = document.querySelectorAll('li:not(header li)');
+
+// Filter blog posts that includes `V8` in their text content (titles) and log them.
+for (const post of posts.values().filter((x) =&gt; x.textContent.includes('V8'))) {
+  console.log(post);
+}
+</code></pre>
+<h2>.take(limit)</h2>
+<p><code>take</code> 接收一个整型作为参数。此辅助方法从原始迭代器返回一个值的迭代器，最多为 <code>limit</code> 个。</p>
+<pre><code class="language-javascript">// Select the list of blog posts from a blog archive page.
+// Select the list of blog posts from a blog archive page.
+const posts = document.querySelectorAll('li:not(header li)');
+
+// Filter blog posts that includes `V8` in their text content (titles) and log them.
+for (const post of posts.values().filter((x) =&gt; x.textContent.includes('V8'))) {
+  console.log(post);
+}
+</code></pre>
+<h2>.drop(limit)</h2>
+<p><code>drop</code> 接收一个整型作为参数。此辅助方法从原始迭代器返回一个值的迭代器，跳过 <code>limit</code> 个值。</p>
+<pre><code class="language-javascript">// Select the list of blog posts from a blog archive page.
+const posts = document.querySelectorAll('li:not(header li)');
+
+// Drop 10 recent blog posts and log the rest of them.
+for (const post of posts.values().drop(10)) {
+  console.log(post);
+}
+</code></pre>
+<h2>.flatMap(mapperFn)</h2>
+<p><code>flatMap</code> 接收一个 mapper 函数作为参数。此辅助方法返回一个通过有原始迭代器值调用 mapper 函数返回值的迭代器。如此，通过这个辅助方法返回一个由 mapper 函数展开的迭代器。</p>
+<pre><code class="language-javascript">// Select the list of blog posts from a blog archive page.
+const posts = document.querySelectorAll('li:not(header li)');
+
+// Get list of tags of the blog posts and log them. Each post can have more than
+// one tag.
+for (const tag of posts.values().flatMap((x) =&gt; x.querySelectorAll('.tag').values())) {
+    console.log(tag.textContent);
+}
+</code></pre>
+<h2>.reduce(reducer[, initialValue])</h2>
+<p><code>reduce</code> 接收一个 reducer 函数和一个可选的初始值。此辅助方法返回一个值作为迭代器每个值调用 reducer 函数的结果，同时追踪 reducer 函数的最后一个结果。初始值被用于 reducer 函数的起点，当它进行处理的时候，其为迭代器的第一个值。</p>
+<pre><code class="language-javascript">// Select the list of blog posts from a blog archive page.
+const posts = document.querySelectorAll('li:not(header li)');
+
+// Get list of tags for all posts.
+const tagLists = posts.values().flatMap((x) =&gt; x.querySelectorAll('.tag').values());
+
+// Get text context for each tag in the list.
+const tags = tagLists.map((x) =&gt; x.textContent);
+
+// Counts posts with security tag.
+const count = tags.reduce((sum , value) =&gt; sum + (value === 'security' ? 1 : 0), 0);
+console.log(count);
+</code></pre>
+<h2>.toArray()</h2>
+<p><code>toArray</code> 从迭代器返回一个数组。</p>
+<pre><code class="language-javascript">// Select the list of blog posts from a blog archive page.
+const posts = document.querySelectorAll('li:not(header li)');
+
+// Create an array from the list of 10 recent blog posts.
+const arr = posts.values().take(10).toArray();
+</code></pre>
+<h2>.forEach(fn)</h2>
+<p><code>forEach</code> 接收一个函数作为参数，并在迭代器每个元素上进行调用。这个辅助方法作为它的副作用进行调用并且返回 <code>undefined</code>。</p>
+<pre><code class="language-javascript">// Select the list of blog posts from a blog archive page.
+const posts = document.querySelectorAll('li:not(header li)');
+
+// Get the dates that at least one blog post is published and log them.
+const dates = new Set();
+const forEach = posts.values().forEach((x) =&gt; dates.add(x.querySelector('time')));
+console.log(dates);
+</code></pre>
+<h2>.some(fn)</h2>
+<p><code>some</code> 接收一个判断函数(predicate function) 作为参数。这个辅助方法当某些迭代器元素调用判断函数返回为真的时候，返回 <code>true</code>。这个迭代器在 <code>some</code> 被调用之后被消费。</p>
+<pre><code class="language-javascript">// Select the list of blog posts from a blog archive page.
+const posts = document.querySelectorAll('li:not(header li)');
+
+// Find out if text content (title) of any blog post includes the `Iterators`
+// keyword.
+posts.values().some((x) =&gt; x.textContent.includes('Iterators'));
+</code></pre>
+<h2>.every(fn)</h2>
+<p><code>every</code> 接收一个判断函数作为参数。这个辅助方法当所有迭代器元素调用判断函数返回为真的时候，返回 <code>true</code>。这个迭代器在 <code>every</code> 被调用之后被消费。</p>
+<pre><code class="language-javascript">// Select the list of blog posts from a blog archive page.
+const posts = document.querySelectorAll('li:not(header li)');
+
+// Find out if text content (title) of all blog post includes the `V8` keyword.
+posts.values().every((x) =&gt; x.textContent.includes('V8'));
+</code></pre>
+<h2>.find(fn)</h2>
+<p><code>find</code> 接收一个判断函数(predicate function) 作为参数。此辅助方法返回满足判断函数的迭代器的第一个值，或者返回 <code>undefined</code>（如果迭代器没有值）。</p>
+<pre><code class="language-javascript">// Select the list of blog posts from a blog archive page.
+const posts = document.querySelectorAll('li:not(header li)');
+
+// Log the text content (title) of the recent blog post includes `V8` keyword.
+console.log(posts.values().find((x) =&gt; x.textContent.includes('V8')).textContent);
+</code></pre>
+<h2>Iterator.from(object)</h2>
+<p><code>from</code> 是一个静态方法，并接收一个对象作为参数。如果 <code>object</code> 已经是一个迭代器的实例，被这个辅助方法直接返回。如果 <code>object</code> 有 <code>Symbol.iterator</code>，也就意味着是一个可迭代的对象，它的 <code>Symbol.iterator</code> 方法将会被此辅助函数调用并返回。此外，一个新的 <code>Iterator</code> 对象（继承于 <code>Iterator.prototype</code>，并且有 <code>next()</code> 和 <code>return()</code> 方法）被创建包裹为 <code>object</code>，被此辅助方法返回。</p>
+<pre><code class="language-javascript">// Select the list of blog posts from a blog archive page.
+const posts = document.querySelectorAll('li:not(header li)');
+
+// First create an iterator from the posts. Then, log the text content (title) of 
+// the recent blog post that includes the `V8` keyword.
+console.log(Iterator.from(posts).find((x) =&gt; x.textContent.includes('V8')).textContent);
+</code></pre>
+<h2>可用性</h2>
+<p>迭代器辅助方法在 V8 v12.2 版本推出。</p>
+<h2>支持情况</h2>
+<ul>
+<li><a href="https://chromestatus.com/feature/5102502917177344">Chrome 122+</a></li>
+<li><s><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1568906">Firefox</a></s></li>
+<li><s><a href="https://bugs.webkit.org/show_bug.cgi?id=248650">Safari</a></s></li>
+<li><s>Node.js</s></li>
+<li><a href="https://github.com/zloirock/core-js#iterator-helpers">Babel</a></li>
+</ul>
 ]]></content>
         <author>
             <name>Herbert He</name>
