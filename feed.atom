@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ibert.me/</id>
     <title>Herbert He</title>
-    <updated>2024-05-30T16:14:33.652Z</updated>
+    <updated>2024-05-30T16:24:36.099Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Herbert He</name>
@@ -543,9 +543,9 @@ async def test_flow_user_init_invalid_auth_token(m_validate_auth, hass):
 </ul>
 <p>本规范可以同时表示抽象和具象语法树。</p>
 <h3>本规范的适用场景</h3>
-<p>unist 并不趋向于自给自足。<br>
-相反，期望其他规范实现 unist 并扩展它以表示语言特定节点。<br>
-举个例子，请参阅如 <strong><a href="https://github.com/syntax-tree/hast">hast</a></strong> (HTML)、<strong><a href="https://github.com/syntax-tree/nlcst">nlcst</a></strong> (自然语言)、<strong><a href="https://github.com/syntax-tree/mdast">mdast</a></strong> (Markdown) 和 <strong><a href="https://github.com/syntax-tree/xast">xast</a></strong> (XML) 等项目。</p>
+<p>unist 并不趋向于自给自足。</p>
+<p>相反，期望其他规范实现 unist 并扩展它以表示语言特定节点。</p>
+<p>举个例子，请参阅如 <strong><a href="https://github.com/syntax-tree/hast">hast</a></strong> (HTML)、<strong><a href="https://github.com/syntax-tree/nlcst">nlcst</a></strong> (自然语言)、<strong><a href="https://github.com/syntax-tree/mdast">mdast</a></strong> (Markdown) 和 <strong><a href="https://github.com/syntax-tree/xast">xast</a></strong> (XML) 等项目。</p>
 <p>unist 与 <a href="https://datatracker.ietf.org/doc/html/rfc7159">JSON</a> 有关，因为兼容语法树可以完全被 JSON 表示。<br>
 然而，unist 并不受限于 JSON，可以表示其他数据格式，如 <a href="https://www.w3.org/TR/xml/">XML</a>。</p>
 <p>unist 与 <a href="https://262.ecma-international.org/9.0/">JavaScript</a> 有关，因为它拥有丰富的 <a href="#%E5%B7%A5%E5%85%B7%E9%9B%86%E5%88%97%E8%A1%A8">工具集生态系统</a>，可通过 JavaScript 处理兼容语法树。<br>
