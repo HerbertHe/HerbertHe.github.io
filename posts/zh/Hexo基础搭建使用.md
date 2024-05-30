@@ -63,7 +63,7 @@ Hexo官方支持的迁移来源
 
 这里以yilia为例（请保证网络环境）
 
-```git
+```sh
 # 确保在上面项目文件夹下
 git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
 ```
@@ -267,7 +267,7 @@ root /var/www/blog;
 
 添加内容
 
-```post-receive
+```txt
 #!/bin/bash
 GIT_REPO=/home/git/blog.git
 TMP_GIT_CLONE=/tmp/blog

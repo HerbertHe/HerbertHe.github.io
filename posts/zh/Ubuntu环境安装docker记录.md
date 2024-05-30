@@ -18,7 +18,7 @@ tags: [ docker, Ubuntu19, Linux, 记录 ]
 sudo nano /etc/apt/sources.list
 ```
 
-```sources.list
+```txt
 # 首先注释掉所有的默认软件源
 # 添加清华源 (演示系统为Ubuntu19.10, 软件代号为eoan! )
 
@@ -124,7 +124,7 @@ sudo add-apt-repository \
 
 > 上面的命令会在`/etc/apt/sources.list`文件中添加下面的内容(以清华源为例), 执行之后会报上面提到的错误
 
-```sources.list
+```txt
 deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu eoan stable
 # deb-src [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu eoan stable
 ```
@@ -135,7 +135,7 @@ deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu eoa
 sudo nano /etc/apt/sources.list
 ```
 
-```sources.list
+```txt
 deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu disco stable
 # deb-src [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu disco stable
 ```
@@ -168,7 +168,7 @@ systemctl stop docker
 sudo nano /etc/docker/daemon.json
 ```
 
-```daemon.json
+```json
 {
 　　"registry-mirrors": ["https://registry.docker-cn.com","http://hub-mirror.c.163.com"]
 }

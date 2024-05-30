@@ -217,7 +217,7 @@ nano /etc/crontab
 
 添加内容
 
-```crontab
+```txt
 1 1 */1 * * root certbot-auto renew --manual --preferred-challenges dns --deploy-hook  "service nginx restart" --manual-auth-hook "/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly add" --manual-cleanup-hook "/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean"
 ```
 

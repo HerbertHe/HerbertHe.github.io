@@ -32,7 +32,7 @@ vim --version
 
 这里贴上我的基本配置文件
 
-```_vimrc
+```txt
 " Vim with all enhancements
 source $VIMRUNTIME/vimrc_example.vim
 
@@ -162,7 +162,7 @@ git clone https://gitee.com/HerbertHe/Vundle.vim.git /vim82/bundle/Vundle.vim
 
 配置插件，打开修改`_vimrc`文件
 
-```_vimrc
+```txt
 set nocompatible              " 去除VI一致性,必须
 filetype off                  " 必须
 
@@ -210,7 +210,7 @@ filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和
 
 在配置内容中，我额外配置的是
 
-```_vimrc
+```txt
 " 设置Vundle插件管理
 set nocompatible
 filetype off
