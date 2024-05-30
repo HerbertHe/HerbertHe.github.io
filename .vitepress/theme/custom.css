@@ -63,7 +63,8 @@
     padding-bottom: 0 !important;
 }
 
-html:not(.dark) .language-txt .vp-code span {
+html:not(.dark) .language-txt .vp-code span,
+html:not(.dark) .language-idl .vp-code span {
     color: white !important;
 }
 

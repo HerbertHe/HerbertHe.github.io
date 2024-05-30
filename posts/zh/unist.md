@@ -35,7 +35,9 @@ unist, 即: **Uni**versal **S**yntax **T**ree.
 ### 本规范的适用场景
 
 unist 并不趋向于自给自足。
+
 相反，期望其他规范实现 unist 并扩展它以表示语言特定节点。
+
 举个例子，请参阅如 **[hast][]** (HTML)、**[nlcst][]** (自然语言)、**[mdast][]** (Markdown) 和 **[xast][]** (XML) 等项目。
 
 unist 与 [JSON][] 有关，因为兼容语法树可以完全被 JSON 表示。
