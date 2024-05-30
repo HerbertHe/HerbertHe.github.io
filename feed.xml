@@ -4,7 +4,7 @@
         <title>Herbert He</title>
         <link>https://ibert.me/</link>
         <description>Herbert He's Blog</description>
-        <lastBuildDate>Thu, 30 May 2024 16:24:36 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 30 May 2024 16:32:43 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -3979,7 +3979,7 @@ vim --version
 </code></pre>
 <h2>基本配置<code>_vimrc</code></h2>
 <p>这里贴上我的基本配置文件</p>
-<pre><code class="language-_vimrc">&quot; Vim with all enhancements
+<pre><code class="language-txt">&quot; Vim with all enhancements
 source $VIMRUNTIME/vimrc_example.vim
 
 &quot; Use the internal diff if available.
@@ -4096,7 +4096,7 @@ git clone https://gitee.com/HerbertHe/Vundle.vim.git /vim82/bundle/Vundle.vim
 <p>说明：命令里的<code>vim82</code>对应的就是<code>.vim</code>这个目录！因为Vim版本的不同可能会导致目录的名称不同，请参考修改！</p>
 </blockquote>
 <p>配置插件，打开修改<code>_vimrc</code>文件</p>
-<pre><code class="language-_vimrc">set nocompatible              &quot; 去除VI一致性,必须
+<pre><code class="language-txt">set nocompatible              &quot; 去除VI一致性,必须
 filetype off                  &quot; 必须
 
 &quot; 设置包括vundle和初始化相关的runtime path，重要！！
@@ -4141,7 +4141,7 @@ filetype plugin indent on    &quot; 必须 加载vim自带和插件相应的语�
 &quot; 将你自己对非插件片段放在这行之后
 </code></pre>
 <p>在配置内容中，我额外配置的是</p>
-<pre><code class="language-_vimrc">&quot; 设置Vundle插件管理
+<pre><code class="language-txt">&quot; 设置Vundle插件管理
 set nocompatible
 filetype off
 
@@ -4266,7 +4266,7 @@ for (let i = 1; i &lt; 4; i++) {
 <pre><code class="language-shell"># 配置软件源
 sudo nano /etc/apt/sources.list
 </code></pre>
-<pre><code class="language-sources.list"># 首先注释掉所有的默认软件源
+<pre><code class="language-txt"># 首先注释掉所有的默认软件源
 # 添加清华源 (演示系统为Ubuntu19.10, 软件代号为eoan! )
 
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
@@ -4353,7 +4353,7 @@ sub   rsa4096 2017-02-22 [S]
 <blockquote>
 <p>上面的命令会在<code>/etc/apt/sources.list</code>文件中添加下面的内容(以清华源为例), 执行之后会报上面提到的错误</p>
 </blockquote>
-<pre><code class="language-sources.list">deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu eoan stable
+<pre><code class="language-txt">deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu eoan stable
 # deb-src [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu eoan stable
 </code></pre>
 <blockquote>
@@ -4361,7 +4361,7 @@ sub   rsa4096 2017-02-22 [S]
 </blockquote>
 <pre><code class="language-shell">sudo nano /etc/apt/sources.list
 </code></pre>
-<pre><code class="language-sources.list">deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu disco stable
+<pre><code class="language-txt">deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu disco stable
 # deb-src [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu disco stable
 </code></pre>
 <p>保存之后执行更新和下载</p>
@@ -4384,7 +4384,7 @@ systemctl stop docker
 # 修改daemon配置文件添加加速源
 sudo nano /etc/docker/daemon.json
 </code></pre>
-<pre><code class="language-daemon.json">{
+<pre><code class="language-json">{
 　　&quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;,&quot;http://hub-mirror.c.163.com&quot;]
 }
 </code></pre>
@@ -4783,7 +4783,7 @@ certbot renew --cert-name simplehttps.com  --manual-auth-hook &quot;/var/certbot
 <pre><code class="language-shell">nano /etc/crontab
 </code></pre>
 <p>添加内容</p>
-<pre><code class="language-crontab">1 1 */1 * * root certbot-auto renew --manual --preferred-challenges dns --deploy-hook  &quot;service nginx restart&quot; --manual-auth-hook &quot;/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly add&quot; --manual-cleanup-hook &quot;/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean&quot;
+<pre><code class="language-txt">1 1 */1 * * root certbot-auto renew --manual --preferred-challenges dns --deploy-hook  &quot;service nginx restart&quot; --manual-auth-hook &quot;/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly add&quot; --manual-cleanup-hook &quot;/var/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean&quot;
 </code></pre>
 <p>然后，就结束了！！</p>
 <h2>参考文章</h2>
@@ -6026,7 +6026,7 @@ for x,y in np.nditer([a,b]):
 </blockquote>
 <h2>修改Hexo的主题</h2>
 <p>这里以yilia为例（请保证网络环境）</p>
-<pre><code class="language-git"># 确保在上面项目文件夹下
+<pre><code class="language-sh"># 确保在上面项目文件夹下
 git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
 </code></pre>
 <blockquote>
@@ -6180,7 +6180,7 @@ root /var/www/blog;
  nano post-receive
 </code></pre>
 <p>添加内容</p>
-<pre><code class="language-post-receive">#!/bin/bash
+<pre><code class="language-txt">#!/bin/bash
 GIT_REPO=/home/git/blog.git
 TMP_GIT_CLONE=/tmp/blog
 PUBLIC_WWW=/var/www/blog
