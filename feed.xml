@@ -4,7 +4,7 @@
         <title>Herbert He</title>
         <link>https://ibert.me/</link>
         <description>Herbert He's Blog</description>
-        <lastBuildDate>Thu, 30 May 2024 16:32:43 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 30 May 2024 16:38:39 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -1796,7 +1796,7 @@ console.log(
 <p>现在你知道了 <a href="https://unifiedjs.com/explore/package/unified/">unified</a> 插件的基础组成。开始我们的案例吧！</p>
 <h2>案例</h2>
 <p>在开始之前，先明确我们需要实现什么样的效果。有以下的文本文件：</p>
-<pre><code class="language-text">One sentence. Two sentences.
+<pre><code class="language-txt">One sentence. Two sentences.
 
 One sentence.  Two sentences.
 </code></pre>
@@ -1821,7 +1821,7 @@ npm init -y
      &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
 </code></pre>
 <p>确保 <code>example.md</code> 文件存在，并且内容如下：</p>
-<pre><code class="language-text">One sentence. Two sentences.
+<pre><code class="language-txt">One sentence. Two sentences.
 
 One sentence.  Two sentences.
 </code></pre>
@@ -1874,7 +1874,7 @@ retext()
 <p>如果我们现在使用 Node.js 运行我们的示例，正如下面展示的，将看见在我们的示例中的两个段落调用了观察者(visitor)：</p>
 <pre><code class="language-bash">node expample.js
 </code></pre>
-<pre><code class="language-text">{
+<pre><code class="language-txt">{
   type: 'ParagraphNode',
   children: [
     { type: 'SentenceNode', children: [Array], position: [Object] },
@@ -1933,7 +1933,7 @@ no issues found
 <p>如果现在运行我们的示例，我们将会看到仅句子之间的空白空格被记录。</p>
 <pre><code class="language-bash">node example.js
 </code></pre>
-<pre><code class="language-text">{
+<pre><code class="language-txt">{
   type: 'WhiteSpaceNode',
   value: ' ',
   position: Position {
@@ -1970,7 +1970,7 @@ no issues found
      })
 </code></pre>
 <p>如果我们现在最后一次运行示例，我们将看见问题的一条警告消息。</p>
-<pre><code class="language-text">$ node example.js
+<pre><code class="language-txt">$ node example.js
 3:14-3:16  warning  Expected 1 space between sentences, not 2
 
 ⚠ 1 warning
@@ -2335,21 +2335,21 @@ no issues found
 <p>TeX 的高级控制系列可以进行计算 (OLeX 或许在更远期的规划里面, 会对此部分的内容进行实现。)</p>
 <p><code>\show\input</code> -&gt; <code>\input=\input</code>, <code>\show\thinspace</code></p>
 <p>-&gt;</p>
-<pre><code class="language-text">&gt; \thinspace=macro:
+<pre><code class="language-txt">&gt; \thinspace=macro:
 -&gt; \kern .16667em .
 </code></pre>
 <p><code>\show</code> 的结果被保存在 log 文件中。</p>
 <p>plain TeX 大约有 600 个基本控制系列, 加上 300 个左右的原始控制系列, 构成了TeX 基本的文本排版控制。</p>
 <h2>字体</h2>
 <p>默认情况下, 不定义其他字体将使用 <strong>roman</strong> 字体。</p>
-<pre><code class="language-text">\rm --&gt; Roman
+<pre><code class="language-txt">\rm --&gt; Roman
 \sl --&gt; Slanted
 \it --&gt; Italic
 \tt --&gt; Typewriter
 \bf --&gt; Bold
 </code></pre>
 <p>字体的外形会随着大小而改变, 单位设计使用 points(即pt)。</p>
-<pre><code class="language-text">10 points --&gt; \tenrm
+<pre><code class="language-txt">10 points --&gt; \tenrm
 9 points --&gt; \ninerm
 10 points slanted --&gt; \tensl
 </code></pre>
@@ -2648,7 +2648,7 @@ twelve thousand two hundred one = twelve, two hundred one;
 </li>
 <li>
 <p>表示 EBNF 的每个操作符的正常字符和它所蕴涵的 <em><strong>优先级</strong></em>(顶部为<strong>最高</strong>优先级)为:</p>
-<pre><code class="language-text">* repetition-symbol
+<pre><code class="language-txt">* repetition-symbol
 - except-symbol
 , concatenate-symbol
 | definiton-separator-symbol
@@ -2658,7 +2658,7 @@ twelve thousand two hundred one = twelve, two hundred one;
 </li>
 <li>
 <p>下列 <em>括号对</em> <strong>超越</strong> 正常优先级:</p>
-<pre><code class="language-text">‘first-quote-symbol  first-quote-symbol’
+<pre><code class="language-txt">‘first-quote-symbol  first-quote-symbol’
 &quot;second-quote-symbol  second-quote-symbol&quot;
 (*start-comment-symbol  end-comment-symbol*)
 (start-group-symbol  end-group-symbol)
@@ -2678,7 +2678,7 @@ ff = 3 * aa, 3 * [aa], &quot;F&quot;;
 gg = {3 * aa}, &quot;D&quot;;
 </code></pre>
 <p>定义的终结字符串:</p>
-<pre><code class="language-text">aa: A
+<pre><code class="language-txt">aa: A
 bb: AAAB
 cc: C AC AAC AAAC
 dd: D AD AAD AAAD ...
@@ -3117,7 +3117,7 @@ var getIntersectionNode = function(headA, headB) {
             <content:encoded><![CDATA[<h2>反转链表</h2>
 <p>题见: <a href="https://leetcode-cn.com/problems/reverse-linked-list/">反转链表</a></p>
 <h2>破题</h2>
-<pre><code class="language-text">输入: 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; NULL
+<pre><code class="language-txt">输入: 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; NULL
 输出: 5 -&gt; 4 -&gt; 3 -&gt; 2 -&gt; 1 -&gt; NULL
 </code></pre>
 <!-- more -->
@@ -3595,7 +3595,7 @@ var lengthOfLongestSubstring = function (s) {
 <p>之前访问<code>xxx.github.io</code>这类GitHub Pages的网站的时候总出现404的情况, 甚至连挂梯子都没用, 这是非常不合理的。后来在V2EX上面有老哥提到了一个很难被发现的问题, 国内的电信运营商污染DNS。往常我以为它们就喜欢搞一些广告什么的, 结果非常的操蛋。之后就ping了一下<code>herberthe.github.io</code>我自己的GitHub Pages, 非常amazing啊结果是<code>127.0.0.1</code>。关于hosts和DNS这些不了解的话, 建议直接百度, 这里就不解释了。</p>
 <p>我们访问<code>github.io</code>这类域名的网站通常需要经历的过程拓扑为: 本地局域网 --- 运营商网络(就不区分各层局域网了) --- 公网 --- 目标的DNS服务 --- 目标服务器</p>
 <p>以<code>www.baidu.com</code>为例, 咱们用<code>tracert</code>追踪一下路由跳转情况(使用的Windows cmd), 其中标注的ip路由数据来源于<a href="https://www.ip138.com/">ip318</a>和站长之家的站长工具, 也可能不是很准确</p>
-<pre><code class="language-text">通过最多 30 个跃点跟踪
+<pre><code class="language-txt">通过最多 30 个跃点跟踪
 到 www.a.shifen.com [14.215.177.38] 的路由:
 
   1    &lt;1 毫秒   &lt;1 毫秒   &lt;1 毫秒 OPENWRT [192.168.7.1]   // 路由器
@@ -3611,7 +3611,7 @@ var lengthOfLongestSubstring = function (s) {
  11    25 ms    25 ms    25 ms  14.215.177.38            // 广东省 广州市 电信 idc机房
 </code></pre>
 <p>以<code>github.com</code>为例</p>
-<pre><code class="language-text">通过最多 30 个跃点跟踪
+<pre><code class="language-txt">通过最多 30 个跃点跟踪
 到 github.com [140.82.112.3] 的路由:
 
   1     1 ms    &lt;1 毫秒    1 ms  OPENWRT [192.168.7.1]                             // 路由器
@@ -3642,7 +3642,7 @@ var lengthOfLongestSubstring = function (s) {
 <h2>无障碍加载GitHub的静态资源</h2>
 <p>经常有这么个情况, GitHub访问没问题, 但是头像还有<code>README.md</code>里面的图片加载不出来, 因为GitHub的静态资源不是<strong><a href="http://github.com">github.com</a></strong>这个域名</p>
 <p>而很可能是下面这些</p>
-<pre><code class="language-text">github.githubassets.com
+<pre><code class="language-txt">github.githubassets.com
 camo.githubusercontent.com
 github.map.fastly.net
 github.global.ssl.fastly.net
@@ -3679,15 +3679,15 @@ github.community
 <h3>获取分支资源</h3>
 <p>正常情况下, GitHub的仓库分支资源其实是不能单独下载的, 那咋办? 很简单, 通过cdn完成</p>
 <p>举个例子, 我要下载<code>nuco-backend-cli</code>下面的<code>install.darwin.sh</code>, 可以通过访问下面的cdn获取</p>
-<pre><code class="language-text">https://cdn.jsdelivr.net/gh/NucoTech/nuco-backend-cli@main/install.darwin.sh
+<pre><code class="language-txt">https://cdn.jsdelivr.net/gh/NucoTech/nuco-backend-cli@main/install.darwin.sh
 </code></pre>
 <p><a href="https://www.jsdelivr.com/">jsdelivr</a>这个cdn其实前端的小伙伴应该是非常熟悉的, 前端的npm包里面的静态资源都可以通过这个cdn来直接引用</p>
 <p>官网也贴心的, 给了下面的使用格式</p>
-<pre><code class="language-text">https://cdn.jsdelivr.net/gh/&lt;用户名&gt;/&lt;仓库名&gt;@&lt;分支&gt;/&lt;文件名&gt;
+<pre><code class="language-txt">https://cdn.jsdelivr.net/gh/&lt;用户名&gt;/&lt;仓库名&gt;@&lt;分支&gt;/&lt;文件名&gt;
 </code></pre>
 <h3>获取GitHub Release资源</h3>
 <p>这个cdn就比较多了, 列举几个, 所有的都是以<code>nbc.exe</code>资源获取为例的</p>
-<pre><code class="language-text">https://gh.con.sh/https://github.com/NucoTech/nuco-backend-cli/releases/download/v1.3.0/nbc.exe
+<pre><code class="language-txt">https://gh.con.sh/https://github.com/NucoTech/nuco-backend-cli/releases/download/v1.3.0/nbc.exe
 
 https://gh.api.99988866.xyz/https://github.com/NucoTech/nuco-backend-cli/releases/download/v1.3.0/nbc.exe
 
@@ -3701,7 +3701,7 @@ https://pd.zwc365.com/seturl/https://github.com/NucoTech/nuco-backend-cli/releas
 </code></pre>
 <p>你也可以使用插件<a href="https://greasyfork.org/scripts/412245">GitHub增强 - 高速下载</a> 这个油猴脚本来实现</p>
 <p>其中的部分cdn可以传入下面的格式, 实现获取latest release里面的资源</p>
-<pre><code class="language-text">https://github.com/&lt;用户名&gt;/latest/releases/download/&lt;资源名&gt;
+<pre><code class="language-txt">https://github.com/&lt;用户名&gt;/latest/releases/download/&lt;资源名&gt;
 </code></pre>
 ]]></content:encoded>
             <author>hi@ibert.me (Herbert He)</author>
