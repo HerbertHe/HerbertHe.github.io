@@ -70,7 +70,7 @@ EBNF 还包括描述 **指定次数的重复**, 和 **排除产生的某部分**
    - 结束于 "-symbol" 的元标识符是 EBNF 的终结符的名字。
 2. 表示 EBNF 的每个操作符的正常字符和它所蕴涵的 ***优先级***(顶部为**最高**优先级)为:
 
-   ```text
+   ```txt
    * repetition-symbol
    - except-symbol
    , concatenate-symbol
@@ -81,7 +81,7 @@ EBNF 还包括描述 **指定次数的重复**, 和 **排除产生的某部分**
 
 3. 下列 *括号对* **超越** 正常优先级:
 
-    ```text
+    ```txt
     ‘first-quote-symbol  first-quote-symbol’
     "second-quote-symbol  second-quote-symbol"
     (*start-comment-symbol  end-comment-symbol*)
@@ -105,7 +105,7 @@ gg = {3 * aa}, "D";
 
 定义的终结字符串:
 
-```text
+```txt
 aa: A
 bb: AAAB
 cc: C AC AAC AAAC

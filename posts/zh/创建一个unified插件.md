@@ -28,7 +28,7 @@ tags: [ unified, plugin, 翻译, 教程 ]
 
 在开始之前，先明确我们需要实现什么样的效果。有以下的文本文件：
 
-```text
+```txt
 One sentence. Two sentences.
 
 One sentence.  Two sentences.
@@ -65,7 +65,7 @@ npm init -y
 
 确保 `example.md` 文件存在，并且内容如下：
 
-```text
+```txt
 One sentence. Two sentences.
 
 One sentence.  Two sentences.
@@ -135,7 +135,7 @@ export default function retextSentenceSpacing() {
 node expample.js
 ```
 
-```text
+```txt
 {
   type: 'ParagraphNode',
   children: [
@@ -202,7 +202,7 @@ no issues found
 node example.js
 ```
 
-```text
+```txt
 {
   type: 'WhiteSpaceNode',
   value: ' ',
@@ -245,7 +245,7 @@ no issues found
 
 如果我们现在最后一次运行示例，我们将看见问题的一条警告消息。
 
-```text
+```txt
 $ node example.js
 3:14-3:16  warning  Expected 1 space between sentences, not 2
 

@@ -12,7 +12,7 @@ categories: [ Leetcode ]
 
 ## 破题
 
-```text
+```txt
 输入: 1 -> 2 -> 3 -> 4 -> 5 -> NULL
 输出: 5 -> 4 -> 3 -> 2 -> 1 -> NULL
 ```

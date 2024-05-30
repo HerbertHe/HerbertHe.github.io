@@ -23,7 +23,7 @@ tags: [ GitHub, github.io ]
 
 以`www.baidu.com`为例, 咱们用`tracert`追踪一下路由跳转情况(使用的Windows cmd), 其中标注的ip路由数据来源于[ip318](https://www.ip138.com/)和站长之家的站长工具, 也可能不是很准确
 
-```text
+```txt
 通过最多 30 个跃点跟踪
 到 www.a.shifen.com [14.215.177.38] 的路由:
 
@@ -42,7 +42,7 @@ tags: [ GitHub, github.io ]
 
 以`github.com`为例
 
-```text
+```txt
 通过最多 30 个跃点跟踪
 到 github.com [140.82.112.3] 的路由:
 
@@ -80,7 +80,7 @@ tags: [ GitHub, github.io ]
 
 而很可能是下面这些
 
-```text
+```txt
 github.githubassets.com
 camo.githubusercontent.com
 github.map.fastly.net
@@ -126,7 +126,7 @@ github.community
 
 举个例子, 我要下载`nuco-backend-cli`下面的`install.darwin.sh`, 可以通过访问下面的cdn获取
 
-```text
+```txt
 https://cdn.jsdelivr.net/gh/NucoTech/nuco-backend-cli@main/install.darwin.sh
 ```
 
@@ -134,7 +134,7 @@ https://cdn.jsdelivr.net/gh/NucoTech/nuco-backend-cli@main/install.darwin.sh
 
 官网也贴心的, 给了下面的使用格式
 
-```text
+```txt
 https://cdn.jsdelivr.net/gh/<用户名>/<仓库名>@<分支>/<文件名>
 ```
 
@@ -142,7 +142,7 @@ https://cdn.jsdelivr.net/gh/<用户名>/<仓库名>@<分支>/<文件名>
 
 这个cdn就比较多了, 列举几个, 所有的都是以`nbc.exe`资源获取为例的
 
-```text
+```txt
 https://gh.con.sh/https://github.com/NucoTech/nuco-backend-cli/releases/download/v1.3.0/nbc.exe
 
 https://gh.api.99988866.xyz/https://github.com/NucoTech/nuco-backend-cli/releases/download/v1.3.0/nbc.exe
@@ -160,6 +160,6 @@ https://pd.zwc365.com/seturl/https://github.com/NucoTech/nuco-backend-cli/releas
 
 其中的部分cdn可以传入下面的格式, 实现获取latest release里面的资源
 
-```text
+```txt
 https://github.com/<用户名>/latest/releases/download/<资源名>
 ```
