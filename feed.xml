@@ -4,7 +4,7 @@
         <title>Herbert He</title>
         <link>https://ibert.me/</link>
         <description>Herbert He's Blog</description>
-        <lastBuildDate>Sun, 08 Sep 2024 16:07:57 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 25 Mar 2026 10:20:42 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
@@ -17,7 +17,7 @@
         <item>
             <title><![CDATA[为HomeAssistant创建一个自定义组件 📌]]></title>
             <link>https://ibert.me/posts/zh/为HomeAssistant创建一个自定义组件.html</link>
-            <guid>https://ibert.me/posts/zh/为HomeAssistant创建一个自定义组件.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/为HomeAssistant创建一个自定义组件.html</guid>
             <pubDate>Sun, 24 Mar 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<blockquote>
 <p>更新于 2024-03-27</p>
@@ -446,7 +446,7 @@ async def test_flow_user_init_invalid_auth_token(m_validate_auth, hass):
         <item>
             <title><![CDATA[markdown自定义的思考 📌]]></title>
             <link>https://ibert.me/posts/zh/markdown自定义的思考.html</link>
-            <guid>https://ibert.me/posts/zh/markdown自定义的思考.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/markdown自定义的思考.html</guid>
             <pubDate>Sun, 07 Feb 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>写在前面的</h2>
 <p>已经记不清什么时候开始接触的markdown了，好像是从我的一个学长做了我们学校的大数据协会论坛开始的。如果我没记错的话用的还是b3log的开源项目，应该是使用的<a href="https://github.com/88250/symphony">Symphony</a>。后来听学长说太复杂了，维护无从下手然后删库跑路了😂</p>
@@ -515,7 +515,7 @@ async def test_flow_user_init_invalid_auth_token(m_validate_auth, hass):
         <item>
             <title><![CDATA[M系列芯片MacOS初始化esp-idf环境指北]]></title>
             <link>https://ibert.me/posts/zh/M系列芯片MacOS初始化esp-idf环境指北.html</link>
-            <guid>https://ibert.me/posts/zh/M系列芯片MacOS初始化esp-idf环境指北.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/M系列芯片MacOS初始化esp-idf环境指北.html</guid>
             <pubDate>Sun, 08 Sep 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>写在前面的</h2>
 <p>在很多年不搞硬件开发的今天，Arduino 是我去实现最小 demo 和一些创意想法的首选。得益于乐鑫 ESP32 系列芯片的低价格，这同样也是我做小的创意的首选。但噩梦的开始就是，选择了一款第三方的集成 ESP32S3 和 LCD 屏的开发板，Arduino 的 demo 看着很复杂。作为一名程序员，抱着 “知其然，要知其所以然” 的想法，开始尝试在我的 M1 MacOS 上搭建 esp-idf 环境，参考乐鑫官方的原生 API 和库进行开发。</p>
@@ -589,7 +589,7 @@ git submodule update --init --recursive
         <item>
             <title><![CDATA[unist]]></title>
             <link>https://ibert.me/posts/zh/unist.html</link>
-            <guid>https://ibert.me/posts/zh/unist.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/unist.html</guid>
             <pubDate>Mon, 13 May 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>写在前面的</h2>
 <p>本篇文章是对 <a href="https://github.com/syntax-tree/unist">unist</a> 仓库的官方内容翻译，原文地址: <a href="https://github.com/syntax-tree/unist">https://github.com/syntax-tree/unist</a>。</p>
@@ -933,7 +933,7 @@ W3C.</li>
         <item>
             <title><![CDATA[React 的 WorkInProgressHook]]></title>
             <link>https://ibert.me/posts/zh/React的WorkInProgressHook.html</link>
-            <guid>https://ibert.me/posts/zh/React的WorkInProgressHook.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/React的WorkInProgressHook.html</guid>
             <pubDate>Sat, 04 May 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>前言</h2>
 <p>React 在数年前全面转向函数式编程，并引入了 hook 的概念。卡颂的 <a href="https://react.iamkasong.com/">React 技术揭秘</a> 是很多的前端开发者进一步了解 react 的入门资料，但随着 react 的迭代更新，其底层实现可能发生了一些变化。这个本篇文章即是在讨论 <code>useCallback</code> 和 <code>useMemo</code> 的差异上，去阅读 react 底层实现源码上发现的一些问题。React 的源码很长，将分片去研究 react 的底层实现逻辑。</p>
@@ -1078,7 +1078,7 @@ let workInProgressHook: Hook | null = null;
         <item>
             <title><![CDATA[迭代器辅助方法]]></title>
             <link>https://ibert.me/posts/zh/迭代器辅助方法.html</link>
-            <guid>https://ibert.me/posts/zh/迭代器辅助方法.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/迭代器辅助方法.html</guid>
             <pubDate>Sat, 27 Apr 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<blockquote>
 <p>本篇文章来源于 v8.dev, 原文链接: <a href="https://v8.dev/features/iterator-helpers">https://v8.dev/features/iterator-helpers</a>, 作者: Rezvan Mahdavi Hezaveh</p>
@@ -1220,7 +1220,7 @@ console.log(Iterator.from(posts).find((x) =&gt; x.textContent.includes('V8')).te
         <item>
             <title><![CDATA[ECMAScript 中的 Symbol 类型]]></title>
             <link>https://ibert.me/posts/zh/ECMAScript 中的 Symbol 类型.html</link>
-            <guid>https://ibert.me/posts/zh/ECMAScript 中的 Symbol 类型.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/ECMAScript 中的 Symbol 类型.html</guid>
             <pubDate>Sun, 14 Apr 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>写在前面的</h2>
 <p>ECMAScript 是当前最主流的 JavaScript 语言规范，在日常的开发之中，可能完全不需要去了解规范本身的内容，但了解并理解规范本身的内容对写更好的 javascript 代码有更深远的意义。</p>
@@ -1320,7 +1320,7 @@ console.log(Iterator.from(posts).find((x) =&gt; x.textContent.includes('V8')).te
         <item>
             <title><![CDATA[Promises A+ 规范]]></title>
             <link>https://ibert.me/posts/zh/Promises A+ 规范.html</link>
-            <guid>https://ibert.me/posts/zh/Promises A+ 规范.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/Promises A+ 规范.html</guid>
             <pubDate>Sun, 14 Apr 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>写在前面的</h2>
 <p>比较反直觉的是，越基础的知识往往是越简单的，例如工学所用的知识是理学探索的进一步演绎。因此在演绎的层面的思想越模糊，就需要去深入去研究底层的规范和原理。</p>
@@ -1470,7 +1470,7 @@ console.log(Iterator.from(posts).find((x) =&gt; x.textContent.includes('V8')).te
         <item>
             <title><![CDATA[JavaScript的import语法]]></title>
             <link>https://ibert.me/posts/zh/JavaScript的import语法.html</link>
-            <guid>https://ibert.me/posts/zh/JavaScript的import语法.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/JavaScript的import语法.html</guid>
             <pubDate>Fri, 12 Apr 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>写在前面的</h2>
 <p><em>dynamic import</em> 是一个熟悉但却有点不太被注意的语法，在按需动态加载的场景下，常常被用来进行异步加载优化。MDN 暂无对这部分的中文技术文档，本篇为 MDN 此部分技术文档的翻译，同样为自己更好理解这部分语法的特性进行备用。</p>
@@ -1592,7 +1592,7 @@ if (typeof window === &quot;undefined&quot;) {
         <item>
             <title><![CDATA[如何使用TypeScript操作语法树]]></title>
             <link>https://ibert.me/posts/zh/如何使用TypeScript操作语法树.html</link>
-            <guid>https://ibert.me/posts/zh/如何使用TypeScript操作语法树.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/如何使用TypeScript操作语法树.html</guid>
             <pubDate>Tue, 26 Mar 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<blockquote>
 <p>原文链接：<a href="https://unifiedjs.com/learn/guide/syntax-trees-typescript/">https://unifiedjs.com/learn/guide/syntax-trees-typescript/</a></p>
@@ -1756,7 +1756,7 @@ export interface Parent extends Node {
         <item>
             <title><![CDATA[如何构建一颗语法树]]></title>
             <link>https://ibert.me/posts/zh/如何构建一颗语法树.html</link>
-            <guid>https://ibert.me/posts/zh/如何构建一颗语法树.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/如何构建一颗语法树.html</guid>
             <pubDate>Tue, 26 Mar 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<blockquote>
 <p>原文链接：<a href="https://unifiedjs.com/learn/recipe/build-a-syntax-tree/">https://unifiedjs.com/learn/recipe/build-a-syntax-tree/</a></p>
@@ -1854,7 +1854,7 @@ console.log(
         <item>
             <title><![CDATA[创建一个unified插件]]></title>
             <link>https://ibert.me/posts/zh/创建一个unified插件.html</link>
-            <guid>https://ibert.me/posts/zh/创建一个unified插件.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/创建一个unified插件.html</guid>
             <pubDate>Sat, 23 Mar 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<blockquote>
 <p>原文 <a href="https://unifiedjs.com/learn/guide/create-a-plugin/">Creating a plugin with unified</a></p>
@@ -2059,7 +2059,7 @@ no issues found
         <item>
             <title><![CDATA[基于 canvas-editor RTL 实现的挑战]]></title>
             <link>https://ibert.me/posts/zh/基于canvas-editor的RTL实现的挑战.html</link>
-            <guid>https://ibert.me/posts/zh/基于canvas-editor的RTL实现的挑战.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/基于canvas-editor的RTL实现的挑战.html</guid>
             <pubDate>Tue, 12 Mar 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>前言</h2>
 <p>众所周知，在前端领域实现富文本编辑器是一个深坑，是非常复杂的问题，markdown 编辑器在一定程度上也是富文本编辑器。简要介绍一下，富文本编辑器的实现方式上，一般有以下的实现方案：</p>
@@ -2156,7 +2156,7 @@ no issues found
         <item>
             <title><![CDATA[基于 AC+AP 打造安全的家庭 WiFi 网络]]></title>
             <link>https://ibert.me/posts/zh/基于AC+AP打造安全的家庭WiFi网络.html</link>
-            <guid>https://ibert.me/posts/zh/基于AC+AP打造安全的家庭WiFi网络.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/基于AC+AP打造安全的家庭WiFi网络.html</guid>
             <pubDate>Mon, 27 Nov 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>写在前面的</h2>
 <p>在家使用 WiFi，并且在此基础上搭建智能家居，已变得越来越潮流化。但打造一个稳定的智能家居环境，并不是一个十分容易的事情，靠谱的网络环境决定了整套系统是否可以稳定运行。</p>
@@ -2259,7 +2259,7 @@ no issues found
         <item>
             <title><![CDATA[基于 Kodi 打造家庭 IPTV]]></title>
             <link>https://ibert.me/posts/zh/基于Kodi打造家庭iptv.html</link>
-            <guid>https://ibert.me/posts/zh/基于Kodi打造家庭iptv.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/基于Kodi打造家庭iptv.html</guid>
             <pubDate>Sun, 26 Nov 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>写在前面的</h2>
 <p>随着智能电视的不断迭代，运行 Android 系统的电视设备越来越变的不纯粹，更像是一个默认为影音app入口的超大号显示设备。面对着无数的广告和数不尽的会员，更纯粹的看电视变得奢求，因此开始了基于 Kodi 的家庭 iptv 改造计划。</p>
@@ -2332,7 +2332,7 @@ no issues found
         <item>
             <title><![CDATA[实用书籍和项目参考]]></title>
             <link>https://ibert.me/posts/zh/实用书籍和项目参考.html</link>
-            <guid>https://ibert.me/posts/zh/实用书籍和项目参考.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/实用书籍和项目参考.html</guid>
             <pubDate>Fri, 17 Nov 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>书籍</h2>
 <ul>
@@ -2346,7 +2346,7 @@ no issues found
         <item>
             <title><![CDATA[环境部署参考]]></title>
             <link>https://ibert.me/posts/zh/环境部署参考.html</link>
-            <guid>https://ibert.me/posts/zh/环境部署参考.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/环境部署参考.html</guid>
             <pubDate>Fri, 17 Nov 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>Docker</h2>
 <ul>
@@ -2376,7 +2376,7 @@ no issues found
         <item>
             <title><![CDATA[The TEXbook 知识点总结]]></title>
             <link>https://ibert.me/posts/zh/TheTEXbook知识点总结.html</link>
-            <guid>https://ibert.me/posts/zh/TheTEXbook知识点总结.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/TheTEXbook知识点总结.html</guid>
             <pubDate>Mon, 20 Dec 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>阅读背景</h2>
 <p>《The TEXbook》是由 TeX 作者 DONALD E. KNUTH 编写的一本关于 TeX 设计的书, 介绍了 TeX 在设计时所考虑到的细节。OLeX 在词法分析和语法部分需要仔细研究此部分的内容, 从而消除对 TeX 的分析差异。(之前都是针对大量模板进行的实现, 多多少少会有兼容性和语法忽略的问题)</p>
@@ -2562,7 +2562,7 @@ no issues found
         <item>
             <title><![CDATA[JavaScript中的ArrayBuffer]]></title>
             <link>https://ibert.me/posts/zh/JavaScript中的ArrayBuffer.html</link>
-            <guid>https://ibert.me/posts/zh/JavaScript中的ArrayBuffer.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/JavaScript中的ArrayBuffer.html</guid>
             <pubDate>Tue, 16 Nov 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>写在前面的</h2>
 <p>在尝试用国密算法实现 jwt 的时候, 发现可以使用的库很少, 便根据 jwt 的生成规则和国密 SM3 算法自行参考实现。SM3 是国密算法中的哈希散列算法, 生成单向指纹校验数据有着重要的意义。在生成 jwt 的指纹部分, 尝试使用 HMACSM3 替代掉 HMACSHA256算法。</p>
@@ -2626,7 +2626,7 @@ no issues found
         <item>
             <title><![CDATA[EBNF]]></title>
             <link>https://ibert.me/posts/zh/EBNF.html</link>
-            <guid>https://ibert.me/posts/zh/EBNF.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/EBNF.html</guid>
             <pubDate>Wed, 27 Oct 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>扩展巴科斯范式</h2>
 <blockquote>
@@ -2809,7 +2809,7 @@ optional sign, = ε | sign, ; (*使用ε来清晰的指示空产生式*)
         <item>
             <title><![CDATA[从React视角学习Svelte(一)]]></title>
             <link>https://ibert.me/posts/zh/从React视角学习Svelte(一).html</link>
-            <guid>https://ibert.me/posts/zh/从React视角学习Svelte(一).html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/从React视角学习Svelte(一).html</guid>
             <pubDate>Fri, 21 May 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>写在前面</h2>
 <p>因为自己做前端最近一直使用的都是React, 所以将以React的视角来学习Svelte。就自己使用Vue、React及其衍生框架的经验来说, 不同的前端框架有着类似的概念, 当熟悉一个框架之时往往更加容易进行其他框架的学习。React宣称自己是一个<code>library</code>, Vue是<code>Framework</code>, 而Svelte是一个<code>compiler</code>。React、Vue和Svelte在实现上还是有很多的差异的, 写法有相似之处也有一些差异的地方。</p>
@@ -3047,7 +3047,7 @@ optional sign, = ε | sign, ; (*使用ε来清晰的指示空产生式*)
         <item>
             <title><![CDATA[有趣的JavaScript正则表达式]]></title>
             <link>https://ibert.me/posts/zh/有趣的JavaScript正则表达式.html</link>
-            <guid>https://ibert.me/posts/zh/有趣的JavaScript正则表达式.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/有趣的JavaScript正则表达式.html</guid>
             <pubDate>Sun, 11 Apr 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>正则表达式</h2>
 <p>正则表达式被广泛用于文本的提取和测试, 相比于编译原理来说它足够的简单; 而相较于字符匹配来说, 又足够的功能强大。著名的markdown解析器 <code>marked.js</code> 即是使用来进行解析的, 然后生成markdown语法树进行渲染。而且正则表达式被绝大多数的高级编程语言支持, 除了实现的程度和实现的方法不太一致之外, 均可以得到很好的通用。</p>
@@ -3119,7 +3119,7 @@ while ((pack = usepackageRegex.exec(tex)) !== null) {
         <item>
             <title><![CDATA[Leetcode-160-相交链表]]></title>
             <link>https://ibert.me/posts/zh/Leetcode-160-相交链表.html</link>
-            <guid>https://ibert.me/posts/zh/Leetcode-160-相交链表.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/Leetcode-160-相交链表.html</guid>
             <pubDate>Thu, 25 Mar 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>相交链表</h2>
 <p>题目: <a href="https://leetcode-cn.com/problems/intersection-of-two-linked-lists/">相交链表</a></p>
@@ -3186,7 +3186,7 @@ var getIntersectionNode = function(headA, headB) {
         <item>
             <title><![CDATA[Leetcode-206-反转链表]]></title>
             <link>https://ibert.me/posts/zh/Leetcode-206-反转链表.html</link>
-            <guid>https://ibert.me/posts/zh/Leetcode-206-反转链表.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/Leetcode-206-反转链表.html</guid>
             <pubDate>Tue, 23 Mar 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>反转链表</h2>
 <p>题见: <a href="https://leetcode-cn.com/problems/reverse-linked-list/">反转链表</a></p>
@@ -3229,7 +3229,7 @@ var reverseList = function(head) {
         <item>
             <title><![CDATA[Leetcode-215-数组中的第K个最大元素]]></title>
             <link>https://ibert.me/posts/zh/Leetcode-215-数组中的第K个最大元素.html</link>
-            <guid>https://ibert.me/posts/zh/Leetcode-215-数组中的第K个最大元素.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/Leetcode-215-数组中的第K个最大元素.html</guid>
             <pubDate>Tue, 23 Mar 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>数组中的第K个最大元素</h2>
 <p>题见: <a href="https://leetcode-cn.com/problems/kth-largest-element-in-an-array/">数组中的第K个最大元素</a></p>
@@ -3263,7 +3263,7 @@ var findKthLargest = function(nums, k) {
         <item>
             <title><![CDATA[Leetcode-3-无重复字符的最长子串]]></title>
             <link>https://ibert.me/posts/zh/Leetcode-3-无重复字符的最长子串.html</link>
-            <guid>https://ibert.me/posts/zh/Leetcode-3-无重复字符的最长子串.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/Leetcode-3-无重复字符的最长子串.html</guid>
             <pubDate>Tue, 23 Mar 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>无重复字符的最长子串</h2>
 <p>题目: <a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">无重复字符的最长子串</a></p>
@@ -3422,7 +3422,7 @@ var lengthOfLongestSubstring = function (s) {
         <item>
             <title><![CDATA[写给程序员的MATLAB快速上手教程]]></title>
             <link>https://ibert.me/posts/zh/写给程序员的MATLAB快速上手教程.html</link>
-            <guid>https://ibert.me/posts/zh/写给程序员的MATLAB快速上手教程.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/写给程序员的MATLAB快速上手教程.html</guid>
             <pubDate>Sun, 21 Mar 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>写在前面的</h2>
 <p>MATLAB更多的是一门面向非程序员的计算机编程语言, 因此其教程往往对于程序员同学来说并不算是很&quot;友好&quot;。因为自己的本科毕业论文是利用MATLAB来研究光的波动性, 之前因为教程的问题一直感觉MATLAB这个语言奇奇怪怪的, 故作为一个程序员的视角自己来写一份教程。本教程会对比其它语言或者编程语言通用的概念来书写, 所以需要至少有一门语言的编程经验。</p>
@@ -3498,7 +3498,7 @@ var lengthOfLongestSubstring = function (s) {
         <item>
             <title><![CDATA[Win10体验优化策略]]></title>
             <link>https://ibert.me/posts/zh/Win10体验优化策略.html</link>
-            <guid>https://ibert.me/posts/zh/Win10体验优化策略.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/Win10体验优化策略.html</guid>
             <pubDate>Tue, 02 Feb 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>写在前面的</h2>
 <p>随着代码越写越多，越来越发现自己有很严重的精神洁癖。尤其在对于自己日常使用的软件体验上，无论是手机还是PC。这篇帖子着重讲述，这么多年来对于Win10系统使用的体验优化，还有对于C盘清理的经验。</p>
@@ -3655,7 +3655,7 @@ var lengthOfLongestSubstring = function (s) {
         <item>
             <title><![CDATA[提升国内GitHub访问体验]]></title>
             <link>https://ibert.me/posts/zh/提升国内GitHub访问体验.html</link>
-            <guid>https://ibert.me/posts/zh/提升国内GitHub访问体验.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/提升国内GitHub访问体验.html</guid>
             <pubDate>Thu, 21 Jan 2021 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>概述</h2>
 <p>提升GitHub的体验, 主要是下面几个方面的提升</p>
@@ -3783,7 +3783,7 @@ https://pd.zwc365.com/seturl/https://github.com/NucoTech/nuco-backend-cli/releas
         <item>
             <title><![CDATA[前端样式优先级的问题]]></title>
             <link>https://ibert.me/posts/zh/前端样式优先级的问题.html</link>
-            <guid>https://ibert.me/posts/zh/前端样式优先级的问题.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/前端样式优先级的问题.html</guid>
             <pubDate>Thu, 23 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>选择器类型</h2>
 <ul>
@@ -3805,7 +3805,7 @@ https://pd.zwc365.com/seturl/https://github.com/NucoTech/nuco-backend-cli/releas
         <item>
             <title><![CDATA[前端隐藏元素的区别]]></title>
             <link>https://ibert.me/posts/zh/前端隐藏元素的区别.html</link>
-            <guid>https://ibert.me/posts/zh/前端隐藏元素的区别.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/前端隐藏元素的区别.html</guid>
             <pubDate>Tue, 14 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>隐藏元素的方法</h2>
 <p>前端如果设置元素不可见，可以使用<code>display: none</code> <code>visibility:hidden</code> <code>opacity: 0</code></p>
@@ -3854,7 +3854,7 @@ https://pd.zwc365.com/seturl/https://github.com/NucoTech/nuco-backend-cli/releas
         <item>
             <title><![CDATA[CSS中的position]]></title>
             <link>https://ibert.me/posts/zh/CSS中的position.html</link>
-            <guid>https://ibert.me/posts/zh/CSS中的position.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/CSS中的position.html</guid>
             <pubDate>Thu, 09 Jul 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>position</h2>
 <p>CSS的position属性用于元素的定位，可以实现下拉列表、提醒框等样式。分为：<code>absolute</code> <code>fixed</code> <code>relative</code> <code>static</code> 和 <code>sticky</code></p>
@@ -3875,7 +3875,7 @@ https://pd.zwc365.com/seturl/https://github.com/NucoTech/nuco-backend-cli/releas
         <item>
             <title><![CDATA[关于for-editor的扩展开发及markedjs语法扩展的心得]]></title>
             <link>https://ibert.me/posts/zh/关于for-editor的扩展开发及markedjs语法扩展的心得.html</link>
-            <guid>https://ibert.me/posts/zh/关于for-editor的扩展开发及markedjs语法扩展的心得.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/关于for-editor的扩展开发及markedjs语法扩展的心得.html</guid>
             <pubDate>Tue, 14 Apr 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>关于<code>for-editor</code></h2>
 <p>开始接触<code>for-editor</code>是因为想自己写一个基于Git的支持markdown的笔记本PC应用，常用开发框架是React、在PC端的开发工具的选择上选择了吃内存狂魔electron，就这样抱着能不造轮子就不造轮子的原则开始使用了<code>for-editor</code>（虽然之后没有打算继续开发）。<code>for-editor</code>如果对于语法的支持没有太高的要求的话，是一个非常优秀、简洁的编辑器组件。支持Tex渲染插入、mermaid流程图的支持、高级markdown或者扩展的markdown语法，随着需求的提升就准备了开始自己扩展语法之路，当然其中发现了很多需要优化和修改的地方。</p>
@@ -3921,7 +3921,7 @@ https://pd.zwc365.com/seturl/https://github.com/NucoTech/nuco-backend-cli/releas
         <item>
             <title><![CDATA[对已过去三年来大学生活的总结与建议]]></title>
             <link>https://ibert.me/posts/zh/对已过去三年来大学生活的总结与建议.html</link>
-            <guid>https://ibert.me/posts/zh/对已过去三年来大学生活的总结与建议.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/对已过去三年来大学生活的总结与建议.html</guid>
             <pubDate>Sun, 29 Mar 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>写在前面的</h2>
 <p>大三都已经过了一大半了，从第一个个人博客到第一个个人网站开始，对于自己的总结写博客什么的一直断断续续，但是没有放弃过。总是一个感性的人，很多很多次晚睡总是会夜来非，想想过去再想想当下与未来，我是否真的已经改变了很多？或者很多时候我是否做的不够好？或者我是否曾经伤害过某些人？或者我的思想在如何发展？已经过去的三年大学生活让我认识到了很多的事情，也经历了很多事情，那我该怎么再去做更好呢？我又能给信任我的人或者看到我的博客的后来人带来些什么呢？我真的得好好想想了。</p>
@@ -3960,7 +3960,7 @@ https://pd.zwc365.com/seturl/https://github.com/NucoTech/nuco-backend-cli/releas
         <item>
             <title><![CDATA[快速用electron生成一个PC端应用]]></title>
             <link>https://ibert.me/posts/zh/快速用electron生成一个PC端应用.html</link>
-            <guid>https://ibert.me/posts/zh/快速用electron生成一个PC端应用.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/快速用electron生成一个PC端应用.html</guid>
             <pubDate>Tue, 17 Mar 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>写在前面的</h2>
 <p>在使用Electron开发应用的过程中遇到了很多小的bug，这些bug有的解决方案尚且有用，有的bug已经过时了。网上的帖子有很多，质量层次不齐，如何去引入解决问题云云，很多的bug是框架自身的问题甚至还活在issues里。为了便于开发electron应用，我整理了三个模板仓库便于直接应用于开发，因为本地没有OSX的环境，所以都是在Win10完成的开发，这也是解决起来最麻烦的。</p>
@@ -3995,7 +3995,7 @@ https://pd.zwc365.com/seturl/https://github.com/NucoTech/nuco-backend-cli/releas
         <item>
             <title><![CDATA[配置Goland主题与工程环境]]></title>
             <link>https://ibert.me/posts/zh/配置Goland主题与工程环境.html</link>
-            <guid>https://ibert.me/posts/zh/配置Goland主题与工程环境.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/配置Goland主题与工程环境.html</guid>
             <pubDate>Mon, 09 Mar 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>关于Goland与vscode的比较</h2>
 <p>Goland为JetBrains出品的针对于Go编程的IDE，与IDEA、Webstorm、Pycharm等耳熟能详的IDE的风格基本相似。针对于不同的语言，略有差异。vscode通过安装插件也可以搭建优雅的Go开发环境，但是在参考了很多网上的帖子和走过很多坑之后还是放弃了，继续使用了Goland。</p>
@@ -4035,7 +4035,7 @@ https://pd.zwc365.com/seturl/https://github.com/NucoTech/nuco-backend-cli/releas
         <item>
             <title><![CDATA[Windows下Vim的安装与插件管理]]></title>
             <link>https://ibert.me/posts/zh/Windows下Vim的安装与插件管理.html</link>
-            <guid>https://ibert.me/posts/zh/Windows下Vim的安装与插件管理.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/Windows下Vim的安装与插件管理.html</guid>
             <pubDate>Tue, 04 Feb 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>关于Vim</h2>
 <p>Vim是一款优秀的编辑器，可以在环境艰苦的纯shell端进行代码及配置文件的编辑。相比于带有GUI的vscode、notepad++等编辑器，Vim的学习成本比较高，但是却被称为“上古神器”。在Linux端<code>vi</code>、<code>vim</code>经常是修改配置文件教程的首选，Linux发行版也大都自带Vim；现在很多的Linux发行版开始自带<code>nano</code>编辑器，相比于Vim足够简单，但是所提供的功能甚少可以做简单编辑操作，对于完全无需鼠标的编辑操作Vim仍然是不二之选！</p>
@@ -4267,7 +4267,7 @@ colorscheme solarized
         <item>
             <title><![CDATA[记一次JS线程问题]]></title>
             <link>https://ibert.me/posts/zh/记一次JS线程问题.html</link>
-            <guid>https://ibert.me/posts/zh/记一次JS线程问题.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/记一次JS线程问题.html</guid>
             <pubDate>Thu, 30 Jan 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>遇到的错误</h2>
 <p><img src="https://ibert.me/img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200130165732.png" alt="错误图片"></p>
@@ -4328,7 +4328,7 @@ for (let i = 1; i &lt; 4; i++) {
         <item>
             <title><![CDATA[Ubuntu环境安装docker记录]]></title>
             <link>https://ibert.me/posts/zh/Ubuntu环境安装docker记录.html</link>
-            <guid>https://ibert.me/posts/zh/Ubuntu环境安装docker记录.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/Ubuntu环境安装docker记录.html</guid>
             <pubDate>Tue, 28 Jan 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>本地环境</h2>
 <ul>
@@ -4500,7 +4500,7 @@ For more examples and ideas, visit:
         <item>
             <title><![CDATA[Nodejs安装若干问题避坑]]></title>
             <link>https://ibert.me/posts/zh/Nodejs安装若干问题避坑.html</link>
-            <guid>https://ibert.me/posts/zh/Nodejs安装若干问题避坑.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/Nodejs安装若干问题避坑.html</guid>
             <pubDate>Sun, 26 Jan 2020 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>nodejs的windows下传统安装</h2>
 <p><a href="https://nodejs.org/en/">nodejs官网</a>下载：LTS为长期支持版，Current是最新版</p>
@@ -4636,7 +4636,7 @@ Commands:
         <item>
             <title><![CDATA[自制操作系统log]]></title>
             <link>https://ibert.me/posts/zh/自制操作系统log.html</link>
-            <guid>https://ibert.me/posts/zh/自制操作系统log.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/自制操作系统log.html</guid>
             <pubDate>Sun, 15 Sep 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>参考书</h2>
 <ul>
@@ -4699,7 +4699,7 @@ msg:
         <item>
             <title><![CDATA[免费证书实现https(保姆级教程)]]></title>
             <link>https://ibert.me/posts/zh/免费证书实现https(保姆级教程).html</link>
-            <guid>https://ibert.me/posts/zh/免费证书实现https(保姆级教程).html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/免费证书实现https(保姆级教程).html</guid>
             <pubDate>Thu, 01 Aug 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>使用Certbot</h2>
 <p>Certbot使用的是<a href="https://letsencrypt.org">Let's Encrypt</a>的证书，该组织也强烈建议使用<a href="https://certbot.eff.org/">Certbot</a>获取证书。</p>
@@ -4872,7 +4872,7 @@ certbot renew --cert-name simplehttps.com  --manual-auth-hook &quot;/var/certbot
         <item>
             <title><![CDATA[Verilog-HDL基础语法（下）]]></title>
             <link>https://ibert.me/posts/zh/Verilog-HDL基础语法（下）.html</link>
-            <guid>https://ibert.me/posts/zh/Verilog-HDL基础语法（下）.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/Verilog-HDL基础语法（下）.html</guid>
             <pubDate>Fri, 19 Jul 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>过程块</h2>
 <ul>
@@ -4952,7 +4952,7 @@ endmodule
         <item>
             <title><![CDATA[Verilog HDL基础语法（上）]]></title>
             <link>https://ibert.me/posts/zh/Verilog-HDL基础语法（上）.html</link>
-            <guid>https://ibert.me/posts/zh/Verilog-HDL基础语法（上）.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/Verilog-HDL基础语法（上）.html</guid>
             <pubDate>Thu, 18 Jul 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>写在前面的</h2>
 <p>本博客是对于自己接触基于Verilog硬件开发学习的基础语法学习笔记！接触Verilog之前一定要有《数字电子技术》的基础！</p>
@@ -5466,7 +5466,7 @@ assign d = {2{4'b1011}};          // d =&gt; 8'b1011 1011
         <item>
             <title><![CDATA[NumPy的一些点]]></title>
             <link>https://ibert.me/posts/zh/NumPy的一些点.html</link>
-            <guid>https://ibert.me/posts/zh/NumPy的一些点.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/NumPy的一些点.html</guid>
             <pubDate>Tue, 16 Jul 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>参考教程</h2>
 <p><a href="https://www.runoob.com/numpy">runoob numpy</a></p>
@@ -5992,7 +5992,7 @@ for x,y in np.nditer([a,b]):
         <item>
             <title><![CDATA[关于我和物理]]></title>
             <link>https://ibert.me/posts/zh/关于我和物理.html</link>
-            <guid>https://ibert.me/posts/zh/关于我和物理.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/关于我和物理.html</guid>
             <pubDate>Sat, 13 Jul 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>为什么会有这个菜单</h2>
 <p>博主本专业是应用物理学，长期感兴趣的方向却是计算机和嵌入式开发相关，然后专业课有时候会挂，毕竟物理这一行比较艰辛。新开这个菜单是为了提醒自己仍然是物理专业的学生，也会在这个菜单里写一些自己的学习笔记，拿到电脑也会想起来去写一写笔记和思考。</p>
@@ -6017,7 +6017,7 @@ for x,y in np.nditer([a,b]):
         <item>
             <title><![CDATA[EMQ试用Log]]></title>
             <link>https://ibert.me/posts/zh/EMQ试用Log.html</link>
-            <guid>https://ibert.me/posts/zh/EMQ试用Log.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/EMQ试用Log.html</guid>
             <pubDate>Tue, 09 Jul 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>什么是EMQ</h2>
 <p>EMQ是一款部署在服务端的物联网框架，支持主流的物联网协议。更多的介绍可以参考 <a href="https://www.emqx.io/cn/">EMQ官网</a> 的介绍。</p>
@@ -6051,7 +6051,7 @@ for x,y in np.nditer([a,b]):
         <item>
             <title><![CDATA[Hexo基础搭建使用]]></title>
             <link>https://ibert.me/posts/zh/Hexo基础搭建使用.html</link>
-            <guid>https://ibert.me/posts/zh/Hexo基础搭建使用.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/Hexo基础搭建使用.html</guid>
             <pubDate>Tue, 02 Jul 2019 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<h2>Hexo安装环境</h2>
 <ul>
@@ -6288,7 +6288,7 @@ cp -rf ${TMP_GIT_CLONE}/* ${PUBLIC_WWW}
         <item>
             <title><![CDATA[Dart之旅]]></title>
             <link>https://ibert.me/posts/zh/Dart之旅.html</link>
-            <guid>https://ibert.me/posts/zh/Dart之旅.html</guid>
+            <guid isPermaLink="true">https://ibert.me/posts/zh/Dart之旅.html</guid>
             <pubDate>Sun, 02 Dec 2018 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[<blockquote>
 <p>本文于2020/1/27修订</p>
