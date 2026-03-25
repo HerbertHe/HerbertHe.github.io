@@ -6,17 +6,17 @@
   "author": "Herbert He<Herbert.He0229@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^20.12.2",
-    "cross-env": "^7.0.3",
-    "fast-glob": "^3.3.2",
-    "feed": "^4.2.2",
-    "fs-extra": "^11.2.0",
-    "globby": "^14.0.1",
+    "@types/node": "^25.5.0",
+    "cross-env": "^10.1.0",
+    "fast-glob": "^3.3.3",
+    "feed": "^5.2.0",
+    "fs-extra": "^11.3.4",
+    "globby": "^16.1.1",
     "gray-matter": "^4.0.3",
-    "markdown-it": "^14.1.0",
-    "markdown-it-mathjax3": "^4.3.2",
-    "vitepress": "^1.0.1",
-    "vitepress-plugin-mermaid": "^2.0.16"
+    "markdown-it": "^14.1.1",
+    "markdown-it-mathjax3": "^5.2.0",
+    "vitepress": "^1.6.4",
+    "vitepress-plugin-mermaid": "^2.0.17"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development vitepress dev",
@@ -26,8 +26,8 @@
     "bump": "node scripts/bump_dep.js"
   },
   "dependencies": {
-    "@giscus/vue": "^3.0.0",
-    "dayjs": "^1.11.10",
-    "mermaid": "^10.9.0"
+    "@giscus/vue": "^3.1.1",
+    "dayjs": "^1.11.20",
+    "mermaid": "^11.13.0"
   }
 }
