@@ -1,8 +1,6 @@
 import { getPosts, getPostLength } from "./theme/serverUtils";
 import { buildBlogRSS } from "./theme/rss";
 import MathJax from "markdown-it-mathjax3";
-// 暂时禁用 mermaid 插件（待修复 vitepress-plugin-mermaid + iconify 打包 break）
-// import { withMermaid } from "vitepress-plugin-mermaid";
 
 async function config() {
   return {
@@ -113,34 +111,33 @@ async function config() {
       showFireworksAnimation: false,
     },
     buildEnd: buildBlogRSS,
-    // ...withMermaid({
-    //   markdown: {
-    //     theme: "nord",
-    //     languages: [
-    //       "diff",
-    //       "rust",
-    //       "vhdl",
-    //       "git-commit",
-    //       "dart",
-    //       "ts",
-    //       "js",
-    //       "python",
-    //       "jsx",
-    //     ],
-    //     lineNumbers: true,
-    //     config: (md) => {
-    //       md.use(MathJax);
-    //     },
-    //     math: true,
-    //   },
-    //   mermaid: {
-    //     theme: "forest",
-    //     darkMode: true,
-    //   },
-    //   mermaidPlugin: {
-    //     class: "mermaid",
-    //   },
-    // }),
+
+    markdown: {
+      theme: "nord",
+      languages: [
+        "diff",
+        "rust",
+        "vhdl",
+        "git-commit",
+        "dart",
+        "ts",
+        "js",
+        "python",
+        "jsx",
+      ],
+      lineNumbers: true,
+      config: (md) => {
+        md.use(MathJax);
+      },
+      math: true,
+    },
+    mermaid: {
+      theme: "forest",
+      darkMode: true,
+    },
+    mermaidPlugin: {
+      class: "mermaid",
+    },
   };
 }
 export default config();
