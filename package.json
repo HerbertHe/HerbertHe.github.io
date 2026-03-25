@@ -15,7 +15,8 @@
     "gray-matter": "^4.0.3",
     "markdown-it": "^14.1.1",
     "markdown-it-mathjax3": "^5.2.0",
-    "vitepress": "^1.6.4"
+    "vitepress": "^1.6.4",
+    "esbuild": ">=0.25.0"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development vitepress dev",
